@@ -6,11 +6,21 @@ namespace _215Labs2020.Sadukov
 {
     class Praktika
     {
-        public static void greeting()
+        public string name;
+        private int raiting;
+        public int Raiting
         {
-            string name = Console.ReadLine();
+            get
+            { return raiting; }  
+            set
+            {if(value > 5)
+                { raiting = 5; }
+            else if(value < 2)
+                { raiting = 2; }
+            else { raiting = value;}
+            }
+            
 
-            Console.WriteLine($"Hello, {name}");            
         }
 
     }
