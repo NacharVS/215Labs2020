@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Vadim.Nacharov\\.nuget\\packages\\": {},
+    "C:\\Users\\151924\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vadim.Nacharov\\Documents\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
+      "projectUniqueName": "C:\\Users\\151924\\Desktop\\For github\\215Labs2020\\215Labs2020.csproj",
       "projectName": "215Labs2020",
-      "projectPath": "C:\\Users\\Vadim.Nacharov\\Documents\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
-      "packagesPath": "C:\\Users\\Vadim.Nacharov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vadim.Nacharov\\Documents\\215Labs2020\\215Labs2020\\obj\\",
+      "projectPath": "C:\\Users\\151924\\Desktop\\For github\\215Labs2020\\215Labs2020.csproj",
+      "packagesPath": "C:\\Users\\151924\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\151924\\Desktop\\For github\\215Labs2020\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Vadim.Nacharov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\151924\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
