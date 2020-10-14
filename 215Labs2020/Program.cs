@@ -6,7 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            string name = Console.ReadLine();
+            
             Praktika.greeting(name);
         }
     }

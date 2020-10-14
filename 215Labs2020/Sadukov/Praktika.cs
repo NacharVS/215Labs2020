@@ -6,9 +6,9 @@ namespace _215Labs2020.Sadukov
 {
     class Praktika
     {
-        public static void greeting(string name)
+        public static void greeting()
         {
-
+            string name = Console.ReadLine();
 
             Console.WriteLine($"Hello, {name}");            
         }
