@@ -1,12 +1,12 @@
-﻿using _215Labs2020.Maksimov_Aleksei;
-using System;
+﻿using System;
 
-namespace _215Labs2020
+namespace HelloWorld
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hell!");
         }
     }
 }
