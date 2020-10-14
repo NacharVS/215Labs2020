@@ -6,8 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            int a = 12;
-            Console.WriteLine(Sabirov.Sabirov.Random(a));
+            StudentsBaseGetSet.StudBD();
         }
     }
 }
