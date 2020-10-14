@@ -6,7 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            _215Labs2020.Galyautdinov.Student.A(1,2);
         }
     }
 }
