@@ -6,7 +6,9 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            StudentsBaseGetSet.StudBD();
+
+            LettersFix.imya();
+
         }
     }
 }

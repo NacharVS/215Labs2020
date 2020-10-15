@@ -4,11 +4,13 @@ using System.Text;
 
 namespace _215Labs2020.Sabirov
 {
+
     class StudentsBaseGetSet
     {
         private string name;
         private int marks;
-
+   
+   
         public int Marks
         {
             get
@@ -44,7 +46,7 @@ namespace _215Labs2020.Sabirov
                 marks[1].marks = int.Parse(Console.ReadLine());
                 Console.WriteLine("Third mark");
                 marks[2].marks = int.Parse(Console.ReadLine());
-                Console.WriteLine($"{names[i].name}, {marks[0].Marks}, {marks[1].Marks}, {marks[2].Marks} ");
+                Console.WriteLine($"{names[i].name}, {marks[0].marks}, {marks[1].marks}, {marks[2].marks} ");
                 
                 //Console.WriteLine($"Average marks for {names[i].name} is {av}");
             }
