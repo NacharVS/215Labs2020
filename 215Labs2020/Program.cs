@@ -1,5 +1,5 @@
 ﻿using System;
-using _215Labs2020.Kuzmin_Aleksey.LetorFix;
+using _215Labs2020.Kuzmin_Aleksey;
 
 
 namespace _215Labs2020
@@ -8,7 +8,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            StudentRegister();
+            LetorFix.StudentRegister();
         }
     }
 }

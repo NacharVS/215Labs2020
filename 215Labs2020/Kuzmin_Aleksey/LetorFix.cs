@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Globalization;
+
 
 namespace _215Labs2020.Kuzmin_Aleksey
 {
@@ -55,7 +55,19 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 Console.Write("Введите оценку по английскому: ");
                 mass[i].Mark3 = int.Parse(Console.ReadLine());
                 Console.WriteLine("****************************************");
-                Console.WriteLine($"{mass[i].name.ToUpper()}    {mass[i].Mark1}    {mass[i].Mark2}    {mass[i].Mark3}");
+                bool b = true;
+                for (int j = 0; j < mass[i].name.Length ; j++)
+                {
+                    
+                    if (b) { Console.Write(mass[i].name[j].ToString().ToUpper()); b = false; }
+                    else { Console.Write(mass[i].name[j]); };
+                    string c =  Convert.ToString(mass[i].name[j]);
+                    switch (c)
+                    {
+                        case " ": b = true; break; 
+                    }
+                }
+                Console.WriteLine($"    {mass[i].Mark1}    {mass[i].Mark2}    {mass[i].Mark3}");
                 Console.WriteLine("****************************************");
             }
         }
