@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Zifarov
 {
-    class practicGetSet
+    public class practicGetSet
     {
         private string name;
         private int math;
@@ -20,6 +20,7 @@ namespace _215Labs2020.Zifarov
             set
             {
                 name = value;
+                if (value[0].ToString().ToUpper());
 
             }
 
@@ -76,12 +77,11 @@ namespace _215Labs2020.Zifarov
 
         }
 
-    }
 
 
-    class Program
-    {
-        static void Main(string[] args)
+ 
+    
+        public static void PSGS()
         {
             Console.WriteLine("Введите количество студентов");
             int kol = int.Parse(Console.ReadLine());
