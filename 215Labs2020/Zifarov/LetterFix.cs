@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Zifarov
 {
-    public class practicGetSet
+    public class LetterFix
     {
         private string name;
         private int math;
@@ -20,7 +20,10 @@ namespace _215Labs2020.Zifarov
             set
             {
                 name = value;
-                if (value[0].ToString().ToUpper());
+                string one = value;
+                string two = one[0].ToString().ToUpper();
+                string three = one.TrimStart(new char[] { one[0] });
+                name = two + three;
 
             }
 
@@ -86,10 +89,10 @@ namespace _215Labs2020.Zifarov
             Console.WriteLine("Введите количество студентов");
             int kol = int.Parse(Console.ReadLine());
             double sred = 0;
-            practicGetSet[] ocenki = new practicGetSet[kol];
+            LetterFix[] ocenki = new LetterFix[kol];
             for (int i = 0; i < ocenki.Length; i++)
             {
-                ocenki[i] = new practicGetSet();
+                ocenki[i] = new LetterFix();
             }
             for (int i = 0; i < ocenki.Length; i++)
             {
@@ -99,7 +102,7 @@ namespace _215Labs2020.Zifarov
                 if (i < kol + 1) ocenki[i].Math = int.Parse(Console.ReadLine());
                 if (i < kol + 1) Console.WriteLine("Введите оценку по физре");
                 if (i < kol + 1) ocenki[i].Pe = int.Parse(Console.ReadLine());
-                if (i < kol + 1) Console.WriteLine("Введите оценку по рисванию");
+                if (i < kol + 1) Console.WriteLine("Введите оценку по рисованию");
                 if (i < kol + 1) ocenki[i].Art = int.Parse(Console.ReadLine());
 
             }
@@ -110,7 +113,7 @@ namespace _215Labs2020.Zifarov
             {
                 if (i < kol + 1) sred = ocenki[i].Math + ocenki[i].Pe + ocenki[i].Art;
                 if (i < kol + 1) sred = sred / 3;
-                if (ball <= sred) Console.WriteLine($"{ocenki[i].Name}    {sred}");
+                if (ball <= sred) Console.WriteLine($"{ocenki[i].Name} оценка по математике {ocenki[i].Math}, оценка по физре {ocenki[i].Pe}, оценки по рисованию {ocenki[i].Art}, средний бал {sred}");
             }
 
 
