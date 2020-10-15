@@ -1,4 +1,6 @@
 ﻿using System;
+using _215Labs2020.Kuzmin_Aleksey.LetorFix;
+
 
 namespace _215Labs2020
 {
@@ -6,7 +8,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Здравствуй Мир!");
+            StudentRegister();
         }
     }
 }
