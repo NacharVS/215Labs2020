@@ -6,4 +6,8 @@
     <RootNamespace>_215Labs2020</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Kuzmin_Aleksey\" />
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Здравствуй Мир!");
         }
     }
 }
