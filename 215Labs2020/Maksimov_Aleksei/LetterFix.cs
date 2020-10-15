@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Specialized;
 
 namespace _215Labs2020.Maksimov_Aleksei
 {
-    class StudentGetSet
+    class LetterFix
     {
         private string name;
         private int math;
@@ -17,7 +18,10 @@ namespace _215Labs2020.Maksimov_Aleksei
             }
             set
             {
-                name = value;
+                String d = value;
+                string b = d[0].ToString().ToUpper();
+                string c = d.TrimStart(new char[] { d[0] });
+                name = b + c;
             }
         }
         public int Math
@@ -59,16 +63,13 @@ namespace _215Labs2020.Maksimov_Aleksei
                 if (value <= 5 || value >= 2) phisics = value;
             }
         }
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        public static void SGS()
         {
             Console.WriteLine("Введите колличество студентов!)");
             int a = int.Parse(Console.ReadLine());
             for (int i = 0; i < a; i++)
             {
-                StudentGetSet stud = new StudentGetSet();
+                LetterFix stud = new LetterFix();
                 Console.WriteLine("Введите имя студента");
                 stud.Name = Console.ReadLine();
                 Console.WriteLine("Введите оценку по математике");
