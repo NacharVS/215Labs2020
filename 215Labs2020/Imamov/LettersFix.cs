@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Globalization;
 
 namespace _215Labs2020.Imamov
 {
@@ -19,7 +20,9 @@ namespace _215Labs2020.Imamov
             }
             set
             {
-                name = value;
+                TextInfo text = CultureInfo.CurrentCulture.TextInfo;
+                name = text.ToTitleCase(value);
+     
             }
         }
         public string Surname
@@ -30,7 +33,8 @@ namespace _215Labs2020.Imamov
             }
             set
             {
-                surname = value;
+                TextInfo text = CultureInfo.CurrentCulture.TextInfo;
+                surname = text.ToTitleCase(value);
             }
         }
         public int Eng
