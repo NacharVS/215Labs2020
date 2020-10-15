@@ -79,6 +79,7 @@ namespace _215Labs2020.Maksimov_Aleksei
                 Console.WriteLine("Введите оценку по физике");
                 stud.Phisics = int.Parse(Console.ReadLine());
                 Console.WriteLine($"Имя студента: {stud.Name}, Математика: {stud.Math}, Информатика: {stud.Info}, Физика: {stud.Phisics})))");
+                string g = "";
             }
         }
     }
