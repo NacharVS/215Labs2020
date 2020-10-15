@@ -2,14 +2,13 @@
 
 namespace _215Labs2020.Ilyasova
 {
-    class StudentGetSet1
+    class LetterFix
     {
         
         private string name;
         private int izo;
         private int history;
         private int phisics;
-
         public string Name
         {
             get
@@ -18,7 +17,10 @@ namespace _215Labs2020.Ilyasova
             }
             set
             {
-                name = value;
+                string a = value;
+                string b = a[0].ToString().ToUpper();
+                string c = a.TrimStart(new char[] { a[0] });
+                name = b + c;
             }
         }
         public int Izo
@@ -60,17 +62,14 @@ namespace _215Labs2020.Ilyasova
                 if (value <= 5 || value >= 2) phisics = value;
             }
         }
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        public static void method()
         {
             Console.WriteLine("Колличество студентов:");
             int a = int.Parse(Console.ReadLine());
-            StudentGetSet1[] array = new StudentGetSet1[a];
+            LetterFix[] array = new LetterFix[a];
             for (int i = 0; i < a; i++)
             {
-                array[i] = new StudentGetSet1();
+                array[i] = new LetterFix();
                 Console.WriteLine("Введите имя студента");
                 array[i].Name = Console.ReadLine();
                 Console.WriteLine("Оценка по изо:");
