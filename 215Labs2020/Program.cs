@@ -1,4 +1,5 @@
 ﻿using System;
+using _215Labs2020.Garaevz;
 
 namespace _215Labs2020
 {
@@ -6,7 +7,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            _215Labs2020.Garaev.Student.peremennaya(4);
+            Student.peremennaya();
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _215Labs2020.Garaev
 {
@@ -8,9 +6,6 @@ namespace _215Labs2020.Garaev
     {
         public string name;
         public double score;
-        //public string math;
-        //public string rus;
-        //public string inf;
         public double scoreMath;
         public double ScoreMath
         {
