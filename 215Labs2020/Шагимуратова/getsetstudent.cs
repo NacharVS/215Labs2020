@@ -74,7 +74,7 @@ namespace _215Labs2020.Шагимуратова
     }
     class Program
     {
-        static void Main(string[] args)
+        public static void STUD()
         {
             Console.WriteLine("Введите количество студентов");
             var i = int.Parse(Console.ReadLine());

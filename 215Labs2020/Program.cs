@@ -1,4 +1,5 @@
 ﻿using System;
+using _215Labs2020.Шагимуратова;
 
 namespace _215Labs2020
 {
@@ -6,7 +7,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            labWork.vmestomain();
         }
     }
 }
