@@ -7,7 +7,7 @@ namespace _215Labs2020.Safiullin
 {
     class LectorFix
     {
-         {
+      
         private string name;
         private int mark1;
         private int mark2;
@@ -59,7 +59,6 @@ namespace _215Labs2020.Safiullin
                 Console.Write("Введите оценку по английскому: ");
                 mass[i].Mark3 = int.Parse(Console.ReadLine());
                 Console.WriteLine("____________________________________");
-                Console.WriteLine($"{mass[i].name.()}    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
                 bool b = true;
                 for (int j = 0; j < mass[i].name.Length; j++)
                 {
@@ -71,7 +70,7 @@ namespace _215Labs2020.Safiullin
                         case " ": b = true; break;
                     }
                 }
-                Console.WriteLine($"{mass[i].name.()}    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
+                Console.WriteLine($"    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
                 Console.WriteLine("____________________________________");
             }
         }
