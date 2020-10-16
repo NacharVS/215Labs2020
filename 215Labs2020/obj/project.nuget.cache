@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
   "dgSpecHash": "g6NdQe7Y07OyUHGbit5MJ3vdtPmQ2rrLfI0REEWwlbneet60Lm8I+9Lp70j5AwUsise80IMBe9IOzWS3DUW/qg==",
   "success": true,
   "projectFilePath": "D:\\disk C\\Desktop\\Михайлов\\215Labs2020\\215Labs2020.csproj",
-=======
-  "dgSpecHash": "TtWK9uANjr2eJg4rKXvXo5ijMIRNWXYpMxzd4RhOZn2dxq0tY1ZMt5+XgSIfnfzJJvXsNL25wPdJ9cT39J1Hig==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\151914\\Desktop\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
->>>>>>> Stashed changes
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ошибка чтения файла кэша D:\\disk C\\Desktop\\Михайлов\\215Labs2020\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

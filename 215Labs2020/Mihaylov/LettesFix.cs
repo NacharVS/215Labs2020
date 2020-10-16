@@ -15,11 +15,11 @@ namespace 215Labs2020.Mihaylov
             }
             set
             {
-                String d = value;
-                string b = d[0].ToString().ToUpper();
-                string c = d.TrimStart(new char[] { d[0] });
-                name = b + c;
-            }
+            String d = value;
+            string b = d[0].ToString().ToUpper();
+            string c = d.TrimStart(new char[] { d[0] });
+            name = b + c;
+        }
         }
         public int Math
         {
