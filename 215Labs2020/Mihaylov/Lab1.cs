@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Mihaylov
+namespace _215Labs2020.Mihaylov 
 {
-    class Lab1
-    {
-    }
+
 }
+
+

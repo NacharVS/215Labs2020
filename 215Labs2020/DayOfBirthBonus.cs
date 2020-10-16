@@ -2,7 +2,7 @@
 
 namespace _215Labs2020
 {
-    class Program
+    class DayOfBirthBonus
     {
         static void Main(string[] args)
         {
