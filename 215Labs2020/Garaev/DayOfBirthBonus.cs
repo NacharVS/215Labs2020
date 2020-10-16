@@ -21,27 +21,6 @@ namespace _215Labs2020.Garaev
         public static void g()
         {
             int bonus0 = 0;
-
-            //Console.Write("Введите день: ");
-            //string day = Console.ReadLine();
-            //Console.Write("Введите день: ");
-            //string day = Console.ReadLine();
-            //Console.Write("Введите месяц: ");
-            //string month = Console.ReadLine();
-            //Console.Write("Введите год: ");
-            //int year = int.Parse(Console.ReadLine());
-            //string Data = day + month;
-            //string f = Convert.ToString(DateTime.Now.Day) + Convert.ToString(DateTime.Now.Month);
-            //int realyear = Convert.ToInt32(DateTime.Now.Year);
-            //if (Data == f)
-            //    bonus0 += bonus;
-            //int age = realyear - year;
-            
-            //Console.WriteLine($"Вам {age} лет");
-            //Console.WriteLine($"Ваши бонусы: {bonus0}");
-
-
-
             Console.Write("Введите количество регистраций: ");
             int col = int.Parse(Console.ReadLine());
             DayOfBirthBonus[] people = new DayOfBirthBonus[col];
