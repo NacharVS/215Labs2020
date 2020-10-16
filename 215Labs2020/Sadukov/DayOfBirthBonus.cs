@@ -16,12 +16,14 @@ namespace _215Labs2020.Sadukov
             userpoints += 1000;
             return userpoints;
         }
+        
         public static void login()
         {
             DayOfBirthBonus birthDay = new DayOfBirthBonus();
             DayOfBirthBonus birthMonth = new DayOfBirthBonus();
             DayOfBirthBonus birthYear = new DayOfBirthBonus();
             DayOfBirthBonus names = new DayOfBirthBonus();
+            Console.WriteLine("||||||||||||||РЕГИСТРАЦИЯ ВАШЕГО АККАУНТА |||||||||||||| by ayaz");
             Console.WriteLine("Ваше имя:");
             names.name = Console.ReadLine();
             Console.WriteLine("Твой день рождения:");
@@ -36,6 +38,7 @@ namespace _215Labs2020.Sadukov
                 Console.WriteLine($"У тебя день рождения!!! Твой возраст {DateTime.Now.Year - birthYear.year} .Тебе начисленно 1000 бонусов!");
             }
             Console.WriteLine($"Твой баланс: {userpoints}");
+            
         }
     }
 
