@@ -18,7 +18,7 @@ namespace _215Labs2020.Imamov
             bonuspoints += 1000;
             return bonuspoints;
         }
-        public static void login()
+        public static void ClientInfo()
         {
             DayOfBirthBonus BirthDay = new DayOfBirthBonus();
             DayOfBirthBonus BirthMonth = new DayOfBirthBonus();
@@ -35,11 +35,15 @@ namespace _215Labs2020.Imamov
             BirthMonth.month = int.Parse(Console.ReadLine());
             Console.WriteLine("Год родждения: ");
             BirthYear.year = int.Parse(Console.ReadLine());
-            if (BirthDay.day == DateTime.Now.Day & BirthMonth.month == DateTime.Now.Month);
+            if (BirthDay.day == DateTime.Now.Day & BirthMonth.month == DateTime.Now.Month)
             {
                 BirthBonus();
-                Console.WriteLine("Поздравляем! Вам исполнилось (DateTime.Now.Year - BirthYear.year) лет. Вам зачисленны 1000 бонусных баллов");
+                Console.WriteLine($"Поздравляем! Вам исполнилось {DateTime.Now.Year - BirthYear.year} лет. Вам зачисленны 1000 бонусных баллов. Кол-во бонусных баллов: {bonuspoints}");
             }
+            else
+            {
+                Console.WriteLine($"Кол-во бонусных баллов: {bonuspoints}");
+            } 
         }
     }
 }
