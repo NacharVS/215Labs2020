@@ -21,7 +21,10 @@ namespace _215Labs2020.Ohotnicov
             }
             set
             {
-                name = value;
+                String d = value;
+                string b = d[0].ToString().ToUpper();
+                string c = d.TrimStart(new char[] { d[0] });
+                name = b + c; ;
             }
         }
         public int Russ
@@ -78,7 +81,7 @@ namespace _215Labs2020.Ohotnicov
                 stud.Russ = Console.ReadLine();
                 Console.WriteLine("Введите оценку по информатике")
                 stud.Infa = Console.ReadLine();
-                Console.WriteLine($"Его зовут : {stud.Name}, Оценка по математике : {stud.Math}, по русскому : {stud.}")
+                Console.WriteLine($"Его зовут : {stud.Name}, Оценка по математике : {stud.Math}, по русскому : {stud.}, по информатике : {stud.Infa})
 
             }
         }
