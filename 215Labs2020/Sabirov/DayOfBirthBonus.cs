@@ -28,7 +28,7 @@ namespace _215Labs2020.Sabirov
             birthDay.day = int.Parse(Console.ReadLine());
             Console.WriteLine("Your Month of Birth");
             birthMonth.month = int.Parse(Console.ReadLine());
-            Console.WriteLine("Your Year of Birth");
+            Console.WriteLine("Your Year of Birth   ");
             birthYear.year = int.Parse(Console.ReadLine());
             if (birthDay.day == DateTime.Now.Day & birthMonth.month == DateTime.Now.Month)
             {
