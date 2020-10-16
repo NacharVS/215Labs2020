@@ -1,14 +1,14 @@
-﻿using System;
+﻿using _215Labs2020.Imamiev;
+using System;
 
 namespace _215Labs2020.Imamiev
 {
-    class LettersFix
+    class StudentMarks
     {
         private string name;
         private int math;
-        private int phisics;
         private int info;
-
+        private int physics;
         public string Name
         {
             get
@@ -17,7 +17,10 @@ namespace _215Labs2020.Imamiev
             }
             set
             {
-                name = value;
+                string a = value;
+                string b = a[0].ToString().ToUpper();
+                string c = a.TrimStart(new char[] { a[0] });
+                name = b + c;
             }
         }
         public int Math
@@ -33,7 +36,7 @@ namespace _215Labs2020.Imamiev
                 if (value <= 5 || value >= 2) math = value;
             }
         }
-        public int info
+        public int Info
         {
             get
             {
@@ -43,45 +46,45 @@ namespace _215Labs2020.Imamiev
             {
                 if (value >= 6) value = 5;
                 if (value < 2) value = 2;
-                if (value <= 5 || value >= 2) math = value;
+                if (value <= 5 || value >= 2) info = value;
             }
         }
-        public int Phisics
+        public int Physics
         {
             get
             {
-                return phisics;
+                return physics;
             }
             set
             {
                 if (value >= 6) value = 5;
                 if (value < 2) value = 2;
-                if (value <= 5 || value >= 2) math = value;
+                if (value <= 5 || value >= 2) physics = value;
             }
         }
 
     }
 }
 class Program
-{
-    static void Main(string[] args)
+{ 
+    private static void Marks()
     {
-        Console.WriteLine("Введите колличество студентов!)");
+        Console.WriteLine("Введите кол-во студентов!");
         int a = int.Parse(Console.ReadLine());
         for (int i = 0; i < a; i++)
         {
-            LettersFix stud = new LettersFix();
+            StudentMarks stud = new StudentMarks();
             Console.WriteLine("Введите имя студента");
             stud.Name = Console.ReadLine();
             Console.WriteLine("Введите оценку по математике");
             stud.Math = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите оценку по информатике");
-            stud.info = int.Parse(Console.ReadLine());
+            stud.Info = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите оценку по физике");
-            stud.Phisics = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Имя студента: {stud.Name},Математика:{stud.Math},Информатика: {stud.Info},Физика:{stud.Phisics })))");
+            stud.Physics = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Имя студента: {stud.Name},Математика:{stud.Math},Информатика: {stud.Info},Физика:{stud.Physics })))");
 
         }
-             
-    } 
+    }
+            
 }
