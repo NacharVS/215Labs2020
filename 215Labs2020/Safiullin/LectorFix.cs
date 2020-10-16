@@ -44,7 +44,7 @@ namespace _215Labs2020.Safiullin
 
             }
         }
-        public static void SyudentRegister()
+        public static void StudentRegister()
         {
             LectorFix[] mass = new LectorFix[5];
             for (int i = 0; i < mass.Length; i++)
@@ -59,9 +59,20 @@ namespace _215Labs2020.Safiullin
                 Console.Write("Введите оценку по английскому: ");
                 mass[i].Mark3 = int.Parse(Console.ReadLine());
                 Console.WriteLine("____________________________________");
-                Console.WriteLine($"{mass[i].name.ToUpper()}    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
+                Console.WriteLine($"{mass[i].name.()}    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
+                bool b = true;
+                for (int j = 0; j < mass[i].name.Length; j++)
+                {
+                    if (b) { Console.Write(mass[i].name[j].ToString().ToUpper()); b = false; }
+                    else { Console.Write(mass[i].name[j]); };
+                    string c = Convert.ToString(mass[i].name[j]);
+                    switch (c)
+                    {
+                        case " ": b = true; break;
+                    }
+                }
+                Console.WriteLine($"{mass[i].name.()}    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
                 Console.WriteLine("____________________________________");
-
             }
         }
     }
