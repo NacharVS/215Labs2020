@@ -22,18 +22,20 @@ namespace _215Labs2020.Sadukov
             DayOfBirthBonus birthMonth = new DayOfBirthBonus();
             DayOfBirthBonus birthYear = new DayOfBirthBonus();
             DayOfBirthBonus names = new DayOfBirthBonus();
-            Console.WriteLine("Your Name");
+            Console.WriteLine("Ваше имя:");
             names.name = Console.ReadLine();
-            Console.WriteLine("Your Day of Birth");
+            Console.WriteLine("Твой день рождения:");
             birthDay.day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Твой месяц рождения:");
             birthMonth.month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Твой год рождения:");
             birthYear.year = int.Parse(Console.ReadLine());
             if (birthDay.day == DateTime.Now.Day & birthMonth.month == DateTime.Now.Month)
             {
                 addedpoints();
-                Console.WriteLine($"You are now {DateTime.Now.Year - birthYear.year} years old");
+                Console.WriteLine($"У тебя день рождения!!! Твой возраст {DateTime.Now.Year - birthYear.year} .Тебе начисленно 1000 бонусов!");
             }
-            Console.WriteLine(userpoints);
+            Console.WriteLine($"Твой баланс: {userpoints}");
         }
     }
 
