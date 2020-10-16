@@ -70,7 +70,7 @@ namespace _215Labs2020.Safiullin
                         case " ": b = true; break;
                     }
                 }
-                Console.WriteLine($"    {mass[0].Mark1}    {mass[1].Mark2}    {mass[2].Mark3}");
+                Console.WriteLine($"    {mass[i].Mark1}    {mass[i].Mark2}    {mass[i].Mark3}");
                 Console.WriteLine("____________________________________");
             }
         }
