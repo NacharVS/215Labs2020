@@ -15,15 +15,15 @@ namespace _215Labs2020.Sabirov
             }
             set
             {
-                name = value;
+                
                 string a = value[0].ToString();
               
                     if (a != a.ToUpper())
                     {
+                    string v = value[0].ToString().ToUpper();
+                    name = v;
 
-                        name = name[0].ToString().ToUpper();
-                        
-                    }
+                }
                     else name = value; 
             }
         }
