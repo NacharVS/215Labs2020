@@ -16,7 +16,7 @@ namespace _215Labs2020.Galyautdinov
             {
                 if (name[0].ToString() != name[0].ToString().ToUpper())
                 {
-                    name[0] = name[0].ToString().ToUpper();
+                    //name[0] = name[0].ToString().ToUpper();
                 }
             }
         }
