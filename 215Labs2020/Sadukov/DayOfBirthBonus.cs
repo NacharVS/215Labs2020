@@ -28,8 +28,12 @@ namespace _215Labs2020.Sadukov
             birthDay.day = int.Parse(Console.ReadLine());
             birthMonth.month = int.Parse(Console.ReadLine());
             birthYear.year = int.Parse(Console.ReadLine());
-            if (birthDay.day == DateTime.Now.Day)
-
+            if (birthDay.day == DateTime.Now.Day & birthMonth.month == DateTime.Now.Month)
+            {
+                addedpoints();
+                Console.WriteLine($"You are now {DateTime.Now.Year - birthYear.year} years old");
+            }
+            Console.WriteLine(userpoints);
         }
     }
 
