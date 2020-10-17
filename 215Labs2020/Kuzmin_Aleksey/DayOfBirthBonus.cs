@@ -19,14 +19,13 @@ namespace _215Labs2020.Kuzmin_Aleksey
             Person = new DayOfBirthBonus();
             Console.Write("Введите свою фамилию и имя: ");
             Person.name = Console.ReadLine();
-            Console.WriteLine("Введите, дату своего рождения:");
-            Console.Write("День: ");
+            Console.Write("Введите, день своего рождения: ");
             Person.day = int.Parse(Console.ReadLine());
             Console.Write("Месяц: ");
             Person.month = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
             Person.year = int.Parse(Console.ReadLine());
-            if 
+           
         }
         
     }
