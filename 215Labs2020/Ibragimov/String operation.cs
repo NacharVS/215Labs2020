@@ -4,8 +4,10 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov
 {
-    class DayOfbirthBonus
+    class String_operation
     {
-
+        static string letter = "привет мир";
     }
+
 }
+
