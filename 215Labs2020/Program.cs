@@ -6,6 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
+            StudentMarks.Marks();
         }
     }
 }

@@ -5,10 +5,10 @@ namespace _215Labs2020.Imamiev
 {
     class StudentMarks
     {
-        private string name;
-        private int math;
-        private int info;
-        private int physics;
+        public string name;
+        public int math;
+        public int info;
+        public int physics;
         public string Name
         {
             get
@@ -62,29 +62,26 @@ namespace _215Labs2020.Imamiev
                 if (value <= 5 || value >= 2) physics = value;
             }
         }
-
-    }
-}
-class Program
-{ 
-    private static void Marks()
-    {
-        Console.WriteLine("Введите кол-во студентов!");
-        int a = int.Parse(Console.ReadLine());
-        for (int i = 0; i < a; i++)
+        public static void Marks()
         {
-            StudentMarks stud = new StudentMarks();
-            Console.WriteLine("Введите имя студента");
-            stud.Name = Console.ReadLine();
-            Console.WriteLine("Введите оценку по математике");
-            stud.Math = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите оценку по информатике");
-            stud.Info = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите оценку по физике");
-            stud.Physics = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Имя студента: {stud.Name},Математика:{stud.Math},Информатика: {stud.Info},Физика:{stud.Physics })))");
+            Console.WriteLine("Введите кол-во студентов!");
+            int a = int.Parse(Console.ReadLine());
+            for (int i = 0; i < a; i++)
+            {
+                StudentMarks stud = new StudentMarks();
+                Console.WriteLine("Введите имя студента");
+                stud.Name = Console.ReadLine();
+                Console.WriteLine("Введите оценку по математике");
+                stud.Math = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите оценку по информатике");
+                stud.Info = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите оценку по физике");
+                stud.Physics = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Имя студента: {stud.Name},Математика:{stud.Math},Информатика: {stud.Info},Физика:{stud.Physics })))");
 
+
+            }
         }
+
     }
-            
 }
