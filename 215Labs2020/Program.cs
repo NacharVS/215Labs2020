@@ -7,7 +7,8 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            DayOfBirthBonus.login();
+            StringOperations.Enters(StringOperations.letters);
+            StringOperations.EvenAndNot(StringOperations.letters);
 
         }
     }
