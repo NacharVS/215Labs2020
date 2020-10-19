@@ -46,7 +46,7 @@ namespace _215Labs2020.Faizullin
                     a++;
                     Console.WriteLine($"Name and Last name: {StudentName[i].name} Average score: {StudentName[i].score}");
                 }
-                
+
             }
             if (a == 0)
             {
