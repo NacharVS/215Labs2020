@@ -40,7 +40,7 @@ namespace _215Labs2020.Sadukov
             }
             for (int i = 0; i < a.Length; i++)
             {
-                Console.WriteLine("Student");
+                Console.WriteLine("Учащийся");
                 a[i].name = Console.ReadLine();
                 Console.WriteLine("первый предмет");
                 ball[0].Raiting = int.Parse(Console.ReadLine());
