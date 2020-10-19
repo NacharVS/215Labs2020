@@ -1,13 +1,15 @@
-﻿using _215Labs2020.Maksimov_Aleksei;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace _215Labs2020
+namespace _215Labs2020.Maksimov_Aleksei
 {
     class Program
     {
         static void Main(string[] args)
         {
-            LetterFix.SGS();
+            StringOperations.probeli("   Пожилое    тестирование    gf ");
+
         }
     }
 }
