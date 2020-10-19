@@ -63,7 +63,7 @@ namespace _215Labs2020.Ohotnicov
             {
                 if (value > 5) value = 5;
                 if (value < 2) value = 2;
-                if (value <= 5 || value >= 2) math = value;
+                if (value <= 5 || value >= 2) infa = value;
             }
         }
         public static void BD()
@@ -75,13 +75,13 @@ namespace _215Labs2020.Ohotnicov
                 LettersFix stud = new LettersFix();
                 Console.WriteLine("Введите имя");
                 stud.Name = Console.ReadLine();
-                Console.WriteLine("Введите оценку по математике")
-                stud.Math = Console.ReadLine();
-                Console.WriteLine("Введите оценку по русскому")
-                stud.Russ = Console.ReadLine();
-                Console.WriteLine("Введите оценку по информатике")
-                stud.Infa = Console.ReadLine();
-                Console.WriteLine($"Его зовут : {stud.Name}, Оценка по математике : {stud.Math}, по русскому : {stud.}, по информатике : {stud.Infa})
+                Console.WriteLine("Введите оценку по математике");
+                stud.Math = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите оценку по русскому");
+                stud.Russ = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите оценку по информатике");
+                stud.Infa = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Его зовут : {stud.Name}, Оценка по математике : {stud.Math}, по русскому : {stud.Russ}, по информатике : {stud.Infa}");
 
             }
         }
