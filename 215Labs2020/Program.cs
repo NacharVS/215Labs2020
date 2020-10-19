@@ -1,5 +1,5 @@
 ﻿using System;
-using _215Labs2020.Garaevz;
+using String_operation;
 
 namespace _215Labs2020
 {
@@ -7,7 +7,13 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Student.peremennaya();
+            Console.Write("Введите текст: ");
+            StringOperation.col_bukv(Console.ReadLine());
+            Console.Write("Введите текст: ");
+            StringOperation.delete_probel(Console.ReadLine());
+            Console.Write("Введите текст: ");
+            StringOperation.chet_nechet_bukv(Console.ReadLine());
+            Console.ReadKey();
         }
     }
 }
