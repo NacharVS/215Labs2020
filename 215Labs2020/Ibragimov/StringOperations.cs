@@ -6,7 +6,12 @@ namespace _215Labs2020.Ibragimov
 {
     class StringOperations
     {
-        public static string letters = "предложение какоет то";
+        static void Main(string[] args)
+        {
+            string letters = "предложение просто";
 
+            Console.WriteLine(letters.Length);
+        }
     }
 }
+ 
