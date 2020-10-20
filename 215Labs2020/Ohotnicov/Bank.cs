@@ -10,45 +10,79 @@ namespace _215Labs2020.Ohotnicov
         private string name;
         private string surname;
         private static int card = 0;
-        int a;
-        private static int Invest
+        private static int Invest()
         {
-            get
+            bool c = true;
+            while (c == true)
             {
-                card += a;
-                return card;
-            }
-            set
-            {
-                if (value < 10000)
+                Console.WriteLine("Введите сумму для внесения (от 10000 до 200000):");
+                int a = Convert.ToInt16(Console.ReadLine());
+                if ((a >= 10000) & (a <= 200000))
                 {
-                    Console.WriteLine("Минимальная сумма вклада 10.000 р.");
+                    card += a;
+                    Console.WriteLine($"Ваш счет пополнен на {a}, ваш баланс {card}");
+                    c = false;
+                    return card;
                 }
-                if (value > 200000)
+                if ((a < 10000) || (a > 200000))
                 {
-                    Console.WriteLine("Максимальная сумма вклада 200.000 р.");
+                    Console.WriteLine("Нужно ввести сумму в диапозоне от 10k до 200k ");
+                    c = false;
                 }
             }
+            return card;
         }
-        private static int Withdraw
+        private static int Withdraw()
         {
-            get
+            bool c = true;
+            while (c == true)
             {
-                card += a;
-                return card;
-            }
-            set
-            {
-                if (a > card)
+                Console.WriteLine("Введите сумму для cнятия:");
+                int a = Convert.ToInt16(Console.ReadLine());
+                if ((a > 0) & (a <= card))
                 {
-                    Console.WriteLine("Сумма списаний не может быть больше остатка на счету");
+                    card -= a;
+                    Console.WriteLine($"Вы сняли со сета {a}, остаток на счету {card} ");
+                    c = false;
+                }
+                else
+                {
+                    Console.WriteLine("Нужно ввести сумму не превышающую остаток на счету ");
+                    c = false;
                 }
             }
+            return card;
         }
-        private static void GO();
-        Bank Name = new Bank();
+        public static void GO()
+        {
+            bool c = true;
+                Bank Name = new Bank();
+                Bank SurName = new Bank();
+                Console.WriteLine("Здравствуйте!Для регистрации введите ваше имя");
+                Name.name = Console.ReadLine();
+                Console.WriteLine("Ваша фамиллия:");
+                SurName.surname = Console.ReadLine();
+            while (c == true)
+            {
+                Console.WriteLine("Что вы хотите сделать с вашим счетом?(внести/снять)");
+                string vubor = Convert.ToString(Console.ReadLine());
+                if (vubor == "внести")
+                {
+                    Invest();
+                }
+                else
+                {
+                    Withdraw();
+                }
+                Console.WriteLine("Хотите продолжить действия с вашим счетом? Введите Y/N");
+                string b = Convert.ToString(Console.ReadLine());
+                if (b == "N")
+                {
+                    Console.WriteLine($"{Name.name}, cпасибо что пользуетесь нашим банком, ваш балнас {card}");
+                    c = false;
+                }
+            }
 
-
-
+        }
     }
 }
