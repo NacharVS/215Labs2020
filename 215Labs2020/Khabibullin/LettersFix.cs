@@ -7,7 +7,7 @@ namespace _215Labs2020.Khabibullin
     class students
     {
         public string name;
-        public int prorammy;
+        public int programmy;
         public int math;
         public int history;
         public string Name 
@@ -24,7 +24,7 @@ namespace _215Labs2020.Khabibullin
                 name = b + c;
             }
         }
-        public int programmy
+        public int Programmy
         {
             get
             {
@@ -78,7 +78,7 @@ namespace _215Labs2020.Khabibullin
                 stud.math = int.Parse(Console.ReadLine());
                 Console.WriteLine("Введите оценку по истории");
                 stud.history = int.Parse(Console.ReadLine());
-                Console.WriteLine($"Имя студента:")
+                Console.WriteLine($"Имя студента:{stud.Name},Программирование:{stud.Programmy},Математика{stud.Math},История{stud.History})))");
 
 
 
