@@ -9,6 +9,7 @@ namespace _215Labs2020
 
             StringOperations.Enters(StringOperations.letters);
             StringOperations.EvenAndNot(StringOperations.letters);
+            
 
         }
     }
