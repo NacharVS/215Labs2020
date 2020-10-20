@@ -1,4 +1,5 @@
 ﻿using System;
+using _Bank;
 
 namespace _215Labs2020
 {
@@ -6,8 +7,10 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            _Bank.Bank.name();
-            _Bank.Bank.bank_account();
+            Bank.name();
+            Bank.bank_account();
+            Bank.vivod();
+            Bank.transaction();
             Console.ReadKey();
         }
     }

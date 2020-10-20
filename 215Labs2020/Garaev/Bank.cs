@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _Bank
 {
@@ -26,15 +24,12 @@ namespace _Bank
             {
                 Console.Write("Введите сумму пополнения: ");
                 summ = int.Parse(Console.ReadLine());
-                if (summ+balans>200000 || summ<10000)
+                while (summ + balans>200000 || summ < 10000)
                 {
-                    while (summ + balans>200000 || summ < 10000)
-                    {
-                        summ = 0;
-                        Console.WriteLine("Вы превысили лимит пополнения в 200 000 или сумма пополнения меньше 10 000");
-                        Console.Write("Введите сумму пополнения: ");
-                        summ = int.Parse(Console.ReadLine());
-                    }
+                     summ = 0;
+                     Console.WriteLine("Вы превысили лимит пополнения в 200 000 или сумма пополнения меньше 10 000");
+                     Console.Write("Введите сумму пополнения: ");
+                     summ = int.Parse(Console.ReadLine());
                 }
             }
             else if (vibor == 2)
@@ -46,12 +41,34 @@ namespace _Bank
             balans += summ;
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
-        //public static void vivod()
-        //{
-        //    Console.Write("Сколько денег хотите вывести? ");
-        //    int _vivod = int.Parse(Console.ReadLine());
-        //    balans = balans - vivod;
-        //    Console.WriteLine(balans);
-        //}
+        public static void vivod()
+        {
+            Console.Write("Сколько денег хотите вывести: ");
+            int _vivod = int.Parse(Console.ReadLine());
+            while(balans - _vivod < 0)
+            {
+                Console.WriteLine("На вашем счету недостаточно средств");
+                Console.Write("Сколько денег хотите вывести: ");
+                _vivod = int.Parse(Console.ReadLine());
+            }
+            balans = balans - _vivod;
+            Console.WriteLine($"Ваш текущий баланс: {balans}");
+        }
+        public static void transaction()
+        {
+            Console.Write("Введите номер счета на которую хотите перевести: ");
+            int nomer = int.Parse(Console.ReadLine());
+            Console.Write("Сколько денег хотите перевести: ");
+            int summ1 = int.Parse(Console.ReadLine());
+            while (balans - summ1 < 0)
+            {
+                Console.WriteLine("На вашем счету недостаточно средств");
+                Console.Write("Сколько денег хотите перевести: ");
+                summ1 = int.Parse(Console.ReadLine());
+            }
+            balans -= summ1;
+            Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
+            Console.WriteLine($"Ваш текущий баланс: {balans}");
+        }
     }
 }
