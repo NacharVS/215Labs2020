@@ -21,9 +21,32 @@ namespace _215Labs2020.Sadukov
             }
 
         }
+        public static void Characters(string s)
+        {
+            Console.WriteLine(s.Length);
+        }
         public static void EvenAndNot(string s)
         {
+            string[] words = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            foreach (var item in words)
+            {
 
+
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (i / 2 == 0)
+                    {
+                        Console.WriteLine($"Четные буквы {s[i]}");
+                    }
+
+                    if (i / 2 > 0)
+                    {
+
+                        Console.WriteLine($"Нечетные буквы {s[i]}");
+                    }
+
+                }
+            }
 
         }
     }
