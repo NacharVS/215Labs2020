@@ -27,7 +27,7 @@ namespace _215Labs2020.Ohotnicov
                 if (value > 200000)
                 {
                     Console.WriteLine("Максимальная сумма вклада 200.000 р.");
-                } 
+                }
             }
         }
         private static int Withdraw
@@ -45,5 +45,10 @@ namespace _215Labs2020.Ohotnicov
                 }
             }
         }
+        private static void GO();
+        Bank Name = new Bank();
+
+
+
     }
 }
