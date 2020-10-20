@@ -6,12 +6,32 @@ namespace _215Labs2020.Hasanov.StringOperation
 {
     class Delete_space
     {
-        public string _name;
-        public static void DS()
+        
+        public static void DC() 
         {
-            Console.WriteLine("Напишите строку");
+            Console.WriteLine("Введите строку");
+            string StringName = Console.ReadLine();
+            string[] arry = StringName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < arry.Length; i++)
+            {
+                Console.Write(arry[i] + ' ');
 
+            }
         }
+    }   
 
-    }
-}
+
+
+}   
+    
+
+
+
+    
+
+
+
+
+
+
+    
