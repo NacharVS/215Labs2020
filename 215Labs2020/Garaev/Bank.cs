@@ -26,12 +26,12 @@ namespace _Bank
             {
                 Console.Write("Введите сумму пополнения: ");
                 summ = int.Parse(Console.ReadLine());
-                if (summ+balans>200000)
+                if (summ+balans>200000 || summ<10000)
                 {
-                    while (summ + balans>200000)
+                    while (summ + balans>200000 || summ < 10000)
                     {
                         summ = 0;
-                        Console.WriteLine("Вы превысили лимит пополнения в 200 000");
+                        Console.WriteLine("Вы превысили лимит пополнения в 200 000 или сумма пополнения меньше 10 000");
                         Console.Write("Введите сумму пополнения: ");
                         summ = int.Parse(Console.ReadLine());
                     }
@@ -46,12 +46,12 @@ namespace _Bank
             balans += summ;
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
-        public static void vivod()
-        {
-            Console.Write("Сколько денег хотите вывести? ");
-            int _vivod = int.Parse(Console.ReadLine());
-            balans = balans - vivod;
-            Console.WriteLine(balans);
-        }
+        //public static void vivod()
+        //{
+        //    Console.Write("Сколько денег хотите вывести? ");
+        //    int _vivod = int.Parse(Console.ReadLine());
+        //    balans = balans - vivod;
+        //    Console.WriteLine(balans);
+        //}
     }
 }
