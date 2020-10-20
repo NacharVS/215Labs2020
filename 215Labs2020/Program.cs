@@ -8,7 +8,7 @@ namespace _215Labs2020.Maksimov_Aleksei
     {
         static void Main(string[] args)
         {
-            StringOperations.probeli("   Пожилое    тестирование    gf ");
+            Bank.Name();
 
         }
     }
