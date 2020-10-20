@@ -32,17 +32,17 @@ namespace _215Labs2020.Sadukov
             {
 
 
-                for (int i = 0; i < s.Length; i++)
+                for (int i = 0; i < item.Length; i++)
                 {
-                    if (i / 2 == 0)
+                    if (i % 2 == 0)
                     {
-                        Console.WriteLine($"Четные буквы {s[i]}");
+                        Console.WriteLine($"Четные буквы {item[i]}");
                     }
 
-                    if (i / 2 > 0)
+                    if (i % 2 > 0)
                     {
 
-                        Console.WriteLine($"Нечетные буквы {s[i]}");
+                        Console.WriteLine($"Нечетные буквы {item[i]}");
                     }
 
                 }
