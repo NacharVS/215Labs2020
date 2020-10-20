@@ -8,38 +8,48 @@ namespace _215Labs2020.Sadukov
     {
 
         public string name;
-        public int day;
-        public int month;
-        public int year;
-        public static int userpoints = 0;
-        public static int addedpoints()
+        public string birthDay;
+        public string email;       
+        public static double money = 0;
+        public static double deposit = 0.061;
+        public static void Desposit(int x)
         {
-            userpoints += 1000;
-            return userpoints;
+            if (x < 10000)
+            {
+                Console.WriteLine("Unable to top up: Deposit less than 10000");
+            }
+            else
+            {
+                Bank.money += x;
+                Console.WriteLine($"Account replenished\n{Bank.money}");
+                
+            }
         }
+        public static void percent()
+        {
+
+            double x  = Bank.money * Bank.deposit;
+            Bank.money += x;
+            Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {Bank.money}");
+        } 
 
         public static void login()
         {
-            DayOfBirthBonus birthDay = new DayOfBirthBonus();
-            DayOfBirthBonus birthMonth = new DayOfBirthBonus();
-            DayOfBirthBonus birthYear = new DayOfBirthBonus();
-            DayOfBirthBonus names = new DayOfBirthBonus();
-            Console.WriteLine("||||||||||||||РЕГИСТРАЦИЯ ВАШЕГО АККАУНТА |||||||||||||| by ayaz");
-            Console.WriteLine("Ваше имя:");
-            names.name = Console.ReadLine();
-            Console.WriteLine("Твой день рождения:");
-            birthDay.day = int.Parse(Console.ReadLine());
-            Console.WriteLine("Твой месяц рождения:");
-            birthMonth.month = int.Parse(Console.ReadLine());
-            Console.WriteLine("Твой год рождения:");
-            birthYear.year = int.Parse(Console.ReadLine());
-            if (birthDay.day == DateTime.Now.Day & birthMonth.month == DateTime.Now.Month)
-            {
-                addedpoints();
-                Console.WriteLine($"У тебя день рождения!!! Твой возраст {DateTime.Now.Year - birthYear.year} .Тебе начисленно 1000 бонусов!");
-            }
-            Console.WriteLine($"Твой баланс: {userpoints}");
+            Bank user = new Bank();
+            Console.WriteLine("Enter your full name");
+            user.name = Console.ReadLine();
+            Console.WriteLine("Enter your BirthDay");
+            user.birthDay = Console.ReadLine();
+            Console.WriteLine("Enter your e-mail");
+            user.email = Console.ReadLine();
+            Console.WriteLine("Your Deposit");
+            int x = int.Parse(Console.ReadLine());
+            Bank.Desposit(x);
+            Console.WriteLine("Replenishment by interest");
+            Bank.percent();
 
-        }
+
+
+        }           
     }
 }

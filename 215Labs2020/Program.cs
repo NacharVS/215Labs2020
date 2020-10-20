@@ -6,8 +6,8 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-
-            StringOperations.EvenAndNot(StringOperations.letters);
+            Bank.login();
+            
         }
     }
 }
