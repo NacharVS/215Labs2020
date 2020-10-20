@@ -4,7 +4,11 @@ using System.Text;
 
 namespace _215Labs2020.Garaev
 {
-    class Account
+    class Bank
     {
+        private static void string name()
+        {
+
+        }
     }
 }
