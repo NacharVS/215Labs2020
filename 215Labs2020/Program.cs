@@ -8,7 +8,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            StringOperations.Ex3();
+            StringOperations.Ex1();
         }
     }
 }
