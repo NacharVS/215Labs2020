@@ -6,7 +6,7 @@ namespace _215Labs2020.Sharipov
     {
         static void Main(string[] args)
         {
-            LetterFix.BD();
+            DayofbirthBonus.Client();
         }
     }
 }
