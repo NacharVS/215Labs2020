@@ -9,15 +9,16 @@ namespace _215Labs2020.Kuzmin_Aleksey
         private double score = 0;
         private static double persent = 0.006;
         private string name;
-        public static bool registration=false;
+        private static bool registration=false;
         private string year;
         private double donation;
         private string phone;
-        public static Bank person = new Bank();
-        public static void CreateAccount()
+        private string line = "*************************************************************";
+        private static Bank person = new Bank();
+        
+        private static void CreateAccount()
         {
-            Console.WriteLine("*************************************************************");
-            
+            Console.WriteLine(person.line);
             Console.Write("Введите свою фамилию, имя, отчество: ");
             person.name = Console.ReadLine();
             Console.Write("Введите дату своего рождения: ");
@@ -26,37 +27,73 @@ namespace _215Labs2020.Kuzmin_Aleksey
             person.phone = Console.ReadLine();
             Console.Write("Введите сумму первого взноса: ");
             person.donation = double.Parse(Console.ReadLine());
-            if (person.donation <= 9999) { Console.WriteLine("Ошибка. Сумма взноса меньше 10 000р."); }
-            else { person.score += person.donation; Bank.registration = true; }
-            
-            Console.WriteLine("*************************************************************");
+            if (person.donation < 10000 | person.donation>200000) 
+            {
+                Console.WriteLine(person.line);
+                Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р."); 
+            }
+            else { person.score += person.donation; registration = true; }
+            Console.WriteLine(person.line);
             Console.WriteLine();
         }
-        public static void Refill()
+        private static void Refill()
         {
-            Console.WriteLine("*************************************************************");
+            Console.WriteLine(person.line);
             Console.Write("Введите сумму, на которую вы хотите пополнить баланс: ");
-            person.score +=  double.Parse(Console.ReadLine());
-            Console.WriteLine("*************************************************************");
-            Console.WriteLine($"Баланс счета составляет: {person.score}");
-            Console.WriteLine("*************************************************************");
-            Console.WriteLine();
+            person.donation = double.Parse(Console.ReadLine());
+            if (person.donation < 10000 | person.donation > 200000) 
+            {
+                Console.WriteLine(person.line);
+                Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р.");
+                Console.WriteLine(person.line);
+            }
+            else
+            {
+                person.score += person.donation;
+                Console.WriteLine(person.line);
+                Console.WriteLine($"Баланс счета составляет: {person.score}");
+                Console.WriteLine(person.line);
+                Console.WriteLine();
+            }
         }
-        public static void In_year()
+        private static void In_year()
         {
-            Console.WriteLine("*************************************************************");
-            Console.Write("Череез сколько лет вы хотите узнать свой баланс: ");
+            Console.WriteLine(person.line);
+            Console.Write("Через сколько лет вы хотите узнать свой баланс: ");
             double a = double.Parse(Console.ReadLine());
-            Console.WriteLine($"Ваш баланс через {a} лет, будет равен {person.score+ person.score*Bank.persent*a}.");
-            Console.WriteLine("*************************************************************");
+            double b = 0;
+            for (int i = 0; i < a; i++)
+            {
+                b = person.score + person.score * persent * i;
+            }
+            Console.WriteLine($"Ваш баланс через {a} лет, будет равен {b}.");
+            Console.WriteLine(person.line);
             Console.WriteLine();
         }
-        public static void balance()
+        private static void Balance()
         {
-            Console.WriteLine("*************************************************************");
+            Console.WriteLine(person.line);
             Console.WriteLine($"Баланс вашего счета равен: {person.score}");
-            Console.WriteLine("*************************************************************");
+            Console.WriteLine(person.line);
             Console.WriteLine();
+        }
+        private static void Cash_out()
+        {
+            Console.Write("Введите сумму для снятия с счета: ");
+            person.donation = double.Parse(Console.ReadLine());
+            if (person.donation < 10000 | person.donation > 200000)
+            {
+                Console.WriteLine(person.line);
+                Console.WriteLine("Ошибка. Сумма снятия должна быть больше 10 000р и меньше 200 000р.");
+                Console.WriteLine(person.line);
+            }
+            else 
+            {
+                person.score -= person.donation;
+                Console.WriteLine($"Баланс счета составляет: {person.score}");
+                Console.WriteLine(person.line);
+                Console.WriteLine();
+            }
         }
         public static void Program()
         {
@@ -64,27 +101,29 @@ namespace _215Labs2020.Kuzmin_Aleksey
             {
                 Console.WriteLine("Доступные действия над банковским счетам:");
                 Console.WriteLine("Проверить баланс счета: ( 1 ) ");
-                Console.WriteLine("Пополнить счет: ( 2 ) ");
-                Console.WriteLine("Узнать баланс счета через определенный период: ( 3 ) ");
-                Console.WriteLine("Регистрация: ( 4 )");
+                Console.WriteLine("Снять деньги со счета: ( 2 ) ");
+                Console.WriteLine("Пополнить счет: ( 3 ) ");
+                Console.WriteLine("Узнать баланс счета через определенный период: ( 4 ) ");
+                Console.WriteLine("Регистрация: ( 5 )");
                 Console.Write("Введите действие над счетом: ");
                 int action = int.Parse(Console.ReadLine());
                 Console.WriteLine();
-                if (Bank.registration || action == 4)
+                if (registration || action == 5)
                 {
                     switch (action)
                     {
-                        case 1: Bank.balance(); break;
-                        case 2: Bank.Refill(); break;
-                        case 3: Bank.In_year(); break;
-                        case 4: Bank.CreateAccount(); break;
+                        case 1: Balance(); break;
+                        case 2: Cash_out(); break;
+                        case 3: Refill(); break;
+                        case 4: In_year(); break;
+                        case 5: CreateAccount(); break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("*************************************************************");
+                    Console.WriteLine(person.line);
                     Console.WriteLine("Ошибка. Для продолжения работы нужно пройти регистрацию.");
-                    Console.WriteLine("*************************************************************");
+                    Console.WriteLine(person.line);
                     Console.WriteLine();
                 }
             }
