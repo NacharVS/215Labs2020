@@ -10,6 +10,8 @@ namespace _215Labs2020.Ohotnicov
         private string name;
         private string surname;
         private static int card = 0;
+        private static int procent = 0.006;
+
         private static int Invest()
         {
             bool c = true;
