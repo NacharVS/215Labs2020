@@ -17,7 +17,7 @@ namespace _Bank
             string name = Console.ReadLine();
             Console.Write("Введите Отчество: ");
             string otchestvo = Console.ReadLine();
-            while (_surname == surname && _surname == surname && _otchestvo == otchestvo)
+            while (_surname == surname && _name == name && _otchestvo == otchestvo)
             {
                 Console.WriteLine("Извините такой аккаунт уже существует.");
                 Console.WriteLine("Попробуйте заново:");
