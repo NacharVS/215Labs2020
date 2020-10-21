@@ -6,7 +6,9 @@ namespace _215Labs2020.Sadukov
     {
 
         private string name;
-        private string birthDay;
+        private int day;
+        private int month;
+        private int year;
         private string email;
         private static double money = 0;
         private static double deposit = 0.061;
@@ -32,16 +34,16 @@ namespace _215Labs2020.Sadukov
             {
                 Bank.money += x;
                 Console.WriteLine($"Account replenished\n{Bank.money}");
-                
+
             }
         }
         private static void percent()
         {
 
-            double x  = Bank.money * Bank.deposit;
+            double x = Bank.money * Bank.deposit;
             Bank.money += x;
             Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {Bank.money}");
-        } 
+        }
 
         private static void signIn()
         {
@@ -50,13 +52,18 @@ namespace _215Labs2020.Sadukov
             string name = Console.ReadLine();
             Bank.UserName(name);
             Console.WriteLine("Enter your BirthDay");
-            user.birthDay = Console.ReadLine();
+            user.day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your BirthMonth");
+            user.month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your BirthYear");
+            user.year = int.Parse(Console.ReadLine());
+            Bank.Birth(user.month, user.year, user.day);
             Console.WriteLine("Enter your e-mail");
             user.email = Console.ReadLine();
         }
         private static void UserName(string Newname)
         {
-           
+
             Newname = Newname.Trim();
             var first = Newname[0];
             if (first.ToString() != first.ToString().ToUpper())
@@ -65,7 +72,19 @@ namespace _215Labs2020.Sadukov
                 Newname = first.ToString().ToUpper() + other;
                 Console.WriteLine($"Your name with a capital letter: {Newname}");
             }
-            
+
+        }
+        private static void Birth(int a, int b, int c)
+        {
+            if (c == DateTime.Now.Day & a == DateTime.Now.Month)
+            {
+                Bank.money += 100;
+                
+                Console.WriteLine($"У тебя день рождения!!! Твой возраст {DateTime.Now.Year - b} .Тебе начисленно 100!");
+                Console.WriteLine(Bank.money);
+            }
+
+
         }
         public static void Login()
         {
