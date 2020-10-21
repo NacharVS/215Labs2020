@@ -9,9 +9,8 @@ namespace _215Labs2020.Ohotnicov
     {
         private string name;
         private string surname;
-        private static int card = 0;
-        private static int procent = 0.006;
-
+        private static int card ;
+        private static double procent = 0.006;
         private static int Invest()
         {
             bool c = true;
@@ -55,6 +54,17 @@ namespace _215Labs2020.Ohotnicov
             }
             return card;
         }
+        private static void Depozit()
+        {
+            Bank bank = new Bank();
+            Console.WriteLine("На сколько лет вы хотите внести вклад?");
+            int coat = int.Parse(Console.ReadLine());
+            for (int i = 0; i < coat; i++)
+            {
+                bank.card *= bank.procent
+            }
+        }
+
         public static void GO()
         {
             bool c = true;
