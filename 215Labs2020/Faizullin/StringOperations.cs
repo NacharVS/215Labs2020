@@ -6,7 +6,7 @@ namespace _215Labs2020.Faizullin
 {
     class StringOperations
     {
-        public static void values (string s)
+        public static void values(string s)
         {
             string a = (Console.ReadLine());
             Console.WriteLine("Enter string");
