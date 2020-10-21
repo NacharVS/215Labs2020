@@ -12,11 +12,25 @@ namespace _Bank
         private static void name()
         {
             Console.Write("Введите Фамилия: ");
-            _surname = Console.ReadLine();
+            string surname = Console.ReadLine();
             Console.Write("Введите имя: ");
-            _name = Console.ReadLine();
+            string name = Console.ReadLine();
             Console.Write("Введите Отчество: ");
-            _otchestvo = Console.ReadLine();
+            string otchestvo = Console.ReadLine();
+            while (_surname == surname && _surname == surname && _otchestvo == otchestvo)
+            {
+                Console.WriteLine("Извините такой аккаунт уже существует.");
+                Console.WriteLine("Попробуйте заново:");
+                Console.Write("Введите Фамилия: ");
+                surname = Console.ReadLine();
+                Console.Write("Введите имя: ");
+                name = Console.ReadLine();
+                Console.Write("Введите Отчество: ");
+                otchestvo = Console.ReadLine();
+            }
+            _surname = surname;
+            _name = name;
+            _otchestvo = otchestvo;
         }
         private static void bank_account()
         {
