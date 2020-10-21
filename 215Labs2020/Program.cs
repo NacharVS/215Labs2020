@@ -7,7 +7,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            students.StudentsMarks();
+            DayOfBirthBonus.Information();
         }
     }
 }
