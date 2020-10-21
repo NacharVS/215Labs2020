@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Faizullin
 {
-    class Lab2
+    class LetorFix
     {
         private string name;
         private int inf;
@@ -68,10 +68,10 @@ namespace _215Labs2020.Faizullin
             int a = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter number student");
             double score = 0;
-            Lab2[] marcs = new Lab2[a];
+            LetorFix[] marcs = new LetorFix[a];
             for (int i = 0; i < marcs.Length; i++)
             {
-                marcs[i] = new Lab2();
+                marcs[i] = new LetorFix();
             }
             for (int i = 0; i < marcs.Length; i++)
             {
