@@ -18,7 +18,7 @@ namespace _215Labs2020.Safiullin
         {
             Console.WriteLine("Здраствуйте, добро пожаловать в ТатСоцБанк. Для дальнейших действий пройдите регистрацию.");
             string registration = Console.ReadLine();
-            Console.Write($"Введите своё ИМЯ: ");
+            Console.Write("Введите своё ИМЯ: ");
             string name = Console.ReadLine();
             Console.Write("Введите свою ФАМИЛИЮ: ");
             string surname = Console.ReadLine();
