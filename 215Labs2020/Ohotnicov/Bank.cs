@@ -61,7 +61,7 @@ namespace _215Labs2020.Ohotnicov
             int coat = int.Parse(Console.ReadLine());
             for (int i = 0; i < coat; i++)
             {
-                bank.card *= bank.procent
+                card += card * Bank.procent;
             }
         }
 
