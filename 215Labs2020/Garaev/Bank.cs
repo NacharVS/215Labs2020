@@ -9,6 +9,10 @@ namespace _Bank
         private static string _otchestvo;
         private static int balans = 0;
         private static int summ = 0;
+        private static int _vivod = 0;
+        private static int summ1 = 0;
+        private static int nomer = 0;
+        private static int a = 0;
         private static void name()
         {
             Console.Write("Введите Фамилия: ");
@@ -40,13 +44,39 @@ namespace _Bank
             if (vibor == 1)
             {
                 Console.Write("Введите сумму пополнения: ");
-                summ = int.Parse(Console.ReadLine());
+                int f = 0;
+                while (f==0)
+                {
+                    try
+                    {
+                        summ = int.Parse(Console.ReadLine());
+                        f += 1;
+                    }
+                    catch
+                    {
+                        Console.Write("Введите правильную сумму: ");
+                        f = 0;
+                    }
+                }
                 while (summ>200000 || summ < 10000)
                 {
                      summ = 0;
                      Console.WriteLine("Вы превысили лимит пополнения в 200 000 или сумма пополнения меньше 10 000");
                      Console.Write("Введите сумму пополнения: ");
-                     summ = int.Parse(Console.ReadLine());
+                    int f1 = 0;
+                    while (f1 == 0)
+                    {
+                        try
+                        {
+                            summ = int.Parse(Console.ReadLine());
+                            f1 += 1;
+                        }
+                        catch
+                        {
+                            Console.Write("Введите правильную сумму: ");
+                            f1 = 0;
+                        }
+                    }
                 }
             }
             else if (vibor == 2)
@@ -61,18 +91,44 @@ namespace _Bank
         private static void vivod()
         {
             Console.Write("Сколько денег хотите вывести: ");
-            int _vivod = int.Parse(Console.ReadLine());
+            int f = 0;
+            while (f == 0)
+            {
+                try
+                {
+                    _vivod = int.Parse(Console.ReadLine());
+                    f += 1;
+                }
+                catch
+                {
+                    Console.Write("Введите правильную сумму: ");
+                    f = 0;
+                }
+            }
             while(balans - _vivod < 0 || _vivod > 200000 || _vivod < 10000)
             {
                 if (balans - _vivod < 0)
                     Console.WriteLine("На вашем счету недостаточно средств");
                 else if (_vivod > 200000 || _vivod < 10000)
                 {
-                    Console.WriteLine("Минимальный перевод: 10 000 руб.");
-                    Console.WriteLine("Максимальный перевод: 200 000 руб.");
+                    Console.WriteLine("Минимальный вывод: 10 000 руб.");
+                    Console.WriteLine("Максимальный вывод: 200 000 руб.");
                 }
                 Console.Write("Сколько денег хотите вывести: ");
-                _vivod = int.Parse(Console.ReadLine());
+                int f1 = 0;
+                while (f1 == 0)
+                {
+                    try
+                    {
+                        _vivod = int.Parse(Console.ReadLine());
+                        f1 += 1;
+                    }
+                    catch
+                    {
+                        Console.Write("Введите правильную сумму: ");
+                        f1 = 0;
+                    }
+                }
             }
             balans = balans - _vivod;
             Console.WriteLine($"Ваш текущий баланс: {balans}");
@@ -80,9 +136,35 @@ namespace _Bank
         private static void transaction()
         {
             Console.Write("Введите номер счета на которую хотите перевести: ");
-            int nomer = int.Parse(Console.ReadLine());
+            int f = 0;
+            while (f == 0)
+            {
+                try
+                {
+                    nomer = int.Parse(Console.ReadLine());
+                    f += 1;
+                }
+                catch
+                {
+                    Console.Write("Введите правильный номер: ");
+                    f = 0;
+                }
+            }
             Console.Write("Сколько денег хотите перевести: ");
-            int summ1 = int.Parse(Console.ReadLine());
+            int f1 = 0;
+            while (f1 == 0)
+            {
+                try
+                {
+                    summ1 = int.Parse(Console.ReadLine());
+                    f1 += 1;
+                }
+                catch
+                {
+                    Console.Write("Введите правильную сумму: ");
+                    f1 = 0;
+                }
+            }
             while (balans - summ1 < 0 || summ1 > 200000 || summ1 < 10000)
             {
                 if(balans - summ1 < 0)
@@ -93,7 +175,20 @@ namespace _Bank
                     Console.WriteLine("Максимальный перевод: 200 000 руб.");
                 }
                 Console.Write("Сколько денег хотите перевести: ");
-                summ1 = int.Parse(Console.ReadLine());
+                int f2 = 0;
+                while (f2 == 0)
+                {
+                    try
+                    {
+                        summ1 = int.Parse(Console.ReadLine());
+                        f2 += 1;
+                    }
+                    catch
+                    {
+                        Console.Write("Введите правильную сумму: ");
+                        f2 = 0;
+                    }
+                }
             }
             balans -= summ1;
             Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
@@ -105,7 +200,20 @@ namespace _Bank
             Console.WriteLine("Выберите действие: ");
             Console.WriteLine("1) Зарегистрироваться");
             Console.WriteLine("2) Выйти");
-            int a = int.Parse(Console.ReadLine());
+            int f = 0;
+            while (f == 0)
+            {
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                    f += 1;
+                }
+                catch
+                {
+                    Console.Write("Введите правильную сумму: ");
+                    f = 0;
+                }
+            }
             if (a == 2)
                 a = 0;
             while (a > 0 && a < 5)
@@ -123,7 +231,20 @@ namespace _Bank
                 Console.WriteLine("3) Вывести");
                 Console.WriteLine("4) Перевод денег на другой лицевой счет");
                 Console.WriteLine("5) Выйти");
-                a = int.Parse(Console.ReadLine());
+                int f1 = 0;
+                while (f1 == 0)
+                {
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                        f1 += 1;
+                    }
+                    catch
+                    {
+                        Console.Write("Введите правильную сумму: ");
+                        f1 = 0;
+                    }
+                }
             }
         }
     }
