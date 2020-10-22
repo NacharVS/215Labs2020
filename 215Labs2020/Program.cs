@@ -6,7 +6,6 @@ namespace _215Labs2020.Sharipov
     {
         static void Main(string[] args)
         {
-            DayofbirthBonus.Client();
         }
     }
 }
