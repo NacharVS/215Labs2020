@@ -25,7 +25,24 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine("************************");
             double MONEY = int.Parse(Console.ReadLine());
             if (MONEY >= 10000 || MONEY <= 200000) Bank._contribution = MONEY;
+        }
+        private void PROGNOZ()
+        {
+            Bank bank = new Bank();
+            Console.WriteLine("Investment for how many years?");
+            Console.WriteLine("************************");
+            int coat = int.Parse(Console.ReadLine());
+            for (int i = 1; i < coat; i++)
+            {
+                Bank._contribution += Bank._percent + Bank._contribution;
 
+            }
+        }
+        private void end()
+        {
+            Bank bank = new Bank();
+            Console.WriteLine($"After the period yiou specified will be {Bank._contribution} rubles ");
+            Console.WriteLine($" {Bank._SNF} ");
         }
     }
 }
