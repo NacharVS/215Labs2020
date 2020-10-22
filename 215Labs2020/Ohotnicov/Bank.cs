@@ -11,6 +11,7 @@ namespace _215Labs2020.Ohotnicov
         private static string surname;
         private static double card;
         private static double procent = 0.1;
+        private static double prognoz;
         private static void registration()
         {
             Bank bank = new Bank();
@@ -29,8 +30,8 @@ namespace _215Labs2020.Ohotnicov
                 double a = int.Parse(Console.ReadLine());
                 if ((a >= 10000) & (a <= 200000))
                 {
-                    card += a;
-                    Console.WriteLine($"Ваш счет пополнен на {a}, ваш баланс {card}");
+                    Bank.card += a;
+                    Console.WriteLine($"Ваш счет пополнен на {a}, ваш баланс {Bank.card}");
                     c = false;
                 }
                 if ((a < 10000) || (a > 200000))
@@ -49,10 +50,9 @@ namespace _215Labs2020.Ohotnicov
                 double a = int.Parse(Console.ReadLine());
                 if ((a > 0) & (a <= card))
                 {
-                    card -= a;
-                    Console.WriteLine($"Вы сняли со сета {a}, остаток на счету {card} ");
+                    Bank.card -= a;
+                    Console.WriteLine($"Вы сняли со сета {a}, остаток на счету {Bank.card} ");
                     c = false;
-                    card -= a;
 
                 }
                 else
@@ -68,12 +68,12 @@ namespace _215Labs2020.Ohotnicov
             int coat = int.Parse(Console.ReadLine());
             for (int i = 0; i < coat; i++)
             {
-                Bank.card += Bank.card * Bank.procent;
+                prognoz += Bank.card * Bank.procent;
             }
         }
         private static void End()
         {
-            Console.WriteLine($"Через указанное количтеско лет, ваш вклад будет равен {Bank.card}.");
+            Console.WriteLine($"Через указанное количтеско лет, ваш вклад будет равен {prognoz}.");
             Console.WriteLine($"Спасибо что пользуйтесь нашим банком {Bank.name} {Bank.surname}");
 
         }
