@@ -23,26 +23,67 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void Refill()
         {
+            int a=0;
             Console.Write("Введите сумму пополнения: ");
-            int a = int.Parse(Console.ReadLine());
+            int prov2 = 0;
+            while (prov2 == 0)
+            {
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                    prov2++;
+                }
+                catch
+                {
+                    Console.WriteLine("Введиет правильную сумму");
+                    
+                    prov2 = 0;
+                }
+            }
+            
+            
             if (a < 10000)
             {
                 while (a < 10000)
                 {
                     Console.WriteLine("Минимальная сумма пополнения 10 000 рублей.");
                     Console.Write("Введите сумму пополнения: ");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
             while (a > 200000)
             {
                 Console.WriteLine("Максимальная сумма пополнения 200 000 рублей");
-                a = int.Parse(Console.ReadLine());
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Введиет правильную сумму");
+                    a = int.Parse(Console.ReadLine());
+                }
                 while (a < 10000)
                 {
                     Console.WriteLine("Минимальная сумма пополнения 10 000 рублей.");
                     Console.Write("Введите сумму пополнения: ");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
             bank_balans += a;
@@ -50,64 +91,140 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void Withdrawal()
         {
+            int a;
             Console.Write("Введите сумму которую хотите снять: ");
-            int a = int.Parse(Console.ReadLine());
+            try
+            {
+                a = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Введиет правильную сумму");
+                a = int.Parse(Console.ReadLine());
+            }
             while (bank_balans - a < 0)
             {
-                if (a < 10000)
+                if (a < 10000 )
                 {
                     while (a < 10000)
                     {
                         Console.WriteLine("Минимальная сумма для снятия 10 000 рублей.");
                         Console.Write("Введите сумму которую хотите снять: ");
-                        a = int.Parse(Console.ReadLine());
+                        try
+                        {
+                            a = int.Parse(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Введиет правильную сумму");
+                            a = int.Parse(Console.ReadLine());
+                        }
                     }
+                    
                 }
                 while (a > 200000)
                 {
                     Console.WriteLine("Максимальная сумма для снятия 200 000 рублей");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                     while (a < 10000)
                     {
                         Console.WriteLine("Минимальная сумма для снятия 10 000 рублей.");
                         Console.Write("Введите сумму которую хотите снять: ");
-                        a = int.Parse(Console.ReadLine());
+                        try
+                        {
+                            a = int.Parse(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Введиет правильную сумму");
+                            a = int.Parse(Console.ReadLine());
+                        }
                     }
                 }
                 if (bank_balans - a < 0)
                 {
                     Console.WriteLine($"Недостаточно средст для вывода. Ваш баланс {bank_balans}");
                     Console.Write("Введите сумму которую хотите снять: ");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
+            
             bank_balans -= a;
             Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
         }
         private static void Transfer()
         {
+            int a;
             Console.Write("Введите счет, на которую переводите деньги: ");
             int login_transfer = int.Parse(Console.ReadLine());
             Console.Write("Введите сумму которую хотите перевести: ");
-            int a = int.Parse(Console.ReadLine());
+            try
+            {
+                a = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Введиет правильную сумму");
+                a = int.Parse(Console.ReadLine());
+            }
             if (a < 10000)
             {
                 while (a < 10000)
                 {
                     Console.WriteLine("Минимальная сумма для перевода 10 000 рублей.");
                     Console.Write("Введите сумму которую хотите перевести: ");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
             while (a > 200000)
             {
                 Console.WriteLine("Максимальная сумма для перевода 200 000 рублей");
-                a = int.Parse(Console.ReadLine());
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Введиет правильную сумму");
+                    a = int.Parse(Console.ReadLine());
+                }
                 while (a < 10000)
                 {
                     Console.WriteLine("Минимальная сумма для перевода 10 000 рублей.");
                     Console.Write("Введите сумму которую хотите перевести: ");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
             while (bank_balans - a < 0)
@@ -116,7 +233,15 @@ namespace _215Labs2020.Galyautdinov
                 {
                     Console.WriteLine($"Недостаточно средст для перевода. Ваш баланс {bank_balans}");
                     Console.Write("Введите сумму которую хотите перевести: ");
-                    a = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
             Console.WriteLine($"Вы перевели на счет {login_transfer} - {a} рублей");
@@ -125,9 +250,19 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void Operation()
         {
+            int prov;
+            int number_operation;
             Console.WriteLine("1.Зарегистрироваться");
             Console.WriteLine("2. Выйти");
-            int prov = int.Parse(Console.ReadLine());
+            try
+            {
+                prov = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Введиет правильное число");
+                prov = int.Parse(Console.ReadLine());
+            }
             if (prov == 1)
             {
                 Console.WriteLine("Здравствуйте, выберите операцию которую хотите выполнить.");
@@ -136,7 +271,15 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine("3. Снятие денег со счета");
                 Console.WriteLine("4. Перевод денег");
                 Console.WriteLine("Выберите любое число для выхода");
-                int number_operation = int.Parse(Console.ReadLine());
+                try
+                {
+                    number_operation = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Введиет правильную сумму");
+                    number_operation = int.Parse(Console.ReadLine());
+                }
                 while (number_operation > 0 && number_operation < 5)
                 {
                     switch (number_operation)
@@ -147,7 +290,15 @@ namespace _215Labs2020.Galyautdinov
                         case 4: Transfer(); break;
                     }
                     Console.WriteLine("Выберите дальнейшие действие");
-                    number_operation = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        number_operation = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введиет правильную сумму");
+                        number_operation = int.Parse(Console.ReadLine());
+                    }
                 }
             }
         }
