@@ -8,7 +8,9 @@ namespace _215Labs2020.Sabirov
     {
 
         private string name;
-        private string birthDay;
+        private int day;
+        private int month;
+        private int year;
         private string email;
         private static double money = 0;
         private static double deposit = 0.061;
@@ -17,25 +19,37 @@ namespace _215Labs2020.Sabirov
         {
             Console.WriteLine("How many do you want to withdraw?");
             int x = int.Parse(Console.ReadLine());
-            if (x > money)
+            if (x > money | x < 0)
             {
                 Console.WriteLine("insufficient funds to write off");
             }
             else Bank.money -= x;
             Console.WriteLine($"You have {Bank.money} in your account");
         }
-        private static void Desposit(int x)
+        private static void Desposit()
         {
-            if (x < 10000)
+
+            Console.WriteLine("Введите число");
+            int y;
+            string input = Console.ReadLine();
+            if (Int32.TryParse(input, out y))
             {
-                Console.WriteLine("Unable to top up: Deposit less than 10000");
+                if (y < 10000 & y < 200000)
+                {
+                    Console.WriteLine("Error. Deposit is less than 10000 or more than 200000");
+                }
+                else
+                {
+                    Bank.money += y;
+                    Console.WriteLine($"Account replenished\n{Bank.money}");
+
+                }
             }
             else
             {
-                Bank.money += x;
-                Console.WriteLine($"Account replenished\n{Bank.money}");
-
+                Console.WriteLine("Некорректный ввод");
             }
+
         }
         private static void percent()
         {
@@ -52,7 +66,12 @@ namespace _215Labs2020.Sabirov
             string name = Console.ReadLine();
             Bank.UserName(name);
             Console.WriteLine("Enter your BirthDay");
-            user.birthDay = Console.ReadLine();
+            user.day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your BirthMonth");
+            user.month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your BirthYear");
+            user.year = int.Parse(Console.ReadLine());
+            Bank.Birth(user.month, user.year, user.day);
             Console.WriteLine("Enter your e-mail");
             user.email = Console.ReadLine();
         }
@@ -69,6 +88,28 @@ namespace _215Labs2020.Sabirov
             }
 
         }
+        private static void Birth(int a, int b, int c)
+        {
+            if (b > 1900 & b < DateTime.Now.Year)
+            {
+                if (DateTime.Now.Year - b < 18)
+                {
+                    Console.WriteLine("You are underage :(");
+
+                }
+                else if (c == DateTime.Now.Day & a == DateTime.Now.Month)
+                {
+                    Bank.money += 100;
+
+                    Console.WriteLine($"it's your birthday!!! You are now {DateTime.Now.Year - b} year old.");
+                    Console.WriteLine(Bank.money);
+                }
+
+            }
+
+
+        }
+
         public static void Login()
         {
             Bank.signIn();
@@ -81,9 +122,8 @@ namespace _215Labs2020.Sabirov
                 switch (enter)
                 {
                     case "1":
-                        Console.WriteLine("Amount of money you want to deposit");
-                        int x = int.Parse(Console.ReadLine());
-                        Bank.Desposit(x);
+
+                        Bank.Desposit();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         string cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
