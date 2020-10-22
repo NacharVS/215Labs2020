@@ -6,6 +6,6 @@ namespace _215Labs2020.Nurtdinova
 {
     class Bank
     {
-        
+        Console.WriteLine();
     }
 }
