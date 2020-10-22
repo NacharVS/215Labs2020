@@ -22,8 +22,6 @@ namespace _215Labs2020.Maksimov_Aleksei
         }
         private void Operation()
         {
-            while (true)
-            {
                 try
                 {
                     Bank bank = new Bank();
@@ -33,21 +31,19 @@ namespace _215Labs2020.Maksimov_Aleksei
                 }
                 catch
                 {
-                    Console.WriteLine("Вышла ошибка");
+                    Console.WriteLine("Вышла ошибка, перезайдите в программу");
                 }
                 finally
                 {
+                   
                 }
-
-
-            }
         }
         private void prognoz()
         {
             Bank bank = new Bank();
             Console.WriteLine("На сколько лет вы планируете вложение?");
             int coat = int.Parse(Console.ReadLine());
-            for (int i = 1; i < coat; i++)
+            for (int i = 0; i < coat; i++)
             {
                 Bank.vklad += Bank.procent * Bank.vklad;
             }
@@ -58,15 +54,16 @@ namespace _215Labs2020.Maksimov_Aleksei
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {Bank.vklad} рублей.");
             Console.WriteLine($"{Bank.name} {Bank.surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьЛейсанИнвест'.");
         }
-        
         public static void method()
         {
             Bank bank = new Bank();
             bank.Registration();
             bank.Operation();
-            bank.prognoz();
-            bank.end();
-
+            if (Bank.vklad != 0)
+            {
+                bank.prognoz();
+                bank.end();
+            }
         }
     }
 }
