@@ -9,7 +9,6 @@ namespace _215Labs2020.Imamov
         private string name;
         private string surname;
         private static int deposit;
-        private static double procents = 0.05;
         private void Registration()
         {
             Console.WriteLine("Greetings, you need sign up to deposit your money in our bank");
@@ -25,7 +24,7 @@ namespace _215Labs2020.Imamov
         {
             Bank InfoBase = new Bank();
             Console.WriteLine("Enter the amount of deposit");
-            double money = int.Parse(Console.ReadLine());
+            int money = int.Parse(Console.ReadLine());
             if (money >= 10000 || money <= 200000) Bank.deposit = money;
         }
         private void procents()
