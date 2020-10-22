@@ -7,7 +7,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            DayOfBirthBonus.ClientInfo();
+            Bank.Method();
         }
     }
 }
