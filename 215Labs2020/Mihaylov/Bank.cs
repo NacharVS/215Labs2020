@@ -19,14 +19,21 @@ namespace _215Labs2020.Mihaylov
         private static void addition()
         {
             Console.Write("Введите сумму пополнения от 10000 до 200000: ");
-            double a = double.Parse(Console.ReadLine());
+            int a= 0;
             if (a <= 10000 | a >= 200000)
             {
                 while (a <= 10000 | a >= 200000)
                 {
-                    Console.WriteLine("Ошибка! Диапазон пополнений  от 10000 до 200000. ");
-                    Console.Write("Введите сумму пополнения: ");
-                    a = double.Parse(Console.ReadLine());
+                    try
+                    {
+                        a = int.Parse(Console.ReadLine());
+                    }
+                    catch 
+                    {
+                        Console.WriteLine("Ошибка! Диапазон пополнений  от 10000 до 200000. ");
+                        Console.Write("Введите сумму пополнения: ");
+                        a = int.Parse(Console.ReadLine());
+                    }
                 }
             }
             balans += a;
@@ -35,16 +42,22 @@ namespace _215Labs2020.Mihaylov
         private static void cut()
         {
             Console.WriteLine("Введите сумму которую хотите снять: ");
-            double a = double.Parse(Console.ReadLine());
+            int a = int.Parse(Console.ReadLine());
             while (balans - a < 0)
             {
-                if (a <= 10000 | a >= 200000)
+                try
                 {
-                    Console.WriteLine($" У вас недостаточно средств для вывода денег, ваш баланс составляет: {balans}");
-                    Console.Write("Введите сумму которую хотите снять:  ");
-                    a = double.Parse(Console.ReadLine());
+                    a = int.Parse(Console.ReadLine());
                 }
-            }
+                catch
+                {
+                    if (a <= 10000 | a >= 200000)
+                    {
+                        Console.WriteLine($" У вас недостаточно средств для вывода денег, ваш баланс составляет: {balans}");
+                        Console.Write("Введите сумму которую хотите снять:  ");
+                        a = int.Parse(Console.ReadLine());
+                    }
+                }}
             balans -= a;
             Console.WriteLine("Снятие прошло успешно");
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
