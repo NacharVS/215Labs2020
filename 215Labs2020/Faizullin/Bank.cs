@@ -34,15 +34,23 @@ namespace _215Labs2020.Faizullin
             int coat = int.Parse(Console.ReadLine());
             for (int i = 1; i < coat; i++)
             {
-                Bank._contribution += Bank._percent + Bank._contribution;
+                Bank._contribution += Bank._percent * Bank._contribution;
 
             }
         }
-        private void end()
+        private void END()
         {
             Bank bank = new Bank();
             Console.WriteLine($"After the period yiou specified will be {Bank._contribution} rubles ");
-            Console.WriteLine($" {Bank._SNF} ");
+            Console.WriteLine($" {Bank._SNF} Thank you ,goodbye");
+        }
+        public static void Proverka()
+        {
+            Bank bank = new Bank();
+            bank.Registration();
+            bank.Operation();
+            bank.PROGNOZ();
+            bank.END();
         }
     }
 }

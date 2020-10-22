@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace _215Labs2020
+namespace _215Labs2020.Faizullin
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Word!");
+            StringOperations3.STRINGSSSSS("        gffghgj        jhjhl");
         }
     }
 }
