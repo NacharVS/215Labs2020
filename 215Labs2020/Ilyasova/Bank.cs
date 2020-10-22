@@ -22,17 +22,28 @@ namespace _215Labs2020.Ilyasova
         }
         private void Operation()
         {
-            Bank bank = new Bank();
-            Console.WriteLine("Введите сумму депозита");
-            double money = int.Parse(Console.ReadLine());
-            if (money >= 10000 || money <= 200000) Bank.vklad = money;
+            try
+            {
+                Bank bank = new Bank();
+                Console.WriteLine("Введите сумму депозита");
+                int money = int.Parse(Console.ReadLine());
+                if (money >= 10000 && money <= 200000) Bank.vklad = money;
+            }
+            catch
+            {
+                Console.WriteLine("Вышла ошибка, перезайдите в программу");
+            }
+            finally
+            {
+
+            }
         }
         private void prognoz()
         {
             Bank bank = new Bank();
             Console.WriteLine("На сколько лет вы планируете вложение?");
             int coat = int.Parse(Console.ReadLine());
-            for (int i = 1; i < coat; i++)
+            for (int i = 0; i < coat; i++)
             {
                 Bank.vklad += Bank.procent * Bank.vklad;
             }
@@ -41,16 +52,18 @@ namespace _215Labs2020.Ilyasova
         {
             Bank bank = new Bank();
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {Bank.vklad} рублей.");
-            Console.WriteLine($"{Bank.name} {Bank.surname}, cпасибо за оказанное вами довериe к нашему банку.");
+            Console.WriteLine($"{Bank.name} {Bank.surname}, cпасибо за оказанное вами довериe к банку.");
         }
-
         public static void method()
         {
             Bank bank = new Bank();
             bank.Registration();
             bank.Operation();
-            bank.prognoz();
-            bank.end();
+            if (Bank.vklad != 0)
+            {
+                bank.prognoz();
+                bank.end();
+            }
         }
     }
 }
