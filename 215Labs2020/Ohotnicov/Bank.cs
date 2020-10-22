@@ -29,8 +29,8 @@ namespace _215Labs2020.Ohotnicov
                 double a = int.Parse(Console.ReadLine());
                 if ((a >= 10000) & (a <= 200000))
                 {
-                    Bank.card += a;
-                    Console.WriteLine($"Ваш счет пополнен на {a}, ваш баланс {Bank.card}");
+                    card += a;
+                    Console.WriteLine($"Ваш счет пополнен на {a}, ваш баланс {card}");
                     c = false;
                 }
                 if ((a < 10000) || (a > 200000))
@@ -49,10 +49,10 @@ namespace _215Labs2020.Ohotnicov
                 double a = int.Parse(Console.ReadLine());
                 if ((a > 0) & (a <= card))
                 {
-                    Bank.card -= a;
-                    Console.WriteLine($"Вы сняли со сета {a}, остаток на счету {Bank.card} ");
+                    card -= a;
+                    Console.WriteLine($"Вы сняли со сета {a}, остаток на счету {card} ");
                     c = false;
-                    Bank.card -= a;
+                    card -= a;
 
                 }
                 else
@@ -100,7 +100,7 @@ namespace _215Labs2020.Ohotnicov
                         Withdraw();
                         break;
                     case "3":
-                        Console.WriteLine($"{Bank.card}");
+                        Console.WriteLine($"{card}");
                         break;
                     case "4":
                         End();
