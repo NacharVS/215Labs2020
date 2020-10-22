@@ -22,10 +22,25 @@ namespace _215Labs2020.Maksimov_Aleksei
         }
         private void Operation()
         {
-            Bank bank = new Bank();
-            Console.WriteLine("Введите сумму депозита");
-            double money = int.Parse(Console.ReadLine());
-            if (money >= 10000 || money <= 200000) Bank.vklad = money;
+            while (true)
+            {
+                try
+                {
+                    Bank bank = new Bank();
+                    Console.WriteLine("Введите сумму депозита");
+                    int money = int.Parse(Console.ReadLine());
+                    if (money >= 10000 && money <= 200000) Bank.vklad = money;
+                }
+                catch
+                {
+                    Console.WriteLine("Вышла ошибка");
+                }
+                finally
+                {
+                }
+
+
+            }
         }
         private void prognoz()
         {
@@ -41,7 +56,7 @@ namespace _215Labs2020.Maksimov_Aleksei
         {
             Bank bank = new Bank();
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {Bank.vklad} рублей.");
-            Console.WriteLine($"{Bank.name} {Bank.surname}, cпасибо за оказанное вами довериe к банку МаксимовСтройГазНефтьАлмазИнвест.");
+            Console.WriteLine($"{Bank.name} {Bank.surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьЛейсанИнвест'.");
         }
         
         public static void method()
@@ -51,6 +66,7 @@ namespace _215Labs2020.Maksimov_Aleksei
             bank.Operation();
             bank.prognoz();
             bank.end();
+
         }
     }
 }
