@@ -18,7 +18,7 @@ namespace _215Labs2020.Ibragimov
             {
                 bank.money += a;
                 Console.WriteLine($"Счет пополнен\n{bank.money}");
-
+                Console write
 
 
             }
