@@ -34,48 +34,84 @@ namespace _215Labs2020.Hasanov
             Console.WriteLine("Введите cумму которую хотите зачислить");
             while (true)
             {
-                int b = 0;
+                int m = 0;
                 int deposit = int.Parse(Console.ReadLine());
                 if (deposit >= minideposit & deposit <= maxdeposit) Console.WriteLine($"Спасибо за использование нашего банка, на вашем счету {bankaccount +=deposit}");
-                if (deposit >= minideposit & deposit <= maxdeposit) b = +1;
+                if (deposit >= minideposit & deposit <= maxdeposit) m += 1;
                 else Console.WriteLine("Депозитная сумма должна быть не менее 10000 и не более 200000, введите сумму заново");
-                if (b != 0) break;
+                if (m != 0) break;
             }
             
             while (true)
-            { Console.WriteLine("Ваши возможные операции: Внести денежные средства, Снять денежные средства, Внести денежные средста на депозит (2.5%)");
+            { Console.WriteLine("Ваши возможные операции: внести денежные средства, снять денежные средства, внести денежные средста на депозит (2.5%)");
               string BOA = Console.ReadLine();
                double k=1.025;
                int year;
                int b;
                int c = DateTime.Now.Year;
+               int r;
                 switch (BOA)
                 {
                     case "Внести денежные средства":
-                        
-                        
+
+                        while (true)
+                        {
+                            r = 0;
                             Console.WriteLine("Введите сумму которую хотите внести ");
                             b = int.Parse(Console.ReadLine());
-                            if (b >= minideposit & b <= maxdeposit) Console.WriteLine($"На вашем счету {bankaccount +=b}");
-                            else  Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
+                            if (b >= minideposit & b <= maxdeposit)
+                            {
+                                Console.WriteLine($"На вашем счету {bankaccount += b}");
+                                r += 1;
+                            }
+                            else Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
+                            if (r != 0) break;
+                        }
                             break;
                         
-                    case "Снять денежные средства":
+                    case "Снять денежные средства":                       
                         Console.WriteLine($"На вашем счету {bankaccount}");
-                        Console.WriteLine("Введите сумму которую хотите снять ");
-                        b = int.Parse(Console.ReadLine());
-                        if (bankaccount >= b & b >= minideposit & b <= maxdeposit) Console.WriteLine($"На вашем счету {bankaccount -=b}");
-                        if (bankaccount < b) Console.WriteLine("На вашем счету недостаточно средств");
-                        if (b < minideposit || b > maxdeposit) Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
+                        while (true)
+                        {
+                            r = 0;
+                            Console.WriteLine("Введите сумму которую хотите снять ");
+                            b = int.Parse(Console.ReadLine());
+                            if (bankaccount >= b & b >= minideposit & b <= maxdeposit) 
+                            { 
+                                Console.WriteLine($"На вашем счету {bankaccount -= b}");
+                                r += 1;
+                            }
+                            if (bankaccount < b && bankaccount != 0 ) 
+                            { 
+                                Console.WriteLine("На вашем счету недостаточно средств");
+                                
+                            }
+                            if (b < minideposit || b > maxdeposit) Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
+                            if (r != 0) break;
+                        }
                         break;
-                    case "Внести денежные средста на депозит (2.5%)":
+                    case "Внести денежные средста на депозит":
                         Console.WriteLine($"На вашем счету {bankaccount}");
-                        Console.WriteLine("Введите сумму которую внести ");
-                        b = int.Parse(Console.ReadLine());
-                        if (b < minideposit || b > maxdeposit) Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
-                        if (b < minideposit || b > maxdeposit) break;
-                         if (bankaccount < b) Console.WriteLine("На вашем счету недостаточно средств");
-                        if (bankaccount < b) break;
+                        while (true)
+                        {
+                            r = 0;
+                            Console.WriteLine("Введите сумму которую хотите внести ");
+                            b = int.Parse(Console.ReadLine());
+                            if (b < minideposit || b > maxdeposit) 
+                            { 
+                                Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
+                                 r+= 1;
+                                
+                                
+                            }
+
+                            if (bankaccount < b && bankaccount != 0)
+                            {
+                                Console.WriteLine("На вашем счету недостаточно средств");
+
+                            }
+                            if ( r != 1) break;
+                        }
                         Console.WriteLine("Введите на сколько лет хотите внести депозит");
                         year = int.Parse(Console.ReadLine());
                         if (bankaccount >= b & b >= minideposit & b <= maxdeposit) Console.WriteLine($"На вашем счету {bankaccount -=b}");
