@@ -11,7 +11,7 @@ namespace _215Labs2020.Sabirov
         private int day;
         private int month;
         private int year;
-        private string email;
+        private static string email = "";
         private static double money = 0;
         private static double deposit = 0.061;
 
@@ -72,8 +72,7 @@ namespace _215Labs2020.Sabirov
             Console.WriteLine("Enter your BirthYear");
             user.year = int.Parse(Console.ReadLine());
             Bank.Birth(user.month, user.year, user.day);
-            Console.WriteLine("Enter your e-mail");
-            user.email = Console.ReadLine();
+            Bank.EmailCheck();
         }
         private static void UserName(string Newname)
         {
@@ -89,8 +88,12 @@ namespace _215Labs2020.Sabirov
 
         }
         private static void Birth(int a, int b, int c)
-        {
-            if (b > 1900 & b < DateTime.Now.Year)
+        {   
+            if (c > 31 )
+            {
+
+            }
+            if (b > 1900 & b < DateTime.Now.Year & c > 0 & c < 31 & a > 0 & a < 12)
             {
                 if (DateTime.Now.Year - b < 18)
                 {
@@ -106,10 +109,31 @@ namespace _215Labs2020.Sabirov
                 }
 
             }
+            else Console.WriteLine("Incorrect date");
 
 
         }
 
+        private static void EmailCheck()
+        {
+            int a = 1;
+            while (a == 1)
+            {
+                Console.WriteLine("Enter your E-mail");
+                string em = Console.ReadLine();
+                bool c = em.Contains('@');
+                if (c == true)
+                {
+                    a = 0;
+                    Bank.email = em;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect");
+                    Console.WriteLine("Try again");
+                }
+            }
+        }
         public static void Login()
         {
             Bank.signIn();
