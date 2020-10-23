@@ -27,9 +27,9 @@ namespace _215Labs2020.Imamiev
                 try
                 {
                     Bank InfoBase = new Bank();
-                    Console.WriteLine("Enter the amount od deposit");
+                    Console.WriteLine("Enter the amount of deposit");
                     double money = int.Parse(Console.ReadLine());
-                    if (money >= 10000 || money <= 10000) Bank.deposit = money;
+                    if (money >= 10000 || money <= 20000) Bank.deposit = money;
                     {
                         i = 1;
                     }
