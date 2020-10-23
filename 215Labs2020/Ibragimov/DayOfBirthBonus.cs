@@ -16,7 +16,7 @@ namespace _215Labs2020.Ibragimov
             ball += 1;
             return ball;
         }
-        public static void Main(string[] args)
+        public static void regs()
         {
             DayOfBirthBonus birthDay = new DayOfBirthBonus();
             DayOfBirthBonus birthMonth = new DayOfBirthBonus();
