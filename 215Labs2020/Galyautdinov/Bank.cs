@@ -9,8 +9,10 @@ namespace _215Labs2020.Galyautdinov
         private static double bank_balans = 0;
         private static double percent = 0.061;
         private static string name;
+        private static long phone;
         private static void FullName()
         {
+            Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
             Console.Write("Фамилия Имя Отчество: ");
             string _name = Console.ReadLine();
             while(_name == name)
@@ -21,6 +23,25 @@ namespace _215Labs2020.Galyautdinov
                 _name = Console.ReadLine();
             }
             name = _name;
+            try
+            {
+                Console.Write("Введите ваш номер телефона: ");
+                phone = long.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.Write("Введите правильный номер телефона: ");
+                phone = long.Parse(Console.ReadLine());
+            }
+            
+            if (phone/10000000000==0 || phone/ 1000000000 != 8)
+            {
+                while (phone / 10000000000 == 0 || phone / 10000000000 != 8)
+                {
+                    Console.Write("Введиет правильный номер телефона: ");
+                    phone = long.Parse(Console.ReadLine());
+                }
+            }
         }
         private static void Refill()
         {
@@ -41,8 +62,6 @@ namespace _215Labs2020.Galyautdinov
                     prov2 = 0;
                 }
             }
-            
-            
             if (a < 10000)
             {
                 while (a < 10000)
@@ -103,9 +122,9 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine("Введиет правильную сумму");
                 a = int.Parse(Console.ReadLine());
             }
-            while (bank_balans - a > 0)
+            while (bank_balans - a < 0)
             {
-                if (a < 10000 )
+                if (a < 10000)
                 {
                     while (a < 10000)
                     {
@@ -121,7 +140,6 @@ namespace _215Labs2020.Galyautdinov
                             a = int.Parse(Console.ReadLine());
                         }
                     }
-                    
                 }
                 while (a > 200000)
                 {
@@ -156,7 +174,7 @@ namespace _215Labs2020.Galyautdinov
                     Console.Write("Введите сумму которую хотите снять: ");
                     try
                     {
-                        a = int.Parse(Console.ReadLine());
+                            a = int.Parse(Console.ReadLine());
                     }
                     catch
                     {
@@ -165,7 +183,6 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            
             bank_balans -= a;
             Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
         }
@@ -249,16 +266,29 @@ namespace _215Labs2020.Galyautdinov
             bank_balans -= a;
             Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
         }
-        private static void Dep()
+        private static void Deposit()
         {
             Console.WriteLine("Вклад 6.1%");
             Console.Write("Через сколько лет вы хотите узнать свой баланс:");
             int year_vklad = int.Parse(Console.ReadLine());
+            double dep=0;
             for (int i = 0; i < year_vklad; i++)
             {
-                bank_balans=Math.Round(bank_balans+bank_balans*percent,2);
+                dep=Math.Round(bank_balans+bank_balans*percent,2);
             }
-            Console.WriteLine($"Через {year_vklad} у вас будет {bank_balans} рублей.");
+            if (year_vklad >= 5)
+            {
+                Console.WriteLine($"Через {year_vklad} лет у вас будет {dep} рублей.");
+            }
+            else
+            {
+                Console.WriteLine($"Через {year_vklad} года у вас будет {dep} рублей.");
+            }
+        }
+        private static void CheckBalance()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Ваш баланс на текущий момент {bank_balans} рублей");
         }
         public static void Operation()
         {
@@ -272,7 +302,7 @@ namespace _215Labs2020.Galyautdinov
             }
             catch
             {
-                Console.Write("Введиет правильное число ");
+                Console.Write("Введите правильное число ");
                 prov = int.Parse(Console.ReadLine());
             }
             if (prov == 1)
@@ -283,7 +313,8 @@ namespace _215Labs2020.Galyautdinov
             Console.WriteLine("1. Пополнение счета");
             Console.WriteLine("2. Снятие денег со счета");
             Console.WriteLine("3. Перевод денег");
-            Console.WriteLine("4. Узнать свой депозит");
+            Console.WriteLine("4. Узнать свой баланс");
+            Console.WriteLine("5. Узнать свой депозит");
             Console.WriteLine("Выберите любое число для выхода");
             try
             {
@@ -291,10 +322,10 @@ namespace _215Labs2020.Galyautdinov
             }
             catch
             {
-                Console.WriteLine("Введиет правильную сумму");
+                Console.WriteLine("Введите правильную сумму");
                 number_operation = int.Parse(Console.ReadLine());
             }
-            while (number_operation > 0 && number_operation < 5)
+            while (number_operation > 0 && number_operation < 6)
             {
                 switch (number_operation)
                 {
@@ -302,7 +333,8 @@ namespace _215Labs2020.Galyautdinov
                     case 1: Refill(); break;
                     case 2: Withdrawal(); break;
                     case 3: Transfer(); break;
-                    case 4: Dep(); break;
+                    case 4: CheckBalance(); break;
+                    case 5: Deposit(); break;
                 }
                 Console.WriteLine("Выберите дальнейшие действие");
                 try
@@ -311,7 +343,7 @@ namespace _215Labs2020.Galyautdinov
                 }
                 catch
                 {
-                    Console.WriteLine("Введиет правильную сумму");
+                    Console.WriteLine("Введите правильную сумму");
                     number_operation = int.Parse(Console.ReadLine());
                 }
             }
