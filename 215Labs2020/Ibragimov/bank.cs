@@ -13,7 +13,6 @@ namespace _215Labs2020.Ibragimov
         {
             Console.WriteLine("Введите фио");
             bank bank1 = new bank();
-            Console.WriteLine("Введите ваше имя");
             bank.FIO = Console.ReadLine();
 
         }
@@ -41,7 +40,7 @@ namespace _215Labs2020.Ibragimov
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {bank.vklad} рублей.");
         }
 
-        public static void method()
+        public static void program()
         {
             bank bank1 = new bank();
             bank1.Regist();
