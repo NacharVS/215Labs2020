@@ -10,30 +10,56 @@ namespace _215Labs2020.Kuzmin_Aleksey
         private static double persent = 0.006;
         private string name;
         private static bool registration=false;
-        private string year;
-        private static double donation=0;
+        private static bool take = false;
+        private static bool take2 = false;
+        private static double donation;
+        private string year;        
         private string phone;
-        private static string line="*************************************************************";
+        private static string line="*************************************************************";       
         
-        
-        private static double Proverka
+        private static void Check1(double donation)
         {
-            get { return score; }
-            set
+            if (donation < 10000 | donation > 200000 & take2)
             {
-                if (value < 10000 | value > 200000)
-                {
-                    Console.WriteLine(Bank.line);
-                    Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р.");
-                }
-                else
-                {
-                    Bank.score += value;
-                    Console.WriteLine(Bank.line);
-                    Console.WriteLine($"Баланс счета составляет: {Bank.score}");
-                    Console.WriteLine(Bank.line);
-                    Console.WriteLine();
-                }
+                Console.WriteLine(Bank.line);
+                Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р.");
+                Console.WriteLine(Bank.line);
+                take = false;
+                take2 = false;
+            }
+            else if (Bank.score - donation < 0 & take & take2)
+            {
+                Console.WriteLine(Bank.line);
+                Console.WriteLine("Ошибка. Не достаточно средств для снятия со сочета на балансе счета.");
+                Console.WriteLine(Bank.line);
+                take = false;
+                take2 = false;
+            }
+            else if(take2)
+            {
+                if (take) { Bank.score -= donation; }
+                else { Bank.score += donation; }
+                Console.WriteLine(Bank.line);
+                Console.WriteLine($"Баланс счета составляет: {Bank.score}");
+                Console.WriteLine(Bank.line);
+                Console.WriteLine();
+                take = false;
+                take2 = false;
+            }
+        }
+        private static void Check2(string donation)
+        {
+            try 
+            { 
+                double a = double.Parse(donation);
+                Bank.donation = a;
+                Bank.take2 = true;
+            }
+            catch 
+            {
+                Console.WriteLine(Bank.line);
+                Console.WriteLine("Ошибка. Введенные символы не допустимы.");
+                Console.WriteLine(Bank.line);
             }
         }
         private static void CreateAccount()
@@ -47,30 +73,34 @@ namespace _215Labs2020.Kuzmin_Aleksey
             Console.Write("Введите свой номер телефона:  ");
             person.phone = Console.ReadLine();
             Console.Write("Введите сумму первого взноса: ");
-            Bank.donation = double.Parse(Console.ReadLine());
-            Bank.Proverka = double.Parse(Console.ReadLine());
-            Console.WriteLine(Bank.line);
-            Console.WriteLine();
+            Bank.Check2(Console.ReadLine());
+            
+            if (donation < 10000 | donation > 200000 & take2)
+            {
+                Console.WriteLine(Bank.line);
+                Console.WriteLine("Ошибка. Сумма первого взноса должна быть больше 10 000р и меньше 200 000р.");
+                Console.WriteLine(Bank.line);
+                take2 = false;
+            }
+            else if (take2)
+            {
+                Bank.score += donation;
+                Console.WriteLine(Bank.line);
+                Console.WriteLine("Благодарим за регистрацию в нашем банке.");
+                Console.WriteLine($"Баланс счета составляет: {Bank.score}");
+                Console.WriteLine(Bank.line);
+                Console.WriteLine();
+                registration = true;
+                take2 = false;
+            }
+
         }
         private static void Refill()
         {
             Console.WriteLine(Bank.line);
             Console.Write("Введите сумму, на которую вы хотите пополнить баланс: ");
-            Bank.donation = double.Parse(Console.ReadLine());
-            if (Bank.donation < 10000 | Bank.donation > 200000) 
-            {
-                Console.WriteLine(Bank.line);
-                Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р.");
-                Console.WriteLine(Bank.line);
-            }
-            else
-            {
-                Bank.score += Bank.donation;
-                Console.WriteLine(Bank.line);
-                Console.WriteLine($"Баланс счета составляет: {Bank.score}");
-                Console.WriteLine(Bank.line);
-                Console.WriteLine();
-            }
+            Bank.Check2(Console.ReadLine());
+            Bank.Check1(donation);
         }
         private static void In_year()
         {
@@ -96,20 +126,9 @@ namespace _215Labs2020.Kuzmin_Aleksey
         private static void Cash_out()
         {
             Console.Write("Введите сумму для снятия с счета: ");
-            Bank.donation = double.Parse(Console.ReadLine());
-            if (Bank.donation < 10000 | Bank.donation > 200000)
-            {
-                Console.WriteLine(Bank.line);
-                Console.WriteLine("Ошибка. Сумма снятия должна быть больше 10 000р и меньше 200 000р.");
-                Console.WriteLine(Bank.line);
-            }
-            else 
-            {
-                Bank.score -= Bank.donation;
-                Console.WriteLine($"Баланс счета составляет: {Bank.score}");
-                Console.WriteLine(Bank.line);
-                Console.WriteLine();
-            }
+            take = true;
+            Bank.Check2(Console.ReadLine());
+            Bank.Check1(donation);
         }
         public static void Program()
         {
@@ -120,7 +139,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 Console.WriteLine("Снять деньги со счета: ( 2 ) ");
                 Console.WriteLine("Пополнить счет: ( 3 ) ");
                 Console.WriteLine("Узнать баланс счета через определенный период: ( 4 ) ");
-                Console.WriteLine("Регистрация: ( 5 )");
+                if (registration == false) { Console.WriteLine("Регистрация: ( 5 )"); }               
                 Console.Write("Введите действие над счетом: ");
                 int action = int.Parse(Console.ReadLine());
                 Console.WriteLine();
