@@ -7,9 +7,9 @@ namespace _215Labs2020.Faizullin
     class Bank
     {
         private static string _SNF;
-        private static double _contribution= 0;
+        private static double _contribution = 0;
         private static double _percent = 0.3;
-        private void Registration()
+        public void Registration()
         {
             Console.WriteLine("Hello, welcome to our Bank.");
             Console.WriteLine("***************************");
@@ -44,7 +44,7 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine($"After the period yiou specified will be {Bank._contribution} rubles ");
             Console.WriteLine($" {Bank._SNF} Thank you ,goodbye");
         }
-        public static void Proverka()
+        public static  void Proverka()
         {
             Bank bank = new Bank();
             bank.Registration();
