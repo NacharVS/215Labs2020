@@ -61,7 +61,7 @@ namespace _215Labs2020.Ibragimov
                 if (value <= 5 || value >= 2) his = value;
             }
         }
-        public static void Main(string[] args)
+        public static void Name1()
         {
             Console.WriteLine("Введите колличество студентов:");
             int a = int.Parse(Console.ReadLine());
