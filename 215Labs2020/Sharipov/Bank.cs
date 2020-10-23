@@ -53,7 +53,7 @@ namespace _215Labs2020.Sharipov
         {
             Bank bank = new Bank();
             Console.WriteLine($"Через указанный вами срок, сумма на вашем вкладе составит {Bank.vklad} рублей.");
-            Console.WriteLine($"{Bank.name} {Bank.surname}, спасибо, что Вы с нами, ваш CamaBank.");
+            Console.WriteLine($"{Bank.name} {Bank.surname}, спасибо, что Вы с нами, ваш CamachBank.");
         }
         public static void method()
         {
