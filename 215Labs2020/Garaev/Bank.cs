@@ -275,12 +275,12 @@ namespace _Bank
                     try
                     {
                         a = int.Parse(Console.ReadLine());
-                        f1 += 1;
+                        f1 = 1;
                     }
                     catch
                     {
                         Console.WriteLine("******!!!! ОШИБКА !!!!******");
-                        Console.Write("Введите правильную сумму: ");
+                        Console.Write("Введите правильное действие: ");
                         f1 = 0;
                     }
                 }
