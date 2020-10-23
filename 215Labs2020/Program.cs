@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace _215Labs2020
+namespace _215Labs2020.Nurtdinova
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Bank.method();
         }
     }
 }
