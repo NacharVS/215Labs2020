@@ -9,7 +9,7 @@ namespace _215Labs2020.Sadukov
         private int day;
         private int month;
         private int year;
-        private string email;
+        private static string email = "";
         private static double money = 0;
         private static double deposit = 0.061;
 
@@ -70,8 +70,8 @@ namespace _215Labs2020.Sadukov
             Console.WriteLine("Enter your BirthYear");
             user.year = int.Parse(Console.ReadLine());
             Bank.Birth(user.month, user.year, user.day);
-            Console.WriteLine("Enter your e-mail");
-            user.email = Console.ReadLine();
+            Bank.EmailCheck();
+            
         }
         private static void UserName(string Newname)
         {
@@ -88,26 +88,46 @@ namespace _215Labs2020.Sadukov
         }
         private static void Birth(int a, int b, int c)
         {
-            if (b > 1900 & b < DateTime.Now.Year)
+            if (b > 1900 & b < DateTime.Now.Year & c > 0 & c <= 31 & a > 0 & a <= 12)
             {
-            if (DateTime.Now.Year - b < 18)
+                if (DateTime.Now.Year - b < 18)
                 {
                     Console.WriteLine("You are underage :(");
+
                 }
-
-
-                if (c == DateTime.Now.Day & a == DateTime.Now.Month)
+                else if (c == DateTime.Now.Day & a == DateTime.Now.Month)
                 {
                     Bank.money += 100;
 
-                    Console.WriteLine($"У тебя день рождения!!! Твой возраст {DateTime.Now.Year - b} .Тебе начисленно 100!");
+                    Console.WriteLine($"it's your birthday!!! You are now {DateTime.Now.Year - b} year old.");
                     Console.WriteLine(Bank.money);
                 }
+                
             }
 
 
         }
-        
+        private static void EmailCheck()
+        {
+            int a = 1;
+            while (a == 1)
+            {
+                Console.WriteLine("Enter your E-mail");
+                string em = Console.ReadLine();
+                bool c = em.Contains('@');
+                if (c == true)
+                {
+                    a = 0;
+                    Bank.email = em;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect");
+                    Console.WriteLine("Try again");
+                }
+            }
+        }
+
         public static void Login()
         {
             Bank.signIn();
