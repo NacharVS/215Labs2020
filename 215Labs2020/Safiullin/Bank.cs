@@ -13,11 +13,12 @@ namespace _215Labs2020.Safiullin
         private string phone;
         private static double depozit;
         private static double balans = 0;
-        private static double persent = 0.006;
+        private static double persent = 0.061;
+        private static bool registratshion = false;
+
         public static void CreateAccount()
         {
-            Console.WriteLine("Здраствуйте, добро пожаловать в ТатСоцБанк. Для дальнейших действий пройдите регистрацию.");
-            string registration = Console.ReadLine();
+           
             Console.Write("Введите своё ИМЯ: ");
             string name = Console.ReadLine();
             Console.Write("Введите свою ФАМИЛИЮ: ");
@@ -26,18 +27,28 @@ namespace _215Labs2020.Safiullin
             string year = Console.ReadLine();
             Console.Write("Введите свой номер телефона: ");
             string phone = Console.ReadLine();
+            Bank.registratshion = true;
         }
         public static void Refill()
         {
             Console.Write("Мин. сумма пополнения составляет 10000 р. Макс.сумма пополнения составляет 200000 р. Введите сумму пополнения: ");
-            double a = double.Parse(Console.ReadLine());
-            if (a <= 10000 | a >= 200000)
+            double a = double.Parse(Console.ReadLine()); 
+            if (a < 10000 | a > 200000)
             {
-                while (a <= 10000 | a >= 200000)
+                while (a < 10000 | a > 200000)
                 {
                     Console.WriteLine("Ошибка! Минимальная сумма пополнения составляет 10000р. ");
                     Console.Write("Введите сумму пополения: ");
-                    a = double.Parse(Console.ReadLine());
+                    try 
+                    { 
+                         a = double.Parse(Console.ReadLine());
+
+                    }
+                    catch 
+                    {
+                        Console.WriteLine("Введите правильную сумму пополнения: ");
+                        a = double.Parse(Console.ReadLine());
+                    }
                 }
             }
             balans += a;
@@ -47,9 +58,9 @@ namespace _215Labs2020.Safiullin
         {
             Console.Write("Введите сумму которую хотите снять: ");
             double a = double.Parse(Console.ReadLine());
-            while (balans - a < 0)
+            if (balans - a < 0)
             {
-                if (a <= 10000 | a >= 200000)
+                while (a < 10000 | a > 200000 | balans - a < 0)
                 {
                     Console.WriteLine($"Недостаточно средст для вывода денег, ваш баланс составляет: {balans}");
                     Console.Write("Введите сумму которую хотите снять:  ");
@@ -75,24 +86,34 @@ namespace _215Labs2020.Safiullin
         }
         public static void Program()
         {
-            while (true)
+            if (true)
             {
-                int a = int.Parse(Console.ReadLine());
-                switch (a)
+                int a;
+                Console.WriteLine("Здраствуйте, добро пожаловать в ТатРасКазСафФанБанк.");
+                Console.WriteLine("Для дальнейших действий пройдите быструю регистрацию.");
+                Console.WriteLine("Для регистрации нажмите : (1)");
+                Console.WriteLine("Для пополнения счета нажмите : (2)");
+                Console.WriteLine("Для снятия со счета средств нажмите : (3)");
+                Console.WriteLine("Для того чтобы узнать баланс через определенный период нажмите : (4)");
+                a = int.Parse(Console.ReadLine());
+                
+                while (a > 0 && a < 5 ) 
                 {
-                    case 1: CreateAccount(); break;
-                    case 2: Refill(); break;
-                    case 3: removal(); break;
-                    case 4: in_year(); break;
+                    switch (a)
+                    {
+                        case 1: CreateAccount(); break;
+                        case 2: Refill(); break;
+                        case 3: removal(); break;
+                        case 4: in_year(); break;
 
-                }
+                    }
+                    Console.WriteLine("Выберите дальнейшие действия: ");
+                    a = int.Parse(Console.ReadLine());
+                } 
+                
             }
 
         }
-
-
-
-
 
     }
 }
