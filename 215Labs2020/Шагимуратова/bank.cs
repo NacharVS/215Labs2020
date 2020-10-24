@@ -9,10 +9,11 @@ namespace _215Labs2020.Шагимуратова
         private string _name;
         private string _Surname;
         private int _summinvklad;
-        private static int _procent = 13;
-        //public int _id;
-        //public static int chetchikID;
-
+        private static double _procent = 0.13;
+        //private string _id;
+        //public static int _chetchikID = 0;
+        
+       
         public string Name
         {
             get
@@ -33,7 +34,8 @@ namespace _215Labs2020.Шагимуратова
             }
             set
             {
-                _name = value;
+                //SurName = value;
+                _Surname = value;
             }
         }
       
@@ -45,21 +47,27 @@ namespace _215Labs2020.Шагимуратова
             }
             set
             {
-                summinvklad = value;
-                _summinvklad = summinvklad;
+                //summinvklad = value;
+                _summinvklad = value;
             }
         }
-     
-        public void Popolnenie()
+        
+        
+        public static void Reg (bank User)
         {
-            Console.WriteLine("Введите сумму пополнения");
-            int value = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите имя ");
+            User.Name = Console.ReadLine();
+            Console.WriteLine("Введите Фамилию ");
+            User.SurName = Console.ReadLine();
             int k = 0;
             do
             {
+                Console.WriteLine("Введите сумму пополнения");
+                int value = int.Parse(Console.ReadLine());
+               
                 if (value > 10000 & value < 200000)
                 {
-                    summinvklad = value;
+                    User.summinvklad = value;
                     k = 0;
                 }
                 if (value < 10000)
@@ -74,9 +82,20 @@ namespace _215Labs2020.Шагимуратова
                 }
             }
             while (k == 1);
-            Console.WriteLine($" у вас на счету = {_summinvklad} рублей");
+            //Console.WriteLine($" у вас на счету = {User.summinvklad} рублей");
+           
         }
-        
+        public static void Nachalo(int ii)
+        {
+            bank[] Accounts = new bank[ii];
+            for (int i = 0; i > ii; i++)
+            {
+                Accounts[i] = new bank();
+                bank.Reg(Accounts[i]);
+                Console.WriteLine($"{Accounts[i].Name} {Accounts[i].SurName} , у вас на счету {Accounts[i].summinvklad} ");
+            }
+
+        }
     }
     
 }  
