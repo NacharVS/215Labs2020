@@ -6,7 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            _Bank.Bank.vibor_deistviy();
+            _215Labs2020.Garaev4.Operators.a();
         }
     }
 }
