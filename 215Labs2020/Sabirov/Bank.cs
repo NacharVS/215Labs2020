@@ -89,10 +89,7 @@ namespace _215Labs2020.Sabirov
         }
         private static void Birth(int a, int b, int c)
         {   
-            if (c > 31 )
-            {
-
-            }
+            
             if (b > 1900 & b < DateTime.Now.Year & c > 0 & c < 31 & a > 0 & a < 12)
             {
                 if (DateTime.Now.Year - b < 18)
