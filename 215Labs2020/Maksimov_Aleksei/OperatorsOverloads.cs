@@ -54,23 +54,23 @@ namespace _215Labs2020.Maksimov_Aleksei
         {
             OperatorsOverloads o1 = new OperatorsOverloads(10, 5);
             int sum = o1._num1 + o1._num2;
-            Console.WriteLine(sum);
+            Console.WriteLine($"Сложение: {sum}"); 
             int raznost = o1._num1 - o1._num2;
-            Console.WriteLine(raznost);
+            Console.WriteLine($"Вычитание: {raznost}");
             int multiplication = o1._num1 * o1._num2;
-            Console.WriteLine(multiplication);
+            Console.WriteLine($"Умножение: {multiplication}");
             double delenie = o1._num1 / o1._num2;
-            Console.WriteLine(delenie);
+            Console.WriteLine($"Целочисленное деление: {delenie}");
             double ost = o1._num1 % o1._num2;
-            Console.WriteLine(ost);
+            Console.WriteLine($"Остаток от деления: {ost}");
             bool bolmen = o1._num1 > o1._num2;
-            Console.WriteLine(bolmen);
+            Console.WriteLine($"Больше: {bolmen}");
             bool bn = o1._num1 < o1._num2;
-            Console.WriteLine(bn);
+            Console.WriteLine($"Меньше: {bn}");
             bool ravno = o1._num1 == o1._num2;
-            Console.WriteLine(ravno);
+            Console.WriteLine($"Равенство: {ravno}");
             bool neravno = o1._num1 != o1._num2;
-            Console.WriteLine(ravno);
+            Console.WriteLine($"Неравенство: {neravno}");
         }
     }
 }
