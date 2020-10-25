@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace _215Labs2020.Sabirov
@@ -42,6 +43,17 @@ namespace _215Labs2020.Sabirov
         {
             return n1._number % n2._number;
         }
+        
+        public static OperatorsOverloads operator ++(OperatorsOverloads n1)
+        {
+            n1._number += 4;
+            return n1;
+        }
+        public static OperatorsOverloads operator --(OperatorsOverloads n1)
+        {
+           n1._number -= 4;
+            return n1;
+        }
         public static void rnd()
         {
             Random rnd = new Random();
@@ -55,6 +67,8 @@ namespace _215Labs2020.Sabirov
             double divide = n1 / n2;
             double percent = n1 % n2;
             bool result = n1 > n2;
+            double res = n1._number ++;
+
             Console.WriteLine($"a > b: {result}");
             Console.WriteLine($"Вычитание: { substraction}");
             Console.WriteLine($"Умножение: {multiply}");
