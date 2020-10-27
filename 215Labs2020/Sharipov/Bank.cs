@@ -10,6 +10,9 @@ namespace _215Labs2020.Sharipov
         private static string surname;
         private static double vklad = 0;
         private static double procent = 0.1;
+        private static int day;
+        private static int mounth;
+        private static int year;
 
         private void Registration()
         {
@@ -19,6 +22,21 @@ namespace _215Labs2020.Sharipov
             Bank.name = Console.ReadLine();
             Console.WriteLine("Введите вашу фамилию");
             Bank.surname = Console.ReadLine();
+            while (true)
+            {
+                Console.Write("Введите день Вашего рождения");
+                day = int.Parse(Console.ReadLine());
+                Console.Write("Введите месяц Вашего рождения");
+                mounth = int.Parse(Console.ReadLine());
+                Console.Write("Введите год Вашего рождения");
+                year = int.Parse(Console.ReadLine());
+                int a = DateTime.Now.Year - year;
+                if (a >= 14)
+                {
+                    Console.Write("Возраст подтвержден! Регистрация успешно завершена"
+                }
+            }
+
 
         }
         private void Operation()
