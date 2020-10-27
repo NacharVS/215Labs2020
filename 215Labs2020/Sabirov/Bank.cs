@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _215Labs2020.Sabirov
 {
@@ -14,6 +12,23 @@ namespace _215Labs2020.Sabirov
         private static string email = "";
         private static double money = 0;
         private static double deposit = 0.061;
+        private int age;
+
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if (DateTime.Now.Year - value < 14)
+                {
+                    Console.WriteLine("You are underage");
+                }
+                else age = value;
+            }
+        }
 
         private static void Withdraw()
         {
@@ -70,9 +85,10 @@ namespace _215Labs2020.Sabirov
             Console.WriteLine("Enter your BirthMonth");
             user.month = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter your BirthYear");
-            user.year = int.Parse(Console.ReadLine());
-            Bank.Birth(user.month, user.year, user.day);
+            user.Age = int.Parse(Console.ReadLine());
+            Bank.Birth(user.month, user.age, user.day);
             Bank.EmailCheck();
+
         }
         private static void UserName(string Newname)
         {
@@ -88,16 +104,11 @@ namespace _215Labs2020.Sabirov
 
         }
         private static void Birth(int a, int b, int c)
-        {   
-            
-            if (b > 1900 & b < DateTime.Now.Year & c > 0 & c < 31 & a > 0 & a < 12)
+        {
+            if (b > 1900 & b < DateTime.Now.Year & c > 0 & c <= 31 & a > 0 & a <= 12)
             {
-                if (DateTime.Now.Year - b < 18)
-                {
-                    Console.WriteLine("You are underage :(");
-
-                }
-                else if (c == DateTime.Now.Day & a == DateTime.Now.Month)
+                
+                if (c == DateTime.Now.Day & a == DateTime.Now.Month)
                 {
                     Bank.money += 100;
 
@@ -106,11 +117,9 @@ namespace _215Labs2020.Sabirov
                 }
 
             }
-            else Console.WriteLine("Incorrect date");
 
 
         }
-
         private static void EmailCheck()
         {
             int a = 1;
@@ -131,6 +140,7 @@ namespace _215Labs2020.Sabirov
                 }
             }
         }
+
         public static void Login()
         {
             Bank.signIn();
@@ -167,4 +177,3 @@ namespace _215Labs2020.Sabirov
         }
     }
 }
-

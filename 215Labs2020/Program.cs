@@ -7,7 +7,7 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            OperatorsOverloads.rnd();
+            Bank.Login();
            
 
         }
