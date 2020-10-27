@@ -8,11 +8,12 @@ namespace _215Labs2020.Sabirov
         private string name;
         private int day;
         private int month;
-        private int year;
+        
         private static string email = "";
         private static double money = 0;
         private static double deposit = 0.061;
         private int age;
+        
 
         public int Age
         {
@@ -24,7 +25,9 @@ namespace _215Labs2020.Sabirov
             {
                 if (DateTime.Now.Year - value < 14)
                 {
+                    
                     Console.WriteLine("You are underage");
+                    
                 }
                 else age = value;
             }
@@ -87,6 +90,7 @@ namespace _215Labs2020.Sabirov
             Console.WriteLine("Enter your BirthYear");
             user.Age = int.Parse(Console.ReadLine());
             Bank.Birth(user.month, user.age, user.day);
+            
             Bank.EmailCheck();
 
         }
