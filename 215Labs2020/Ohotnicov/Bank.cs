@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Dynamic;
 using System.Text;
 
@@ -10,15 +11,37 @@ namespace _215Labs2020.Ohotnicov
         private static string name;
         private static string surname;
         private static double card;
-        private static double procent = 0.1;
+        private static double procent = 0.12;
         private static double prognoz;
-        private static void registration()
+        private static int day;
+        private static int mounth;
+        private static int year;
+        private static void Registration()
         {
             Bank bank = new Bank();
-            Console.WriteLine("Здравствуйте!Для регистрации введите ваше имя");
+            Console.Write("Здравствуйте!Для регистрации введите ваше имя:");
             Bank.name = Console.ReadLine();
-            Console.WriteLine("Ваша фамиллия:");
+            Console.Write("Ваша фамиллия:");
             Bank.surname = Console.ReadLine();
+            while (true)
+            {
+                Console.Write("Введите день вашего рождения:");
+                day =  int.Parse(Console.ReadLine());
+                Console.Write("Введите месяц вашего рождения:");
+                mounth = int.Parse( Console.ReadLine());
+                Console.Write("Введите год вашего рождения:");
+                year = int.Parse(Console.ReadLine());
+                int a = DateTime.Now.Year - year;
+                if (a >= 18)
+                {
+                    Console.Write("Возраст подтвержден! Регистрация прошла успешно!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Извините, вам нет 18, мы отказывваем вам в дальнейших услугах!");
+                }
+            }
         }
         private static void Invest()
         {
@@ -83,7 +106,7 @@ namespace _215Labs2020.Ohotnicov
         public static void GO()
         {
             bool c = true;
-            registration();
+            Registration();
             Console.WriteLine($"{Bank.card}");
             while (c == true)
             {
