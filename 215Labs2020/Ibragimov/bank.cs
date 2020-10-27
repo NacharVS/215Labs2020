@@ -6,16 +6,39 @@ namespace _215Labs2020.Ibragimov
 {
     class bank
     {
+        private static double Year;
+        private static double mec;
+        private static double day;
         private static string FIO;
         private static double vklad = 0;
-        private static double procent = 0.6;
+        private static double procent = 0.06;
+        private static int year = 0;
         private void Regist()
         {
-            Console.WriteLine("Введите фио");
-            bank bank1 = new bank();
-            bank.FIO = Console.ReadLine();
+            
+            Console.WriteLine("Введите год рождения ");
+            bank.year = int.Parse(Console.ReadLine());
+            Year = DateTime.Now.Year - bank.year;
 
+            if (Year > 14)
+            {
+                Console.WriteLine($"Можете зарегистрироваться, так как вам {Year} лет");
+            }
+            else
+            { 
+            Console.WriteLine($"Вы не можете зарегистрироваться, так как вам {Year} лет , можно регистрироваться только с 14 лет ");
+                System.Environment.Exit(0);
+            }
+            Console.WriteLine("Введите месяц вашего рождения");
+            bank.mec=int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите день вашего рождения");
+            bank.day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите фио");
+                bank bank1 = new bank();
+                bank.FIO = Console.ReadLine();
+                
         }
+   
         private void Operation()
         {
             bank bank1 = new bank();
