@@ -30,9 +30,9 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void a()
         {
-            Console.Write("nymber1: ");
+            Console.Write("number1: ");
             double num1 = double.Parse(Console.ReadLine());
-            Console.Write("nymber2: ");
+            Console.Write("number2: ");
             double num2 = double.Parse(Console.ReadLine());
             OperationOverloads operator1 = new OperationOverloads(num1);
             OperationOverloads operator2 = new OperationOverloads(num2);
@@ -43,7 +43,7 @@ namespace _215Labs2020.Galyautdinov
             Console.WriteLine("-");
             Console.WriteLine("*");
             Console.WriteLine("/");
-            Console.Write("Ждемс: ");
+            Console.Write("Действие: ");
             string prov = Console.ReadLine();
             switch (prov)
             {
