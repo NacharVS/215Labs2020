@@ -6,47 +6,75 @@ namespace _215Labs2020.Safiullin
 {
     class OperatorsOverload
     {
-        private int _number1;
-        private int _number2;
+        public double _number;
 
-        public OperatorsOverload(int number1, int number2)
-        {
-            _number1 = number1;
-            _number2 = number2;
-        }
 
-        public static double operator +(OperatorsOverload n1, OperatorsOverload n2)
+        public OperatorsOverload(double number)
         {
-            return (n1._number1 + n2._number2);
+            _number = number;
         }
-        public static double operator -(OperatorsOverload n1, OperatorsOverload n2)
+        public static double operator +(OperatorsOverload number1, OperatorsOverload number2)
         {
-            return (n1._number1 - n2._number2);
+            return (number1._number + number2._number);
         }
-        public static double operator /(OperatorsOverload n1, OperatorsOverload n2)
+        public static double operator -(OperatorsOverload number1, OperatorsOverload number2)
         {
-            return (n1._number1 / n2._number2);
+            return (number1._number - number2._number);
         }
-        public static double operator *(OperatorsOverload n1, OperatorsOverload n2)
+        public static double operator /(OperatorsOverload number1, OperatorsOverload number2)
         {
-            return n1._number1 * n2._number2;
+            return (number1._number / number2._number);
         }
-        public static bool operator ==(OperatorsOverload n1, OperatorsOverload n2)
+        public static double operator *(OperatorsOverload number1, OperatorsOverload number2)
         {
-            return n1._number1 == n2._number2;
+            return number1._number * number2._number;
         }
-        public static bool operator !=(OperatorsOverload n1, OperatorsOverload n2)
+        public static bool operator ==(OperatorsOverload number1, OperatorsOverload number2)
         {
-            return n1._number1 != n2._number2;
+            return number1._number == number2._number;
+        }
+        public static bool operator !=(OperatorsOverload number1, OperatorsOverload number2)
+        {
+            return number1._number == number2._number;
         }
 
         public static void Program()
-        { 
-            OperatorsOverload number1 = new OperatorsOverload(4, 5);
-            OperatorsOverload number2 = new OperatorsOverload(2, 5);
-            double a = number1 + number2;
-            Console.WriteLine(a);
+        {
 
+         
+        
+         Console.Write("Введите желаемое число(1): ");
+         double nb1 = double.Parse(Console.ReadLine());
+         Console.Write("Введите желаемое число(2): ");
+         double nb2 = double.Parse(Console.ReadLine());
+         OperatorsOverload operator1 = new OperatorsOverload(nb1);
+         OperatorsOverload operator2 = new OperatorsOverload(nb2);
+
+         
+         Console.WriteLine("Выберите нужное вам действие: ");
+         Console.WriteLine("Сложение - (+). ");
+         Console.WriteLine("Вычитание - (-). ");
+         Console.WriteLine("Деление - (/). ");
+         Console.WriteLine("Умножение - (*). ");
+         Console.WriteLine("Сравнение - (=). ");
+         Console.WriteLine("Введите действие:  ");
+            double average = 0;
+            string action = Console.ReadLine();
+         switch (action)
+
+         {
+                case "+": average = operator1 + operator2; break;
+                case "-": average = operator1 - operator2; break;
+                case "*": average = operator1 * operator2; break;
+                case "/": average = operator1 / operator2; break;
+                case "=": bool res = operator1 == operator2; break;
+         }
+
+            Console.WriteLine($"Ответ: {average}  ");
+                
+
+
+            
         }
     }
-}
+}  
