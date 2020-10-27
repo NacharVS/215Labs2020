@@ -17,6 +17,12 @@ namespace _215Labs2020.Imamov
             Console.WriteLine("Enter your surname");
             Bank.surname = Console.ReadLine();
         }
+        private void DateInfo()
+        {
+            Console.WriteLine("Enter info about your birthday");
+
+        }
+
         private void Operations()
         {
             int i = 0;
