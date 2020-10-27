@@ -17,11 +17,12 @@ namespace _215Labs2020.Kuzmin_Aleksey
         {
             Console.Write("Введите строку: ");
             string Line = Console.ReadLine();
-            string[] mass = Line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] mass = Line.Split(' ', StringSplitOptions.RemoveEmptyEntries);           
             for (int i = 0; i < mass.Length; i++)
             {
                 Console.Write(mass[i] + " ");
             }
+            
         }
         public static void Ex3()
         {
