@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
@@ -12,14 +13,38 @@ namespace _215Labs2020.Hasanov
         private static int minideposit = 10000;
         private static int maxdeposit = 200000;
         private static int bankaccount = 0;
+        private static int age;
+        private static int year;
+        private static int day;
+        private static int month;
+       
 
-        private static void Regist()
+
+private static void Regist()
         {
             Console.WriteLine("Введите свое имя");
             name = Console.ReadLine();
             Console.WriteLine("Введите свою фамилию");
             surname = Console.ReadLine();
-            Bank.OperationB();
+            Console.WriteLine("Введите свою дату рождения (Например 15.07.2003)");
+            string birthday = Console.ReadLine();
+            string[] array = birthday.Split(new char[] { '.' });
+             day = int.Parse(array[0]);
+             month = int.Parse(array[1]);
+             year = int.Parse(array[2]);
+            age = DateTime.Now.Year - year;
+            if (age >= 14 & month == DateTime.Now.Month & day == DateTime.Now.Day)
+            {
+                Console.WriteLine("Поздравляем с вашем днем рождением");
+                Bank.OperationB();
+            }
+                if (age <= 14 & month>=DateTime.Now.Month)
+            {
+                Console.WriteLine("К сожалению регистрация в нашем банке возможна с 14 лет, мы вынуждены прервать регистрацию! Всего доброго:)");
+                return;
+            }
+            else Bank.OperationB();
+           
         }
         public static void BankRegistration()
         {
