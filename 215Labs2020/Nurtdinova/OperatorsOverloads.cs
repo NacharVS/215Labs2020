@@ -52,7 +52,7 @@ namespace _215Labs2020.Nurtdinova
         }
         public static void method()
         {
-            OperatorsOverloads o1 = new OperatorsOverloads(30, 6);
+            OperatorsOverloads o1 = new OperatorsOverloads(20, 5);
             int sum = o1._num1 + o1._num2;
             Console.WriteLine($"Сложение: {sum}");
             int raznost = o1._num1 - o1._num2;
