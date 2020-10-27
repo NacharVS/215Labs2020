@@ -4,6 +4,9 @@ namespace _Bank
 {
     class Bank
     {
+        private static int dayofbirth = 0;
+        private static int monthofbirth = 0;
+        private static int yearofbirth = 0;
         private static double procent = 20;
         private static string _surname;
         private static string _name;
@@ -23,6 +26,13 @@ namespace _Bank
             string name = Console.ReadLine();
             Console.Write("Введите Отчество: ");
             string otchestvo = Console.ReadLine();
+            Console.WriteLine("Введите дату рождение");
+            Console.Write("День: ");
+            dayofbirth = int.Parse(Console.ReadLine());
+            Console.Write("Месяц: ");
+            monthofbirth = int.Parse(Console.ReadLine());
+            Console.Write("Год: ");
+            yearofbirth = int.Parse(Console.ReadLine());
             while (_surname == surname && _name == name && _otchestvo == otchestvo)
             {
                 Console.WriteLine("Извините такой аккаунт уже существует.");
@@ -33,6 +43,63 @@ namespace _Bank
                 name = Console.ReadLine();
                 Console.Write("Введите Отчество: ");
                 otchestvo = Console.ReadLine();
+                Console.Write("День: ");
+                dayofbirth = int.Parse(Console.ReadLine());
+                Console.Write("Месяц: ");
+                monthofbirth = int.Parse(Console.ReadLine());
+                Console.Write("Год: ");
+                yearofbirth = int.Parse(Console.ReadLine());
+            }
+            int realyear = DateTime.Now.Year;
+            int realday = DateTime.Now.Day;
+            int realmonth = DateTime.Now.Month;
+            
+            bool l = true;
+            while (l == true)
+            {
+                int age = realyear - yearofbirth;
+                if (age == 14)
+                {
+                    if (realmonth >= monthofbirth)
+                    {
+                        if (realday >= dayofbirth)
+                        {
+                            l = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Извиние. Открыть счет могут только лица достигшие 14 лет");
+                            Console.Write("День: ");
+                            dayofbirth = int.Parse(Console.ReadLine());
+                            Console.Write("Месяц: ");
+                            monthofbirth = int.Parse(Console.ReadLine());
+                            Console.Write("Год: ");
+                            yearofbirth = int.Parse(Console.ReadLine());
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Извиние. Открыть счет могут только лица достигшие 14 лет");
+                        Console.Write("День: ");
+                        dayofbirth = int.Parse(Console.ReadLine());
+                        Console.Write("Месяц: ");
+                        monthofbirth = int.Parse(Console.ReadLine());
+                        Console.Write("Год: ");
+                        yearofbirth = int.Parse(Console.ReadLine());
+                    }
+                }
+                else if (age > 14)
+                    l = false;
+                else
+                {
+                    Console.WriteLine("Извиние. Открыть счет могут только лица достигшие 14 лет");
+                    Console.Write("День: ");
+                    dayofbirth = int.Parse(Console.ReadLine());
+                    Console.Write("Месяц: ");
+                    monthofbirth = int.Parse(Console.ReadLine());
+                    Console.Write("Год: ");
+                    yearofbirth = int.Parse(Console.ReadLine());
+                }
             }
             _surname = surname;
             _name = name;
