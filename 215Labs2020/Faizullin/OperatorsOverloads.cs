@@ -43,15 +43,15 @@ namespace _215Labs2020.Faizullin
         {
             OperatorsOverloads m1 = new OperatorsOverloads(3, 6);
             int sum = m1._name + m1._mark;
-            Console.WriteLine("sum");
+            Console.WriteLine(sum);
             int sub = m1._name - m1._mark;
-            Console.WriteLine("sub");
+            Console.WriteLine(sub);
             int mul = m1._name * m1._mark;
-            Console.WriteLine("mul");
+            Console.WriteLine(mul);
             int del = m1._name / m1._mark;
-            Console.WriteLine("del");
+            Console.WriteLine(del);
             bool more = m1._name > m1._mark;
-            Console.WriteLine("more");
+            Console.WriteLine(more);
 
         }
     }

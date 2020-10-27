@@ -7,6 +7,7 @@ namespace _215Labs2020.Faizullin
     class Bank
     {
         private static string _SNF;
+        private static string _birth;
         private static double _contribution = 0;
         private static double _percent = 0.3;
         public void Registration()
@@ -17,6 +18,15 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine("Enter personal data");
             Console.WriteLine("***************");
             Bank._SNF = Console.ReadLine();
+            Console.WriteLine("Enter date of birth");
+            Console.WriteLine("***************");
+            Bank._birth = Console.ReadLine();
+            birth = DateTime.Now - bank.birth;
+
+            //int a = DateTime.Now.Year;
+            //int b = DateTime.Now.Month;
+            //int c = DateTime.Now.Day;
+
         }
         private void Operation()
         {
@@ -25,6 +35,7 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine("************************");
             double MONEY = int.Parse(Console.ReadLine());
             if (MONEY >= 10000 || MONEY <= 200000) Bank._contribution = MONEY;
+
         }
         private void PROGNOZ()
         {
