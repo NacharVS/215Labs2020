@@ -33,11 +33,14 @@ namespace _215Labs2020.Sharipov
                 int a = DateTime.Now.Year - year;
                 if (a >= 14)
                 {
-                    Console.Write("Возраст подтвержден! Регистрация успешно завершена"
+                    Console.Write("Возраст подтвержден! Регистрация успешно завершена!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Извините, регистрация возможна только по достижению 14-летия");
                 }
             }
-
-
         }
         private void Operation()
         {
