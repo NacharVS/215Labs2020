@@ -23,7 +23,7 @@ namespace _215Labs2020.Garaev4
         }
         public static double operator /(Operators number1, Operators number2)
         {
-            return Math.Round(number1._number / number2._number,2);
+            return Math.Round(number1._number + number2._number,2);
         }
         public static void a()
         {
@@ -45,7 +45,7 @@ namespace _215Labs2020.Garaev4
                 {
                     switch (vibor)
                     {
-                        case "+": average = (operator1 + operator2); break;
+                        case "+": average = (operator1 + operator2)/2; break;
                         case "-": average = (operator1 - operator2); break;
                         case "*": average = (operator1 * operator2); break;
                         case "/": average = (operator1 / operator2); break;
