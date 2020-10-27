@@ -8,10 +8,25 @@ namespace _215Labs2020.Sadukov
         private string name;
         private int day;
         private int month;
-        private int year;
+        private int age;
         private static string email = "";
         private static double money = 0;
         private static double deposit = 0.061;
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if (DateTime.Now.Year - value < 14)
+                {
+                    Console.WriteLine("You are underage");
+                }
+                else age = value;
+            }
+        }
 
         private static void Withdraw()
         {
@@ -68,8 +83,8 @@ namespace _215Labs2020.Sadukov
             Console.WriteLine("Enter your BirthMonth");
             user.month = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter your BirthYear");
-            user.year = int.Parse(Console.ReadLine());
-            Bank.Birth(user.month, user.year, user.day);
+            user.Age = int.Parse(Console.ReadLine());
+            Bank.Birth(user.month, user.age, user.day);
             Bank.EmailCheck();
             
         }
