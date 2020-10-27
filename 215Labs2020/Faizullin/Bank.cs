@@ -7,25 +7,62 @@ namespace _215Labs2020.Faizullin
     class Bank
     {
         private static string _SNF;
-        private static string _birth;
+        private DateTime _birth;
         private static double _contribution = 0;
         private static double _percent = 0.3;
+        public DateTime Birth
+        {
+            get
+            {
+                return _birth;
+            }
+
+            set
+            {
+                _birth = value;
+
+                if (_birth.Year == DateTime.Now.Year || _birth.Year > DateTime.Now.Year - 14)
+                {
+                    throw new Exception("Извените , но вам меньше 14лет");
+                }
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return DateTime.Now.Year - Birth.Year;
+            }
+
+        }
+
         public void Registration()
         {
             Console.WriteLine("Hello, welcome to our Bank.");
             Console.WriteLine("***************************");
             Bank bank = new Bank();
-            Console.WriteLine("Enter personal data");
-            Console.WriteLine("***************");
-            Bank._SNF = Console.ReadLine();
-            Console.WriteLine("Enter date of birth");
-            Console.WriteLine("***************");
-            Bank._birth = Console.ReadLine();
-            birth = DateTime.Now - bank.birth;
+            try
+            {
+                Console.WriteLine("Enter personal data");
+                Console.WriteLine("***************");
+                Bank._SNF = Console.ReadLine();
+                Console.WriteLine("Enter date of birth");
+                Console.WriteLine("***************");
+                Console.Write("Введите дату рождения (17/06/1996):");
+                string inputDate = Console.ReadLine();
+                bank.Birth = Convert.ToDateTime(inputDate);
 
-            //int a = DateTime.Now.Year;
-            //int b = DateTime.Now.Month;
-            //int c = DateTime.Now.Day;
+                Console.WriteLine("Ваш возвраст: {0}", bank.Age);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
+                return;
+            }
+
+            //DateTime now = DateTime.Now;
+            //Console.WriteLine("d: " + now.ToString("d"));  
 
         }
         private void Operation()
