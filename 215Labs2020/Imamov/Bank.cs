@@ -8,6 +8,10 @@ namespace _215Labs2020.Imamov
         private static string surname;
         private static double deposit = 0;
         private static double procents = 0.05;
+        private static int age;
+        private static int date;
+        private static int month;
+        private static int year;
         private void Registration()
         {
             Console.WriteLine("Greetings, you need sign up to deposit your money in our bank");
@@ -19,8 +23,13 @@ namespace _215Labs2020.Imamov
         }
         private void DateInfo()
         {
-            Console.WriteLine("Enter info about your birthday");
-
+            Console.WriteLine("Enter your date of your birthday");
+            string a = Console.ReadLine();
+            string[] date = a.Split(new char[] {'.'});
+            Bank.date = int.Parse(date[0]);
+            Bank.month = int.Parse(date[1]);
+            Bank.year = int.Parse(date[2]);
+            Bank.age = DateTime.Now.Year - Bank.year;
         }
 
         private void Operations()
@@ -64,9 +73,17 @@ namespace _215Labs2020.Imamov
         {
             Bank InfoBase = new Bank();
             InfoBase.Registration();
-            InfoBase.Operations();
-            InfoBase.Procents();
-            InfoBase.Finish();
+            InfoBase.DateInfo();
+            if (Bank.age >= 14)
+            {
+                InfoBase.Operations();
+                InfoBase.Procents();
+                InfoBase.Finish();
+            }
+            else
+            {
+                Console.WriteLine("Sorry,but you couldn't use our bank");
+            }
         }
     }
 }
