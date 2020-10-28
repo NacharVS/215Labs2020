@@ -1,5 +1,6 @@
 ﻿using System;
 using _215Labs2020.Galyautdinov;
+using _215Labs2020.Galyautdinov.Bank_class;
 
 namespace _215Labs2020
 {
@@ -7,7 +8,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Bank.Operation();
+            _215Labs2020.Galyautdinov.Bank_class.Bank_2.Proggg();
         }
     }
 }
