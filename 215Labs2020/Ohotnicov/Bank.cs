@@ -32,7 +32,7 @@ namespace _215Labs2020.Ohotnicov
                 Console.Write("Введите год вашего рождения:");
                 year = int.Parse(Console.ReadLine());
                 int a = DateTime.Now.Year - year;
-                if (a >= 18)
+                if (a >= 14)
                 {
                     Console.Write("Возраст подтвержден! Регистрация прошла успешно!");
                     break;
