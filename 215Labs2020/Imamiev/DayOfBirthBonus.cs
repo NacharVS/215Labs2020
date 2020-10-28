@@ -27,7 +27,7 @@ namespace _215Labs2020.Imamiev
             Console.WriteLine("Имя");
             BaseName.name = Console.ReadLine();
             Console.WriteLine("Фамилия");
-            BaseSurname.surname = Console.ReadLine();
+            BaseSurname.surname = Console.ReadLine();                                        
             Console.WriteLine("День рождения");
             BirthDay.day = int.Parse(Console.ReadLine());
             Console.WriteLine("Месяц рождения");
