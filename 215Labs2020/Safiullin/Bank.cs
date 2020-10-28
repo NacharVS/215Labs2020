@@ -18,15 +18,38 @@ namespace _215Labs2020.Safiullin
 
         public static void CreateAccount()
         {
-           
+            Bank person = new Bank();
             Console.Write("Введите своё ИМЯ: ");
             string name = Console.ReadLine();
             Console.Write("Введите свою ФАМИЛИЮ: ");
             string surname = Console.ReadLine();
-            Console.Write("Введите свою дату рождения: ");
-            string year = Console.ReadLine();
             Console.Write("Введите свой номер телефона: ");
             string phone = Console.ReadLine();
+            if (year)
+            {
+                Console.Write("Введите свою дату рождения: ");
+                string _phone = Console.ReadLine();
+                Console.Write("Введите сумму первого взноса: ");
+                Bank.contribution(Console.ReadLine());
+
+                if (a < 10000 | a > 200000 )
+                {
+                    Console.WriteLine("Ошибка. Сумма первого взноса должна быть больше 10 000р и меньше 200 000р.");
+                    _take2 = false;
+                }
+                else if (_take2)
+                {
+                    Bank._bill += _donation;
+                    Console.WriteLine(Bank._line);
+                    Console.WriteLine("Благодарим за регистрацию в нашем банке.");
+                    Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
+                    Console.WriteLine(Bank._line);
+                    Console.WriteLine();
+                    _registration = true;
+                    _take2 = false;
+                }
+            }
+            else { Console.WriteLine("Ошибка. Регистрация не пройдена."); 
             Bank.registratshion = true;
         }
         public static void Refill()
