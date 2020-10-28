@@ -24,7 +24,6 @@ namespace _215Labs2020.Faizullin
                 if (_birth.Year == DateTime.Now.Year || _birth.Year > DateTime.Now.Year - 14)
                 {
                     throw new Exception("Извените , но вам меньше 14лет");
-                    Environment.Exit(0);
                 }
                 else
                 {
