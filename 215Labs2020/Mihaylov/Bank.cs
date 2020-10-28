@@ -4,13 +4,32 @@ namespace _215Labs2020.Mihaylov
     class Bank
     {
         private static double balans = 0;
+        private static int age;
+        private static int year;
+        private static int day;
+        private static int month;
         private static void registration()
         {
-            Console.WriteLine("Здравствуйте,пройдите регистрацию для использовании услуг банка.");
+            Console.WriteLine("Введите день своего рождения: ");
+            day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите месяц своего рождения:");
+            month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите год своего рождения:");
+            year = int.Parse(Console.ReadLine());
+            int age = DateTime.Now.Year - year;
+            if (age >= 14)
+            {
+                Console.WriteLine("Можете продолжить регистрацию");
+            }
+            else
+            {
+                Console.WriteLine("Вы не можете продолжить регистрацию, так как вам меньше 14 лет");
+                System.Environment.Exit(0);
+            }
+
             Console.WriteLine("Введите своё ФИО : ");
             string name = Console.ReadLine();
-            Console.WriteLine("Введите свою дату рождения: ");
-            string birthday = Console.ReadLine();
+
             Console.WriteLine("Введите свой номер телефона: ");
             string numberphone = Console.ReadLine();
             Console.WriteLine("Вы успешно зарегистрировались, можете пользоваться услугами банка.");
