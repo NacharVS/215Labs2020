@@ -6,7 +6,7 @@ namespace _215Labs2020.Hasanov
     {
         static void Main(string[] args)
         {
-            OperatorsOverloads ()
+            bank. ()
 
         }
     }
