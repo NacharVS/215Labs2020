@@ -5,11 +5,32 @@ using _215Labs2020.Galyautdinov;
 
 namespace _215Labs2020.Galyautdinov.Bank_class
 {
-    class Bank_2
+    abstract class BankPerson
     {
-        public static void Proggg()
+        public static string Name { get; set;}
+        public BankPerson(string name)
         {
-            Bank.Operation();
+            Name = name;
+        }
+    }
+    class Client : BankPerson
+    {
+        public int Sum { get; set; }
+
+        public Client(string name, int sum)
+            : base(name)
+        {
+            Sum = sum;
+        }
+    }
+    class Employee : BankPerson
+    {
+        public string Position { get; set; }
+
+        public Employee(string name, string position)
+            : base(name)
+        {
+            Position = position;
         }
     }
 }
