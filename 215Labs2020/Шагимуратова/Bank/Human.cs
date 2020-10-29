@@ -61,12 +61,21 @@ namespace _215Labs2020.Шагимуратова.Bank
         }
         class Klient : Human
         {
-            private string _name;
-            private string _Surname;
             private int _summinvklad;
             private static double _procent = 0.13;
             private double _dohod;
             private int _years;
+        }
+        public static void klient ()
+        {
+            Klient klient = new Klient();
+
+            Console.WriteLine("enter name");
+            klient.Name = Console.ReadLine();
+            Console.WriteLine("enter surname");
+            klient.SurName = Console.ReadLine();
+            Console.WriteLine("Введите сумму пополнения");
+            int value = int.Parse(Console.ReadLine());
         }
     }  
 
