@@ -6,8 +6,8 @@ namespace _215Labs2020.Faizullin
 {
     class Bank
     {
-        private static string _SNF;
         private DateTime _birth;
+        private static string _SNF;
         private static double _contribution = 0;
         private static double _percent = 0.3;
         public DateTime Birth
@@ -24,6 +24,7 @@ namespace _215Labs2020.Faizullin
                 if (_birth.Year == DateTime.Now.Year || _birth.Year > DateTime.Now.Year - 14)
                 {
                     throw new Exception("Извените , но вам меньше 14лет");
+
                 }
                 else
                 {
@@ -66,7 +67,7 @@ namespace _215Labs2020.Faizullin
             }
 
             //DateTime now = DateTime.Now;
-            //Console.WriteLine("d: " + now.ToString("d"));  
+            //Console.WriteLine("d: " + now.ToString("d"));
 
         }
         private void Operation()
