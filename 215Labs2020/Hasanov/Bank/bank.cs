@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Hasanov
+namespace _215Labs2020.Hasanov.
 {
     class bank
     {
