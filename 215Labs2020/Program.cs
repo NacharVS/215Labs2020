@@ -1,5 +1,5 @@
 ﻿using System;
-using _215Labs2020.Шагимуратова;
+using _215Labs2020.Шагимуратова.Bank;
 
 namespace _215Labs2020
 {
@@ -7,9 +7,12 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            //bank.Nachalo();
+            bank.Nachalo();
+            Console.WriteLine("sotrudnik poshel");
+            Sotrudnic.sotrud();
 
-            
+
+
 
         }
         
