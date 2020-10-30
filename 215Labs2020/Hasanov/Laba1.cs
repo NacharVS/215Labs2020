@@ -84,35 +84,37 @@ namespace _215Labs2020.Hasanov
 
 
 
-        public static void PSGS()
-        {
-            Console.WriteLine("Введите количество студентов");
-            int kol = int.Parse(Console.ReadLine());
-            double sred = 0;
-            LetterFix[] ocenki = new LetterFix[kol];
-            for (int i = 0; i < ocenki.Length; i++)
-            {
-                ocenki[i] = new LetterFix();
-            }
-            for (int i = 0; i < ocenki.Length; i++)
-            {
-                if (i < kol + 1) Console.WriteLine("Введите имя ученика");
-                if (i < kol + 1) ocenki[i].Name = Console.ReadLine();
-                if (i < kol + 1) Console.WriteLine("Введите оценки по математике");
-                if (i < kol + 1) ocenki[i].Bio = int.Parse(Console.ReadLine());
-                if (i < kol + 1) Console.WriteLine("Введите оценку по физре");
-                if (i < kol + 1) ocenki[i].His = int.Parse(Console.ReadLine());
-                if (i < kol + 1) Console.WriteLine("Введите оценку по рисованию");
-                if (i < kol + 1) ocenki[i].Math = int.Parse(Console.ReadLine());
+        //public static void PSGS()
+        //{
+        //    Console.WriteLine("Введите количество студентов");
+        //    int kol = int.Parse(Console.ReadLine());
+        //    double sred = 0;
+        //    LetterFix[] ocenki = new LetterFix[kol];
+        //    for (int i = 0; i < ocenki.Length; i++)
+        //    {
+        //        ocenki[i] = new LetterFix();
+        //    }
+        //    for (int i = 0; i < ocenki.Length; i++)
+        //    {
+        //        if (i < kol + 1) Console.WriteLine("Введите имя ученика");
+        //        if (i < kol + 1) ocenki[i].Name = Console.ReadLine();
+        //        if (i < kol + 1) Console.WriteLine("Введите оценки по математике");
+        //        if (i < kol + 1) ocenki[i].Bio = int.Parse(Console.ReadLine());
+        //        if (i < kol + 1) Console.WriteLine("Введите оценку по физре");
+        //        if (i < kol + 1) ocenki[i].His = int.Parse(Console.ReadLine());
+        //        if (i < kol + 1) Console.WriteLine("Введите оценку по рисованию");
+        //        if (i < kol + 1) ocenki[i].Math = int.Parse(Console.ReadLine());
 
-            }
+        //    }
 
-            Console.WriteLine("Введите необходимый средний бал");
-            double ball = double.Parse(Console.ReadLine());
-            for (int i = 0; i < ocenki.Length; i++)
-            {
-                if (i < kol + 1) sred = ocenki[i].bio + ocenki[i].his + ocenki[i].math;
-                if (i < kol + 1) sred = sred / 3;
-                if (ball <= sred) Console.WriteLine($"{ocenki[i].Name} оценка по математике {ocenki[i].Bio}, оценка по физре {ocenki[i].His}, оценки по рисованию {ocenki[i].Math}, средний бал {sred}");
-            }
-        }
+        //    Console.WriteLine("Введите необходимый средний бал");
+        //    double ball = double.Parse(Console.ReadLine());
+        //    for (int i = 0; i < ocenki.Length; i++)
+        //    {
+        //        if (i < kol + 1) sred = ocenki[i].bio + ocenki[i].his + ocenki[i].math;
+        //        if (i < kol + 1) sred = sred / 3;
+        //        if (ball <= sred) Console.WriteLine($"{ocenki[i].Name} оценка по математике {ocenki[i].Bio}, оценка по физре {ocenki[i].His}, оценки по рисованию {ocenki[i].Math}, средний бал {sred}");
+        //    }
+        //}
+    }
+}
