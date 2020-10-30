@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+
 
 namespace _215Labs2020.Ibragimov
 {
@@ -12,32 +14,32 @@ namespace _215Labs2020.Ibragimov
         private static string FIO;
         private static double vklad = 0;
         private static double procent = 0.06;
-        private static int year = 0;        
-            private void Regist()
+        private static int year = 0;
+        private void Regist()
+        {
+
+            Console.WriteLine("Введите год рождения ");
+            bank.year = int.Parse(Console.ReadLine());
+            Year = DateTime.Now.Year - bank.year;
+
+            if (Year > 14)
             {
-
-                Console.WriteLine("Введите год рождения ");
-                bank.year = int.Parse(Console.ReadLine());
-                Year = DateTime.Now.Year - bank.year;
-
-                if (Year > 14)
-                {
-                    Console.WriteLine($"Можете зарегистрироваться, так как вам {Year} лет");
-                }
-                else
-                {
-                    Console.WriteLine($"Вы не можете зарегистрироваться, так как вам {Year} лет , можно регистрироваться только с 14 лет ");
-                    System.Environment.Exit(0);
-                }
-                Console.WriteLine("Введите месяц вашего рождения");
-                bank.mec = int.Parse(Console.ReadLine());
-                Console.WriteLine("Введите день вашего рождения");
-                bank.day = int.Parse(Console.ReadLine());
-                Console.WriteLine("Введите фио");
-                bank bank1 = new bank();
-                bank.FIO = Console.ReadLine();
-
+                Console.WriteLine($"Можете зарегистрироваться, так как вам {Year} лет");
             }
+            else
+            {
+                Console.WriteLine($"Вы не можете зарегистрироваться, так как вам {Year} лет , можно регистрироваться только с 14 лет ");
+                System.Environment.Exit(0);
+            }
+            Console.WriteLine("Введите месяц вашего рождения");
+            bank.mec = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите день вашего рождения");
+            bank.day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите фио");
+            bank bank1 = new bank();
+            bank.FIO = Console.ReadLine();
+
+        }
 
         private void Operation()
         {
@@ -52,9 +54,9 @@ namespace _215Labs2020.Ibragimov
             {
                 Console.WriteLine("Вышла ошибка, перезайдите в программу");
             }
-           
+        }
 
-        private void prognoz()
+             private void prognoz()
             {
                 bank bank1 = new bank();
                 Console.WriteLine("На сколько лет вы планируете вложение?");
@@ -64,13 +66,13 @@ namespace _215Labs2020.Ibragimov
                     bank.vklad += bank.procent * bank.vklad;
                 }
             }
-            private void end()
+            private  void end()
             {
                 bank bank1 = new bank();
                 Console.WriteLine($"Через указанный вами срок, ваш вклад составит {bank.vklad} рублей.");
             }
-
-            public static void program()
+            
+            public static void baank()
             {
                 bank bank1 = new bank();
                 bank1.Regist();
@@ -78,9 +80,10 @@ namespace _215Labs2020.Ibragimov
                 bank1.prognoz();
                 bank1.end();
             }
-        }
+        
 
     }
+}
 
 
 
