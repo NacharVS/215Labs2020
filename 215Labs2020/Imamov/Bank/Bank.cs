@@ -2,37 +2,32 @@
 
 namespace _215Labs2020.Imamov
 {
-    class Bank
+    class Bank : User
     {
-        private static string name;
-        private static string surname;
+       
         private static double deposit = 0;
         private static double procents = 0.05;
-        private static int age;
-        private static int date;
-        private static int month;
-        private static int year;
-        private void Registration()
+        private static void Registration()
         {
             Console.WriteLine("Greetings, you need sign up to deposit your money in our bank");
             Bank InfoBase = new Bank();
             Console.WriteLine("Enter your name");
-            Bank.name = Console.ReadLine();
+            User.name = Console.ReadLine();
             Console.WriteLine("Enter your surname");
-            Bank.surname = Console.ReadLine();
+            User.surname = Console.ReadLine();
         }
-        private void DateInfo()
+        private static void DateInfo()
         {
             Console.WriteLine("Enter your date of your birthday");
             string a = Console.ReadLine();
             string[] date = a.Split(new char[] {'.'});
-            Bank.date = int.Parse(date[0]);
-            Bank.month = int.Parse(date[1]);
-            Bank.year = int.Parse(date[2]);
-            Bank.age = DateTime.Now.Year - Bank.year;
+            User.date = int.Parse(date[0]);
+            User.month = int.Parse(date[1]);
+            User.year = int.Parse(date[2]);
+            User.age = DateTime.Now.Year - Bank.year;
         }
 
-        private void Operations()
+        private static void Operations()
         {
             int i = 0;
             while (i <=0)
@@ -53,7 +48,7 @@ namespace _215Labs2020.Imamov
                 }
             }
         }
-        private void Procents()
+        private static void Procents()
         {
             Bank InfoBase = new Bank();
             Console.WriteLine("Enter the loan length");
@@ -63,22 +58,22 @@ namespace _215Labs2020.Imamov
                 Bank.deposit += Bank.procents * Bank.deposit;
             }
         }
-        private void Finish()
+        private static void Finish()
         {
             Bank InfoBase = new Bank();
             Console.WriteLine($"After the loan, that you chose, your deposit will be: {Bank.deposit} rubles");
-            Console.WriteLine($"{Bank.name} {Bank.surname},thank you for using our bank!");
+            Console.WriteLine($"{User.name} {User.surname},thank you for using our bank!");
         }
         public static void Method()
         {
             Bank InfoBase = new Bank();
-            InfoBase.Registration();
-            InfoBase.DateInfo();
+            Bank.Registration();
+            Bank.DateInfo();
             if (Bank.age >= 14)
             {
-                InfoBase.Operations();
-                InfoBase.Procents();
-                InfoBase.Finish();
+                Bank.Operations();
+                Bank.Procents();
+                Bank.Finish();
             }
             else
             {
