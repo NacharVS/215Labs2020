@@ -11,10 +11,12 @@ namespace _215Labs2020.Galyautdinov.Bank_class
         private static double zp_balans = 0;
         public Employee(string name)
         {
+            
             Name = name;
         }
         public static void employee()
         {
+            Console.WriteLine(Employee.Name);
             if (DateTime.Now.Day > 28)
             {
                 zp_balans += zp;

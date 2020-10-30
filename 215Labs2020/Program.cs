@@ -11,7 +11,7 @@ namespace _215Labs2020
             
             Bank bank = new Bank();
             Client client = new Client("Igor");
-            Employee client1 = new Employee("Igor");
+            Employee employee1 = new Employee("Timur");
             
             Console.WriteLine("1. Клиент");
             Console.WriteLine("2. Сотрудник");
@@ -19,7 +19,8 @@ namespace _215Labs2020
             if (client._id==1)
             {
                 bank.Operation();
-            }else if (client._id == 2)
+            }
+            else if (client._id == 2)
             {
                 Employee.employee();
             }

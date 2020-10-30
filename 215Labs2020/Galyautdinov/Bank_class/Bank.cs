@@ -9,7 +9,6 @@ namespace _215Labs2020.Galyautdinov
     {
         private static double bank_balans = 0;
         private static double percent = 0.061;
-        private static string name;
         private static long phone;
         private static int day_birthday;
         private static int month_birthday;
@@ -17,9 +16,8 @@ namespace _215Labs2020.Galyautdinov
         private static void FullName()
         {
             Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
-            Console.Write("Фамилия Имя Отчество: ");
-            name = Console.ReadLine();
-           
+            Console.WriteLine(Client.Name);
+            
             try
             {
                 Console.Write("Введите ваш номер телефона: ");
