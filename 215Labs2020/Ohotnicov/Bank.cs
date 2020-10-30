@@ -74,7 +74,7 @@ namespace _215Labs2020.Ohotnicov
                 if ((a > 0) & (a <= card))
                 {
                     Bank.card -= a;
-                    Console.WriteLine($"Вы сняли со сета {a}, остаток на счету {Bank.card} ");
+                    Console.WriteLine($"Вы сняли с о сета {a}, остаток на счету {Bank.card} ");
                     c = false;
 
                 }
