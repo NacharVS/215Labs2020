@@ -10,6 +10,23 @@ namespace _215Labs2020.Sadukov.User
         private static double deposit = 0.061;
 
 
+        public static void Check()
+        {
+            Console.WriteLine($"Login as Employee or User?");
+            Console.WriteLine($"Enter 1 to login as Employee or enter 2 to login as User");
+            string ans = Console.ReadLine();
+            switch (ans)
+            {
+                case "1":
+                    Employee.Login();
+                    break;
+                case "2":
+                    User.Login();
+                    break;
+            }
+
+        }
+
 
         private static void Withdraw()
         {
@@ -69,7 +86,7 @@ namespace _215Labs2020.Sadukov.User
             Bank.Age = int.Parse(Console.ReadLine());
             User.Birth(Month, Age, Day);
             User.EmailCheck();
-
+            
         }
         private static void UserName(string Newname)
         {
@@ -129,6 +146,9 @@ namespace _215Labs2020.Sadukov.User
         public static void Login()
         {
             User.signIn();
+            Random bank123 = new Random();
+            Bank.Id = bank123.Next(1000000, 1999999);
+            Console.WriteLine($"Your id: {Bank.Id}");
             int yes = 1;
             while (yes == 1)
             {

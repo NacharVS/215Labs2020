@@ -10,7 +10,31 @@ namespace _215Labs2020.Sadukov
         private static int month;
         private static int age;
         private static string email;
-        
+        private static int id;
+
+        public static string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+
+        }
+        public static int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
 
         public static string Email
         {
