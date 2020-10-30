@@ -18,6 +18,7 @@ namespace _215Labs2020.Galyautdinov.Bank_class
             if (DateTime.Now.Day > 28)
             {
                 zp_balans += zp;
+                Console.WriteLine($"Ваша зарплата {zp_balans} рублей");
 
             }
             else
