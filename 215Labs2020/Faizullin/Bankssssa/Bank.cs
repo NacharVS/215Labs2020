@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Faizullin
 {
-    class Bank
+    class Bank 
     {
         private DateTime _birth;
         private static string _SNF;
@@ -87,7 +87,7 @@ namespace _215Labs2020.Faizullin
             int coat = int.Parse(Console.ReadLine());
             for (int i = 1; i < coat; i++)
             {
-                Bank._contribution += Bank._percent * Bank._contribution;
+                Bank._contribution +=Bank._percent * Bank._contribution;
 
             }
         }
