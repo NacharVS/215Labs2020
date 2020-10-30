@@ -18,15 +18,8 @@ namespace _215Labs2020.Galyautdinov
         {
             Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
             Console.Write("Фамилия Имя Отчество: ");
-            string _name = Console.ReadLine();
-            while (_name == name)
-            {
-                Console.WriteLine("Извините такой аккаунт уже существует.");
-                Console.WriteLine("Попробуйте заново:");
-                Console.Write("Фамилия Имя Отчество: ");
-                _name = Console.ReadLine();
-            }
-            name = _name;
+            name = Console.ReadLine();
+           
             try
             {
                 Console.Write("Введите ваш номер телефона: ");
@@ -301,7 +294,7 @@ namespace _215Labs2020.Galyautdinov
             Console.WriteLine();
             Console.WriteLine($"Ваш баланс на текущий момент {bank_balans} рублей");
         }
-        public static void Operation()
+        public void Operation()
         {
             int prov;
             int number_operation;
@@ -339,7 +332,6 @@ namespace _215Labs2020.Galyautdinov
                         {
                             Console.WriteLine("Введите правильную дату");
                             month_birthday = int.Parse(Console.ReadLine());
-                            
                         }
                     }
                     else
@@ -396,7 +388,6 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            
         }
     }
 }
