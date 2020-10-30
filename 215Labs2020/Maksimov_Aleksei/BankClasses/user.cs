@@ -2,13 +2,49 @@
 
 namespace _215Labs2020.Maksimov_Aleksei
 {
+    class rabotnic : Bank
+    {
+        private static string rabname = "Олег";
+        private static string rabsurname = "Иванов";
+        private static int zarplata;
+        public static string Rabname
+        {
+            get
+            {
+                return rabname;
+            }
+            set
+            {
+                rabname = value;
+            }
+        }
+        public static string Rabsurname
+        {
+            get
+            {
+                return rabsurname;
+            }
+            set
+            {
+                rabsurname = value;
+            }
+        }
+        public static int Zarplata
+        {
+            get
+            {
+                return zarplata;
+            }
+            set
+            {
+                zarplata = 45000;
+            }
+        }
+    }
     class user : Bank
     {
         private static double vklad = 0;
         private static double procent = 0.1;
-        private static string rabname = "Олег";
-        private static string rabsurname = "Иванов";
-        private static int zarplata = 45000;
         private void Daa()
         {
             user us = new user();
@@ -58,13 +94,13 @@ namespace _215Labs2020.Maksimov_Aleksei
         private void end()
         {
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {user.vklad} рублей.");
-            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьЛейсанИнвест'.");
+            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьАлмазИнвест'.");
         }
         public static void method()
         {
             user bank = new user();
             bank.Registration();
-            if (Bank.Name != user.rabname || Bank.Surname != user.rabsurname)
+            if (Bank.Name != rabotnic.Rabname || Bank.Surname != rabotnic.Rabsurname)
             {
                 bank.Daa();
                 if (Bank.Age >= 14)
@@ -80,7 +116,7 @@ namespace _215Labs2020.Maksimov_Aleksei
                     Console.WriteLine("Вы не можете положить деньги под депозит в нашем банке, так как вам недостаточно лет(");
             }
             else
-                Console.WriteLine($"Здравствуйте {user.rabname} {user.rabsurname}, ваша зарплата на данный момент составляет: {user.zarplata}");
+                Console.WriteLine($"Здравствуйте {rabotnic.Rabname} {rabotnic.Rabsurname}, ваша зарплата на данный момент составляет: {rabotnic.Zarplata}");
         }
     }
 }
