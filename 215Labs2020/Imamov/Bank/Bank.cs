@@ -2,14 +2,14 @@
 
 namespace _215Labs2020.Imamov
 {
-    class Bank : User
+    class Bank : User 
     {
        
         private static double deposit = 0;
         private static double procents = 0.05;
         private static void Registration()
         {
-            Console.WriteLine("Greetings, you need sign up to deposit your money in our bank");
+            Console.WriteLine("Greetings, you need sign in in our bank");
             Bank InfoBase = new Bank();
             Console.WriteLine("Enter your name");
             User.name = Console.ReadLine();
@@ -24,7 +24,7 @@ namespace _215Labs2020.Imamov
             User.date = int.Parse(date[0]);
             User.month = int.Parse(date[1]);
             User.year = int.Parse(date[2]);
-            User.age = DateTime.Now.Year - Bank.year;
+            User.age = DateTime.Now.Year - User.year;
         }
 
         private static void Operations()
@@ -44,7 +44,7 @@ namespace _215Labs2020.Imamov
                 }
                 catch
                 {
-                    Console.WriteLine("Error! Deposit couldn't has any words in it!");
+                    Console.WriteLine("Error! Deposit can't have any words in it!");
                 }
             }
         }
@@ -68,17 +68,22 @@ namespace _215Labs2020.Imamov
         {
             Bank InfoBase = new Bank();
             Bank.Registration();
-            Bank.DateInfo();
-            if (Bank.age >= 14)
+            if (User.name != User.EmployeeN || User.Surname != User.EmployeeS)
             {
-                Bank.Operations();
-                Bank.Procents();
-                Bank.Finish();
+                Bank.DateInfo();
+                if (User.age >= 14)
+                {
+                    Bank.Operations();
+                    {
+                        Bank.Procents();
+                        Bank.Finish();
+                    }
+                }
+                else
+                    Console.WriteLine("Sorry, but you can't use our bank underage");
             }
             else
-            {
-                Console.WriteLine("Sorry,but you couldn't use our bank");
-            }
+                Console.WriteLine($"Greetings, {User.EmployeeN} {User.EmployeeS}. Your salary: {User.Pay}");
         }
     }
 }
