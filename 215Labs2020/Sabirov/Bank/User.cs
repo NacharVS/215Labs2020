@@ -1,37 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace _215Labs2020.Sabirov
+namespace _215Labs2020.Sabirov.User
 {
-    class Bank
+    class User : Bank
     {
-
-        private string name;
-        private int day;
-        private int month;
-        
-        private static string email = "";
         private static double money = 0;
         private static double deposit = 0.061;
-        private int age;
-        
 
-        public int Age
+
+        public static void Check()
         {
-            get
+            Console.WriteLine($"Login as Employee or User?");
+            Console.WriteLine($"Enter 1 to login as Employee or enter 2 to login as User");
+            string ans = Console.ReadLine();
+            switch (ans)
             {
-                return age;
+                case "1":
+                    Employee.Login();
+                    break;
+                case "2":
+                    User.Login();
+                    break;
             }
-            set
-            {
-                if (DateTime.Now.Year - value < 14)
-                {
-                    
-                    Console.WriteLine("You are underage");
-                    
-                }
-                else age = value;
-            }
+
         }
+
 
         private static void Withdraw()
         {
@@ -41,8 +36,8 @@ namespace _215Labs2020.Sabirov
             {
                 Console.WriteLine("insufficient funds to write off");
             }
-            else Bank.money -= x;
-            Console.WriteLine($"You have {Bank.money} in your account");
+            else User.money -= x;
+            Console.WriteLine($"You have {User.money} in your account");
         }
         private static void Desposit()
         {
@@ -58,8 +53,8 @@ namespace _215Labs2020.Sabirov
                 }
                 else
                 {
-                    Bank.money += y;
-                    Console.WriteLine($"Account replenished\n{Bank.money}");
+                    User.money += y;
+                    Console.WriteLine($"Account replenished\n{User.money}");
 
                 }
             }
@@ -72,26 +67,25 @@ namespace _215Labs2020.Sabirov
         private static void percent()
         {
 
-            double x = Bank.money * Bank.deposit;
-            Bank.money += x;
-            Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {Bank.money}");
+            double x = User.money * User.deposit;
+            User.money += x;
+            Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
         }
 
-        private static void signIn()
+        public static void signIn()
         {
-            Bank user = new Bank();
+            User person = new User();
             Console.WriteLine("Enter your full name:");
             string name = Console.ReadLine();
-            Bank.UserName(name);
+            User.UserName(name);
             Console.WriteLine("Enter your BirthDay");
-            user.day = int.Parse(Console.ReadLine());
+            Bank.Day = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter your BirthMonth");
-            user.month = int.Parse(Console.ReadLine());
+            Bank.Month = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter your BirthYear");
-            user.Age = int.Parse(Console.ReadLine());
-            Bank.Birth(user.month, user.age, user.day);
-            
-            Bank.EmailCheck();
+            Bank.Age = int.Parse(Console.ReadLine());
+            User.Birth(Month, Age, Day);
+            User.EmailCheck();
 
         }
         private static void UserName(string Newname)
@@ -111,13 +105,17 @@ namespace _215Labs2020.Sabirov
         {
             if (b > 1900 & b < DateTime.Now.Year & c > 0 & c <= 31 & a > 0 & a <= 12)
             {
-                
-                if (c == DateTime.Now.Day & a == DateTime.Now.Month)
+                if (DateTime.Now.Year - b < 18)
                 {
-                    Bank.money += 100;
+                    Console.WriteLine("You are underage :(");
+
+                }
+                else if (c == DateTime.Now.Day & a == DateTime.Now.Month)
+                {
+                    User.money += 100;
 
                     Console.WriteLine($"it's your birthday!!! You are now {DateTime.Now.Year - b} year old.");
-                    Console.WriteLine(Bank.money);
+                    Console.WriteLine(User.money);
                 }
 
             }
@@ -135,7 +133,7 @@ namespace _215Labs2020.Sabirov
                 if (c == true)
                 {
                     a = 0;
-                    Bank.email = em;
+                    User.Email = em;
                 }
                 else
                 {
@@ -147,7 +145,10 @@ namespace _215Labs2020.Sabirov
 
         public static void Login()
         {
-            Bank.signIn();
+            User.signIn();
+            Random bank123 = new Random();
+            Bank.Id = bank123.Next(1000000, 1999999);
+            Console.WriteLine($"Your id: {Bank.Id}");
             int yes = 1;
             while (yes == 1)
             {
@@ -158,19 +159,19 @@ namespace _215Labs2020.Sabirov
                 {
                     case "1":
 
-                        Bank.Desposit();
+                        User.Desposit();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         string cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
                         break;
                     case "2":
-                        Bank.Withdraw();
+                        User.Withdraw();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
                         break;
                     case "3":
-                        Bank.percent();
+                        User.percent();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
