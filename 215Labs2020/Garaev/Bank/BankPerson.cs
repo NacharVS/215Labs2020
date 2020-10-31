@@ -2,22 +2,69 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace _215Labs2020.Garaev.Bank
 {
     class BankPerson
     {
-        protected string name;
-        protected string surname;
-        protected string otchestvo;
+        protected static string name;
+        protected static string surname;
+        protected static string otchestvo;
         Client client = new Client();
         Sotrudnik sotrudnik = new Sotrudnik();
         public static void Bank_deysviya()
         {
-            Console.WriteLine("Выберите действие");
-            Console.WriteLine("1) Зарегистрироваться как клиент");
-            Console.WriteLine("2) Зарегистрироваться как сотрудник");
-            Console.WriteLine("3) Выйти");
+            Console.Clear();
+            string text1 = "1) Зарегистрироваться как клиент";
+            string text2 = "2) Зарегистрироваться как сотрудник";
+            string text3 = "3) Выйти";
+            string c = "<_______________БАНК_______________>";
+            int n = 30;
+            int dlina = 2;
+            for (int i = c.Length / 2; i > 1; i--)
+            {
+                for (int l = 0; l < i; l++)
+                {
+                    Console.Write(" ");
+
+                }
+                c = c.Remove(0, i - 1);
+                c = c.Remove(dlina);
+                Console.Write(c);
+                for (int l = 0; l < i; l++)
+                {
+                    Console.Write(" ");
+
+                }
+                Thread.Sleep(n);
+                Console.SetCursorPosition(0, 0);
+                c = "<_______________БАНК_______________>";
+                dlina += 2;
+            }
+            Console.WriteLine(c);
+            Console.WriteLine("          Выберите действие");
+            for (int i = 1; i < text1.Length; i++)
+            {
+                Console.WriteLine(text1.Remove(i));
+                Thread.Sleep(n);
+                Console.SetCursorPosition(0, 2);
+            }
+            Console.WriteLine(text1);
+            for (int i = 1; i < text2.Length; i++)
+            {
+                Console.WriteLine(text2.Remove(i));
+                Thread.Sleep(n);
+                Console.SetCursorPosition(0, 3);
+            }
+            Console.WriteLine(text2);
+            for (int i = 1; i < text3.Length; i++)
+            {
+                Console.WriteLine(text3.Remove(i));
+                Thread.Sleep(n);
+                Console.SetCursorPosition(0, 4);
+            }
+            Console.WriteLine(text3);
             int a1 = int.Parse(Console.ReadLine());
             switch (a1)
             {

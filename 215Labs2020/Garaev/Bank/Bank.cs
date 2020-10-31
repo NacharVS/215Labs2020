@@ -22,11 +22,11 @@ namespace _Bank
         private static void dataofbirth()
         {
             Console.Write("Введите Фамилия: ");
-            string surname = Console.ReadLine();
+            surname = Console.ReadLine();
             Console.Write("Введите имя: ");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
             Console.Write("Введите Отчество: ");
-            string otchestvo = Console.ReadLine();
+            otchestvo = Console.ReadLine();
             Console.WriteLine("Введите дату рождение");
             Console.Write("День: ");
             dayofbirth = int.Parse(Console.ReadLine());
@@ -166,7 +166,7 @@ namespace _Bank
                     f = 0;
                 }
             }
-            while(balans - _vivod < 0 || _vivod > 200000 || (_vivod < 10000 && _vivod != 0))
+            while (balans - _vivod < 0 || _vivod > 200000 || (_vivod < 10000 && _vivod != 0))
             {
                 if (balans - _vivod < 0)
                     Console.WriteLine("На вашем счету недостаточно средств");
@@ -231,8 +231,10 @@ namespace _Bank
             }
             while (balans - summ1 < 0 || summ1 > 200000 || (summ1 < 10000 && summ1 != 0))
             {
-                if(balans - summ1 < 0)
+                if (balans - summ1 < 0)
+                { 
                     Console.WriteLine("На вашем счету недостаточно средств");
+                }
                 else if (summ1 > 200000 || summ1 < 10000)
                 {
                     Console.WriteLine("Минимальный перевод: 10 000 руб.");
@@ -284,10 +286,14 @@ namespace _Bank
                 balans1 = Math.Round(balans1 + (balans1 * (procent / 100)),2);
             }
             double dohod = Math.Round(balans1-balans,2);
-            if (year<5)
+            if (year < 5)
+            {
                 Console.WriteLine($"Через {year} года ваш баланс будет {balans1} руб. Чистый доход: {dohod} руб.");
+            }
             else
+            {
                 Console.WriteLine($"Через {year} лет ваш баланс будет {balans1} руб. Чистый доход: {dohod} руб.");
+            }
         }
         private static void tecush_balans()
         {
@@ -296,7 +302,6 @@ namespace _Bank
         public static void vibor_deistviy()
         {
             Console.WriteLine("Здравствуйте вас приветствует наш банк");
-
             Console.WriteLine("Выберите действие: ");
             Console.WriteLine("1) Зарегистрироваться");
             Console.WriteLine("2) Выйти");
