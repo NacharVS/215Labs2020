@@ -43,7 +43,7 @@ namespace _215Labs2020.Garaev.Bank
                 dlina += 2;
             }
             Console.WriteLine(c);
-            Console.WriteLine("          Выберите действие");
+            Console.WriteLine("         Выберите действие");
             for (int i = 1; i < text1.Length; i++)
             {
                 Console.WriteLine(text1.Remove(i));
