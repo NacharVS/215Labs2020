@@ -1,36 +1,29 @@
-﻿using System;
+﻿using _Bank;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace _215Labs2020.Garaev.Bank
 {
-    abstract class BankPerson
+    class BankPerson
     {
-        private static string _surname;
-        private static string _name;
-        private static string _otchestvo;
-        public static void name()
+        protected string name;
+        protected string surname;
+        protected string otchestvo;
+        Client client = new Client();
+        Sotrudnik sotrudnik = new Sotrudnik();
+        public static void Bank_deysviya()
         {
-            Console.Write("Введите Фамилия: ");
-            string surname = Console.ReadLine();
-            Console.Write("Введите имя: ");
-            string name = Console.ReadLine();
-            Console.Write("Введите Отчество: ");
-            string otchestvo = Console.ReadLine();
-            while (_surname == surname && _name == name && _otchestvo == otchestvo)
+            Console.WriteLine("Выберите действие");
+            Console.WriteLine("1) Зарегистрироваться как клиент");
+            Console.WriteLine("2) Зарегистрироваться как сотрудник");
+            Console.WriteLine("3) Выйти");
+            int a1 = int.Parse(Console.ReadLine());
+            switch (a1)
             {
-                Console.WriteLine("Извините такой аккаунт уже существует.");
-                Console.WriteLine("Попробуйте заново:");
-                Console.Write("Введите Фамилия: ");
-                surname = Console.ReadLine();
-                Console.Write("Введите имя: ");
-                name = Console.ReadLine();
-                Console.Write("Введите Отчество: ");
+                case 1: Client.vibor_deistviy(); break;
+                case 2: Sotrudnik.vibor_deistviy(); break;
             }
-            _surname = surname;
-            _name = name;
-            _otchestvo = otchestvo;
         }
-        public abstract void Deystvya();
     }
 }

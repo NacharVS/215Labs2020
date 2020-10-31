@@ -3,15 +3,15 @@ using _215Labs2020.Garaev.Bank;
 
 namespace _Bank
 {
-    class Bank: BankPerson
+    class Client: BankPerson
     {
         private static int dayofbirth = 0;
         private static int monthofbirth = 0;
         private static int yearofbirth = 0;
         private static double procent = 20;
-        //private static string _surname;
-        //private static string _name;
-        //private static string _otchestvo;
+        private static string _surname;
+        private static string _name;
+        private static string _otchestvo;
         private static double balans = 0;
         private static int summ = 0;
         private static int _vivod = 0;
@@ -34,23 +34,23 @@ namespace _Bank
             monthofbirth = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
             yearofbirth = int.Parse(Console.ReadLine());
-            //while (_surname == surname && _name == name && _otchestvo == otchestvo)
-            //{
-            //    Console.WriteLine("Извините такой аккаунт уже существует.");
-            //    Console.WriteLine("Попробуйте заново:");
-            //    Console.Write("Введите Фамилия: ");
-            //    surname = Console.ReadLine();
-            //    Console.Write("Введите имя: ");
-            //    name = Console.ReadLine();
-            //    Console.Write("Введите Отчество: ");
-            //    otchestvo = Console.ReadLine();
-            //    Console.Write("День: ");
-            //    dayofbirth = int.Parse(Console.ReadLine());
-            //    Console.Write("Месяц: ");
-            //    monthofbirth = int.Parse(Console.ReadLine());
-            //    Console.Write("Год: ");
-            //    yearofbirth = int.Parse(Console.ReadLine());
-            //}
+            while (_surname == surname && _name == name && _otchestvo == otchestvo)
+            {
+                Console.WriteLine("Извините такой аккаунт уже существует.");
+                Console.WriteLine("Попробуйте заново:");
+                Console.Write("Введите Фамилия: ");
+                surname = Console.ReadLine();
+                Console.Write("Введите имя: ");
+                name = Console.ReadLine();
+                Console.Write("Введите Отчество: ");
+                otchestvo = Console.ReadLine();
+                Console.Write("День: ");
+                dayofbirth = int.Parse(Console.ReadLine());
+                Console.Write("Месяц: ");
+                monthofbirth = int.Parse(Console.ReadLine());
+                Console.Write("Год: ");
+                yearofbirth = int.Parse(Console.ReadLine());
+            }
             int realyear = DateTime.Now.Year;
             int realday = DateTime.Now.Day;
             int realmonth = DateTime.Now.Month;
@@ -102,9 +102,9 @@ namespace _Bank
                     yearofbirth = int.Parse(Console.ReadLine());
                 }
             }
-            //_surname = surname;
-            //_name = name;
-            //_otchestvo = otchestvo;
+            _surname = surname;
+            _name = name;
+            _otchestvo = otchestvo;
         }
         private static void bank_account()
         {
@@ -293,69 +293,67 @@ namespace _Bank
         {
             Console.WriteLine($"Ваш текущий баланс: {balans} руб.");
         }
-        public override void Deystvya()
+        public static void vibor_deistviy()
         {
-            public static void vibor_deistviy()
-            {
-                Console.WriteLine("Здравствуйте вас приветствует наш банк");
+            Console.WriteLine("Здравствуйте вас приветствует наш банк");
 
+            Console.WriteLine("Выберите действие: ");
+            Console.WriteLine("1) Зарегистрироваться");
+            Console.WriteLine("2) Выйти");
+            int f = 0;
+            while (f == 0)
+            {
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                    f += 1;
+                }
+                catch
+                {
+                    Console.WriteLine("******!!!! ОШИБКА !!!!******");
+                    Console.Write("Введите правильный номерр действия: ");
+                    f = 0;
+                }
+            }
+            if (a == 2)
+                a = 0;
+            while (a > 0 && a < 7)
+            {
+                switch (a)
+                {
+                    case 1: dataofbirth(); break;
+                    case 2: bank_account(); break;
+                    case 3: vivod(); break;
+                    case 4: transaction(); break;
+                    case 5: _dohod(); break;
+                    case 6: tecush_balans(); break;
+                }
+                Console.WriteLine();
                 Console.WriteLine("Выберите действие: ");
                 Console.WriteLine("1) Зарегистрироваться");
-                Console.WriteLine("2) Выйти");
-                int f = 0;
-                while (f == 0)
+                Console.WriteLine("2) Пополнить лицевой счет");
+                Console.WriteLine("3) Вывести (Если захотите отменить операцию, то выведите 0 руб.)");
+                Console.WriteLine("4) Перевод денег на другой лицевой счет (Если захотите отменить операцию, то переведите 0 руб.)");
+                Console.WriteLine("5) Посчитать проценты");
+                Console.WriteLine("6) Узнать текущий баланс");
+                Console.WriteLine("7) Выйти");
+                int f1 = 0;
+                while (f1 == 0)
                 {
                     try
                     {
                         a = int.Parse(Console.ReadLine());
-                        f += 1;
+                        f1 = 1;
                     }
                     catch
                     {
                         Console.WriteLine("******!!!! ОШИБКА !!!!******");
-                        Console.Write("Введите правильный номерр действия: ");
-                        f = 0;
-                    }
-                }
-                if (a == 2)
-                    a = 0;
-                while (a > 0 && a < 7)
-                {
-                    switch (a)
-                    {
-                        case 1: { BankPerson.name(); dataofbirth(); } break;
-                        case 2: bank_account(); break;
-                        case 3: vivod(); break;
-                        case 4: transaction(); break;
-                        case 5: _dohod(); break;
-                        case 6: tecush_balans(); break;
-                    }
-                    Console.WriteLine();
-                    Console.WriteLine("Выберите действие: ");
-                    Console.WriteLine("1) Зарегистрироваться");
-                    Console.WriteLine("2) Пополнить лицевой счет");
-                    Console.WriteLine("3) Вывести (Если захотите отменить операцию, то выведите 0 руб.)");
-                    Console.WriteLine("4) Перевод денег на другой лицевой счет (Если захотите отменить операцию, то переведите 0 руб.)");
-                    Console.WriteLine("5) Посчитать проценты");
-                    Console.WriteLine("6) Узнать текущий баланс");
-                    Console.WriteLine("7) Выйти");
-                    int f1 = 0;
-                    while (f1 == 0)
-                    {
-                        try
-                        {
-                            a = int.Parse(Console.ReadLine());
-                            f1 = 1;
-                        }
-                        catch
-                        {
-                            Console.WriteLine("******!!!! ОШИБКА !!!!******");
-                            Console.Write("Введите правильное действие: ");
-                            f1 = 0;
-                        }
+                        Console.Write("Введите правильное действие: ");
+                        f1 = 0;
                     }
                 }
             }
+            BankPerson.Bank_deysviya();
         }
     }
 }
