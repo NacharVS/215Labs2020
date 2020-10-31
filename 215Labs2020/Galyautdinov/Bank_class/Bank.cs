@@ -13,11 +13,11 @@ namespace _215Labs2020.Galyautdinov
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
+        
         private static void FullName()
         {
             Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
             Console.WriteLine(Client.Name);
-            
             try
             {
                 Console.Write("Введите ваш номер телефона: ");
@@ -28,7 +28,6 @@ namespace _215Labs2020.Galyautdinov
                 Console.Write("Введите правильный номер телефона: ");
                 phone = long.Parse(Console.ReadLine());
             }
-            
             if (phone/10000000000==0 || phone/ 1000000000 != 8)
             {
                 while (phone / 10000000000 == 0 || phone / 10000000000 != 8)
@@ -37,13 +36,6 @@ namespace _215Labs2020.Galyautdinov
                     phone = long.Parse(Console.ReadLine());
                 }
             }
-            Console.WriteLine("Укажиет день рождение");
-            Console.Write("День: ");
-            day_birthday = int.Parse(Console.ReadLine());
-            Console.Write("Месяц: ");
-            month_birthday = int.Parse(Console.ReadLine());
-            Console.Write("Год: ");
-            year_birthday = int.Parse(Console.ReadLine());
         }
         private static void Refill()
         {
@@ -307,85 +299,84 @@ namespace _215Labs2020.Galyautdinov
                 Console.Write("Введите правильное число ");
                 prov = int.Parse(Console.ReadLine());
             }
-            
             if (prov == 1)
             {
                 FullName();
             }
-            if (DateTime.Now.Year - year_birthday < 14)
+            Console.WriteLine("Укажиет день рождение");
+            Console.Write("День: ");
+            day_birthday = int.Parse(Console.ReadLine());
+            Console.Write("Месяц: ");
+            month_birthday = int.Parse(Console.ReadLine());
+            Console.Write("Год: ");
+            year_birthday = int.Parse(Console.ReadLine());
+            DateTime dataBorn = new DateTime(year_birthday, month_birthday, day_birthday);
+            Console.WriteLine($"{dataBorn.Day}.{dataBorn.Month}.{dataBorn.Year}");
+            if (DateTime.Now.Year - dataBorn.Year < 14)
             {
                 Console.WriteLine("Люди младше 14 лет не могут открыть счет.");
             }
             else
             {
-                if (month_birthday < DateTime.Now.Month)
+                Console.WriteLine("Выберите дальшейшие действие");
+                Console.WriteLine("1. Пополнение счета");
+                Console.WriteLine("2. Снятие денег со счета");
+                Console.WriteLine("3. Перевод денег");
+                Console.WriteLine("4. Узнать свой баланс");
+                Console.WriteLine("5. Узнать свой депозит");
+                Console.WriteLine("Выберите любое число для выхода");
+                try
                 {
-                    Console.WriteLine("Люди младше 14 лет не могут открыть счет.");
+                    number_operation = int.Parse(Console.ReadLine());
                 }
-                else
+                catch
                 {
-                    if (month_birthday > DateTime.Now.Month)
+                    Console.WriteLine("Введите правильную сумму");
+                    number_operation = int.Parse(Console.ReadLine());
+                }
+                while (number_operation > 0 && number_operation < 6)
+                {
+                    switch (number_operation)
                     {
-                        while (month_birthday > DateTime.Now.Month)
-                        {
-                            Console.WriteLine("Введите правильную дату");
-                            month_birthday = int.Parse(Console.ReadLine());
-                        }
-                    }
-                    else
-                    {
-                        if (day_birthday > DateTime.Now.Day)
-                        {
-                            while (day_birthday > DateTime.Now.Day)
-                            {
-                                Console.WriteLine("Введите правильную дату");
-                                day_birthday = int.Parse(Console.ReadLine());
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Выберите дальшейшие действие");
-                            Console.WriteLine("1. Пополнение счета");
-                            Console.WriteLine("2. Снятие денег со счета");
-                            Console.WriteLine("3. Перевод денег");
-                            Console.WriteLine("4. Узнать свой баланс");
-                            Console.WriteLine("5. Узнать свой депозит");
-                            Console.WriteLine("Выберите любое число для выхода");
-                            try
-                            {
-                                number_operation = int.Parse(Console.ReadLine());
-                            }
-                            catch
-                            {
-                                Console.WriteLine("Введите правильную сумму");
-                                number_operation = int.Parse(Console.ReadLine());
-                            }
-                            while (number_operation > 0 && number_operation < 6)
-                            {
-                                switch (number_operation)
-                                {
 
-                                    case 1: Refill(); break;
-                                    case 2: Withdrawal(); break;
-                                    case 3: Transfer(); break;
-                                    case 4: CheckBalance(); break;
-                                    case 5: Deposit(); break;
-                                }
-                                Console.WriteLine("Выберите дальнейшие действие");
-                                try
-                                {
-                                    number_operation = int.Parse(Console.ReadLine());
-                                }
-                                catch
-                                {
-                                    Console.WriteLine("Введите правильную сумму");
-                                    number_operation = int.Parse(Console.ReadLine());
-                                }
-                            }
-                        }
+                        case 1: Refill(); break;
+                        case 2: Withdrawal(); break;
+                        case 3: Transfer(); break;
+                        case 4: CheckBalance(); break;
+                        case 5: Deposit(); break;
+                    }
+                    Console.WriteLine("Выберите дальнейшие действие");
+                    try
+                    {
+                        number_operation = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Введите правильную сумму");
+                        number_operation = int.Parse(Console.ReadLine());
                     }
                 }
             }
+        }
+        public static void A()
+        {
+            Bank bank = new Bank();
+            Client client = new Client("Igor");
+            Employee employee1 = new Employee("Timur");
+
+            Console.WriteLine("1. Клиент");
+            Console.WriteLine("2. Сотрудник");
+            client._id = int.Parse(Console.ReadLine());
+            if (client._id == 1)
+            {
+                bank.Operation();
+            }
+            else if (client._id == 2)
+            {
+                Employee.employee();
+            }
+            else Console.WriteLine("...");
+            Console.Read();
         }
     }
 }

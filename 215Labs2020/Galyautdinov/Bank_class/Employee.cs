@@ -16,6 +16,7 @@ namespace _215Labs2020.Galyautdinov.Bank_class
         }
         public static void employee()
         {
+            Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
             Console.WriteLine(Employee.Name);
             if (DateTime.Now.Day > 28)
             {

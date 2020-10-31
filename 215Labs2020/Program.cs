@@ -8,24 +8,8 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            
-            Bank bank = new Bank();
-            Client client = new Client("Igor");
-            Employee employee1 = new Employee("Timur");
-            
-            Console.WriteLine("1. Клиент");
-            Console.WriteLine("2. Сотрудник");
-            client._id = int.Parse(Console.ReadLine());
-            if (client._id==1)
-            {
-                bank.Operation();
-            }
-            else if (client._id == 2)
-            {
-                Employee.employee();
-            }
-            else Console.WriteLine("...");
-            Console.Read();
+            Bank.A();
+
         }
     }
 }
