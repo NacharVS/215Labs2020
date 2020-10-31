@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp11
+namespace _215Labs2020.Hasanov
 {
-    abstract class BankPerson
+    abstract class Person
     {
         private static string _surname;
         private static string _name;
