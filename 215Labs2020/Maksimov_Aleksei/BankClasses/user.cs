@@ -1,46 +1,10 @@
-﻿using System;
+﻿using _215Labs2020.Maksimov_Aleksei.BankClasses;
+using System;
+using System.Dynamic;
 
 namespace _215Labs2020.Maksimov_Aleksei
 {
-    class rabotnic : Bank
-    {
-        private static string rabname = "Олег";
-        private static string rabsurname = "Иванов";
-        private static int zarplata;
-        public static string Rabname
-        {
-            get
-            {
-                return rabname;
-            }
-            set
-            {
-                rabname = value;
-            }
-        }
-        public static string Rabsurname
-        {
-            get
-            {
-                return rabsurname;
-            }
-            set
-            {
-                rabsurname = value;
-            }
-        }
-        public static int Zarplata
-        {
-            get
-            {
-                return zarplata;
-            }
-            set
-            {
-                zarplata = 45000;
-            }
-        }
-    }
+    
     class user : Bank
     {
         private static double vklad = 0;
@@ -99,9 +63,12 @@ namespace _215Labs2020.Maksimov_Aleksei
         public static void method()
         {
             user bank = new user();
+            Console.WriteLine("Введите ваш id");
+            int id = int.Parse(Console.ReadLine());
             bank.Registration();
-            if (Bank.Name != rabotnic.Rabname || Bank.Surname != rabotnic.Rabsurname)
+            if (id != Employee.Id)
             {
+                bank.Registration();
                 bank.Daa();
                 if (Bank.Age >= 14)
                 {
@@ -116,7 +83,7 @@ namespace _215Labs2020.Maksimov_Aleksei
                     Console.WriteLine("Вы не можете положить деньги под депозит в нашем банке, так как вам недостаточно лет(");
             }
             else
-                Console.WriteLine($"Здравствуйте {rabotnic.Rabname} {rabotnic.Rabsurname}, ваша зарплата на данный момент составляет: {rabotnic.Zarplata}");
+                Console.WriteLine($"Здравствуйте {Employee.Rabname} {Employee.Rabsurname}, ваша зарплата на данный момент составляет: {Employee.Zarplata}");
         }
     }
 }
