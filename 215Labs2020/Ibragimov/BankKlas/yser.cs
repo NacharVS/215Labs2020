@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-
-namespace _215Labs2020.Ibragimov
+namespace _215Labs2020.Ibragimov.BankKlas
 {
-    class bank
+    class bank:bank2
+
     {
-        private static double Year;
-        private static double mec;
-        private static double day;
-        private static string FIO;
         private static double vklad = 0;
         private static double procent = 0.06;
         private static int year = 0;
@@ -73,19 +68,28 @@ namespace _215Labs2020.Ibragimov
             }
             
             public static void baank()
-            {
+          {
+                 
                 bank bank1 = new bank();
+            Console.WriteLine("Введите ваш id");
+            int id = int.Parse(Console.ReadLine());
+            if (id == rabotnikk.Id)
+            {
+               
+                Console.WriteLine($"Здравствуйте {rabotnikk.FIO} , ваша зарплата на данный момент составляет: {rabotnikk.Zarplata}");
+            }
+            else
+            {
+               
                 bank1.Regist();
                 bank1.Operation();
                 bank1.prognoz();
                 bank1.end();
+
             }
+          }
         
 
     }
-}
-
-
-
-
-
+}   
+    
