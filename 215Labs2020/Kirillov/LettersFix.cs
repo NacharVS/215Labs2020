@@ -7,7 +7,7 @@ namespace _215Labs2020.Kirillov
     {
         private string name;
         private string surname;
-        private int eng;
+        private int _eng;
         private int info;
         private int physics;
 
@@ -37,13 +37,17 @@ namespace _215Labs2020.Kirillov
         {
             get
             {
-                return eng;
+                return _eng;
             }
-            set
+            set 
             {
-                if (value >= 6) value = 5;
-                if (value < 2) value = 2;
-                if (value <= 5 || value >= 2) eng = value;
+                if (value >= 6)
+                    _eng = 5;
+                else if (value < 2) 
+                    _eng = 2;
+                else 
+                    _eng = value;
+                 
             }
         }
         public int Info
