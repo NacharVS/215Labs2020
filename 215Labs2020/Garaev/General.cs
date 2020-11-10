@@ -7,12 +7,11 @@ namespace _215Labs2020.Garaev
 {
     class General
     {
-        public static int mass1;
+        public static int[] mass1 = new int[10];
+        public static int[] mass2 = new int[10];
         public static void vibor()
         {
             Random rnd = new Random();
-            int[] mass1 = new int[10];
-            int[] mass2 = new int[10];
             for (int i = 0; i < mass1.Length; i++)
             {
                 mass1[i] = rnd.Next(10, 99);
@@ -32,6 +31,8 @@ namespace _215Labs2020.Garaev
             {
                 Console.Write($"{mass2[i]} ");
             }
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Выберите действие:");
             Console.WriteLine("1) Найти максимальный элемент первого массива");
             Console.WriteLine("2) Сумма элементов первого массива");
@@ -40,7 +41,15 @@ namespace _215Labs2020.Garaev
             Console.WriteLine("5) Разность элементов двух массивов");
             Console.WriteLine("6) Умножение двух массивов");
             Console.WriteLine("7) Выйти");
-            int vibor = int.Parse(Console.ReadLine());
+            int vibor = 0;
+            try
+            {
+                vibor = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                vibor = 7;
+            }
             while(vibor < 7)
             {
                 switch (vibor)
@@ -48,7 +57,38 @@ namespace _215Labs2020.Garaev
                     case 1:
                         BranchOffice.max();
                         break;
+                    case 2:
+                        BranchOffice.Summ_el();
+                        break;
+                    case 3:
+                        BranchOffice.Sortirovka();
+                        break;
+                    case 4:
+                        BranchOffice.Summ_mass();
+                        break;
+                    case 5:
+                        BranchOffice.raznost();
+                        break;
+                    case 6:
+                        BranchOffice.MU();
+                        break;
                 }
+                Console.Write("Нажмите ENTER: ");
+                Console.ReadKey();
+                Console.Clear();
+                Console.Write("Ваш первый массив: ");
+                for (int i = 0; i < mass1.Length; i++)
+                {
+                    Console.Write($"{mass1[i]} ");
+                }
+                Console.WriteLine();
+                Console.Write("Ваш второй массив: ");
+                for (int i = 0; i < mass2.Length; i++)
+                {
+                    Console.Write($"{mass2[i]} ");
+                }
+                Console.WriteLine();
+                Console.WriteLine();
                 Console.WriteLine("Выберите действие:");
                 Console.WriteLine("1) Найти максимальный элемент первого массива");
                 Console.WriteLine("2) Сумма элементов первого массива");
@@ -57,7 +97,15 @@ namespace _215Labs2020.Garaev
                 Console.WriteLine("5) Разность элементов двух массивов");
                 Console.WriteLine("6) Умножение двух массивов");
                 Console.WriteLine("7) Выйти");
-                vibor = int.Parse(Console.ReadLine());
+                try
+                {
+                    vibor = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    vibor = 7;
+                }
+                
             }
         }
     }

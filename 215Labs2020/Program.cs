@@ -10,9 +10,7 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
             //BankPerson.Bank_deysviya();
-            //BranchOffice.max();
             General.vibor();
-            Console.ReadKey();
         }
     }
 }
