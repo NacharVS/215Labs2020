@@ -6,5 +6,7 @@ namespace _215Labs2020.Ohotnicov.Delegates
 {
     class DelegateClass
     {
+        private delegate void mass1();
+
     }
 }

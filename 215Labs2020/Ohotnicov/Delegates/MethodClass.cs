@@ -61,6 +61,85 @@ namespace _215Labs2020.Ohotnicov.Delegates
             }
             Console.Write("sum = {0}", sum);
         }
+        public static void SummMass()
+        {
+            Console.WriteLine("Заполните первый массив");
+            int[] mass = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("mass[{0}]=", i);
+                mass[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("Заполните второй массив");
+            int[] mass2 = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("mass2[{0}]=", i);
+                mass2[i] = int.Parse(Console.ReadLine());
+            }
+            int[] summ = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                summ[i] = mass[i] + mass2[i];
+            }
+            Console.WriteLine("Сумма масивов");
+            foreach (var v in summ)
+                Console.WriteLine(v);
+        }
+        public static void SubMass()
+        {
+            Console.WriteLine("Заполните первый массив");
+            int[] mass = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("mass[{0}]=", i);
+                mass[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("Заполните второй массив");
+            int[] mass2 = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("mass2[{0}]=", i);
+                mass2[i] = int.Parse(Console.ReadLine());
+            }
+            int[] summ = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                summ[i] = mass[i] - mass2[i];
+            }
+            Console.WriteLine("Разность масивов");
+            foreach (var v in summ)
+                Console.WriteLine(v);
+
+        }
+        public static void MultMass()
+        {
+            Console.WriteLine("Заполните первый массив");
+            int[] mass = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("mass[{0}]=", i);
+                mass[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("Заполните второй массив");
+            int[] mass2 = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("mass2[{0}]=", i);
+                mass2[i] = int.Parse(Console.ReadLine());
+            }
+            int[] mult = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                mult[i] = mass[i] * mass2[i];
+            }
+            Console.WriteLine("Умноженный массив");
+            foreach (var v in mult)
+                Console.WriteLine(v);
+
+        }
+
+
 
     }
 }
