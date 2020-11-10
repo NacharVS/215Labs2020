@@ -1,4 +1,5 @@
 ﻿using _215Labs2020.Ohotnicov;
+using _215Labs2020.Ohotnicov.Delegates;
 using System;
 
 namespace _215Labs2020
@@ -7,7 +8,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Bank.GO();
+            MethodClass.SortirovkaMass();
         }
     }
 }
