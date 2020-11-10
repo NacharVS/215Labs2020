@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\mafis\\.nuget\\packages\\": {}
+    "C:\\Users\\Islam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mafis\\Desktop\\Galyautdinov\\215Labs2020\\215Labs2020.csproj",
+      "projectUniqueName": "C:\\Users\\Islam\\Desktop\\Galyautdinov\\215Labs2020\\215Labs2020.csproj",
       "projectName": "215Labs2020",
-      "projectPath": "C:\\Users\\mafis\\Desktop\\Galyautdinov\\215Labs2020\\215Labs2020.csproj",
-      "packagesPath": "C:\\Users\\mafis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mafis\\Desktop\\Galyautdinov\\215Labs2020\\obj\\",
+      "projectPath": "C:\\Users\\Islam\\Desktop\\Galyautdinov\\215Labs2020\\215Labs2020.csproj",
+      "packagesPath": "C:\\Users\\Islam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Islam\\Desktop\\Galyautdinov\\215Labs2020\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mafis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Islam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
