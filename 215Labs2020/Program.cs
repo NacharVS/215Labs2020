@@ -1,5 +1,7 @@
 ﻿using System;
 using _215Labs2020.Garaev.Bank;
+using _215Labs2020.Garaev.Delegates;
+using _215Labs2020.Garaev;
 
 namespace _215Labs2020
 {
@@ -7,7 +9,10 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            BankPerson.Bank_deysviya();
+            //BankPerson.Bank_deysviya();
+            //BranchOffice.max();
+            General.vibor();
+            Console.ReadKey();
         }
     }
 }

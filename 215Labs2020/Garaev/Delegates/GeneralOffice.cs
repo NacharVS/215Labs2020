@@ -6,5 +6,10 @@ namespace _215Labs2020.Garaev.Delegates
 {
     class GeneralOffice
     {
+        public static void Max_el_mass(int message)
+        {
+            Console.WriteLine
+                ($"Максимальный элемент внутри массива: {message}");
+        }
     }
 }
