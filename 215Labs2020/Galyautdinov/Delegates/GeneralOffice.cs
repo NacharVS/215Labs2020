@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _215Labs2020.Galyautdinov.Delegates
 {
@@ -14,19 +12,19 @@ namespace _215Labs2020.Galyautdinov.Delegates
         {
             Console.WriteLine($"Сумма элементов массива {message}");
         }
-        public static void Sort_el_array(int message)
+        public static void Sort_el_array(string message)
         {
             Console.WriteLine($"Сортировка массива {message}");
         }
-        public static void SumArray(int message)
+        public static void SumArray(string message)
         {
             Console.WriteLine($"Сумма двух массива {message}");
         }
-        public static void Sub_el_array(int message)
+        public static void Sub_el_array(string message)
         {
             Console.WriteLine($"Разность двух массива {message}");
         }
-        public static void Com_el_array(int message)
+        public static void Com_el_array(string message)
         {
             Console.WriteLine($"Произведение двух массива {message}");
         }
