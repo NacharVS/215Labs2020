@@ -8,8 +8,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Bank.A();
-
+            General.vibor();
         }
     }
 }
