@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Шагимуратова
+namespace _215Labs2020.Шагимуратова.Bank
 {
-    class bank
+    class bank:Human
     {
-        private string _name;
-        private string _Surname;
+        //private string _name;
+        //private string _Surname;
         private int _summinvklad;
         private static double _procent = 0.13;
         private double _dohod;
@@ -32,29 +32,29 @@ namespace _215Labs2020.Шагимуратова
                 _dohod = _dohod * _procent + _dohod;
             }
         }
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
+        //public string Name
+        //{
+        //    get
+        //    {
+        //        return _name;
+        //    }
+        //    set
+        //    {
+        //        _name = value;
+        //    }
+        //}
 
-        public string SurName
-        {
-            get
-            {
-                return _Surname;
-            }
-            set
-            {
-                _Surname = value;
-            }
-        }
+        //public string SurName
+        //{
+        //    get
+        //    {
+        //        return _Surname;
+        //    }
+        //    set
+        //    {
+        //        _Surname = value;
+        //    }
+        //}
       
         public int summinvklad
         {
@@ -67,16 +67,27 @@ namespace _215Labs2020.Шагимуратова
                 _summinvklad = value;
             }
         }
-        
-        
+        //public string ID
+        //{
+        //    get
+        //    {
+        //        return _id;
+        //    }
+        //    set
+        //    {
+        //        _id = value;
+        //    }
+        //}
+
         public static void Reg (bank User)
         {
             
+
             Console.WriteLine("Введите имя ");
             User.Name = Console.ReadLine();
             Console.WriteLine("Введите Фамилию ");
             User.SurName = Console.ReadLine();
-            int k = 0;
+            int k=0;
             do
             {
                 Console.WriteLine("Введите сумму пополнения");
@@ -89,7 +100,7 @@ namespace _215Labs2020.Шагимуратова
                 }
                 if (value < 10000)
                 {
-                    Console.WriteLine("сумма должна быть меньше 10000");
+                    Console.WriteLine("сумма не должна быть меньше 10000");
                     k = 1;
                 }
                 if (value >= 200000)

@@ -32,19 +32,39 @@ namespace _215Labs2020.Шагимуратова.Bank
             }
         }
     }
-        class Sotrudnic : Human
+    class Sotrudnic : Human
+    {
+        private static double salary;
+        private string _Otdel;
+        public string Otdel
         {
-            private string _Otdel;
-            public string Otdel
+            get
             {
-                get
-                {
-                    return _Otdel;
-                }
-                set
-                {
-                    _Otdel = value;
-                }
+                return _Otdel;
+            }
+            set
+            {
+                _Otdel = value;
+            }
+        }
+       
+        public static void Personal(string a) 
+            {
+            if (a=="manager")
+            {
+                Sotrudnic.salary = 40000;
+                Console.WriteLine($"Your salary: {Sotrudnic.salary}");
+            }
+            if (a == "consultant")
+            {
+                Sotrudnic.salary = 30000;
+                Console.WriteLine($"Your salary: {Sotrudnic.salary}");
+            }
+            if(a== "cashier")
+            {
+                Sotrudnic.salary = 25000;
+                Console.WriteLine($"Your salary: {Sotrudnic.salary}");
+            }
             }
             public static void sotrud()
             {
@@ -54,13 +74,14 @@ namespace _215Labs2020.Шагимуратова.Bank
                 sotrud.Name = Console.ReadLine();
                 Console.WriteLine("enter surname");
                 sotrud.SurName = Console.ReadLine();
-                Console.WriteLine("enter otdel");
+                Console.WriteLine("enter otdel (manager/consultant/cashier) ");
                 sotrud.Otdel = Console.ReadLine();
-            }
-
+                Console.WriteLine ($"your salary")
+           
         }
-       
-    }  
+            
+        }
+}  
 
     
 
