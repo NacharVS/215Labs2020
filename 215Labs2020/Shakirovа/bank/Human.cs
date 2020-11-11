@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Shakirovа.bank
 {
-    abstract class Human
+    public abstract class Human
 
     {
         private string _name;
@@ -32,43 +32,51 @@ namespace _215Labs2020.Shakirovа.bank
                 _Surname = value;
             }
         }
-        class Sotrudnic : Human
+    }
+    class Sotrudnic : Human
+    {
+        private string prof;
+        public string Prof
         {
-            private string _Otdel;
-            public string Otdel
+            get
             {
-                get
-                {
-                    return _Otdel;
-                }
-                set
-                {
-                    _Otdel = value;
-                }
+                return Prof;
             }
-            public static void sotrud()
+            set
             {
-                Sotrudnic sotrud = new Sotrudnic();
+                Prof = value;
+            }
+        }
+        
+        public static void sotrud()
+        {
+            Sotrudnic sotrud = new Sotrudnic();
 
-                Console.WriteLine("enter name");
-                sotrud.Name = Console.ReadLine();
-                Console.WriteLine("enter surname");
-                sotrud.SurName = Console.ReadLine();
-                Console.WriteLine("enter otdel");
-                sotrud.Otdel = Console.ReadLine();
-            }
+            Console.WriteLine("enter name");
+            sotrud.Name = Console.ReadLine();
+            Console.WriteLine("enter surname");
+            sotrud.SurName = Console.ReadLine();
 
         }
-        class Klient : Human
+        public static void proff()
         {
-            private string _name;
-            private string _Surname;
-            private int _summinvklad;
-            private static double _procent = 0.13;
-            private double _dohod;
-            private int _years;
+            Console.WriteLine("enter prof 1 -manager 2 -consultant 3 -casher");
+            string a = Console.ReadLine();
+            switch (a)
+            {
+                case "1":
+                    Console.WriteLine("your salary-40000");
+                    break;
+                case "2":
+                    Console.WriteLine("your salary-30000");
+                    break;
+                default:
+                    Console.WriteLine("your salary-25000");
+                    break;
+            }
+
+
+
         }
     }
-
-
 }

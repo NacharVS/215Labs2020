@@ -1,9 +1,9 @@
 ﻿using System;
 
 
-namespace _215Labs2020.Shakirovа
+namespace _215Labs2020.Shakirovа.bank
 {
-    class bank
+    class bank:Human
     {
         private string _name;
         private string _surname;
@@ -117,34 +117,34 @@ namespace _215Labs2020.Shakirovа
             }
             while (k == 1);
 
-            static void Nachalo()
-            {
-                int c = 0;
-                int ii = 1;
-                bank[] Accounts = new bank[ii];
-                do
-                {
-                    for (int i = 0; i > ii; i++)
-                    {
-
-                        Accounts[i] = new bank();
-                        bank.Reg(Accounts[i]);
-                        Console.WriteLine($"{Accounts[i].Name} {Accounts[i].Surname} , у вас на счету {Accounts[i].summinvklad} руб.");
-                        Console.WriteLine($"По истечению срока вклада на вашем счету будет {bank._procent} руб.");
-                    }
-                    Console.WriteLine("Вы хотите зарегистрировать еще одного юзера? нажмите 1-да , 2 - нет");
-                    int choose = int.Parse(Console.ReadLine());
-                    if (choose == 1)
-                    {
-                        c = 1;
-                    }
-                }
-                while (c == 1);
-            }
-
 
             
              
+        }
+
+        public static void Nachalo()
+        {
+            int c = 0;
+            int ii = 1;
+            bank[] Accounts = new bank[ii];
+            do
+            {
+                for (int i = 0; i > ii; i++)
+                {
+
+                    Accounts[i] = new bank();
+                    bank.Reg(Accounts[i]);
+                    Console.WriteLine($"{Accounts[i].Name} {Accounts[i].Surname} , у вас на счету {Accounts[i].summinvklad} руб.");
+                    Console.WriteLine($"По истечению срока вклада на вашем счету будет {bank._procent} руб.");
+                }
+                Console.WriteLine("Вы хотите зарегистрировать еще одного юзера? нажмите 1-да , 2 - нет");
+                int choose = int.Parse(Console.ReadLine());
+                if (choose == 1)
+                {
+                    c = 1;
+                }
+            }
+            while (c == 1);
         }
     }
 }
