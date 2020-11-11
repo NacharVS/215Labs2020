@@ -1,6 +1,7 @@
 ﻿using _215Labs2020.Galyautdinov.Bank_class;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace _215Labs2020.Galyautdinov
@@ -13,6 +14,18 @@ namespace _215Labs2020.Galyautdinov
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
+        
+        public static double BankBalans
+        {
+            get
+            {
+                return bank_balans;
+            }
+            private set
+            {
+                bank_balans = value;
+            }
+        }
         
         private static void FullName()
         {
