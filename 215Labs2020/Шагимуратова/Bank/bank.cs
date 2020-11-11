@@ -10,28 +10,31 @@ namespace _215Labs2020.Шагимуратова.Bank
         //private string _Surname;
         private int _summinvklad;
         private static double _procent = 0.13;
-        private double _dohod;
+        private double _summa;
         private int _years;
         //private string _id;
         //public static int _chetchikID = 0;
+        private delegate void Handler();
 
-        public double Dohod
+        public double Summa
         {
             get
             {
-                _dohod = _summinvklad;
+                _summa = _summinvklad;
                 for (int i = 0; i < _years; i++)
                 {
-                 _dohod = _dohod * _procent + _dohod;
+                 _summa = _summa * _procent + _summa;
                 }
-                return _dohod;
+                return _summa;
             }
-            set
+            private set
             {
-                _dohod = summinvklad;
-                _dohod = _dohod * _procent + _dohod;
+                _summa = summinvklad;
+                _summa = _summa * _procent + _summa;
+              
             }
         }
+        public event Handler Notify 
         //public string Name
         //{
         //    get
@@ -55,7 +58,7 @@ namespace _215Labs2020.Шагимуратова.Bank
         //        _Surname = value;
         //    }
         //}
-      
+
         public int summinvklad
         {
             get
@@ -150,7 +153,7 @@ namespace _215Labs2020.Шагимуратова.Bank
                     Accounts[i] = new bank();
                     bank.Reg(Accounts[i]);
                     Console.WriteLine($"{Accounts[i].Name} {Accounts[i].SurName} , у вас на счету {Accounts[i].summinvklad} ");
-                    Console.WriteLine($"По истечению срока вклада на вашем счету будет {Accounts[i].Dohod} руб.");
+                    Console.WriteLine($"По истечению срока вклада на вашем счету будет {Accounts[i].Summa} руб.");
                 }
                 Console.WriteLine("Вы хотите зарегистрировать еще одного юзера? нажмите 1-да , 2 - нет");
                 int choose = int.Parse(Console.ReadLine());

@@ -31,6 +31,8 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _Surname = value;
             }
         }
+
+       
     }
     class Sotrudnic : Human
     {
@@ -76,7 +78,7 @@ namespace _215Labs2020.Шагимуратова.Bank
                 sotrud.SurName = Console.ReadLine();
                 Console.WriteLine("enter otdel (manager/consultant/cashier) ");
                 sotrud.Otdel = Console.ReadLine();
-                Console.WriteLine ($"your salary")
+            Console.WriteLine($"your salary");
            
         }
             

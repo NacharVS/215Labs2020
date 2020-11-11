@@ -5,12 +5,20 @@ namespace _215Labs2020
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            bank.Nachalo();
-            Console.WriteLine("sotrudnik poshel");
-            Sotrudnic.sotrud();
+            int[] array = new int[10];
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(10);
+                Console.Write($" {array[i]}");
+            }
 
+            Console.WriteLine();
+           
+            
 
 
 
