@@ -1,35 +1,23 @@
 ﻿using _215Labs2020.Imamov.Delegates;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _215Labs2020.Imamov
 {
     class General
     {
-        public static int[] array1 = new int[5];
-        public static int[] array2 = new int[5];
         public static void Operations()
         {
-            Random rnd = new Random();
-            for (int i = 0; i < array1.Length; i++)
-            {
-                array1[i] = rnd.Next(1, 9);
-            }
-            for (int i = 0; i < array2.Length; i++)
-            {
-                array2[i] = rnd.Next(1, 9);
-            }
+            
             Console.Write("Your first array: ");
-            for (int i = 0; i < array1.Length; i++)
+            for (int i = 0; i < Program.array1.Length; i++)
             {
-                Console.Write($"{array1[i]} ");
+                Console.Write($"{Program.array1[i]} ");
             }
             Console.WriteLine();
             Console.Write("Your second array: ");
-            for (int i = 0; i < array2.Length; i++)
+            for (int i = 0; i < Program.array2.Length; i++)
             {
-                Console.Write($"{array2[i]} ");
+                Console.Write($"{Program.array2[i]} ");
             }
             Console.WriteLine();
             Console.WriteLine();
