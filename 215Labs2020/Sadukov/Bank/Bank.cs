@@ -45,6 +45,7 @@ namespace _215Labs2020.Sadukov
             set
             {
                 email = value;
+                
             }
         }
         public static int Age
