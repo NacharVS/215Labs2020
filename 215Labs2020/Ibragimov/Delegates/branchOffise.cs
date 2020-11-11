@@ -23,7 +23,7 @@ namespace _215Labs2020.Ibragimov.Delegates
             {
                 array[i] = rnd.Next(10, 100);
             }
-            Console.WriteLine("Массив");
+            Console.WriteLine("Массив для сортировки и для макс числа , суммы элементов");
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -33,10 +33,13 @@ namespace _215Labs2020.Ibragimov.Delegates
             Console.WriteLine();
             oprerations(array);
             int[] array1 = new int[rnd.Next(5, 10)];
+            
             for (int i = 0; i < array1.Length; i++)
             {
                 array1[i] = rnd.Next(10, 100);
             }
+            Console.WriteLine("Массивы для суммы, произведения и разности ");
+            Console.WriteLine("");
             Console.WriteLine("Первый массив");
 
             for (int i = 0; i < array1.Length; i++)
@@ -51,7 +54,6 @@ namespace _215Labs2020.Ibragimov.Delegates
                 array2[i] = rnd.Next(10, 100);
             }
             Console.WriteLine("Второй массив");
-
             for (int i = 0; i < array2.Length; i++)
             {
                 Console.Write($" {array2[i]} ");
