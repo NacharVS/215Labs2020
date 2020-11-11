@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using _215Labs2020.Garaev.Bank;
 
 namespace _Bank
@@ -13,6 +14,18 @@ namespace _Bank
         private static string _name;
         private static string _otchestvo;
         private static double balans = 0;
+        //public event Handler Notify;
+        public static double Bank_balans
+        {
+            get
+            {
+                return balans;
+            }
+            private set
+            {
+                balans = value;
+            }
+        }
         private static int summ = 0;
         private static int _vivod = 0;
         private static int summ1 = 0;

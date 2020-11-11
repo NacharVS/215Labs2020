@@ -6,6 +6,8 @@ namespace _215Labs2020.Garaev.Delegates
 {
     class GeneralOffice
     {
+        private delegate void Trainee(int[] array);
+        private delegate void MASS(int[] array);
         public static void Max_el_mass(int message)
         {
             Console.WriteLine
@@ -35,6 +37,12 @@ namespace _215Labs2020.Garaev.Delegates
         {
             Console.WriteLine
                 ($"Умножение двух массивов: {message}");
+        }
+        public static void Invoke(int [] mass)
+        {
+            Trainee tr1 = BranchOffice.max;
+            tr1 += BranchOffice.Summ_el;
+
         }
     }
 }
