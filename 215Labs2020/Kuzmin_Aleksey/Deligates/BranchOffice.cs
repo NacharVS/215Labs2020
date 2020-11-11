@@ -8,29 +8,52 @@ namespace _215Labs2020.Kuzmin_Aleksey.Deligates
     {
         public static int Ex1(int[] mass)
         {
-            for (int i = 0; i < mass.Length-1-i; i++)
-            {                
-                if (mass[i]<mass[i+1])
+            for (int i = 0; i < mass.Length; i++)
+            {
+                for (int j = 0; j < mass.Length-1; j++)
                 {
-                    int a = mass[i];                    
-                    mass[i] = mass[i + 1];
-                    mass[i+1]=a;
-                }
+                    if (mass[j] < mass[i])
+                    {
+                        int a = mass[j];
+                        mass[j] = mass[i];
+                        mass[i] = a;
+                    }
+                }                
             }
             return mass[0];
+            
         }
         public static int Ex2(int[] mass)
         {
-            for (int i = 0; i < mass.Length - 1 - i; i++)
+            int summ = 0;
+            for (int i = 0; i < mass.Length; i++)
             {
-                if (mass[i] < mass[i + 1])
+                summ += mass[i];
+            }
+            return summ;
+        }
+        public static int Ex3(int[] mass)
+        {
+            for (int i = 0; i < mass.Length; i++)
+            {
+                for (int j = 0; j < mass.Length - 1; j++)
                 {
-                    int a = mass[i];
-                    mass[i] = mass[i + 1];
-                    mass[i + 1] = a;
+                    if (mass[j] > mass[i])
+                    {
+                        int a = mass[j];
+                        mass[j] = mass[i];
+                        mass[i] = a;
+                    }
                 }
             }
-            return mass[0];
+            foreach (var item in mass)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+            return 0;
+
         }
+
     }
 }
