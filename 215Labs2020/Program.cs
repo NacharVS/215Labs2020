@@ -1,5 +1,6 @@
 ﻿using System;
 using _215Labs2020.Safiullin;
+using _215Labs2020.Safiullin.Delegates;
 
 namespace _215Labs2020
 {
@@ -7,7 +8,8 @@ namespace _215Labs2020
     {
         static void Main (string[] args)
         {
-            General.Ex1();
+            int[]mainArray = { 7, 8, 23, 12, 78 };
+            BranchOffice.Invoke(mainArray);
         }
     }
 }

@@ -3,141 +3,224 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace _215Labs2020.Safiullin
+namespace _215Labs2020.Kuzmin_Aleksey
 {
     class Bank
     {
-        private string name;
-        private string surname;
-        private string year;
-        private string phone;
-        private static double depozit;
-        private static double balans = 0;
-        private static double persent = 0.061;
-        private static bool registratshion = false;
+        private static double _bill = 0;
+        private static double _persent = 0.006;
+        private static string _name;
+        private static bool _registration = false;
+        private static bool _take = false;
+        private static bool _take2 = false;
+        private static bool _age = false;
+        private static double _donation;
+        private static string _birtday;
+        private static string _phone;
+        private static string _line = "*************************************************************";
 
-        public static void CreateAccount()
+        private static void Check_Donation(double donation)
         {
-            Bank person = new Bank();
-            Console.Write("Введите своё ИМЯ: ");
-            string name = Console.ReadLine();
-            Console.Write("Введите свою ФАМИЛИЮ: ");
-            string surname = Console.ReadLine();
-            Console.Write("Введите свой номер телефона: ");
-            string phone = Console.ReadLine();
-            if (year)
+            if (donation < 10000 | donation > 200000 & _take2)
             {
-                Console.Write("Введите свою дату рождения: ");
-                string _phone = Console.ReadLine();
-                Console.Write("Введите сумму первого взноса: ");
-                Bank.contribution(Console.ReadLine());
+                Console.WriteLine(Bank._line);
+                Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р.");
+                Console.WriteLine(Bank._line);
+                _take = false;
+                _take2 = false;
+            }
+            else if (Bank._bill - donation < 0 & _take & _take2)
+            {
+                Console.WriteLine(Bank._line);
+                Console.WriteLine("Ошибка. Не достаточно средств для снятия со сочета на балансе счета.");
+                Console.WriteLine(Bank._line);
+                _take = false;
+                _take2 = false;
+            }
+            else if (_take2)
+            {
+                if (_take) { Bank._bill -= donation; }
+                else { Bank._bill += donation; }
+                Console.WriteLine(Bank._line);
+                Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
+                Console.WriteLine(Bank._line);
+                Console.WriteLine();
+                _take = false;
+                _take2 = false;
+            }
+        }
+        private static void Check_Sign(string donation)
+        {
+            try
+            {
+                double a = double.Parse(donation);
+                Bank._donation = a;
+                Bank._take2 = true;
+            }
+            catch
+            {
+                Console.WriteLine(Bank._line);
+                Console.WriteLine("Ошибка. Введенные символы не допустимы.");
+                Console.WriteLine(Bank._line);
+            }
+        }
+        private static void Check_Age()
+        {
+            ushort person_year;
+            byte person_month;
+            int person_day;
+            Console.Write("Введите дату своего рождения (Пример: 01 01 2020): ");
+            try
+            {
+                string _birthday = Console.ReadLine();
+                string[] mass = _birthday.Split();
+                person_year = ushort.Parse(mass[2]);
+                person_month = byte.Parse(mass[1]);
+                person_day = byte.Parse(mass[0]);
+                if (DateTime.Now.Year - person_year >= 14 || DateTime.Now.Month - person_day <= DateTime.Now.Month || DateTime.Now.Day - person_day <= DateTime.Now.Day) { _registration = true; }
+                else
+                {
+                    Console.WriteLine("Ошибка. Для регистрации вы должны быть старше 14 лет.");
 
-                if (a < 10000 | a > 200000 )
-                {
-                    Console.WriteLine("Ошибка. Сумма первого взноса должна быть больше 10 000р и меньше 200 000р.");
-                    _take2 = false;
+                    Console.WriteLine(_line);
                 }
-                else if (_take2)
+
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка. Не коректно введена дата рождения.");
+                Console.WriteLine(_line);
+                _age = false;
+            }
+        }
+        private static void Person_name()
+        {
+            Console.Write("Введите свое ФИО (Пример: Сидоров Сидор Сидорович): ");
+            _name = Console.ReadLine();
+            bool b = true;
+            for (int j = 0; j < _name.Length; j++)
+            {
+                if (b) { Console.Write(_name[j].ToString().ToUpper()); b = false; }
+                else { Console.Write(_name[j]); };
+                string c = Convert.ToString(_name[j]);
+                switch (c)
                 {
-                    Bank._bill += _donation;
-                    Console.WriteLine(Bank._line);
-                    Console.WriteLine("Благодарим за регистрацию в нашем банке.");
-                    Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
-                    Console.WriteLine(Bank._line);
-                    Console.WriteLine();
-                    _registration = true;
-                    _take2 = false;
+                    case " ": b = true; break;
                 }
             }
-            else { Console.WriteLine("Ошибка. Регистрация не пройдена."); 
-            Bank.registratshion = true;
+            _registration = true;
         }
-        public static void Refill()
+        private static void Telephone_number()
         {
-            Console.Write("Мин. сумма пополнения составляет 10000 р. Макс.сумма пополнения составляет 200000 р. Введите сумму пополнения: ");
-            double a = double.Parse(Console.ReadLine()); 
-            if (a < 10000 | a > 200000)
-            {
-                while (a < 10000 | a > 200000)
-                {
-                    Console.WriteLine("Ошибка! Минимальная сумма пополнения составляет 10000р. ");
-                    Console.Write("Введите сумму пополения: ");
-                    try 
-                    { 
-                         a = double.Parse(Console.ReadLine());
+            Console.Write("Введите свой номер телефона:  ");
+            _phone = Console.ReadLine();
+            _registration = true;
+        }
+        private static void First_deposit()
+        {
+            Console.Write("Введите сумму первого взноса: ");
+            Bank.Check_Sign(Console.ReadLine());
 
-                    }
-                    catch 
-                    {
-                        Console.WriteLine("Введите правильную сумму пополнения: ");
-                        a = double.Parse(Console.ReadLine());
-                    }
-                }
-            }
-            balans += a;
-            Console.WriteLine($"Ваш баланс составляет {balans} р.");
-        }
-        public static void removal()
-        {
-            Console.Write("Введите сумму которую хотите снять: ");
-            double a = double.Parse(Console.ReadLine());
-            if (balans - a < 0)
+            if (_donation < 10000 | _donation > 200000 & _take2)
             {
-                while (a < 10000 | a > 200000 | balans - a < 0)
-                {
-                    Console.WriteLine($"Недостаточно средст для вывода денег, ваш баланс составляет: {balans}");
-                    Console.Write("Введите сумму которую хотите снять:  ");
-                    a = double.Parse(Console.ReadLine());
-                }
+                Console.WriteLine(Bank._line);
+                Console.WriteLine("Ошибка. Сумма первого взноса должна быть больше 10 000р и меньше 200 000р.");
+                Console.WriteLine(Bank._line);
+                _take2 = false;
             }
-            balans -= a;
-            Console.WriteLine($"Ваш баланс составляет: {balans} р.");
-            Console.WriteLine("Хотите снять ещё? Для этого нажмите 3 ");
-            
+            else if (_take2)
+            {
+                Bank._bill += _donation;
+                Console.WriteLine(Bank._line);
+                Console.WriteLine(Bank._line);
+                Console.WriteLine();
+                _registration = true;
+                _take2 = false;
+            }
         }
-        public static void in_year()
+        private static void CreateAccount()
         {
-            Console.Write($"Через сколько лет вы хотите узнать свой баланс: ");
+            Console.WriteLine(Bank._line);
+            Person_name();
+            Check_Age();
+            Telephone_number();
+            First_deposit();
+            if (_registration)
+            {
+                Console.WriteLine(Bank._line);
+                Console.WriteLine("Благодарим за регистрацию в нашем банке.");
+                Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
+            }
+            else { Console.WriteLine("Ошибка. Регистрация не пройдена."); }
+        }
+        private static void Refill()
+        {
+            Console.WriteLine(Bank._line);
+            Console.Write("Введите сумму, на которую вы хотите пополнить баланс: ");
+            Bank.Check_Sign(Console.ReadLine());
+            Bank.Check_Donation(_donation);
+        }
+        private static void In_year()
+        {
+            Console.WriteLine(Bank._line);
+            Console.Write("Через сколько лет вы хотите узнать свой баланс: ");
             double a = double.Parse(Console.ReadLine());
             double b = 0;
             for (int i = 0; i < a; i++)
             {
-                b = balans + balans * persent * i;
+                b = Bank._bill + Bank._bill * _persent * i;
             }
             Console.WriteLine($"Ваш баланс через {a} лет, будет равен {b}.");
-            Console.WriteLine("Благодарим за окозания доверия банка! Ждем вас в следующий раз!");
+            Console.WriteLine(Bank._line);
+            Console.WriteLine();
+        }
+        private static void Balance()
+        {
+            Console.WriteLine(Bank._line);
+            Console.WriteLine($"Баланс вашего счета равен: {Bank._bill}");
+            Console.WriteLine(Bank._line);
+            Console.WriteLine();
+        }
+        private static void Cash_out()
+        {
+            Console.Write("Введите сумму для снятия с счета: ");
+            _take = true;
+            Bank.Check_Sign(Console.ReadLine());
+            Bank.Check_Donation(_donation);
         }
         public static void Program()
         {
-            if (true)
+            while (true)
             {
-                int a;
-                Console.WriteLine("Здраствуйте, добро пожаловать в ТатРасКазСафФанБанк.");
-                Console.WriteLine("Для дальнейших действий пройдите быструю регистрацию.");
-                Console.WriteLine("Для регистрации нажмите : (1)");
-                Console.WriteLine("Для пополнения счета нажмите : (2)");
-                Console.WriteLine("Для снятия со счета средств нажмите : (3)");
-                Console.WriteLine("Для того чтобы узнать баланс через определенный период нажмите : (4)");
-                a = int.Parse(Console.ReadLine());
-                
-                while (a > 0 && a < 5 ) 
+                Console.WriteLine("Доступные действия над банковским счетам:");
+                Console.WriteLine("Проверить баланс счета: ( 1 ) ");
+                Console.WriteLine("Снять деньги со счета: ( 2 ) ");
+                Console.WriteLine("Пополнить счет: ( 3 ) ");
+                Console.WriteLine("Узнать баланс счета через определенный период: ( 4 ) ");
+                if (_registration == false) { Console.WriteLine("Регистрация: ( 5 )"); }
+                Console.Write("Введите действие над счетом: ");
+                int action = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+                if (_registration || action == 5)
                 {
-                    switch (a)
+                    switch (action)
                     {
-                        case 1: CreateAccount(); break;
-                        case 2: Refill(); break;
-                        case 3: removal(); break;
-                        case 4: in_year(); break;
-
+                        case 1: Balance(); break;
+                        case 2: Cash_out(); break;
+                        case 3: Refill(); break;
+                        case 4: In_year(); break;
+                        case 5: CreateAccount(); break;
                     }
-                    Console.WriteLine("Выберите дальнейшие действия: ");
-                    a = int.Parse(Console.ReadLine());
-                } 
-                
+                }
+                else
+                {
+                    Console.WriteLine(Bank._line);
+                    Console.WriteLine("Ошибка. Для продолжения работы нужно пройти регистрацию.");
+                    Console.WriteLine(Bank._line);
+                    Console.WriteLine();
+                }
             }
-
         }
-
     }
 
 }

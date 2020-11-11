@@ -7,23 +7,14 @@ namespace _215Labs2020.Safiullin.Delegates
 {
     class BranchOffice
     {
-        public static int Task1(int[] array)
+        public delegate void Ht1(int[] array);
+        public static void Invoke(int[] array)
         {
-          int max = 0;
-          for (int i = 0; i < array.Length; i++)
-          {
-            if (max < array[i])
-            {
-              max = array[i];
-            }
-
-          }
-            return max;  
-        }
-        public static void Task2()
-        {
-
-
+            Ht1 handler = GeneralOffice.Max;
+            handler += GeneralOffice.Sum;
+            handler += GeneralOffice.Sortirovka;
+            handler += GeneralOffice.SummMass;
+            handler(array);
         }
     }
 }
