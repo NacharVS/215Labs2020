@@ -7,23 +7,23 @@ namespace _215Labs2020.Zifarov.Delegates
 {
     class BranchOffice
     {
-        private delegate void One();
-        public static void ab()
+        private delegate void Onemass(int[] array1);
+        private delegate void Twomass (int[] array1, int[] array2);
+        public static void ab(int[] array1)
         {
-            One tr;
+            Onemass tr;
             tr = GeneralOffice.max;
-            tr = tr + GeneralOffice.sum;
-            tr = tr + GeneralOffice.sorting;
-            tr();
+            tr +=   GeneralOffice.sum;
+            tr +=  GeneralOffice.sorting;
+            tr(array1);
         }
-        private delegate void One1();
-        public static void abc()
+        public static void abc(int[] array1, int[] array2)
         {
-            One1 t1r;
+            Twomass t1r;
             t1r = GeneralOffice.summas;
             t1r = t1r + GeneralOffice.diffmas;
             t1r = t1r + GeneralOffice.mulmas;
-            t1r();
+            t1r(array1,array2);
         }
     }
 

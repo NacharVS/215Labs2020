@@ -6,15 +6,9 @@ namespace _215Labs2020.Zifarov.Delegates
 {
     class GeneralOffice
     { 
-        public static void max() 
+        public static void max(int[]array1) 
         {
-            Random rnd = new Random();
-            int[] array1 = new int[10];
-            for (int i = 0; i < array1.Length; i++)
-            {
-                array1[i] = rnd.Next(1, 99);
-                Console.WriteLine(array1[i]);
-            }
+            
             int max = 0;
             for (int i = 0; i < array1.Length; i++)
             {
@@ -23,15 +17,9 @@ namespace _215Labs2020.Zifarov.Delegates
             Console.WriteLine($"max {max}");
         
         }
-        public static void sum()
+        public static void sum(int[] array1)
         {
-            Random rnd = new Random();
-            int[] array1 = new int[10];
-            for (int i = 0; i < array1.Length; i++)
-            {
-                array1[i] = rnd.Next(1, 99);
-                Console.WriteLine(array1[i]);
-            }
+            
             int sum = 0;
             for (int i = 0; i < array1.Length; i++)
             {
@@ -39,14 +27,9 @@ namespace _215Labs2020.Zifarov.Delegates
             }
             Console.WriteLine($"sum {sum}");
         }
-        public static void sorting()
+        public static void sorting(int[] array1)
         {
-            Random rnd = new Random();
-            int[] array1 = new int[10];
-            for (int i = 0; i < array1.Length; i++)
-            {
-                array1[i] = rnd.Next(1, 99);
-            }
+            Console.WriteLine("Сортировка");
             int buffer;
             for (int i = 0; i < array1.Length; i++)
             {
@@ -69,92 +52,43 @@ namespace _215Labs2020.Zifarov.Delegates
             {
                 Console.WriteLine(array1[i]);
             }
+            Console.WriteLine();
 
-
         }
-        public static void summas()
+        public static void summas(int[] array1, int[] array2)
         {
-            Random rnd = new Random();
-            int[] array1 = new int[10];
+            Console.WriteLine("Сумма массивов");
+            int sum;
             for (int i = 0; i < array1.Length; i++)
             {
-                array1[i] = rnd.Next(1, 99);
-                Console.WriteLine(array1[i]);
+               sum = array1[i] + array2[i];
+                Console.WriteLine(sum);
             }
             Console.WriteLine();
-            Random rnd1 = new Random();
-            int[] array2 = new int[10];
-            for (int i = 0; i < array2.Length; i++)
-            {
-                array2[i] = rnd1.Next(1, 99);
-                Console.WriteLine(array2[i]);
-            }
-            Console.WriteLine();
-            int[] array3 = new int[10];
-            for (int i = 0; i < array3.Length; i++)
-            {
-                array3[i] = array1[i] + array2[i];
-            }
-            for (int i = 0; i < array3.Length; i++)
-            {
-                Console.WriteLine(array3[i]);
-            }
         }
-        public static void diffmas()
+        public static void diffmas(int[] array1, int[] array2)
         {
-            Random rnd = new Random();
-            int[] array1 = new int[10];
+            Console.WriteLine("Разность массивов");
+            int dif;
+           
             for (int i = 0; i < array1.Length; i++)
             {
-                array1[i] = rnd.Next(1, 99);
-                Console.WriteLine(array1[i]);
+                dif = array1[i] - array2[i];
+                Console.WriteLine(dif);
             }
             Console.WriteLine();
-            Random rnd1 = new Random();
-            int[] array2 = new int[10];
-            for (int i = 0; i < array2.Length; i++)
-            {
-                array2[i] = rnd1.Next(1, 99);
-                Console.WriteLine(array2[i]);
-            }
-            Console.WriteLine();
-            int[] array3 = new int[10];
-            for (int i = 0; i < array3.Length; i++)
-            {
-                array3[i] = array1[i] - array2[i];
-            }
-            for (int i = 0; i < array3.Length; i++)
-            {
-                Console.WriteLine(array3[i]);
-            }
         }
-        public static void mulmas()
+        public static void mulmas(int[] array1, int[] array2)
         {
-            Random rnd = new Random();
-            int[] array1 = new int[10];
+            
+            Console.WriteLine("Умножение массивов");
+            int mul;
             for (int i = 0; i < array1.Length; i++)
             {
-                array1[i] = rnd.Next(1, 99);
-                Console.WriteLine(array1[i]);
+                mul = array1[i] * array2[i];
+                Console.WriteLine(mul);
             }
-            Console.WriteLine();
-            Random rnd1 = new Random();
-            int[] array2 = new int[10];
-            for (int i = 0; i < array2.Length; i++)
-            {
-                array2[i] = rnd1.Next(1, 99);
-                Console.WriteLine(array2[i]);
-            }
-            Console.WriteLine();
-            int[] array3 = new int[10];
-            for (int i = 0; i < array3.Length; i++)
-            {
-                array3[i] = array1[i] * array2[i];
-            }
-            for (int i = 0; i < array3.Length; i++)
-            {
-                Console.WriteLine(array3[i]);
-            }
+           
         }
     }
 }
