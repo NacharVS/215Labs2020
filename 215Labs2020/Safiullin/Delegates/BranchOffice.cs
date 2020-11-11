@@ -7,32 +7,22 @@ namespace _215Labs2020.Safiullin.Delegates
 {
     class BranchOffice
     {
-        public static void Task1(int[] mass)
+        public static int Task1(int[] array)
         {
-            static void Main(string[] args)
+          int max = 0;
+          for (int i = 0; i < array.Length; i++)
+          {
+            if (max < array[i])
             {
-                int[] array = { 15, 16, 23, -10, 0, 5 };
-                int max = Max(array);
-                Console.Write(max);
-                Console.ReadKey();
-
+              max = array[i];
             }
-            static int Max(int[] array)
-            {
-                int max = array[0];
-                for (int i = 0; i < array.Length; i++)
-                {
-                    if (max < array[i])
-                    {
-                        max = array[i];
-                    }
 
-                }
-                return max;
-            }
+          }
+            return max;  
         }
         public static void Task2()
         {
+
 
         }
     }
