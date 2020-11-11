@@ -6,7 +6,7 @@ namespace _215Labs2020.Kuzmin_Aleksey.Deligates
 {
     class BranchOffice
     {
-        public static void Ex1(int[] mass)
+        public static int Ex1(int[] mass)
         {
             for (int i = 0; i < mass.Length-1-i; i++)
             {                
@@ -17,10 +17,20 @@ namespace _215Labs2020.Kuzmin_Aleksey.Deligates
                     mass[i+1]=a;
                 }
             }
-            foreach (var item in mass)
+            return mass[0];
+        }
+        public static int Ex2(int[] mass)
+        {
+            for (int i = 0; i < mass.Length - 1 - i; i++)
             {
-                Console.WriteLine(item);
+                if (mass[i] < mass[i + 1])
+                {
+                    int a = mass[i];
+                    mass[i] = mass[i + 1];
+                    mass[i + 1] = a;
+                }
             }
+            return mass[0];
         }
     }
 }
