@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.BankKlas
 {
-    class bank:bank2
+    class bank : bank2
 
     {
         private static double vklad = 0;
@@ -51,45 +51,44 @@ namespace _215Labs2020.Ibragimov.BankKlas
             }
         }
 
-             private void prognoz()
+        private void prognoz()
+        {
+            bank bank1 = new bank();
+            Console.WriteLine("На сколько лет вы планируете вложение?");
+            int c = int.Parse(Console.ReadLine());
+            for (int i = 1; i < coat; i++)
             {
-                bank bank1 = new bank();
-                Console.WriteLine("На сколько лет вы планируете вложение?");
-                int coat = int.Parse(Console.ReadLine());
-                for (int i = 1; i < coat; i++)
-                {
-                    bank.vklad += bank.procent * bank.vklad;
-                }
+                bank.vklad += bank.procent * bank.vklad;
             }
-            private  void end()
-            {
-                bank bank1 = new bank();
-                Console.WriteLine($"Через указанный вами срок, ваш вклад составит {bank.vklad} рублей.");
-            }
-            
-            public static void baank()
-          {
-                 
-                bank bank1 = new bank();
+        }
+        private void end()
+        {
+            bank bank1 = new bank();
+            Console.WriteLine($"Через указанный вами срок, ваш вклад составит {bank.vklad} рублей.");
+        }
+
+        public static void baank()
+        {
+
+            bank bank1 = new bank();
             Console.WriteLine("Введите ваш id");
             int id = int.Parse(Console.ReadLine());
             if (id == rabotnikk.Id)
             {
-               
+
                 Console.WriteLine($"Здравствуйте {rabotnikk.FIO} , ваша зарплата на данный момент составляет: {rabotnikk.Zarplata}");
             }
             else
             {
-               
+
                 bank1.Regist();
                 bank1.Operation();
                 bank1.prognoz();
                 bank1.end();
 
             }
-          }
-        
+        }
+
 
     }
-}   
-    
+} 
