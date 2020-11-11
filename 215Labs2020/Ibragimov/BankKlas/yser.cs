@@ -56,7 +56,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
             bank bank1 = new bank();
             Console.WriteLine("На сколько лет вы планируете вложение?");
             int c = int.Parse(Console.ReadLine());
-            for (int i = 1; i < coat; i++)
+            for (int i = 1; i < c; i++)
             {
                 bank.vklad += bank.procent * bank.vklad;
             }
