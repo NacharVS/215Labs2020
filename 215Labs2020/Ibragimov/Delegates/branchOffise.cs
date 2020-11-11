@@ -9,7 +9,7 @@ namespace _215Labs2020.Ibragimov.Delegates
         private delegate void ArrayOprerations(int[] array);
         private delegate void OperationsOnArrays(int[] array1, int[] array2);
 
-        public static void Program()
+        public static void start()
         {
             ArrayOprerations oprerations = GeneralOffise.SortArray;
             oprerations += GeneralOffise.MaxArray;
