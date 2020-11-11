@@ -6,7 +6,7 @@ namespace _215Labs2020.Faizullin
     {
         static void Main(string[] args)
         {
-            Bank.Proverka();
+            
         }
     } 
 }
