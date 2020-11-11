@@ -4,7 +4,9 @@ using System.Text;
 
 namespace _215Labs2020.Sharipov.Delegates
 {
-    class DelegatesClass1
+    class DelegateClass
     {
+        private delegate void mass1();
+
     }
 }
