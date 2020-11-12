@@ -3,37 +3,32 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace _215Labs2020.Kuzmin_Aleksey
+namespace _215Labs2020.Safiullin
 {
     class Bank
     {
         private static double _bill = 0;
-        private static double _persent = 0.006;
+        private static double _persent = 0.0061;
         private static string _name;
         private static bool _registration = false;
         private static bool _take = false;
         private static bool _take2 = false;
         private static bool _age = false;
         private static double _donation;
-        private static string _birtday;
         private static string _phone;
-        private static string _line = "*************************************************************";
+        
 
         private static void Check_Donation(double donation)
         {
             if (donation < 10000 | donation > 200000 & _take2)
             {
-                Console.WriteLine(Bank._line);
                 Console.WriteLine("Ошибка. Сумма взноса должна быть больше 10 000р и меньше 200 000р.");
-                Console.WriteLine(Bank._line);
                 _take = false;
                 _take2 = false;
             }
             else if (Bank._bill - donation < 0 & _take & _take2)
             {
-                Console.WriteLine(Bank._line);
                 Console.WriteLine("Ошибка. Не достаточно средств для снятия со сочета на балансе счета.");
-                Console.WriteLine(Bank._line);
                 _take = false;
                 _take2 = false;
             }
@@ -41,9 +36,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             {
                 if (_take) { Bank._bill -= donation; }
                 else { Bank._bill += donation; }
-                Console.WriteLine(Bank._line);
                 Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
-                Console.WriteLine(Bank._line);
                 Console.WriteLine();
                 _take = false;
                 _take2 = false;
@@ -59,9 +52,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             }
             catch
             {
-                Console.WriteLine(Bank._line);
                 Console.WriteLine("Ошибка. Введенные символы не допустимы.");
-                Console.WriteLine(Bank._line);
             }
         }
         private static void Check_Age()
@@ -81,15 +72,12 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 else
                 {
                     Console.WriteLine("Ошибка. Для регистрации вы должны быть старше 14 лет.");
-
-                    Console.WriteLine(_line);
                 }
 
             }
             catch
             {
                 Console.WriteLine("Ошибка. Не коректно введена дата рождения.");
-                Console.WriteLine(_line);
                 _age = false;
             }
         }
@@ -123,16 +111,12 @@ namespace _215Labs2020.Kuzmin_Aleksey
 
             if (_donation < 10000 | _donation > 200000 & _take2)
             {
-                Console.WriteLine(Bank._line);
                 Console.WriteLine("Ошибка. Сумма первого взноса должна быть больше 10 000р и меньше 200 000р.");
-                Console.WriteLine(Bank._line);
                 _take2 = false;
             }
             else if (_take2)
             {
                 Bank._bill += _donation;
-                Console.WriteLine(Bank._line);
-                Console.WriteLine(Bank._line);
                 Console.WriteLine();
                 _registration = true;
                 _take2 = false;
@@ -140,14 +124,12 @@ namespace _215Labs2020.Kuzmin_Aleksey
         }
         private static void CreateAccount()
         {
-            Console.WriteLine(Bank._line);
             Person_name();
             Check_Age();
             Telephone_number();
             First_deposit();
             if (_registration)
             {
-                Console.WriteLine(Bank._line);
                 Console.WriteLine("Благодарим за регистрацию в нашем банке.");
                 Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
             }
@@ -155,14 +137,12 @@ namespace _215Labs2020.Kuzmin_Aleksey
         }
         private static void Refill()
         {
-            Console.WriteLine(Bank._line);
             Console.Write("Введите сумму, на которую вы хотите пополнить баланс: ");
             Bank.Check_Sign(Console.ReadLine());
             Bank.Check_Donation(_donation);
         }
         private static void In_year()
         {
-            Console.WriteLine(Bank._line);
             Console.Write("Через сколько лет вы хотите узнать свой баланс: ");
             double a = double.Parse(Console.ReadLine());
             double b = 0;
@@ -171,14 +151,11 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 b = Bank._bill + Bank._bill * _persent * i;
             }
             Console.WriteLine($"Ваш баланс через {a} лет, будет равен {b}.");
-            Console.WriteLine(Bank._line);
             Console.WriteLine();
         }
         private static void Balance()
         {
-            Console.WriteLine(Bank._line);
             Console.WriteLine($"Баланс вашего счета равен: {Bank._bill}");
-            Console.WriteLine(Bank._line);
             Console.WriteLine();
         }
         private static void Cash_out()
@@ -214,9 +191,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 }
                 else
                 {
-                    Console.WriteLine(Bank._line);
                     Console.WriteLine("Ошибка. Для продолжения работы нужно пройти регистрацию.");
-                    Console.WriteLine(Bank._line);
                     Console.WriteLine();
                 }
             }
