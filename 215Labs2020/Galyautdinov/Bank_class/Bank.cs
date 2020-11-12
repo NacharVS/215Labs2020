@@ -13,16 +13,38 @@ namespace _215Labs2020.Galyautdinov
         private static int year_birthday;
 
         public delegate void AccountHandler(string message);
-        public static event AccountHandler Notify;
+        public event AccountHandler Notify;
 
-        public Bank(int bank_balans)
+        public Bank(double sum)
         {
-            Sum = bank_balans;
+            bank_balans = sum;
         }
-        public void Put(int bank_balans)
+        public void Put(double sum)
         {
-            Sum += bank_balans;
-            Notify?.Invoke($"На счет поступило: {bank_balans}");
+            bank_balans += sum;
+            Notify?.Invoke($"На счет поступило: {sum}");
+
+        }
+        public void Take(double sum)
+        {
+            if (bank_balans >= sum)
+            {
+                bank_balans -= sum;
+                Notify?.Invoke($"Со счета снято: {sum}");
+            }
+        }
+        public void Transfer1(double sum)
+        {
+            if (bank_balans >= sum)
+            {
+                bank_balans -= sum;
+                Notify?.Invoke($"Осуществлен перевод на  {sum} рублей.");
+            }
+        }
+        public void Dep1(double sum)
+        {
+            bank_balans += sum;
+            Notify?.Invoke($"На счет поступило: {sum}");
 
         }
         public static double Sum { get; private set; }
@@ -55,6 +77,9 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void Refill(double bank_balans)
         {
+            Bank bank = new Bank(bank_balans);
+            bank.Notify += DisplayMessage;
+
             int a=0;
             Console.Write("Введите сумму пополнения: ");
             int prov2 = 0;
@@ -116,11 +141,12 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-           Bank 
-            //Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
+            bank.Put(a);
         }
         private static void Withdrawal()
         {
+            Bank bank = new Bank(bank_balans);
+            bank.Notify += DisplayMessage;
             int a;
             Console.Write("Введите сумму которую хотите снять: ");
             try
@@ -193,11 +219,12 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            bank_balans -= a;
-            Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
+            bank.Take(a);
         }
         private static void Transfer()
         {
+            Bank bank = new Bank(bank_balans);
+            bank.Notify += DisplayMessage;
             int a;
             Console.Write("Введите счет, на которую переводите деньги: ");
             int login_transfer = int.Parse(Console.ReadLine());
@@ -272,9 +299,8 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            Console.WriteLine($"Вы перевели на счет {login_transfer} - {a} рублей");
-            bank_balans -= a;
-            Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
+            Console.WriteLine($"Вы перевели на деньги счет: {login_transfer}.");
+            bank.Transfer1(a);
         }
         private static void Deposit()
         {
