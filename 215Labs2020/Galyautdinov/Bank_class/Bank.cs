@@ -1,8 +1,5 @@
 ﻿using _215Labs2020.Galyautdinov.Bank_class;
 using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata;
-using System.Text;
 
 namespace _215Labs2020.Galyautdinov
 {
@@ -26,6 +23,7 @@ namespace _215Labs2020.Galyautdinov
                 bank_balans = value;
             }
         }
+        public event Handler Notifay;
         
         private static void FullName()
         {
