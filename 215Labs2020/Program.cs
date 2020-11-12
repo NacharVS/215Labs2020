@@ -14,8 +14,9 @@ namespace _215Labs2020
             for (int i = 0; i < 5; i++)
             {
                 Console.Write("mass[{0}]=", i);
-                mass[i] = int.Parse(Console.ReadLine());
+               mass[i] = int.Parse(Console.ReadLine());
             }
+
             Console.WriteLine("Заполните второй массив(если вы работаете с одним массивом, то напишите везде - 1)");
             int[] mass2 = new int[5];
             for (int i = 0; i < 5; i++)
