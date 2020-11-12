@@ -6,7 +6,7 @@ namespace _215Labs2020.Delegates
 {
     class GeneralOffice
     {
-        public static void max()
+        public static void max(int[] mass1)
         {
             int[] z = { 1, 6, 9, 14, 15, 23 };
             Array.Sort(z);
@@ -14,60 +14,60 @@ namespace _215Labs2020.Delegates
             Console.WriteLine(max);
 
         }
-        public static void sum()
+        public static void sum(int[] mass1)
         {
             int[] numbers = new int[] { 0, 1, 2, 3, 4, 5 };
             int sum = 0;
-            foreach (int value in numbers)
+            for (int i =0; i < mass1.Length; i++)
             {
-                sum += value;
+                sum += mass1[i];
             }
 
-            Console.WriteLine("Сумма элементов массива: " + sum);
+            Console.WriteLine(" sum");
         }
-        public static void sor()
+        public static void sor(int[] mass1)
         {
             Random rnd = new Random();
-            int[] sor = new int[2];
-            for (int z =0; z < sor.Length; z++)
+            int[] mass= new int[2];
+            for (int z =0; z < mass1.Length; z++)
             {
-                sor[z] = rnd.Next(1, 5);
+                mass1[z] = rnd.Next(1, 5);
             }
             int xx;
-            for(int z = 0; z < sor.Length; z++)
+            for(int z = 0; z < mass1.Length; z++)
             {
-                for (int k = 0; k < sor.Length - 1; k++)
+                for (int k = 0; k < mass1.Length - 1; k++)
                 {
-                    if (sor[k] > sor[k + 1])
+                    if (mass1[k] > mass1[k + 1])
                     {
-                        xx = sor[k];
-                        sor[k] = sor[k + 1];
-                        sor[k + 1] = xx;
+                        xx = mass1[k];
+                        mass1[k] = mass1[k + 1];
+                        mass1[k + 1] = xx;
                     }
                 }
-                for (int i = 0; i < sor.Length;i++)
+                for (int i = 0; i < mass1.Length;i++)
                 {
-                    Console.WriteLine(sor[i]);
+                    Console.WriteLine(mass1[i]);
                 }
             }
         }
-        public static void summas(int[] mas1, int[] mas2)
+        public static void summas(int[] mass1, int[] mass2)
         {
-            int[] mas = new int[mas1.Length];
-            for (int i = 0; i < mas1.Length - 1; i++)
+            int[] mas = new int[mass1.Length];
+            for (int i = 0; i < mass1.Length - 1; i++)
             {
-                mas[i] = mas1.Length + mas2[i];
+                mas[i] = mass1.Length + mass2[i];
             }
             Console.WriteLine();
             Console.WriteLine("sum 2 mas");
-            for (int i = 0; i < mas.Length; i++)
+            for (int i = 0; i < mass2.Length; i++)
             {
-                Console.Write($"{mas[i]}");
+                Console.Write($"{mass2[i]}");
             }
             Console.WriteLine();
         }
 
-        public static void mul()
+        public static void mul(int[] mass1, int[] mass2)
         {
             Console.WriteLine("Enter how many numbers");
             int z = int.Parse(Console.ReadLine());
@@ -81,30 +81,20 @@ namespace _215Labs2020.Delegates
             Console.WriteLine(mul);
             Console.ReadLine();
         }
-        public static void sub()
+        public static void sub(int[] mass1, int[] mass2)
         {
-            Console.WriteLine("Enter 1 mass");
-            int[] mass = new int[2];
-            for (int z = 0; z < 2; z++)
+            int[] mass = new int[mass1.Length];
+            for (int i = 0; i < mass1.Length; i++)
             {
-                Console.Write("mass[{0}]=', z");
-                mass[z] = int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine("Enter 2 mass");
-            int[] mass2 = new int[2];
-            for (int z = 0; z < 2; z++)
-            {
-                Console.Write("mass2[{0}]=', z");
-                mass2[z] = int.Parse(Console.ReadLine());
-            }
-            int[] sub = new int[2];
-            for (int z = 0; z < 2; z++)
-            {
-                sub[z] = mass[z] - mass2[z];
+                mass[i] = mass1[i] - mass2[i];
             }
             Console.WriteLine("sub");
-            foreach (var z in sub)
-                Console.WriteLine(z);
+            for (int i = 0; i < mass.Length; i++)
+            {
+                Console.WriteLine("mass");
+            }
+            Console.WriteLine();
+
         }
     }
 }
