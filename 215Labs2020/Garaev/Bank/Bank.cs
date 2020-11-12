@@ -1,11 +1,44 @@
 ﻿using System;
 using System.Reflection.Metadata;
+using System.Security;
 using _215Labs2020.Garaev.Bank;
 
 namespace _Bank
 {
     class Client: BankPerson
     {
+        public delegate void AccountHandler(string message);
+        public  event AccountHandler Notify;
+        public Client(int sum)
+        {
+            balans = sum;
+        }
+        // сумма на счете
+        public static int balans { get; private set; }
+        // добавление средств на счет
+        public void Put(int sum)
+        {
+            balans += sum;
+            Notify?.Invoke($"На счет поступило: {summ}");
+        }
+        // списание средств со счета
+        public void Take(int sum)
+        {
+            if (balans >= sum)
+            {
+                balans -= sum;
+                Notify?.Invoke($"Со счета выведено: {_vivod}");
+            }
+        }
+        public void perevod(int sum)
+        {
+            if (balans >= sum)
+            {
+                balans -= sum;
+                Notify?.Invoke($"Со счета переведено: {_vivod}");
+            }
+        }
+
         private static int dayofbirth = 0;
         private static int monthofbirth = 0;
         private static int yearofbirth = 0;
@@ -13,25 +46,16 @@ namespace _Bank
         private static string _surname;
         private static string _name;
         private static string _otchestvo;
-        private static double balans = 0;
-        //public event Handler Notify;
-        public static double Bank_balans
-        {
-            get
-            {
-                return balans;
-            }
-            private set
-            {
-                balans = value;
-            }
-        }
         private static int summ = 0;
         private static int _vivod = 0;
         private static int summ1 = 0;
         private static int nomer = 0;
         private static int a = 0;
         private static int year = 0;
+        private static void DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
         private static void dataofbirth()
         {
             Console.Write("Введите Фамилия: ");
@@ -121,6 +145,8 @@ namespace _Bank
         }
         private static void bank_account()
         {
+            Client acc = new Client(balans);
+            acc.Notify += DisplayMessage;
             Console.Write("Введите сумму пополнения: ");
             int f = 0;
             while (f==0)
@@ -158,11 +184,14 @@ namespace _Bank
                     }
                 }
             }
-            balans += summ;
+            acc.Put(summ);
+            //Notify?.Invoke($"На счет поступило: {summ}");
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void vivod()
         {
+            Client acc = new Client(balans);
+            acc.Notify += DisplayMessage;
             Console.Write("Сколько денег хотите вывести: ");
             int f = 0;
             while (f == 0)
@@ -205,11 +234,14 @@ namespace _Bank
                     }
                 }
             }
-            balans = balans - _vivod;
+            acc.Take(_vivod);
+            //Notify?.Invoke($"С счета выведено: {_vivod}");
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void transaction()
         {
+            Client acc = new Client(balans);
+            acc.Notify += DisplayMessage;
             Console.Write("Введите номер счета на которую хотите перевести: ");
             int f = 0;
             while (f == 0)
@@ -270,8 +302,8 @@ namespace _Bank
                     }
                 }
             }
-            balans -= summ1;
             Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
+            acc.perevod(summ1);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void _dohod()

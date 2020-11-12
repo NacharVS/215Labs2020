@@ -11,8 +11,6 @@ namespace _215Labs2020.Garaev.Bank
         protected static string name;
         protected static string surname;
         protected static string otchestvo;
-        Client client = new Client();
-        Sotrudnik sotrudnik = new Sotrudnik();
         public static void Bank_deysviya()
         {
             Console.Clear();
