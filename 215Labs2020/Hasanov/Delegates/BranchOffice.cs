@@ -6,20 +6,24 @@ namespace _215Labs2020.Hasanov.Delegates
 {
     class BranchOffice
     {
-        private delegate void DLG();
-        private delegate void DLG1();
-        public static void method()
+        private delegate void Onemass(int[] array1);
+        private delegate void Twomass(int[] array1, int[] array2);
+        public static void ab(int[] array1)
         {
-            DLG HI;
-            HI = GeneralOffice.max;
-            HI += GeneralOffice.sum;
-            HI += GeneralOffice.sortirovka;
-            HI();
-;            DLG1 HI1;
-            HI1 = GeneralOffice.summmass;
-            HI1 += GeneralOffice.umnmass;
-            HI1 += GeneralOffice.razmass;
-            HI1();
+            Onemass tr;
+            tr = GeneralOffice.max;
+            tr += GeneralOffice.sum;
+            tr += GeneralOffice.sorting;
+            tr(array1);
+        }
+        public static void abc(int[] array1, int[] array2)
+        {
+            Twomass t1r;
+            t1r = GeneralOffice.summas;
+            t1r = t1r + GeneralOffice.diffmas;
+            t1r = t1r + GeneralOffice.mulmas;
+            t1r(array1, array2);
         }
     }
+
 }
