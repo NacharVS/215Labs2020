@@ -6,9 +6,8 @@ namespace _215Labs2020.Ohotnicov.Delegates
 {
     class MethodClass
     {
-        public static void MaxElement()
+        public static void MaxElement(int[] mass)
         {
-            int[] mass = new int[5];
             for (int i = 0; i < 5; i++)
             {
                 Console.Write("mass[{0}]=", i);
@@ -18,9 +17,8 @@ namespace _215Labs2020.Ohotnicov.Delegates
             int maxValue = mass[mass.Length - 1];
             Console.WriteLine(maxValue);
         }
-        public static void SortirovkaMass()
+        public static void SortirovkaMass(int[] mass)
         {
-            int[] mass = new int[5];
             for (int i = 0; i < 5; i++)
             {
                 Console.Write("mass[{0}]=", i);
@@ -45,10 +43,9 @@ namespace _215Labs2020.Ohotnicov.Delegates
             }
             Console.ReadLine();
         }
-        public static void SummElMass()
+        public static void SummElMass(int[] mass)
         {
-            int[] mass = new int[5];
-            Console.WriteLine("Заполните массив");
+
             for (int i = 0; i < 5; i++)
             {
                 Console.Write("mass[{0}]=", i);
@@ -61,22 +58,8 @@ namespace _215Labs2020.Ohotnicov.Delegates
             }
             Console.Write("sum = {0}", sum);
         }
-        public static void SummMass()
+        public static void SummMass(int[] mass, int[] mass2)
         {
-            Console.WriteLine("Заполните первый массив");
-            int[] mass = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("mass[{0}]=", i);
-                mass[i] = int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine("Заполните второй массив");
-            int[] mass2 = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("mass2[{0}]=", i);
-                mass2[i] = int.Parse(Console.ReadLine());
-            }
             int[] summ = new int[5];
             for (int i = 0; i < 5; i++)
             {
@@ -86,22 +69,8 @@ namespace _215Labs2020.Ohotnicov.Delegates
             foreach (var v in summ)
                 Console.WriteLine(v);
         }
-        public static void SubMass()
+        public static void SubMass(int[] mass, int[] mass2)
         {
-            Console.WriteLine("Заполните первый массив");
-            int[] mass = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("mass[{0}]=", i);
-                mass[i] = int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine("Заполните второй массив");
-            int[] mass2 = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("mass2[{0}]=", i);
-                mass2[i] = int.Parse(Console.ReadLine());
-            }
             int[] summ = new int[5];
             for (int i = 0; i < 5; i++)
             {
@@ -112,22 +81,9 @@ namespace _215Labs2020.Ohotnicov.Delegates
                 Console.WriteLine(v);
 
         }
-        public static void MultMass()
+        public static void MultMass(int[] mass, int[] mass2)
         {
-            Console.WriteLine("Заполните первый массив");
-            int[] mass = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("mass[{0}]=", i);
-                mass[i] = int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine("Заполните второй массив");
-            int[] mass2 = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("mass2[{0}]=", i);
-                mass2[i] = int.Parse(Console.ReadLine());
-            }
+
             int[] mult = new int[5];
             for (int i = 0; i < 5; i++)
             {

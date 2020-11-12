@@ -4,7 +4,19 @@ using System.Text;
 
 namespace _215Labs2020.Ohotnicov
 {
-    class Person
+    abstract class Person
     {
+        private static string _name;
+        public static string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
     }
 }

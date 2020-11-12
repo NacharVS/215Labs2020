@@ -6,14 +6,22 @@ namespace _215Labs2020.Ohotnicov.Delegates
 {
     class DelegateClass
     {
-        private delegate void mass1(int[]mass);
+        private delegate void Handler1(int[] array);
+        private delegate void Handler2(int[] array, int[] array1);
 
-        public void Helper(int[] array)
+        public static void metod1(int[] mass)
         {
-            mass1 mass = MethodClass.SummElMass;
+            Handler1 handler = MethodClass.MaxElement;
+            handler += MethodClass.SortirovkaMass;
+            handler += MethodClass.SummElMass;
+            handler(mass);
         }
-
-
-
+        public static void metod2(int[] mass, int[] mass1)
+        {
+            Handler2 handler1 = MethodClass.SummMass;
+            handler1 += MethodClass.SubMass;
+            handler1 += MethodClass.MultMass;
+            handler1(mass, mass1);
+        }
     }
 }
