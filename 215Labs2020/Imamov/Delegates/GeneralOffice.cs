@@ -4,35 +4,84 @@ namespace _215Labs2020.Imamov.Delegates
 {
     class GeneralOffice
     {
-        public static void Maximum_Element(int result)
+        public static void Max_Elem(int[] array1)
         {
-            Console.WriteLine
-                ($"The maximum element of the array : {result}");
+            int max = 0;
+            for (int i = 0; i < array1.Length; i++)
+            {
+                if (array1[i] > max)
+                {
+                    max = array1[i];
+                }
+            }
+            Console.WriteLine($"The maximum element of the array : {max}");
         }
-        public static void Sum_Of_Elements(int result)
+        public static void Sum_Of_El(int[] array1)
         {
-            Console.WriteLine
-                ($"Sum of array elements: {result}");
+            int sum = 0;
+            for (int i = 0; i < array1.Length; i++)
+            {
+                sum += array1[i];
+            }
+            Console.WriteLine($"Sum of array elements: {sum}");
         }
-        public static void Filter(string res)
+        public static void Filt(int[] array1)
         {
-            Console.WriteLine
-                ($"Filtered arrey: {res}");
+            int num = 0;
+            for (int i = 0; i < array1.Length; i++)
+            {
+                for (int b = 1; b < array1.Length - i; b++)
+                {
+                    if (array1[b-1]> array1[b])
+                    {
+                        num = array1[b];
+                        array1[b] = array1[b - 1];
+                        array1[b - 1] = num;
+                    }
+                }
+            }
+            int[] arr1 = new int[array1.Length];
+            Console.Write("Filtered array: ");
+            for (int i = 0; i < array1.Length; i++)
+            {
+                arr1[i] += array1[i];
+                Console.Write(arr1[i] + " ");
+            }
+            Console.WriteLine();
+
         }
-        public static void Sum_Of_Arrays(string res)
+        public static void Sum_Of_Arr(int[] array1, int [] array2)
         {
-            Console.WriteLine
-                ($"Sum of two arrays: {res}");
+            int[] array3 = new int[array1.Length];
+            Console.Write("Sum of two arrays: ");
+            for (int i = 0; i < array3.Length; i++)
+            {
+                array3[i] = array1[i] + array2[i];
+                Console.Write(array3[i] + " ");
+            }
+            Console.WriteLine();
         }
-        public static void Substraction(string res)
+        public static void Substract(int[] array1, int[] array2)
         {
-            Console.WriteLine
-                ($"Substruction of two arrays: {res}");
+            int[] array3 = new int[array1.Length];
+            Console.Write("Substruction of two arrays: ");
+            for (int i = 0; i < array3.Length; i++)
+            {
+                array3[i] = array1[i] - array2[i];
+                Console.Write(array3[i] + " ");
+            }
+            Console.WriteLine();
         }
-        public static void Multiplication(string res)
+        public static void Multiply(int[] array1, int[] array2)
         {
-            Console.WriteLine
-                ($"Multiplication of two arrays: {res}");
+            int[] array3 = new int[array1.Length];
+            Console.Write("Multiplication of two arrays: ");
+            for (int i = 0; i < array3.Length; i++)
+            {
+                array3[i] = array1[i] * array2[i];
+                Console.Write(array3[i] + " ");
+            }
+            Console.WriteLine();
         }
     }
 }
