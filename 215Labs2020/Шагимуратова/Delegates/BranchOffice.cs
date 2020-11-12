@@ -6,12 +6,26 @@ namespace _215Labs2020.Шагимуратова.Delegates
 {
     class BranchOffice
     {
+        public delegate void Handler(int[] array);
+        public delegate void Handler2(int[] array, int[] array1);
+        public static void Invoke(int[] mass)
+        {
+            Handler handler = GeneralOffice.max;
+            handler += GeneralOffice.summ;
+            handler += GeneralOffice.Sortirovka;
+            handler(mass);
+        }
         
-            public delegate void DGHj(int[] array);
-            public static void IF (int[] array)
+        public static void Invoke2(int[] mass, int[] mass1)
+        {
+            Handler2 handler2 = GeneralOffice.summa_massivov;
+            handler2 += GeneralOffice.vichetanie_massivov;
+            handler2 += GeneralOffice.proizv_massivov;
+            handler2(mass, mass1);
+
+        }
 
 
-        
     }
 
 }

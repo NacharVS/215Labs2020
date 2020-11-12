@@ -9,7 +9,7 @@ namespace _215Labs2020.Шагимуратова.Delegates
 
 
 
-        public static int[] mass(int dlinamass,int MaxRandomValue)
+        public static int[] mass(int dlinamass, int MaxRandomValue)
         {
             int[] mas = new int[dlinamass];
             Random rnd = new Random();
@@ -19,71 +19,107 @@ namespace _215Labs2020.Шагимуратова.Delegates
                 Console.WriteLine(mas[i]);
             }
             return mas;
+            Console.WriteLine(" ");
         }
-        public static void max(int[] array)
+    public static void max(int[] mass)
         {
             int max = 0;
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < mass.Length; i++)
             {
-                if (array[i] > max) max = array[i];
+                if (mass[i] > max) max = mass[i];
             }
             Console.WriteLine($"Максимально число {max}");
+            Console.WriteLine(" ");
+
         }
-        public static void summ (int[] array)
+        public static void summ (int[] mass)
         {
             int summ = 0;
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < mass.Length; i++)
             {
                
-                    summ += array[i];
+                    summ += mass[i];
             }
             Console.WriteLine($"Summ = {summ}");
+            Console.WriteLine(" ");
+
         }
-        public static void Sortirovka(int[] array)
+        public static void Sortirovka(int[] mass)
         {
+            Console.Write($" sortirovka ");
             int buff;
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < mass.Length; i++)
             {
-                for (int j = 0; j < array.Length; j++)
+                for (int j = 0; j < mass.Length; j++)
                 {
 
-                    if (array[i] < array[j])
+                    if (mass[i] < mass[j])
                     {
-                        buff = array[i];
-                        array[i] = array[j];
-                        array[j] = buff;
+                        buff = mass[i];
+                        mass[i] = mass[j];
+                        mass[j] = buff;
 
                     }
                 }
             }
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < mass.Length; i++)
             {
-                Console.Write($" {array[i]}");
+                Console.Write($" {mass[i]}");
+                
+                
             }
+
+           
         }
-        public static void summa_massivov(int[] array, int[] array2)
+        
+        
+        public static void summa_massivov(int[] mass, int[] mass1)
         {
-            int[] massum = new int[array.Length];
+            Console.Write($" summ 2 array ");
+
+            int[] massum = new int[mass.Length];
             Random rnd = new Random();
             for (int i = 0; i < massum.Length; i++)
             {
-                massum[i] = array[i] + array2[i];
-                Console.WriteLine(massum[i]);
+                massum[i] = mass[i] + mass1[i];
+                
+                Console.Write($"{massum[i]} ");
             }
+            Console.WriteLine(" ");
+
         }
 
-        public static void vichetanie_massivov(int[] array, int[] array2)
+        public static void vichetanie_massivov(int[] mass, int[] mass1)
         {
-            int[] massum = new int[array.Length];
+            Console.Write($" vichetanie 2 array ");
+            int[] massum = new int[mass.Length];
             Random rnd = new Random();
             for (int i = 0; i < massum.Length; i++)
             {
-                massum[i] = array[i] - array2[i];
-                Console.WriteLine(massum[i]);
+                massum[i] = mass[i] - mass1[i];
+                Console.Write($"{massum[i]} ");
             }
+            Console.WriteLine(" ");
+
         }
 
+        public static void proizv_massivov(int[] mass, int[] mass1)
+        {
+            int[] array3 = new int[10];
+            Console.WriteLine($"произведение ");
 
+            for (int i = 0; i < mass1.GetLength(0); i++)
+            {
+                for (int j = 0; j < mass1.GetLength(0); j++)
+                {
+                    array3[i] = mass[i] + mass1[j];
+                    Console.Write($" {array3[i]} ");
+                }
+                Console.WriteLine();
+
+            }
+
+        }
 
     }
 

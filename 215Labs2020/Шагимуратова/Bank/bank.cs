@@ -34,7 +34,7 @@ namespace _215Labs2020.Шагимуратова.Bank
               
             }
         }
-        public event Handler Notify 
+        //public event Handler Notify; 
         //public string Name
         //{
         //    get
