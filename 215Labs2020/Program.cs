@@ -24,8 +24,9 @@ namespace _215Labs2020
                 Console.Write("mass2[{0}]=", i);
                 mass2[i] = int.Parse(Console.ReadLine());
             }
-            DelegateClass.metod1(mass);
             DelegateClass.metod2(mass, mass2);
+            DelegateClass.metod1(mass);
+            
         }
     }
 }

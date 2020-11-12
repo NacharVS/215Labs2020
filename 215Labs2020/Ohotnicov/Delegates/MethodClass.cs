@@ -11,6 +11,7 @@ namespace _215Labs2020.Ohotnicov.Delegates
             Array.Sort(mass);
             int maxValue = mass[mass.Length - 1];
             Console.WriteLine($"Максимальный элемент: { maxValue}");
+            Console.WriteLine();
         }
         public static void SortirovkaMass(int[] mass)
         {
@@ -30,6 +31,7 @@ namespace _215Labs2020.Ohotnicov.Delegates
             for (int i = 0; i < mass.Length; i++)
             {
                 Console.WriteLine($"Сортировка: {mass[i]}");
+                Console.WriteLine();
             }
         }
         public static void SummElMass(int[] mass)
@@ -39,7 +41,8 @@ namespace _215Labs2020.Ohotnicov.Delegates
             {
                 sum = mass[i] + sum;
             }
-            Console.Write($"Сумма элементов первого массива{ sum}");
+            Console.Write($"Сумма элементов первого массива: { sum}");
+            Console.WriteLine();
         }
         public static void SummMass(int[] mass, int[] mass2)
         {
@@ -50,6 +53,7 @@ namespace _215Labs2020.Ohotnicov.Delegates
                 summ[i] = mass[i] + mass2[i];
                 Console.WriteLine(summ[i]);
             }
+            Console.WriteLine();
         }
         public static void SubMass(int[] mass, int[] mass2)
         {
@@ -58,10 +62,8 @@ namespace _215Labs2020.Ohotnicov.Delegates
             {
                 summ[i] = mass[i] - mass2[i];
             }
-            Console.WriteLine("Разность масивов");
-            foreach (var v in summ)
-                Console.WriteLine(v);
-
+            Console.WriteLine($"Разность масивов: {summ}") ;
+            Console.WriteLine();
         }
         public static void MultMass(int[] mass, int[] mass2)
         {
@@ -74,6 +76,7 @@ namespace _215Labs2020.Ohotnicov.Delegates
             Console.WriteLine("Умноженный массив");
             foreach (var v in mult)
                 Console.WriteLine(v);
+            Console.WriteLine();
 
         }
 
