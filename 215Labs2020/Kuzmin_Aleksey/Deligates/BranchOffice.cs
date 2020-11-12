@@ -4,55 +4,22 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.Deligates
 {
+    public delegate void Branch1(int[] mass);
+    public delegate void Branch2(int[] mass1, int[] mass2);
     class BranchOffice
     {
-        public static int Ex1(int[] mass)
+        public static void Work(int[] mass1, int[] mass2)
         {
-            for (int i = 0; i < mass.Length; i++)
-            {
-                for (int j = 0; j < mass.Length-1; j++)
-                {
-                    if (mass[j] < mass[i])
-                    {
-                        int a = mass[j];
-                        mass[j] = mass[i];
-                        mass[i] = a;
-                    }
-                }                
-            }
-            return mass[0];
-            
-        }
-        public static int Ex2(int[] mass)
-        {
-            int summ = 0;
-            for (int i = 0; i < mass.Length; i++)
-            {
-                summ += mass[i];
-            }
-            return summ;
-        }
-        public static int Ex3(int[] mass)
-        {
-            for (int i = 0; i < mass.Length; i++)
-            {
-                for (int j = 0; j < mass.Length - 1; j++)
-                {
-                    if (mass[j] > mass[i])
-                    {
-                        int a = mass[j];
-                        mass[j] = mass[i];
-                        mass[i] = a;
-                    }
-                }
-            }
-            foreach (var item in mass)
-            {
-                Console.Write($"{item} ");
-            }
-            Console.WriteLine();
-            return 0;
-
+            Branch1 branch1;
+            branch1 = Deligates.GeneralOffice.Ex1;
+            branch1 += Deligates.GeneralOffice.Ex2;
+            branch1 += Deligates.GeneralOffice.Ex3;
+            branch1(mass1);
+            Branch2 branch2;
+            branch2 = Deligates.GeneralOffice.Ex4;
+            branch2 += Deligates.GeneralOffice.Ex5;
+            branch2 += Deligates.GeneralOffice.Ex6;
+            branch2(mass1, mass2);
         }
 
     }

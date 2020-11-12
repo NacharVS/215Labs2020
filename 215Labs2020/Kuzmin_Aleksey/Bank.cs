@@ -12,10 +12,8 @@ namespace _215Labs2020.Kuzmin_Aleksey
         private static string _name;
         private static bool _registration = false;
         private static bool _take = false;
-        private static bool _take2 = false;
-        private static bool _age = false;
-        private static double _donation;
-        private static string _birtday;        
+        private static bool _take2 = false;       
+        private static double _donation;               
         private static string _phone;
         private static string _line = "*************************************************************";       
         
@@ -90,7 +88,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             {
                 Console.WriteLine("Ошибка. Не коректно введена дата рождения.");               
                 Console.WriteLine(_line);
-                _age = false;
+                _registration = false;
             }
         }
         private static void Person_name()
@@ -149,7 +147,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             {
                 Console.WriteLine(Bank._line);
                 Console.WriteLine("Благодарим за регистрацию в нашем банке.");
-                Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
+                Console.WriteLine($"Баланс счета составляет: {Bank._bill}.");
             }
             else { Console.WriteLine("Ошибка. Регистрация не пройдена."); }
         }
@@ -199,17 +197,18 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 Console.WriteLine("Узнать баланс счета через определенный период: ( 4 ) ");
                 if (_registration == false) { Console.WriteLine("Регистрация: ( 5 )"); }               
                 Console.Write("Введите действие над счетом: ");
-                int action = int.Parse(Console.ReadLine());
+                string action = Console.ReadLine();
                 Console.WriteLine();
-                if (_registration || action == 5)
+                if (_registration || action == "5")
                 {
                     switch (action)
                     {
-                        case 1: Balance(); break;
-                        case 2: Cash_out(); break;
-                        case 3: Refill(); break;
-                        case 4: In_year(); break;
-                        case 5: CreateAccount(); break;
+                        case "1": Balance(); break;
+                        case "2": Cash_out(); break;
+                        case "3": Refill(); break;
+                        case "4": In_year(); break;
+                        case "5": CreateAccount(); break;
+                        case "": CreateAccount(); Console.Clear(); break;
                     }
                 }
                 else
