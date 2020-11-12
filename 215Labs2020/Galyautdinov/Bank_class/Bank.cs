@@ -11,20 +11,25 @@ namespace _215Labs2020.Galyautdinov
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
-        
-        public static double BankBalans
+
+        public delegate void AccountHandler(string message);
+        public static event AccountHandler Notify;
+
+        public Bank(int bank_balans)
         {
-            get
-            {
-                return bank_balans;
-            }
-            private set
-            {
-                bank_balans = value;
-            }
+            Sum = bank_balans;
         }
-        public event Handler Notifay;
-        
+        public void Put(int bank_balans)
+        {
+            Sum += bank_balans;
+            Notify?.Invoke($"На счет поступило: {bank_balans}");
+
+        }
+        public static double Sum { get; private set; }
+        private static void DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
         private static void FullName()
         {
             Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
@@ -48,7 +53,7 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
         }
-        private static void Refill()
+        private static void Refill(double bank_balans)
         {
             int a=0;
             Console.Write("Введите сумму пополнения: ");
@@ -111,8 +116,8 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            bank_balans += a;
-            Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
+           Bank 
+            //Console.WriteLine($"Ваш баланс {bank_balans} рублей.");
         }
         private static void Withdrawal()
         {
@@ -350,7 +355,7 @@ namespace _215Labs2020.Galyautdinov
                     switch (number_operation)
                     {
 
-                        case 1: Refill(); break;
+                        case 1: Refill(bank_balans); break;
                         case 2: Withdrawal(); break;
                         case 3: Transfer(); break;
                         case 4: CheckBalance(); break;
@@ -371,7 +376,8 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void A()
         {
-            Bank bank = new Bank();
+
+            Bank bank = new Bank(0);
             Client client = new Client("Igor");
             Employee employee1 = new Employee("Timur");
 

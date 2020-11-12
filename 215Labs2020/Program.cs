@@ -9,10 +9,11 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            int[] mass = new int[3] { 1, 2, 3, };
-            int[] mass1 = new int[3] { 1, 2, 5, };
-            BranchOffice.metod1(mass);
-            BranchOffice.metod2(mass, mass1);
+            //int[] mass = new int[3] { 1, 2, 3, };
+            //int[] mass1 = new int[3] { 1, 2, 5, };
+            // BranchOffice.metod1(mass);
+            //BranchOffice.metod2(mass, mass1);
+            Bank.A();
         }
     }
 }
