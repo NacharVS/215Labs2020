@@ -38,6 +38,7 @@ namespace _Bank
                 Notify?.Invoke($"Со счета переведено: {_vivod}");
             }
         }
+        private static DateTime _accountOpenDate;
 
         private static int dayofbirth = 0;
         private static int monthofbirth = 0;
@@ -240,6 +241,8 @@ namespace _Bank
         }
         private static void transaction()
         {
+            _accountOpenDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            Console.WriteLine(_accountOpenDate);
             Client acc = new Client(balans);
             acc.Notify += DisplayMessage;
             Console.Write("Введите номер счета на которую хотите перевести: ");
