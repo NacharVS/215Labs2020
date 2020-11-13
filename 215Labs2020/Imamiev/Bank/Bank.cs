@@ -1,39 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace _215Labs2020.Imamiev
 {
-    class Bank
+    class Bank:User
     {
-        private static string name;
-        private static string surname;
         private static double deposit = 0;
         private static double procents = 0.05;
-        private static int age;
-        private static int date;
-        private static int month;
-        private static int year;
-        private void Registration()
+        private static void Registration()
         {
             Console.WriteLine("Приветствую, вам необходимо зарегистрироваться, чтобы внести свои деньги в наш банк");
             Bank InfoBase = new Bank();
             Console.WriteLine("Введите имя");
-            Bank.name = Console.ReadLine();
+            User.name = Console.ReadLine();
             Console.WriteLine("Введите  фамилию");
-            Bank.surname = Console.ReadLine()
+            User.surname = Console.ReadLine();
         }
-        private void DateInfo()
+        private static void DateInfo()
         {
             Console.WriteLine("Введите информацию о вашем дне рождения");
             string a = Console.ReadLine();
             string[] date = a.Split(new char[] { '.'});
-            Bank.date = int.Parse(date[0]);
-            Bank.month = int.Parse(date[1]);
-            Bank.year = int.Parse(date[2]);
-            Bank.age = DateTime.Now.Year - Bank.year;
+            User.date = int.Parse(date[0]);
+            User.month = int.Parse(date[1]);
+            User.year = int.Parse(date[2]);
+            User.age = DateTime.Now.Year - User.year;
         }
-        private void Operations()
+        private static void Operations()
         {
             int i = 0;
             while (i <= 0)
@@ -54,7 +47,7 @@ namespace _215Labs2020.Imamiev
                 }
             }
         }
-        private void Procent()
+        private static void Procents()
         {
             Bank InfoBase = new Bank();
             Console.WriteLine("Введите срок кредита");
@@ -64,7 +57,7 @@ namespace _215Labs2020.Imamiev
                 Bank.deposit += Bank.procents * Bank.deposit;
             }
         }
-        private void Finish()
+        private static void Finish()
         {
             Bank InfoBase = new Bank();
             Console.WriteLine($"После закрытия кредита ваш депозит будет:|{Bank.deposit} рублей");
@@ -73,18 +66,24 @@ namespace _215Labs2020.Imamiev
         public static void Method()
         {
             Bank InfoBase = new Bank();
-            InfoBase.Registration();
-            InfoBase.DateInfo();
-            if(Bank.age >= 14)
+            Bank.Registration();
+            if (User.name != User.EmployeeN || User.Surname != User.EmployeeS)
             {
-                InfoBase.Operations();
-                InfoBase.Procent();
-                InfoBase.Finish();
+                Bank.DateInfo();
+                if (User.age >= 14)
+                {
+                    Bank.Operations();
+                    {
+                        Bank.Procents();
+                        Bank.Finish();
+                    }
+                }
+                else
+                    Console.WriteLine("Sorry, but you can't use our bank underage");
             }
             else
-            {
-                Console.WriteLine("Извините, но вы не можете воспользоваться нашим банком");
-            }
+                Console.WriteLine($"Greetings, {User.EmployeeN} {User.EmployeeS}. Your salary: {User.Pay}");
         }
+        
     }
 }
