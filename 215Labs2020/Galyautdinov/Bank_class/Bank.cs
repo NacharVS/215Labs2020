@@ -1,5 +1,6 @@
 ﻿using _215Labs2020.Galyautdinov.Bank_class;
 using System;
+using System.Threading.Tasks;
 
 namespace _215Labs2020.Galyautdinov
 {
@@ -8,10 +9,30 @@ namespace _215Labs2020.Galyautdinov
         private static double bank_balans = 0;
         private static double percent = 0.061;
         private static double cashback = 0;
+        private static DateTime _accountOpenDate;
         private static long phone;
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
+
+        //private static void pop_cashback()
+        //{
+        //    if (_accountOpenDate.Minute - DateTime.Now.Minute == 2)
+        //    {
+        //        bank_balans += cashback;
+        //        cashback = 0;
+        //    }
+        //}
+        //private static Task Factor()
+        //{
+        //    return Task.Run(() => pop_cashback());
+        //}
+        //private static async void FactorialAsync()
+        //{
+        //    Console.WriteLine("начало");
+        //    await Task.Run(() => pop_cashback());
+        //    Console.WriteLine("коненц");
+        //}
 
         public delegate void AccountHandler(string message);
         public event AccountHandler Notify;
@@ -55,7 +76,8 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void FullName()
         {
-            Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
+            _accountOpenDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            Console.WriteLine($"\t Дата открытия счета: {_accountOpenDate.Day}.{_accountOpenDate.Month}.{_accountOpenDate.Year}");
             Console.WriteLine(Client.Name);
             try
             {
@@ -302,6 +324,31 @@ namespace _215Labs2020.Galyautdinov
             }
             Console.WriteLine($"Вы перевели на деньги счет: {login_transfer}.");
             bank.Transfer1(a);
+
+        }
+        public static void Purchase()
+        {
+            int a;
+            Console.Write("Введите сумму покупки: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            if (bank_balans - a < 0)
+            {
+                Console.WriteLine($"Недостаточно средст для покупки. Ваш баланс {bank_balans}");
+                Console.Write("Выберите товары на меньшую сумму: ");
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Введиет правильную сумму");
+                    a = int.Parse(Console.ReadLine());
+                }
+            }
+            bank_balans -= a;
+            Console.WriteLine($"Осуществлена покупка на сумму {a}  рублей");
+            Console.WriteLine($"Баланс вашего счета: {bank_balans}");
+            cashback = a * 0.05;
         }
         private static void Deposit()
         {
@@ -365,8 +412,9 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine("1. Пополнение счета");
                 Console.WriteLine("2. Снятие денег со счета");
                 Console.WriteLine("3. Перевод денег");
-                Console.WriteLine("4. Узнать свой баланс");
-                Console.WriteLine("5. Узнать свой депозит");
+                Console.WriteLine("4. Совершить покупку");
+                Console.WriteLine("5. Узнать свой баланс");
+                Console.WriteLine("6. Узнать свой депозит");
                 Console.WriteLine("Выберите любое число для выхода");
                 try
                 {
@@ -377,7 +425,7 @@ namespace _215Labs2020.Galyautdinov
                     Console.WriteLine("Введите правильную сумму");
                     number_operation = int.Parse(Console.ReadLine());
                 }
-                while (number_operation > 0 && number_operation < 6)
+                while (number_operation > 0 && number_operation < 7)
                 {
                     switch (number_operation)
                     {
@@ -385,8 +433,10 @@ namespace _215Labs2020.Galyautdinov
                         case 1: Refill(bank_balans); break;
                         case 2: Withdrawal(); break;
                         case 3: Transfer(); break;
-                        case 4: CheckBalance(); break;
-                        case 5: Deposit(); break;
+                        case 4: Purchase(); break;
+                        case 5: CheckBalance(); break;
+                        case 6: Deposit(); break;
+                        
                     }
                     Console.WriteLine("Выберите дальнейшие действие");
                     try
