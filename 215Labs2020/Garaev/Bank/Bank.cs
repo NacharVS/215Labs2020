@@ -2,6 +2,7 @@
 using System.Reflection.Metadata;
 using System.Security;
 using _215Labs2020.Garaev.Bank;
+using System.Threading.Tasks;
 
 namespace _Bank
 {
@@ -9,20 +10,20 @@ namespace _Bank
     {
         public delegate void AccountHandler(string message);
         public  event AccountHandler Notify;
-        public Client(int sum)
+        public Client(double sum)
         {
             balans = sum;
         }
         // сумма на счете
-        public static int balans { get; private set; }
+        public static double balans { get; private set; }
         // добавление средств на счет
-        public void Put(int sum)
+        public void Put(double sum)
         {
             balans += sum;
             Notify?.Invoke($"На счет поступило: {summ}");
         }
         // списание средств со счета
-        public void Take(int sum)
+        public void Take(double sum)
         {
             if (balans >= sum)
             {
@@ -30,7 +31,7 @@ namespace _Bank
                 Notify?.Invoke($"Со счета выведено: {_vivod}");
             }
         }
-        public void perevod(int sum)
+        public void perevod(double sum)
         {
             if (balans >= sum)
             {
@@ -40,6 +41,26 @@ namespace _Bank
         }
         private static DateTime _accountOpenDate;
 
+        //private static void popolnenie_cashback()
+        //{
+        //    if (_accountOpenDate.Minute - DateTime.Now.Minute == 2)
+        //    {
+        //        balans += cashback;
+        //        cashback = 0;
+        //    }
+        //}
+        //private static Task Factor()
+        //{
+        //    return Task.Run(() => popolnenie_cashback());
+        //}
+        //private static async void FactorialAsync()
+        //{
+        //    Console.WriteLine("Начало метода FactorialAsync");
+        //    await Task.Run(() => popolnenie_cashback());
+        //    Console.WriteLine("Конец метода FactorialAsync");
+        //}
+
+        private static double cashback = 0;
         private static int dayofbirth = 0;
         private static int monthofbirth = 0;
         private static int yearofbirth = 0;
@@ -59,6 +80,7 @@ namespace _Bank
         }
         private static void dataofbirth()
         {
+            _accountOpenDate = new DateTime(DateTime.Now.Minute);
             Console.Write("Введите Фамилия: ");
             surname = Console.ReadLine();
             Console.Write("Введите имя: ");
@@ -146,6 +168,13 @@ namespace _Bank
         }
         private static void bank_account()
         {
+            FactorialAsync();   // вызов асинхронного метода
+            Factor();
+            if (DateTime.Now.Minute > _accountOpenDate.Minute)
+            {
+                balans += cashback;
+                cashback = 0;
+            }
             Client acc = new Client(balans);
             acc.Notify += DisplayMessage;
             Console.Write("Введите сумму пополнения: ");
@@ -241,8 +270,6 @@ namespace _Bank
         }
         private static void transaction()
         {
-            _accountOpenDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            Console.WriteLine(_accountOpenDate);
             Client acc = new Client(balans);
             acc.Notify += DisplayMessage;
             Console.Write("Введите номер счета на которую хотите перевести: ");
@@ -347,6 +374,14 @@ namespace _Bank
         {
             Console.WriteLine($"Ваш текущий баланс: {balans} руб.");
         }
+        private static void pucupka()
+        {
+            Console.WriteLine("Кешбек: 5%");
+            Console.Write("Введите сумму покупки: ");
+            int summ_pocupka = int.Parse(Console.ReadLine());
+            cashback += summ_pocupka * 0.05;
+            balans -= summ_pocupka;
+        }
         public static void vibor_deistviy()
         {
             Console.WriteLine("Здравствуйте вас приветствует наш банк");
@@ -370,7 +405,7 @@ namespace _Bank
             }
             if (a == 2)
                 a = 0;
-            while (a > 0 && a < 7)
+            while (a > 0 && a < 8)
             {
                 switch (a)
                 {
@@ -380,6 +415,7 @@ namespace _Bank
                     case 4: transaction(); break;
                     case 5: _dohod(); break;
                     case 6: tecush_balans(); break;
+                    case 7: pucupka(); break;
                 }
                 Console.WriteLine();
                 Console.WriteLine("Выберите действие: ");
@@ -389,7 +425,8 @@ namespace _Bank
                 Console.WriteLine("4) Перевод денег на другой лицевой счет (Если захотите отменить операцию, то переведите 0 руб.)");
                 Console.WriteLine("5) Посчитать проценты");
                 Console.WriteLine("6) Узнать текущий баланс");
-                Console.WriteLine("7) Выйти");
+                Console.WriteLine("7) Покупка");
+                Console.WriteLine("8) Выйти");
                 int f1 = 0;
                 while (f1 == 0)
                 {
