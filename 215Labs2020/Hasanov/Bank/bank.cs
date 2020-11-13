@@ -15,12 +15,14 @@ namespace _215Labs2020.Hasanov.Bank
         private static int year;
         private static int day;
         private static int month;
+        private DateTime _accountOpenDate;
+
         private static void Deposit(int deposit)
         {
             if (deposit >= minideposit & deposit <= maxdeposit) Console.WriteLine($"Спасибо за использование нашего банка, на вашем счету {bankaccount = +deposit}");
             else Console.WriteLine("Депозитная сумма должна быть не менее 10000 и не более 200000");
         }
-        private static void Regist()
+        public static void Regist()
         {
             Console.WriteLine("Введите свое имя");
             name = Console.ReadLine();
@@ -53,14 +55,21 @@ namespace _215Labs2020.Hasanov.Bank
 
 
         }
-        private static void OperationB(string BOA)
+        public static void Potrach ()
+        {
+            int pokupka = 0;
+            Console.WriteLine("Совершите покупку на сумму :");
+            pokupka = int.Parse(Console.ReadLine());
+            Console.WriteLine(pokupka* 0.3);
+        }
+
+        public static void OperationB(string BOA)
             {
                 while (true)
                 {
                     int b;
                     string f;
                     double r = 1.05;
-
                     switch (BOA)
                     {
                         case "Внести денежные средства":
@@ -85,12 +94,12 @@ namespace _215Labs2020.Hasanov.Bank
                             if (f == "Да") Console.WriteLine(r * b);
                             else Console.WriteLine("Спасибо за использование нашего банка.Вего хорошего");
                             break;
-
-                    }
                     Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
                     string flag = Console.ReadLine();
                     if (flag != "Да") break;
                 }
+                 
+            }
                 Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
             }
 
@@ -99,6 +108,7 @@ namespace _215Labs2020.Hasanov.Bank
 
 
         }
+  
 
 }
 
