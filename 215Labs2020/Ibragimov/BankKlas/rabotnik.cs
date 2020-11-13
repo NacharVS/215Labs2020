@@ -10,7 +10,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
             private static string fio11 = "Иванов Иван Иванович";
             private static int zarplata;
             private static int _id=288;
-            public static string FIO
+            public static string FIO1
             {
                 get
                 {
@@ -43,6 +43,9 @@ namespace _215Labs2020.Ibragimov.BankKlas
                     _id = 228;
                 }
             }
-        }
+          
+
+        }      
+
     
 }

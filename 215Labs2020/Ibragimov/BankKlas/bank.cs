@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Text;
 
 namespace _215Labs2020.Ibragimov.BankKlas
 {
-    abstract  class bank2
+    abstract class bank2
     {
         private static double Years;
         private static double mec1;
@@ -42,7 +43,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
             }
             set
             {
-               mec1 = value;
+                mec1 = value;
             }
         }
         public static double day
@@ -56,5 +57,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
                 day1 = value;
             }
         }
+        
     }
+
 }

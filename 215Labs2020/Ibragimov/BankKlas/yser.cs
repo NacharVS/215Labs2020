@@ -7,6 +7,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
     class bank : bank2
 
     {
+        private DateTime _AccountOpendate;
         private static double vklad = 0;
         private static double procent = 0.06;
         private static int year = 0;
@@ -35,6 +36,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
             bank.FIO = Console.ReadLine();
 
         }
+        
 
         private void Operation()
         {
@@ -43,7 +45,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
                 bank bank1 = new bank();
                 Console.WriteLine("Введите сумму депозита");
                 int money = int.Parse(Console.ReadLine());
-                if (money >= 10000 && money <= 200000) bank.vklad = money;
+                if (money >= 10000 && money <= 200000) bank.vklad = money; 
             }
             catch
             {
@@ -88,7 +90,5 @@ namespace _215Labs2020.Ibragimov.BankKlas
 
             }
         }
-
-
     }
 } 
