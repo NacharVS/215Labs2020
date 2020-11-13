@@ -7,6 +7,7 @@ namespace _215Labs2020.Galyautdinov
     {
         private static double bank_balans = 0;
         private static double percent = 0.061;
+        private static double cashback = 0;
         private static long phone;
         private static int day_birthday;
         private static int month_birthday;
