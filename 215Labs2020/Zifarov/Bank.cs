@@ -18,22 +18,90 @@ namespace _215Labs2020.Hasanov
         private static int day;
         private static int month;
        
+        public static string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public static string Surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+            }
+        }
+        public static int Day
+        {
+            get
+            {
+                return day;
+            }
+            set
+            {
+                day = value;
+            }
+        }
+        public static int Month
+        {
+            get
+            {
+                return month;
+            }
+            set
+            {
+                month = value;
+            }
+        }
+        public static int Year
+        {
+            get
+            {
+                return year;
+            }
+            set
+            {
+                year = value;
+            }
+        }
+
+        public static int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = DateTime.Now.Year - year;
+
+            }
+        }
 
 
-private static void Regist()
+        private static void Regist()
         {
             Console.WriteLine("Введите свое имя");
-            name = Console.ReadLine();
+            Name = Console.ReadLine();
             Console.WriteLine("Введите свою фамилию");
-            surname = Console.ReadLine();
+            Surname = Console.ReadLine();
             Console.WriteLine("Введите свою дату рождения (Например 15.07.2003)");
             string birthday = Console.ReadLine();
             string[] array = birthday.Split(new char[] { '.' });
-             day = int.Parse(array[0]);
-             month = int.Parse(array[1]);
-             year = int.Parse(array[2]);
-            age = DateTime.Now.Year - year;
-            if (age >= 14 & month == DateTime.Now.Month & day == DateTime.Now.Day)
+             Day = int.Parse(array[0]);
+             Month = int.Parse(array[1]);
+             Year = int.Parse(array[2]);
+            
+            if (Age >= 14 & month == DateTime.Now.Month & day == DateTime.Now.Day)
             {
                 Console.WriteLine("Поздравляем с вашем днем рождением");
                 Bank.OperationB();
