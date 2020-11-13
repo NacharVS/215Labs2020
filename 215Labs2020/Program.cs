@@ -8,9 +8,10 @@ namespace _215Labs2020
     {
         static void Main (string[] args)
         {
-            int[]mainArray = { 100000, 8, 23, 12, 78 };
-            int[] mainArray1 = { 5, 6, 10, 3, 4 };
-            BranchOffice.Invoke(mainArray, mainArray1);
+            //int[]mainArray = { 100000, 8, 23, 12, 78 };
+            //int[] mainArray1 = { 5, 6, 10, 3, 4 };
+            //BranchOffice.Invoke(mainArray, mainArray1);
+            Bank.Program();
         }
     }
 }
