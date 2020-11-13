@@ -6,60 +6,44 @@ namespace _215Labs2020.Шагимуратова.Bank
 {
     class bank:Human
     {
-        //private string _name;
-        //private string _Surname;
+       
+        private static double _balans;
+        private static double _cashback = 0;
+        private static long _phone;
         private int _summinvklad;
         private static double _procent = 0.13;
         private double _summa;
         private int _years;
-        //private string _id;
-        //public static int _chetchikID = 0;
-        private delegate void Handler();
-
-        public double Summa
+       
+        public delegate void Handler(string message);
+        public event Handler Notify;
+        public  bank( double Summ)
         {
-            get
-            {
-                _summa = _summinvklad;
-                for (int i = 0; i < _years; i++)
-                {
-                 _summa = _summa * _procent + _summa;
-                }
-                return _summa;
-            }
-            private set
-            {
-                _summa = summinvklad;
-                _summa = _summa * _procent + _summa;
-              
-            }
+            _balans = Summ;
         }
-        //public event Handler Notify; 
-        //public string Name
-        //{
-        //    get
-        //    {
-        //        return _name;
-        //    }
-        //    set
-        //    {
-        //        _name = value;
-        //    }
-        //}
+       public void came_money(double Summ)
+        {
+            _balans += Summ;
+            Notify?.Invoke($"came money: {Summ}");
+        }
+        public void withdrew_money (double Summ)
+        {
+            _balans -= Summ;
+            Notify?.Invoke($"withdrew money: {Summ}");
+        }
+        public void came_cashback(double Summ)
+        {
+            _balans += Summ;
+            Notify?.Invoke($"came cashback:{Summ}");
+        }
+        public void money_transfer(double Summ)
+        {
+            _balans -= Summ;
+            Notify?.Invoke($"money transfer:{Summ}");
+        }
 
-        //public string SurName
-        //{
-        //    get
-        //    {
-        //        return _Surname;
-        //    }
-        //    set
-        //    {
-        //        _Surname = value;
-        //    }
-        //}
 
-        public int summinvklad
+    public int summinvklad
         {
             get
             {
@@ -70,22 +54,9 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _summinvklad = value;
             }
         }
-        //public string ID
-        //{
-        //    get
-        //    {
-        //        return _id;
-        //    }
-        //    set
-        //    {
-        //        _id = value;
-        //    }
-        //}
-
+       
         public static void Reg (bank User)
         {
-            
-
             Console.WriteLine("Введите имя ");
             User.Name = Console.ReadLine();
             Console.WriteLine("Введите Фамилию ");
