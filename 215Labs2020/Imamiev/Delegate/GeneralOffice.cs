@@ -16,7 +16,7 @@ namespace _215Labs2020.Imamiev.Delegate
                     max = array1[i];
                 }
             }
-            Console.WriteLine($"");
+            Console.WriteLine($"The maximum element of the array : {max}");
         }
         public static void Sum_Of_El(int[] array1)
         {
@@ -25,7 +25,7 @@ namespace _215Labs2020.Imamiev.Delegate
             {
                 sum += array1[i];
             }
-            Console.WriteLine($"");
+            Console.WriteLine($"Sum of array elements:{sum}");
         }
         public static void Filt(int[] array1)
         {
