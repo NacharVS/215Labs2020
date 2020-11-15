@@ -82,17 +82,19 @@ namespace _215Labs2020.Ibragimov.new_bank
             _accountOpen = DateTime.Now;
             Console.WriteLine($"Дата регистрации {_accountOpen}") ;
         }
-        private void Operation()
+        public static void Operation()
         {
-            try
-            {
+            
                 NewBank1 bank1 = new NewBank1();
                 Console.WriteLine("Введите сумму депозита");
                 int money = int.Parse(Console.ReadLine());
-                if (money >= 10000 && money <= 200000) NewBank1.vklad = money;
-            }
-            catch
+            if (money >= 10000 && money <= 200000)
             {
+                NewBank1.vklad = money;
+
+            } 
+              else
+            { 
                 Console.WriteLine("Вышла ошибка, перезайдите в программу");
             }
         }
