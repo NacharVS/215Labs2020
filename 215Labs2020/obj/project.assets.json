@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HUAWEI\\Desktop\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
+      "projectUniqueName": "C:\\Users\\HUAWEI\\Desktop\\Новая папка\\215Labs2020\\215Labs2020.csproj",
       "projectName": "215Labs2020",
-      "projectPath": "C:\\Users\\HUAWEI\\Desktop\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
+      "projectPath": "C:\\Users\\HUAWEI\\Desktop\\Новая папка\\215Labs2020\\215Labs2020.csproj",
       "packagesPath": "C:\\Users\\HUAWEI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HUAWEI\\Desktop\\215Labs2020\\215Labs2020\\obj\\",
+      "outputPath": "C:\\Users\\HUAWEI\\Desktop\\Новая папка\\215Labs2020\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HUAWEI\\AppData\\Roaming\\NuGet\\NuGet.Config",
