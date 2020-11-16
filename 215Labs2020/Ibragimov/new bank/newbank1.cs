@@ -13,7 +13,7 @@ namespace _215Labs2020.Ibragimov.new_bank
         private static DateTime _accountOpen;
         private static double vklad;
         private static double procent = 0.06;
-
+        
         public string FIO
         {
             get { return _FIO; }
@@ -115,13 +115,13 @@ namespace _215Labs2020.Ibragimov.new_bank
             {
                 NewBank1.vklad += NewBank1.procent * NewBank1.vklad;
             }
-
+            Console.WriteLine($"Через указанный вами срок, ваш вклад составит {NewBank1.vklad} рублей.");
         }
-
-        private void end()
+        public void proverit()
         {
             NewBank1 bank1 = new NewBank1();
-            Console.WriteLine($"Через указанный вами срок, ваш вклад составит {NewBank1.vklad} рублей.");
+             int a =(  _accountOpen.Second - DateTime.Now.Second);
+            Console.WriteLine($"с момента вашей регистрации прошло {a} секунд");
         }
         public static void prover()
         {
@@ -129,7 +129,7 @@ namespace _215Labs2020.Ibragimov.new_bank
                  bank1.Regs();
                  bank1.Operation();
                  bank1.prognoz();
-                  bank1.end();
+            bank1.proverit();
 
         }
 
