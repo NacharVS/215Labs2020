@@ -131,6 +131,8 @@ namespace _215Labs2020.Ibragimov.new_bank
                  bank1.prognoz();
             bank1.proverit();
 
+
+
         }
 
 
