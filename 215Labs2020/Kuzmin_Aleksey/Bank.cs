@@ -7,7 +7,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
 {
     class Bank
     {
-        private static double _bill = 0;
+        private static double _Bank = 0;
         private static double _persent = 0.006;
         private static string _name;
         private static bool _registration = false;
@@ -27,7 +27,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
                 _take = false;
                 _take2 = false;
             }
-            else if (Bank._bill - donation < 0 & _take & _take2)
+            else if (Bank._Bank - donation < 0 & _take & _take2)
             {
                 Console.WriteLine(Bank._line);
                 Console.WriteLine("Ошибка. Не достаточно средств для снятия со сочета на балансе счета.");
@@ -37,10 +37,10 @@ namespace _215Labs2020.Kuzmin_Aleksey
             }
             else if(_take2)
             {
-                if (_take) { Bank._bill -= donation; }
-                else { Bank._bill += donation; }
+                if (_take) { Bank._Bank -= donation; }
+                else { Bank._Bank += donation; }
                 Console.WriteLine(Bank._line);
-                Console.WriteLine($"Баланс счета составляет: {Bank._bill}");
+                Console.WriteLine($"Баланс счета составляет: {Bank._Bank}");
                 Console.WriteLine(Bank._line);
                 Console.WriteLine();
                 _take = false;
@@ -128,7 +128,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             }
             else if (_take2)
             {
-                Bank._bill += _donation;
+                Bank._Bank += _donation;
                 Console.WriteLine(Bank._line);                
                 Console.WriteLine(Bank._line);
                 Console.WriteLine();
@@ -147,7 +147,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             {
                 Console.WriteLine(Bank._line);
                 Console.WriteLine("Благодарим за регистрацию в нашем банке.");
-                Console.WriteLine($"Баланс счета составляет: {Bank._bill}.");
+                Console.WriteLine($"Баланс счета составляет: {Bank._Bank}.");
             }
             else { Console.WriteLine("Ошибка. Регистрация не пройдена."); }
         }
@@ -166,7 +166,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             double b = 0;
             for (int i = 0; i < a; i++)
             {
-                b = Bank._bill + Bank._bill * _persent * i;
+                b = Bank._Bank + Bank._Bank * _persent * i;
             }
             Console.WriteLine($"Ваш баланс через {a} лет, будет равен {b}.");
             Console.WriteLine(Bank._line);
@@ -175,7 +175,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
         private static void Balance()
         {
             Console.WriteLine(Bank._line);
-            Console.WriteLine($"Баланс вашего счета равен: {Bank._bill}");
+            Console.WriteLine($"Баланс вашего счета равен: {Bank._Bank}");
             Console.WriteLine(Bank._line);
             Console.WriteLine();
         }
