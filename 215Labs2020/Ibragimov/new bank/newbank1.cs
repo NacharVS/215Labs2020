@@ -88,7 +88,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             _accountOpen = DateTime.Now;
             Console.WriteLine($"Дата регистрации {_accountOpen}");
         }
-        public  void Operation()
+          private void Operation()
         {
 
             NewBank1 bank1 = new NewBank1();
@@ -127,7 +127,7 @@ namespace _215Labs2020.Ibragimov.new_bank
         }
         public static void prover()
         {
-        NewBank1 bank1 = new NewBank1();
+                 NewBank1 bank1 = new NewBank1();
                  bank1.Regs();
                  bank1.Operation();
                  bank1.prognoz();
