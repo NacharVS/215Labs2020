@@ -15,25 +15,6 @@ namespace _215Labs2020.Galyautdinov
         private static int month_birthday;
         private static int year_birthday;
 
-        //private static void pop_cashback()
-        //{
-        //    if (_accountOpenDate.Minute - DateTime.Now.Minute == 2)
-        //    {
-        //        bank_balans += cashback;
-        //        cashback = 0;
-        //    }
-        //}
-        //private static Task Factor()
-        //{
-        //    return Task.Run(() => pop_cashback());
-        //}
-        //private static async void FactorialAsync()
-        //{
-        //    Console.WriteLine("начало");
-        //    await Task.Run(() => pop_cashback());
-        //    Console.WriteLine("коненц");
-        //}
-
         public delegate void AccountHandler(string message);
         public event AccountHandler Notify;
 
