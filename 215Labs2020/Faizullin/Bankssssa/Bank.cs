@@ -11,6 +11,33 @@ namespace _215Labs2020.Faizullin
         private static string _SNF;
         private static double _contribution = 0;
         private static double _percent = 0.3;
+        private static int _balans = 0;
+
+        public delegate void AccountHadler(string message);
+        public event AccountHadler Notify;
+        public void Bankk(int sum)
+        {
+            _balans = sum;
+        }
+
+        public int BALANSE { get; private set; }
+        public void Put(int sum)
+        {
+            _balans = sum;
+            Notify.Invoke($"поступило: {sum} ");
+        }
+        public void Take(int sum)
+        {
+            if (_balans >= sum)
+            {
+                _balans -= sum;
+                Notify.Invoke($"снято: {sum} ");
+            }
+            else
+            {
+                Notify.Invoke($"недостаточно средств: {sum} ");
+            }
+        }
         public DateTime Birth
         {
             get
