@@ -120,8 +120,10 @@ namespace _215Labs2020.Ibragimov.new_bank
         public void proverit()
         {
             NewBank1 bank1 = new NewBank1();
-             int a =(  _accountOpen.Second - DateTime.Now.Second);
-            Console.WriteLine($"с момента вашей регистрации прошло {a} секунд");
+            int c1 = (DateTime.Now.Hour - _accountOpen.Hour);
+            int b = (DateTime.Now.Minute - _accountOpen.Minute);
+            int a =(DateTime.Now.Second -  _accountOpen.Second );
+            Console.WriteLine($"с момента вашей регистрации прошло {c1} часов {b} минут {a} секунд ");
         }
         public static void prover()
         {
@@ -129,9 +131,7 @@ namespace _215Labs2020.Ibragimov.new_bank
                  bank1.Regs();
                  bank1.Operation();
                  bank1.prognoz();
-            bank1.proverit();
-
-
+                 bank1.proverit();
 
         }
 
