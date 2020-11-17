@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace _215Labs2020.Sabirov
 {
@@ -11,6 +12,7 @@ namespace _215Labs2020.Sabirov
         private static int age;
         private static string email;
         private static int id;
+       
 
         public static string Name
         {

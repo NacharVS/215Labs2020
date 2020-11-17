@@ -1,5 +1,7 @@
 ﻿using System;
 using _215Labs2020.Sabirov;
+using _215Labs2020.Sabirov.User;
+
 namespace _215Labs2020
 {
     class Program
@@ -7,7 +9,7 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            
+            User.Login();
            
 
         }

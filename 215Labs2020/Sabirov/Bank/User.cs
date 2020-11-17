@@ -8,8 +8,16 @@ namespace _215Labs2020.Sabirov.User
     {
         private static double money = 0;
         private static double deposit = 0.061;
-
-
+        public delegate void Handler(string message);
+        private static event Handler Notify;
+        private static void DisplayMes(string mes)
+        {
+            Console.WriteLine(mes);
+        }
+        public User(int sum)
+        {
+            money = sum;
+        }
         public static void Check()
         {
             Console.WriteLine($"Login as Employee or User?");
@@ -41,7 +49,7 @@ namespace _215Labs2020.Sabirov.User
         }
         private static void Desposit()
         {
-
+           
             Console.WriteLine("Введите число");
             int y;
             string input = Console.ReadLine();
@@ -49,7 +57,7 @@ namespace _215Labs2020.Sabirov.User
             {
                 if (y < 10000 & y < 200000)
                 {
-                    Console.WriteLine("Error. Deposit is less than 10000 or more than 200000");
+                    Notify?.Invoke("Error! You can only deposit more than 100000 and less than 2000000");
                 }
                 else
                 {
@@ -74,7 +82,7 @@ namespace _215Labs2020.Sabirov.User
 
         public static void signIn()
         {
-            User person = new User();
+            User person = new User(0);
             Console.WriteLine("Enter your full name:");
             string name = Console.ReadLine();
             User.UserName(name);
@@ -146,6 +154,7 @@ namespace _215Labs2020.Sabirov.User
         public static void Login()
         {
             User.signIn();
+            
             Random bank123 = new Random();
             Bank.Id = bank123.Next(1000000, 1999999);
             Console.WriteLine($"Your id: {Bank.Id}");
@@ -158,8 +167,9 @@ namespace _215Labs2020.Sabirov.User
                 switch (enter)
                 {
                     case "1":
-
+                        Notify += DisplayMes;
                         User.Desposit();
+                       
                         Console.WriteLine("Do you want to continue?\n y/n");
                         string cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
