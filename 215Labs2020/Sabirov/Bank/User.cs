@@ -42,10 +42,10 @@ namespace _215Labs2020.Sabirov.User
             int x = int.Parse(Console.ReadLine());
             if (x > money | x < 0)
             {
-                Console.WriteLine("insufficient funds to write off");
+                Notify?.Invoke("insufficient funds to write off");
             }
             else User.money -= x;
-            Console.WriteLine($"You have {User.money} in your account");
+            Notify?.Invoke($"You have {User.money} in your account");
         }
         private static void Desposit()
         {
@@ -62,13 +62,13 @@ namespace _215Labs2020.Sabirov.User
                 else
                 {
                     User.money += y;
-                    Console.WriteLine($"Account replenished\n{User.money}");
+                    Notify?.Invoke($"Successful! Your bank account: {User.money}");
 
                 }
             }
             else
             {
-                Console.WriteLine("Некорректный ввод");
+                Notify?.Invoke("Incorrect");
             }
 
         }
@@ -77,7 +77,7 @@ namespace _215Labs2020.Sabirov.User
 
             double x = User.money * User.deposit;
             User.money += x;
-            Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
+            Notify?.Invoke($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
         }
 
         public static void signIn()
@@ -105,7 +105,7 @@ namespace _215Labs2020.Sabirov.User
             {
                 var other = Newname.Remove(0, 1);
                 Newname = first.ToString().ToUpper() + other;
-                Console.WriteLine($"Your name with a capital letter: {Newname}");
+                Notify?.Invoke($"Your name with a capital letter: {Newname}");
             }
 
         }
@@ -115,15 +115,16 @@ namespace _215Labs2020.Sabirov.User
             {
                 if (DateTime.Now.Year - b < 18)
                 {
-                    Console.WriteLine("You are underage :(");
+                    Notify?.Invoke("You are underage :(");
 
                 }
                 else if (c == DateTime.Now.Day & a == DateTime.Now.Month)
                 {
                     User.money += 100;
 
-                    Console.WriteLine($"it's your birthday!!! You are now {DateTime.Now.Year - b} year old.");
-                    Console.WriteLine(User.money);
+                    Notify?.Invoke($"it's your birthday!!! You are now {DateTime.Now.Year - b} year old.");
+                    Notify?.Invoke($"{User.money}");
+                    
                 }
 
             }
@@ -145,8 +146,8 @@ namespace _215Labs2020.Sabirov.User
                 }
                 else
                 {
-                    Console.WriteLine("Incorrect");
-                    Console.WriteLine("Try again");
+                    Notify?.Invoke("Incorrect\nTry again");
+                   
                 }
             }
         }
@@ -175,6 +176,7 @@ namespace _215Labs2020.Sabirov.User
                         if (cont == "n") yes = 0;
                         break;
                     case "2":
+
                         User.Withdraw();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
