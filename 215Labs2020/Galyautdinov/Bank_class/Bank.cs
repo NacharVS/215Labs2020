@@ -7,7 +7,7 @@ namespace _215Labs2020.Galyautdinov
     class Bank
     {
         private static double bank_balans = 0;
-        private static double percent_year = 0.061;
+        private static double percent = 0.001;
         private static double cashback_percent = 0.05;
         private static double cashback_partner_percent = 0.2;
         private static double cashback = 0;
@@ -24,33 +24,9 @@ namespace _215Labs2020.Galyautdinov
         {
             bank_balans = sum;
         }
-        public void Put(double sum)
-        {
-            bank_balans += sum;
-            Notify?.Invoke($"На счет поступило: {sum}");
-
-        }
-        public void Take(double sum)
-        {
-            if (bank_balans >= sum)
-            {
-                bank_balans -= sum;
-                Notify?.Invoke($"Со счета снято: {sum}");
-            }
-        }
-        public void Transfer1(double sum)
-        {
-            if (bank_balans >= sum)
-            {
-                bank_balans -= sum;
-                Notify?.Invoke($"Осуществлен перевод на  {sum} рублей.");
-            }
-        }
         public void Dep1(double sum)
         {
-            bank_balans += sum;
-            Notify?.Invoke($"На счет поступило: {sum}");
-
+            
         }
         public static double Sum { get; private set; }
         private static void DisplayMessage(string message)
@@ -59,9 +35,6 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void FullName()
         {
-            _accountOpenDate = DateTime.Now;
-            Console.WriteLine($"\t Дата открытия счета: {_accountOpenDate.Day}.{_accountOpenDate.Month}.{_accountOpenDate.Year}");
-            Console.WriteLine(Client.Name);
             try
             {
                 Console.Write("Введите ваш номер телефона: ");
@@ -81,7 +54,7 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
         }
-        private static void Refill(double bank_balans)
+        private static void Refill()
         {
             Bank bank = new Bank(bank_balans);
             bank.Notify += DisplayMessage;
@@ -147,7 +120,8 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            bank.Put(a);
+            bank_balans += a;
+            bank.Notify?.Invoke($"На счет поступило: {a}");
         }
         private static void Withdrawal()
         {
@@ -225,7 +199,11 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            bank.Take(a);
+            if (bank_balans >= a)
+            {
+                bank_balans -= a;
+                bank.Notify?.Invoke($"Со счета снято: {a}");
+            }
         }
         private static void Transfer()
         {
@@ -306,7 +284,11 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
             Console.WriteLine($"Вы перевели на деньги счет: {login_transfer}.");
-            bank.Transfer1(a);
+            if (bank_balans >= a)
+            {
+                bank_balans -= a;
+                bank.Notify?.Invoke($"Осуществлен перевод на  {a} рублей.");
+            }
 
         }
         public static void Purchase()
@@ -348,24 +330,18 @@ namespace _215Labs2020.Galyautdinov
             }
             cashback = 0;
         }
-        private static void Deposit()
+        private static void PeriodProfit(double bank_balans)
         {
-            Console.WriteLine("Вклад 6.1%");
-            Console.Write("Через сколько лет вы хотите узнать свой баланс:");
-            int year_vklad = int.Parse(Console.ReadLine());
-            double dep=0;
-            for (int i = 0; i < year_vklad; i++)
+            int second = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
+            int secondOpen = _accountOpenDate.Hour * 3600 + _accountOpenDate.Minute * 60 + _accountOpenDate.Second;
+            int deltaTime = second - secondOpen;
+            int period = 10;
+            period = deltaTime / period;
+            for (int i = 0; i < period; i++)
             {
-                dep=Math.Round(bank_balans+bank_balans*percent_year,2);
+                bank_balans = Math.Round(bank_balans + bank_balans * percent, 2);
             }
-            if (year_vklad >= 5)
-            {
-                Console.WriteLine($"Через {year_vklad} лет у вас будет {dep} рублей.");
-            }
-            else
-            {
-                Console.WriteLine($"Через {year_vklad} года у вас будет {dep} рублей.");
-            }
+            Console.WriteLine(bank_balans);
         }
         private static void CheckBalance()
         {
@@ -398,8 +374,14 @@ namespace _215Labs2020.Galyautdinov
             month_birthday = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
             year_birthday = int.Parse(Console.ReadLine());
+            Console.Clear();
+            _accountOpenDate = DateTime.Now;
+            Console.WriteLine($"Дата открытия счета {_accountOpenDate} ");
+            Console.WriteLine(Person.Name);
+            Console.WriteLine($"Ваш номер телефона: {phone}");
             DateTime dataBorn = new DateTime(year_birthday, month_birthday, day_birthday);
-            Console.WriteLine($"{dataBorn.Day}.{dataBorn.Month}.{dataBorn.Year}");
+            Console.WriteLine($"Дата рождения: {dataBorn.Day}.{dataBorn.Month}.{dataBorn.Year}");
+            Console.WriteLine();
             if (DateTime.Now.Year - dataBorn.Year < 14)
             {
                 Console.WriteLine("Люди младше 14 лет не могут открыть счет.");
@@ -411,7 +393,7 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine("3. Перевод денег");
                 Console.WriteLine("4. Совершить покупку");
                 Console.WriteLine("5. Узнать свой баланс");
-                Console.WriteLine("6. Узнать свой депозит");
+                Console.WriteLine("6. Процентный остаток");
                 Console.WriteLine("\t Выберите любое число для выхода");
                 Console.WriteLine();
                 Console.Write("Выберите дальшейшие действие ");
@@ -429,12 +411,12 @@ namespace _215Labs2020.Galyautdinov
                     switch (number_operation)
                     {
 
-                        case 1: Refill(bank_balans); break;
+                        case 1: Refill(); break;
                         case 2: Withdrawal(); break;
                         case 3: Transfer(); break;
                         case 4: Purchase(); break;
                         case 5: CheckBalance(); break;
-                        case 6: Deposit(); break;
+                        case 6: PeriodProfit(bank_balans); break;
                         
                     }
                     Console.WriteLine("Выберите дальнейшие действие");
@@ -452,14 +434,14 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void A()
         {
-
             Bank bank = new Bank(0);
-            Client client = new Client("Igor");
-            Employee employee1 = new Employee("Timur");
+            Client client = new Client("Николавев Игорь Алексеевич");
+            Employee employee1 = new Employee("Ильясов Тимур Искандерович");
 
             Console.WriteLine("1. Клиент");
             Console.WriteLine("2. Сотрудник");
             client._id = int.Parse(Console.ReadLine());
+            _accountOpenDate = DateTime.Now;
             if (client._id == 1)
             {
                 bank.Operation();
@@ -468,8 +450,6 @@ namespace _215Labs2020.Galyautdinov
             {
                 Employee.employee();
             }
-            else Console.WriteLine("...");
-            Console.Read();
         }
     }
 }

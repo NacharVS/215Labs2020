@@ -9,15 +9,15 @@ namespace _215Labs2020.Galyautdinov.Bank_class
         public int _id { get; set; }
         private static int zp=35000;
         private static double zp_balans = 0;
-        public Employee(string name)
+        public Employee(string name1)
         {
             
-            Name = name;
+            Name1 = name1;
         }
         public static void employee()
         {
             Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
-            Console.WriteLine(Employee.Name);
+            Console.WriteLine(Employee.Name1);
             if (DateTime.Now.Day > 28)
             {
                 zp_balans += zp;
