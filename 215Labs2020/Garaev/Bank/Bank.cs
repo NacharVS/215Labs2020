@@ -41,30 +41,19 @@ namespace _Bank
         }
         private static DateTime _accountOpenDate;
 
-        //private static void popolnenie_cashback()
-        //{
-        //    if (_accountOpenDate.Minute - DateTime.Now.Minute == 2)
-        //    {
-        //        balans += cashback;
-        //        cashback = 0;
-        //    }
-        //}
-        //private static Task Factor()
-        //{
-        //    return Task.Run(() => popolnenie_cashback());
-        //}
-        //private static async void FactorialAsync()
-        //{
-        //    Console.WriteLine("Начало метода FactorialAsync");
-        //    await Task.Run(() => popolnenie_cashback());
-        //    Console.WriteLine("Конец метода FactorialAsync");
-        //}
+        private static void popolnenie_cashback()
+        {
+                balans += cashback;
+                cashback = 0;
+        }
 
         private static double cashback = 0;
         private static int dayofbirth = 0;
         private static int monthofbirth = 0;
         private static int yearofbirth = 0;
         private static double procent = 20;
+        private static double cashback_procent = 5;
+        private static double cashback_partner_procent = 20;
         private static string _surname;
         private static string _name;
         private static string _otchestvo;
@@ -168,8 +157,6 @@ namespace _Bank
         }
         private static void bank_account()
         {
-            FactorialAsync();   // вызов асинхронного метода
-            Factor();
             if (DateTime.Now.Minute > _accountOpenDate.Minute)
             {
                 balans += cashback;
@@ -215,7 +202,7 @@ namespace _Bank
                 }
             }
             acc.Put(summ);
-            //Notify?.Invoke($"На счет поступило: {summ}");
+            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void vivod()
@@ -265,7 +252,7 @@ namespace _Bank
                 }
             }
             acc.Take(_vivod);
-            //Notify?.Invoke($"С счета выведено: {_vivod}");
+            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void transaction()
@@ -334,10 +321,12 @@ namespace _Bank
             }
             Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
             acc.perevod(summ1);
+            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void _dohod()
         {
+            popolnenie_cashback();
             Console.WriteLine($"Процентная ставка: {procent}%");
             Console.Write("На сколько лет хотите посчитать проценты: ");
             int f = 0;
@@ -372,14 +361,22 @@ namespace _Bank
         }
         private static void tecush_balans()
         {
+            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans} руб.");
         }
         private static void pucupka()
         {
-            Console.WriteLine("Кешбек: 5%");
+            popolnenie_cashback();
+            Console.WriteLine("Выберите");
+            Console.WriteLine($"1) Покупка от партнеров ({cashback_partner_procent} %)");
+            Console.WriteLine($"2) Обычная покупка ({cashback_procent} %)");
+            int casbac_select = int.Parse(Console.ReadLine());
             Console.Write("Введите сумму покупки: ");
             int summ_pocupka = int.Parse(Console.ReadLine());
-            cashback += summ_pocupka * 0.05;
+            if (casbac_select == 1)
+                cashback += summ_pocupka * cashback_partner_procent/100;
+            else
+                cashback += summ_pocupka * cashback_procent / 100;
             balans -= summ_pocupka;
         }
         public static void vibor_deistviy()
