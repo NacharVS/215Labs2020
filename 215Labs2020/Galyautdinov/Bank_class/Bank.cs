@@ -7,7 +7,9 @@ namespace _215Labs2020.Galyautdinov
     class Bank
     {
         private static double bank_balans = 0;
-        private static double percent = 0.061;
+        private static double percent_year = 0.061;
+        private static double cashback_percent = 0.05;
+        private static double cashback_partner_percent = 0.2;
         private static double cashback = 0;
         private static DateTime _accountOpenDate;
         private static long phone;
@@ -57,7 +59,7 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void FullName()
         {
-            _accountOpenDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            _accountOpenDate = DateTime.Now;
             Console.WriteLine($"\t Дата открытия счета: {_accountOpenDate.Day}.{_accountOpenDate.Month}.{_accountOpenDate.Year}");
             Console.WriteLine(Client.Name);
             try
@@ -310,6 +312,10 @@ namespace _215Labs2020.Galyautdinov
         public static void Purchase()
         {
             int a;
+            Console.WriteLine("\t 1. Покупка у партнера || 2. Обычная покупка");
+            Console.Write("Выберите вид покупки: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            
             Console.Write("Введите сумму покупки: ");
             a = Convert.ToInt32(Console.ReadLine());
             if (bank_balans - a < 0)
@@ -328,8 +334,19 @@ namespace _215Labs2020.Galyautdinov
             }
             bank_balans -= a;
             Console.WriteLine($"Осуществлена покупка на сумму {a}  рублей");
-            Console.WriteLine($"Баланс вашего счета: {bank_balans}");
-            cashback = a * 0.05;
+            if (id == 1)
+            {
+                cashback += a * cashback_partner_percent;
+                bank_balans += cashback;
+                Console.WriteLine($"Начислен кешбек {cashback} рублей. Ваш баланс: {bank_balans}");
+            }
+            else if (id == 2)
+            {
+                cashback += a * cashback_percent;
+                bank_balans += cashback;
+                Console.WriteLine($"Начислен кешбек {cashback} рублей. Ваш баланс: {bank_balans}");
+            }
+            cashback = 0;
         }
         private static void Deposit()
         {
@@ -339,7 +356,7 @@ namespace _215Labs2020.Galyautdinov
             double dep=0;
             for (int i = 0; i < year_vklad; i++)
             {
-                dep=Math.Round(bank_balans+bank_balans*percent,2);
+                dep=Math.Round(bank_balans+bank_balans*percent_year,2);
             }
             if (year_vklad >= 5)
             {
@@ -389,14 +406,15 @@ namespace _215Labs2020.Galyautdinov
             }
             else
             {
-                Console.WriteLine("Выберите дальшейшие действие");
                 Console.WriteLine("1. Пополнение счета");
                 Console.WriteLine("2. Снятие денег со счета");
                 Console.WriteLine("3. Перевод денег");
                 Console.WriteLine("4. Совершить покупку");
                 Console.WriteLine("5. Узнать свой баланс");
                 Console.WriteLine("6. Узнать свой депозит");
-                Console.WriteLine("Выберите любое число для выхода");
+                Console.WriteLine("\t Выберите любое число для выхода");
+                Console.WriteLine();
+                Console.Write("Выберите дальшейшие действие ");
                 try
                 {
                     number_operation = int.Parse(Console.ReadLine());
