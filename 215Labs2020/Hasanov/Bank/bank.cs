@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Hasanov.Bank
 {
-    class bank 
+    class bank
     {
         private static string name;
         private static string surname;
@@ -38,14 +38,15 @@ namespace _215Labs2020.Hasanov.Bank
             if (age >= 14 & month == DateTime.Now.Month & day == DateTime.Now.Day)
             {
                 Console.WriteLine("Поздравляем с вашем днем рождением");
-                bank.BankRegistration();
+
+                bank.OperationB();
             }
             if (age <= 14 & month >= DateTime.Now.Month)
             {
                 Console.WriteLine("К сожалению регистрация в нашем банке возможна с 14 лет, мы вынуждены прервать регистрацию! Всего доброго:)");
                 return;
             }
-            else bank.BankRegistration();
+            else bank.OperationB();
 
         }
         public static void BankRegistration()
@@ -55,59 +56,67 @@ namespace _215Labs2020.Hasanov.Bank
 
 
         }
-        public static void Potrach ()
+        public static void Potrach()
         {
             int pokupka = 0;
             Console.WriteLine("Совершите покупку на сумму :");
             pokupka = int.Parse(Console.ReadLine());
-            Console.WriteLine(pokupka* 0.3);
+            bankaccount = bankaccount - pokupka;
+            Console.WriteLine(pokupka * 0.3);
+
+
         }
 
-        public static void OperationB(string BOA)
+        public static void OperationB()
+        {
+
+            while (true)
             {
-                while (true)
+                Console.WriteLine("Выбрите операцию:Внести денежные средства,Снять денежные средства,Внести денежные средста на депозит");
+                string BOA = Console.ReadLine();
+
+
+                int b;
+                string f;
+                double r = 1.05;
+                switch (BOA)
                 {
-                    int b;
-                    string f;
-                    double r = 1.05;
-                    switch (BOA)
-                    {
-                        case "Внести денежные средства":
-                            Console.WriteLine("Введите сумму которую хотите внести ");
-                            b = int.Parse(Console.ReadLine());
-                            if (b >= minideposit & b <= maxdeposit) Console.WriteLine($"На вашем счету {bankaccount += b}");
-                            else Console.WriteLine("Депозитная сумма должна быть не менее 10000 и не более 200000");
-                            break;
-                        case "Снять денежные средства":
-                            Console.WriteLine($"На вашем счету {bankaccount}");
-                            Console.WriteLine("Введите сумму которую хотите снять ");
-                            b = int.Parse(Console.ReadLine());
-                            Console.WriteLine($"На вашем счету {bankaccount -= b}");
-                            break;
-                        case "Внести денежные средста на депозит":
-                            Console.WriteLine($"На вашем счету {bankaccount}");
-                            Console.WriteLine("Введите сумму которую вы хотите внести под депозит ");
-                            b = int.Parse(Console.ReadLine());
-                            Console.WriteLine("Вы успешно внесли деньги под депозит. Хотите узнать сколько будет на вашем счету денег через 5 лет.");
-                            f = Console.ReadLine();
-                            r = Math.Pow(r, 5);
-                            if (f == "Да") Console.WriteLine(r * b);
-                            else Console.WriteLine("Спасибо за использование нашего банка.Вего хорошего");
-                            break;
-                    Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
-                    string flag = Console.ReadLine();
-                    if (flag != "Да") break;
+                    case "Внести денежные средства":
+                        Console.WriteLine("Введите сумму которую хотите внести ");
+                        b = int.Parse(Console.ReadLine());
+                        if (b >= minideposit & b <= maxdeposit) Console.WriteLine($"На вашем счету {bankaccount += b}");
+                        else Console.WriteLine("Депозитная сумма должна быть не менее 10000 и не более 200000");
+                        break;
+                    case "Снять денежные средства":
+                        Console.WriteLine($"На вашем счету {bankaccount}");
+                        Console.WriteLine("Введите сумму которую хотите снять ");
+                        b = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"На вашем счету {bankaccount -= b}");
+                        break;
+                    case "Внести денежные средста на депозит":
+                        Console.WriteLine($"На вашем счету {bankaccount}");
+                        Console.WriteLine("Введите сумму которую вы хотите внести под депозит ");
+                        b = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Вы успешно внесли деньги под депозит. Хотите узнать сколько будет на вашем счету денег через 5 лет.");
+                        f = Console.ReadLine();
+                        r = Math.Pow(r, 5);
+                        if (f == "Да") Console.WriteLine(r * b);
+                        else Console.WriteLine("Спасибо за использование нашего банка.Вего хорошего");
+                        break;
+                        Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
+                        string flag = Console.ReadLine();
+                        if (flag != "Да") break;
                 }
-                 
+
             }
-                Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
-            }
-
-
-
-
-
+            Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
         }
+
+
+
+
+
+    }    
   
 
 }
