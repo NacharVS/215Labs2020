@@ -202,7 +202,6 @@ namespace _Bank
                 }
             }
             acc.Put(summ);
-            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void vivod()
@@ -252,7 +251,6 @@ namespace _Bank
                 }
             }
             acc.Take(_vivod);
-            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void transaction()
@@ -321,12 +319,10 @@ namespace _Bank
             }
             Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
             acc.perevod(summ1);
-            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans}");
         }
         private static void _dohod()
         {
-            popolnenie_cashback();
             Console.WriteLine($"Процентная ставка: {procent}%");
             Console.Write("На сколько лет хотите посчитать проценты: ");
             int f = 0;
@@ -361,7 +357,6 @@ namespace _Bank
         }
         private static void tecush_balans()
         {
-            popolnenie_cashback();
             Console.WriteLine($"Ваш текущий баланс: {balans} руб.");
         }
         private static void pucupka()
@@ -373,11 +368,21 @@ namespace _Bank
             int casbac_select = int.Parse(Console.ReadLine());
             Console.Write("Введите сумму покупки: ");
             int summ_pocupka = int.Parse(Console.ReadLine());
-            if (casbac_select == 1)
-                cashback += summ_pocupka * cashback_partner_procent/100;
+            if (summ_pocupka > balans)
+            {
+                Console.WriteLine("Не удалось совершить покупку так как недостаточно средств");
+            }
             else
-                cashback += summ_pocupka * cashback_procent / 100;
-            balans -= summ_pocupka;
+            {
+                if (casbac_select == 1)
+                    cashback += summ_pocupka * cashback_partner_procent / 100;
+                else
+                    cashback += summ_pocupka * cashback_procent / 100;
+                balans -= summ_pocupka;
+                Console.WriteLine($"Совершена покупка на {summ_pocupka} рублей");
+            }
+            
+            popolnenie_cashback();
         }
         public static void vibor_deistviy()
         {
