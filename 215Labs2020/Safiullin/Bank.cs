@@ -9,6 +9,7 @@ namespace _215Labs2020.Safiullin
     {
         private static double _bill = 0;
         private static double _persent = 0.0061;
+        private DateTime _accounOpenDate;
         private static string _name;
         private static bool _registration = false;
         private static bool _take = false;
@@ -16,7 +17,10 @@ namespace _215Labs2020.Safiullin
         private static bool _age = false;
         private static double _donation;
         private static string _phone;
-        
+        private static double cashback = 0;
+        private static double cashback_procent = 5;
+        private static double cashback_partner_procent = 20;
+
 
         private static void Check_Donation(double donation)
         {
@@ -42,6 +46,7 @@ namespace _215Labs2020.Safiullin
                 _take2 = false;
             }
         }
+
         private static void Check_Sign(string donation)
         {
             try
@@ -83,7 +88,7 @@ namespace _215Labs2020.Safiullin
         }
         private static void Person_name()
         {
-            Console.Write("Введите свое ФИО (Пример: Сидоров Сидор Сидорович): ");
+            Console.Write("Введите свое ФИО : ");
             _name = Console.ReadLine();
             bool b = true;
             for (int j = 0; j < _name.Length; j++)
@@ -164,6 +169,11 @@ namespace _215Labs2020.Safiullin
             _take = true;
             Bank.Check_Sign(Console.ReadLine());
             Bank.Check_Donation(_donation);
+        }
+        private static void popolnenie_cashback()
+        {
+            _bill += cashback;
+            cashback = 0;
         }
         public static void Program()
         {
