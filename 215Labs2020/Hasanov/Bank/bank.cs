@@ -17,6 +17,7 @@ namespace _215Labs2020.Hasanov.Bank
         private static int month;
         private DateTime _accountOpenDate;
 
+
         private static void Deposit(int deposit)
         {
             if (deposit >= minideposit & deposit <= maxdeposit) Console.WriteLine($"Спасибо за использование нашего банка, на вашем счету {bankaccount = +deposit}");
@@ -24,6 +25,7 @@ namespace _215Labs2020.Hasanov.Bank
         }
         public static void Regist()
         {
+            
             Console.WriteLine("Введите свое имя");
             name = Console.ReadLine();
             Console.WriteLine("Введите свою фамилию");
@@ -47,7 +49,7 @@ namespace _215Labs2020.Hasanov.Bank
                 return;
             }
             else bank.OperationB();
-
+            
         }
         public static void BankRegistration()
         {
@@ -56,13 +58,20 @@ namespace _215Labs2020.Hasanov.Bank
 
 
         }
-        public static void Potrach()
+        public static void Potrah()
         {
             int pokupka = 0;
-            Console.WriteLine("Совершите покупку на сумму :");
+            double cash;
+
+            Console.WriteLine("Сумма покупки :");
             pokupka = int.Parse(Console.ReadLine());
             bankaccount = bankaccount - pokupka;
-            Console.WriteLine(pokupka * 0.3);
+            cash = pokupka * 0.03;
+            Console.WriteLine($"Вам начислен кэшбэк за покупку. Он составляет {cash}, тперь на вашем счету {bankaccount+cash}");
+
+            
+           
+
 
 
         }
@@ -72,7 +81,7 @@ namespace _215Labs2020.Hasanov.Bank
 
             while (true)
             {
-                Console.WriteLine("Выбрите операцию:Внести денежные средства,Снять денежные средства,Внести денежные средста на депозит");
+                Console.WriteLine("Выбрите операцию:Внести денежные средства,Снять денежные средства,Внести денежные средста на депозит, Совершить покупку используя свой банковский счет");
                 string BOA = Console.ReadLine();
 
 
@@ -103,11 +112,14 @@ namespace _215Labs2020.Hasanov.Bank
                         if (f == "Да") Console.WriteLine(r * b);
                         else Console.WriteLine("Спасибо за использование нашего банка.Вего хорошего");
                         break;
-                        Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
-                        string flag = Console.ReadLine();
-                        if (flag != "Да") break;
+                    case "Совершить покупку используя свой банковский счет":
+                        bank.Potrah();
+                        break;
+                        
                 }
-
+                Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
+                string flag = Console.ReadLine();
+                if (flag != "Да") break;
             }
             Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
         }
