@@ -4,6 +4,8 @@ namespace _215Labs2020.Mihaylov
     class Bank
     {
         private static double balans = 0;
+        private static double persent = 0.06;
+        private static DateTime accountOpen;
         private static int age;
         private static int year;
         private static int day;
@@ -81,6 +83,13 @@ namespace _215Labs2020.Mihaylov
             Console.WriteLine("Снятие прошло успешно");
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
         }
+        private static void time()
+        {
+            int x= (DateTime.Now.Hour -accountOpen.Hour);
+            int y= (DateTime.Now.Minute-accountOpen.Minute);
+            int z = (DateTime.Now.Second -accountOpen.Second);
+            Console.WriteLine($"С момента вашей регистрации прошло {x} часов {y} минут {z} секунд ");
+        }
         public static void Program()
         {
             while (true)
@@ -88,12 +97,14 @@ namespace _215Labs2020.Mihaylov
                 Console.WriteLine("Регистрация: ( 1 )");
                 Console.WriteLine("Пополнить счет: ( 2 )");
                 Console.WriteLine("Снять с счета: ( 3 )");
+                Console.WriteLine("Проверить время акккаунта: (4)");
                 int a = int.Parse(Console.ReadLine());
                 switch (a)
                 {
                     case 1: registration(); break;
                     case 2: addition(); break;
                     case 3: cut(); break;
+                    case 4: time(); break;
                 }
             }
         }
