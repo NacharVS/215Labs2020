@@ -8,6 +8,9 @@ namespace _215Labs2020.Imamov.BankAcc
     {
         private static double balance = 0;
         private static double percents = 0.05;
+        private static double cashback_percents = 0.03;
+        private static double partnerCashbak_percents = 0.2;
+        private static double cashback = 0;
         private static long phoneNumber;
         private static int birthDay;
         private static int birthMonth;
@@ -124,6 +127,86 @@ namespace _215Labs2020.Imamov.BankAcc
             BankAccount operations = new BankAccount(balance);
             operations.Notify += DisplayNotification;
             int money;
+            Console.Write("Enter the number of account that you want to transfer: ");
+            int accNumber = int.Parse(Console.ReadLine());
+            int check = 0;
+            Console.Write("Enter the amount that you want to transfer: ");
+            while (check == 0);
+            {
+                try
+                {
+                    money = int.Parse(Console.ReadLine());
+                    if (money >= 10000 || money <= 200000) balance = money;
+                    {
+                        check = 1;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter the correct amount: ");
+                    money = int.Parse(Console.ReadLine());
+                }
+            }
+            while (balance - money < 0)
+            {
+                if (balance - money < 0)
+                {
+                    Console.WriteLine($"Not enough money to transfer. Your balance: ");
+                    Console.Write("Enter the amount you want to transfer: ");
+                    try
+                    {
+                        money = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Enter the correct amount: ");
+                        money = int.Parse(Console.ReadLine());
+                    }
+                }
+            }
+            Console.WriteLine($"You transfered money to account {accNumber}");
+            if (balance >= money)
+            {
+                balance -= money;
+                operations.Notify?.Invoke($"You transfered {money}");
+            }
+        }
+        private static void Purchase()
+        {
+            int money;
+            Console.WriteLine("1.Partner's goods | | 2. Standart goods ");
+            Console.Write("Choose what you want to buy: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Enter the amount of your purchase");
+            int amount = int.Parse(Console.ReadLine());
+            if (balance - amount < 0)
+            {
+                Console.WriteLine($"Not enough money to buy. Your balance {balance}");
+                try
+                {
+                    amount = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Enter the correct amount: ");
+                    amount = int.Parse(Console.ReadLine());
+                }
+            }
+            balance -= amount;
+            Console.WriteLine($"The amount of your purchase");
+            if (a == 1)
+            {
+                cashback += amount * partnerCashbak_percents;
+                balance += cashback;
+                Console.WriteLine($"You recevied your cashback: {cashback}. Your balance: {balance}");
+            }
+            else if (a == 2)
+            {
+                cashback += a * cashback_percents;
+                balance += cashback;
+                Console.WriteLine($"You recevied your cashback: {cashback.}. Your balance: {balance}");
+            }
+            cashback = 0;
         }
     }
 }
