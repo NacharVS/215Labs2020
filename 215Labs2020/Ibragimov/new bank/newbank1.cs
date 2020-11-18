@@ -13,7 +13,11 @@ namespace _215Labs2020.Ibragimov.new_bank
         private static DateTime _accountOpen;
         private static double vklad;
         private static double procent = 0.06;
-        
+
+        public delegate void Handler(string message);
+        private static event Handler Notify;
+        private static DateTime Regis;
+
         public string FIO
         {
             get { return _FIO; }
@@ -134,6 +138,8 @@ namespace _215Labs2020.Ibragimov.new_bank
                  bank1.proverit();
 
         }
+             
+        
 
 
 
@@ -151,8 +157,6 @@ namespace _215Labs2020.Ibragimov.new_bank
 
 
 
-
-
-    }
+     }
 
 }
