@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace _215Labs2020.Sabirov.User
 {
     class User : Bank
     {
+        private interface IUser
+        {
+
+        }
         private static double money = 0;
-        private static double deposit = 0.061;
+        private static double deposit = 1.1;
         public delegate void Handler(string message);
         private static event Handler Notify;
+        private static DateTime Regis;
+
         private static void DisplayMes(string mes)
         {
             Console.WriteLine(mes);
         }
-        public User(int sum)
+        public User(int sum, DateTime res)
         {
             money = sum;
+            Regis = res;
         }
         public static void Check()
         {
@@ -72,17 +80,19 @@ namespace _215Labs2020.Sabirov.User
             }
 
         }
-        private static void percent()
-        {
+        //private static void percent()
+        //{
 
-            double x = User.money * User.deposit;
-            User.money += x;
-            Notify?.Invoke($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
-        }
+        //    double x = User.money * User.deposit;
+        //    User.money += x;
+        //    Notify?.Invoke($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
+        //}
 
         public static void signIn()
         {
-            User person = new User(0);
+            
+            User person = new User(0, DateTime.Now);
+          
             Console.WriteLine("Enter your full name:");
             string name = Console.ReadLine();
             User.UserName(name);
@@ -130,6 +140,22 @@ namespace _215Labs2020.Sabirov.User
             }
 
 
+        }
+        private static void percnt(int period)
+        {
+           
+            Thread.Sleep(period * 1001);
+            int curr = DateTime.Now.Second;
+            int v = curr - User.Regis.Second;
+            v = v / period;
+            
+            for (int i = 0; i < v; i++)
+            {
+                User.money *= User.deposit;
+                
+                
+            }
+            Console.WriteLine(User.money);
         }
         private static void EmailCheck()
         {
@@ -183,12 +209,13 @@ namespace _215Labs2020.Sabirov.User
                         if (cont == "n") yes = 0;
                         break;
                     case "3":
-                        User.percent();
+                        int per = int.Parse(Console.ReadLine());
+                        User.percnt(per);
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
-
                         break;
+                   
                 }
             }
         }
