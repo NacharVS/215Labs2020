@@ -21,21 +21,26 @@ namespace _215Labs2020.Faizullin
         }
 
         public int BALANSE { get; private set; }
+        private static void  DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
         public void Put(int sum)
         {
             _balans = sum;
-            Notify.Invoke($"поступило: {sum} ");
+            Notify?.Invoke($"поступило: {sum} ");
         }
         public void Take(int sum)
         {
+            
             if (_balans >= sum)
             {
                 _balans -= sum;
-                Notify.Invoke($"снято: {sum} ");
+                Notify?.Invoke($"снято: {sum} ");
             }
             else
             {
-                Notify.Invoke($"недостаточно средств: {sum} ");
+                Notify?.Invoke($"недостаточно средств: {sum} ");
             }
         }
         public DateTime Birth
@@ -111,8 +116,8 @@ namespace _215Labs2020.Faizullin
             Bank bank = new Bank();
             Console.WriteLine("Investment for how many years?");
             Console.WriteLine("************************");
-            int coat = int.Parse(Console.ReadLine());
-            for (int i = 1; i < coat; i++)
+            int a = int.Parse(Console.ReadLine());
+            for (int i = 1; i < a; i++)
             {
                 Bank._contribution += Bank._percent * Bank._contribution;
 
@@ -124,9 +129,13 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine($"After the period yiou specified will be {Bank._contribution} rubles ");
             Console.WriteLine($" {Bank._SNF} Thank you ,goodbye");
         }
+
         public static void Proverka()
         {
             Bank bank = new Bank();
+            bank.Notify += DisplayMessage;
+            bank.Put(20);
+            bank.Take(70);
             bank.Registration();
             bank.Operation();
             bank.PROGNOZ();
