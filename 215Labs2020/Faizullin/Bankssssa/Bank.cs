@@ -9,9 +9,11 @@ namespace _215Labs2020.Faizullin
     {
         private DateTime _birth;
         private static string _SNF;
+        private static string _PhoneNumber;
         private static double _contribution = 0;
         private static double _percent = 0.3;
         private static int _balans = 0;
+        private static DateTime _accountOpenDate;
 
         public delegate void AccountHadler(string message);
         public event AccountHadler Notify;
@@ -19,7 +21,7 @@ namespace _215Labs2020.Faizullin
         {
             _balans = sum;
         }
-
+        
         public int BALANSE { get; private set; }
         private static void  DisplayMessage(string message)
         {
@@ -41,6 +43,23 @@ namespace _215Labs2020.Faizullin
             else
             {
                 Notify?.Invoke($"недостаточно средств: {sum} ");
+            }
+        }
+        public void RegistDate()
+        {
+            Bank bank = new Bank();
+            _accountOpenDate = DateTime.Now;
+            Console.WriteLine($"Дaта регистрации {_accountOpenDate}");
+        }
+        public string phoneNumber
+        {
+            get
+            {
+                return _PhoneNumber;
+            }
+            set
+            {
+                _PhoneNumber = phoneNumber;
             }
         }
         public DateTime Birth
@@ -78,7 +97,11 @@ namespace _215Labs2020.Faizullin
         {
             Console.WriteLine("Hello, welcome to our Bank.");
             Console.WriteLine("***************************");
-            Bank bank = new Bank();
+            Console.WriteLine("Введите номер телефона");
+            Console.WriteLine("**********************");
+            _PhoneNumber = Console.ReadLine();
+
+           Bank bank = new Bank();
             try
             {
                 Console.WriteLine("Enter personal data");
@@ -86,6 +109,7 @@ namespace _215Labs2020.Faizullin
                 Bank._SNF = Console.ReadLine();
                 Console.WriteLine("Enter date of birth");
                 Console.WriteLine("***************");
+
                 Console.Write("Введите дату рождения (17/06/1996):");
                 string inputDate = Console.ReadLine();
                 bank.Birth = Convert.ToDateTime(inputDate);
@@ -111,6 +135,12 @@ namespace _215Labs2020.Faizullin
             if (MONEY >= 10000 || MONEY <= 200000) Bank._contribution = MONEY;
 
         }
+        //private void Operation2()
+        //{
+            //Bank bank = new Bank();
+            //Console.WriteLine("Ведите сумму для снятия ");
+            //_balans = Console.ReadLine();
+        //}
         private void PROGNOZ()
         {
             Bank bank = new Bank();
@@ -136,6 +166,7 @@ namespace _215Labs2020.Faizullin
             bank.Notify += DisplayMessage;
             bank.Put(20);
             bank.Take(70);
+            bank.RegistDate();
             bank.Registration();
             bank.Operation();
             bank.PROGNOZ();
