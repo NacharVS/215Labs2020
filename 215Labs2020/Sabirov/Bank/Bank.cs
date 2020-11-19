@@ -72,7 +72,8 @@ namespace _215Labs2020.Sabirov
             }
             set
             {
-                month = value;
+
+               month = value;
             }
         }
         public static int Day

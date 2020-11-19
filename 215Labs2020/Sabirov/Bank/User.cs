@@ -14,7 +14,7 @@ namespace _215Labs2020.Sabirov.User
         private static double money = 0;
         private static double deposit = 1.1;
         public delegate void Handler(string message);
-        private static event Handler Notify;
+        public static event Handler Notify;
         private static DateTime Regis;
 
         private static void DisplayMes(string mes)
@@ -44,6 +44,7 @@ namespace _215Labs2020.Sabirov.User
         }
 
 
+
         private static void Withdraw()
         {
             Console.WriteLine("How many do you want to withdraw?");
@@ -58,7 +59,7 @@ namespace _215Labs2020.Sabirov.User
         private static void Desposit()
         {
            
-            Console.WriteLine("Введите число");
+            Console.WriteLine("How much do you want to deposit?");
             int y;
             string input = Console.ReadLine();
             if (Int32.TryParse(input, out y))
@@ -80,26 +81,18 @@ namespace _215Labs2020.Sabirov.User
             }
 
         }
-        //private static void percent()
-        //{
-
-        //    double x = User.money * User.deposit;
-        //    User.money += x;
-        //    Notify?.Invoke($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
-        //}
-
+       
         public static void signIn()
         {
             
             User person = new User(0, DateTime.Now);
-          
+            Console.WriteLine(User.Regis);
             Console.WriteLine("Enter your full name:");
             string name = Console.ReadLine();
             User.UserName(name);
             Console.WriteLine("Enter your BirthDay");
             Bank.Day = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter your BirthMonth");
-            Bank.Month = int.Parse(Console.ReadLine());
+            User.MonthCheck();
             Console.WriteLine("Enter your BirthYear");
             Bank.Age = int.Parse(Console.ReadLine());
             User.Birth(Month, Age, Day);
@@ -144,7 +137,7 @@ namespace _215Labs2020.Sabirov.User
         private static void percnt(int period)
         {
            
-            Thread.Sleep(period * 1001);
+            Thread.Sleep(period * 1010);
             int curr = DateTime.Now.Second;
             int v = curr - User.Regis.Second;
             v = v / period;
@@ -177,6 +170,42 @@ namespace _215Labs2020.Sabirov.User
                 }
             }
         }
+        private static void MonthCheck()
+        {
+            Notify += DisplayMes;
+            int g = 1;
+            while (g == 1)
+            {
+                Console.WriteLine("Enter your Month");
+                int mn = int.Parse(Console.ReadLine());
+                
+                if (mn <= 12)
+                {
+                    g = 0;
+                    User.Month = mn;
+                }
+                else
+                {
+                    Notify?.Invoke("Incorrect\nTry again");
+
+                }
+            }
+        }
+        private static void CashBack(string shop, double price)
+        {
+            if (shop == "steam")
+            {
+                User.money -= price;
+                User.money += price * 0.50;
+                Console.WriteLine($"Because you bought your product from {shop} your cashback is 50%\nYour money {User.money}");
+            }
+            else
+            {
+                User.money -= price;
+                User.money += price * 0.1;
+                Console.WriteLine($"Your CashBack is 10%\nYour money {User.money}");
+            }
+        }
 
         public static void Login()
         {
@@ -189,12 +218,12 @@ namespace _215Labs2020.Sabirov.User
             while (yes == 1)
             {
                 Console.WriteLine("What do you want to do (deposit money, withdraw money, Find out the amount of funds after replenishment of the deposit)");
-                Console.WriteLine("Press 1 to deposit money\nPress 2 to withdraw money\nPress 3 to find out the amount of funds after replenishment of the deposit ");
+                Console.WriteLine("Press 1 to deposit money\nPress 2 to withdraw money\nPress 3 to find out the amount of funds after replenishment of the deposit\n Press 4 to find out about your Cashback");
                 string enter = Console.ReadLine();
                 switch (enter)
                 {
                     case "1":
-                        Notify += DisplayMes;
+                        
                         User.Desposit();
                        
                         Console.WriteLine("Do you want to continue?\n y/n");
@@ -202,18 +231,28 @@ namespace _215Labs2020.Sabirov.User
                         if (cont == "n") yes = 0;
                         break;
                     case "2":
-
+                        //Notify += DisplayMes;
                         User.Withdraw();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
                         break;
                     case "3":
+                        Notify += DisplayMes;
                         int per = int.Parse(Console.ReadLine());
+                        Console.WriteLine("For what period do you want to deposit money?");
                         User.percnt(per);
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
+                        break;
+                    case "4":
+                        Notify += DisplayMes;
+                        Console.WriteLine("Where did you bought it?");
+                        string shop = Console.ReadLine();
+                        Console.WriteLine("How much?:");
+                        double price = double.Parse(Console.ReadLine());
+                        User.CashBack(shop, price);
                         break;
                    
                 }
