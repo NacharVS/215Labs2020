@@ -10,21 +10,35 @@ namespace _215Labs2020.Hasanov.Bank
         private static string surname;
         private static int minideposit = 10000;
         private static int maxdeposit = 200000;
-        private static int bankaccount = 0;
+        private static double bankaccount = 0;
         private static int age;
         private static int year;
         private static int day;
         private static int month;
-        private DateTime _accountOpenDate;
+        private static DateTime _accountOpenDate;
 
 
-        private static void Deposit(int deposit)
+        //private static void Deposit(int deposit)
+        //{
+        //    if (deposit >= minideposit & deposit <= maxdeposit) Console.WriteLine($"Спасибо за использование нашего банка, на вашем счету {bankaccount = +deposit}");
+        //    else Console.WriteLine("Депозитная сумма должна быть не менее 10000 и не более 200000");
+        //}
+        public static void Remains()
         {
-            if (deposit >= minideposit & deposit <= maxdeposit) Console.WriteLine($"Спасибо за использование нашего банка, на вашем счету {bankaccount = +deposit}");
-            else Console.WriteLine("Депозитная сумма должна быть не менее 10000 и не более 200000");
+           int second = _accountOpenDate.Second;
+           int timedifference = DateTime.Now.Second - second;
+            int period = timedifference / 10;
+            for (int i = 0; i <period ; i++)
+            {
+                bankaccount = (bankaccount * 0.03) + bankaccount;
+            }
+            Console.WriteLine(bankaccount);
+
+
         }
         public static void Regist()
         {
+            
             
             Console.WriteLine("Введите свое имя");
             name = Console.ReadLine();
@@ -37,6 +51,7 @@ namespace _215Labs2020.Hasanov.Bank
             month = int.Parse(array[1]);
             year = int.Parse(array[2]);
             age = DateTime.Now.Year - year;
+            _accountOpenDate = DateTime.Now;
             if (age >= 14 & month == DateTime.Now.Month & day == DateTime.Now.Day)
             {
                 Console.WriteLine("Поздравляем с вашем днем рождением");
@@ -55,7 +70,7 @@ namespace _215Labs2020.Hasanov.Bank
         {
             Console.WriteLine("Здрасьте, приветствуем вас в банке ХАСУСГОССТРАХБАНК. Для возможности проведения денежных операций необходима регистрация счета");
             bank.Regist();
-
+            
 
         }
         public static void Potrah()
@@ -68,23 +83,18 @@ namespace _215Labs2020.Hasanov.Bank
             bankaccount = bankaccount - pokupka;
             cash = pokupka * 0.03;
             Console.WriteLine($"Вам начислен кэшбэк за покупку. Он составляет {cash}, тперь на вашем счету {bankaccount+cash}");
-
-            
-           
-
-
-
         }
 
         public static void OperationB()
         {
+           
 
             while (true)
             {
+               
                 Console.WriteLine("Выбрите операцию:Внести денежные средства,Снять денежные средства,Внести денежные средста на депозит, Совершить покупку используя свой банковский счет");
                 string BOA = Console.ReadLine();
-
-
+                bank.Remains();
                 int b;
                 string f;
                 double r = 1.05;
