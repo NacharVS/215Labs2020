@@ -1,6 +1,8 @@
-﻿using System;
+﻿using _215Labs2020.Ibragimov.BankKlas;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace _215Labs2020.Ibragimov.new_bank
 {
@@ -14,10 +16,11 @@ namespace _215Labs2020.Ibragimov.new_bank
         private static double vklad;
         private static double procent = 0.06;
 
-        public delegate void Handler(string message);
-        private static event Handler Notify;
-        private static DateTime Regis;
+       
 
+
+        private static DateTime Regis;
+        private static DateTime VkladDay;
         public string FIO
         {
             get { return _FIO; }
@@ -121,7 +124,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             }
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {NewBank1.vklad} рублей.");
         }
-        public void proverit()
+        private void Datregist()
         {
             NewBank1 bank1 = new NewBank1();
             int c1 = (DateTime.Now.Hour - _accountOpen.Hour);
@@ -129,16 +132,41 @@ namespace _215Labs2020.Ibragimov.new_bank
             int a =(DateTime.Now.Second -  _accountOpen.Second );
             Console.WriteLine($"с момента вашей регистрации прошло {c1} часов {b} минут {a} секунд ");
         }
+
+
+        public static void percnt()
+        {
+            int period = 10;
+            NewBank1 bank1 = new NewBank1();
+            Console.WriteLine("Введите сумму депозита не менее 10 00 и не более 200 000");
+            int money = int.Parse(Console.ReadLine());
+            VkladDay = DateTime.Now;
+
+
+            Thread.Sleep(period * 1010);
+            int c = DateTime.Now.Second;
+            int v = c - VkladDay.Second;
+            v = v / period;
+
+            for (int i = 0; i < v; i++)
+            {
+                
+
+
+            }
+            Console.WriteLine(money);
+        }
+
         public static void prover()
         {
                  NewBank1 bank1 = new NewBank1();
                  bank1.Regs();
                  bank1.Operation();
                  bank1.prognoz();
-                 bank1.proverit();
-
+                 bank1.Datregist();
+                  
         }
-             
+
         
 
 
@@ -157,6 +185,7 @@ namespace _215Labs2020.Ibragimov.new_bank
 
 
 
-     }
+
+    }
 
 }
