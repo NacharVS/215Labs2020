@@ -8,6 +8,8 @@ namespace _215Labs2020.Шагимуратова.Bank
     {
         private string _name;
         private string _Surname;
+      
+        
         public string Name
         {
             get

@@ -14,9 +14,14 @@ namespace _215Labs2020.Шагимуратова.Bank
         private static double _procent = 0.13;
         private double _summa;
         private int _years;
+        private static string _Patronymic;
+        private static string _dayB;
+        private static string _mounthB;
+        private static string _yearB;
        
         public delegate void Handler(string message);
         public event Handler Notify;
+       
         public  bank( double Summ)
         {
             _balans = Summ;
@@ -60,6 +65,14 @@ namespace _215Labs2020.Шагимуратова.Bank
             User.Name = Console.ReadLine();
             Console.WriteLine("Введите Фамилию ");
             User.SurName = Console.ReadLine();
+            Console.Write("Введите Отчество ");
+            User._ = Console.ReadLine();
+            Console.Write("День: ");
+             = int.Parse(Console.ReadLine());
+            Console.Write("Месяц: ");
+            monthofbirth = int.Parse(Console.ReadLine());
+            Console.Write("Год: ");
+            yearofbirth = int.Parse(Console.ReadLine());
             int k=0;
             do
             {
