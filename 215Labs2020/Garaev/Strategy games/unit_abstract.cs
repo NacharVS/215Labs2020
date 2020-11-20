@@ -6,5 +6,6 @@ namespace _215Labs2020.Garaev.Strategy_games
 {
     class unit_abstract
     {
+
     }
 }
