@@ -13,7 +13,6 @@ namespace _215Labs2020
             //int[] mass1 = new int[3] { 1, 2, 5, };
             // BranchOffice.metod1(mass);
             //BranchOffice.metod2(mass, mass1);
-            Bank.A();
         }
     }
 }
