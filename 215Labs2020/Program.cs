@@ -6,10 +6,6 @@ namespace _215Labs2020.Maksimov_Aleksei
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            user.method();
-
-        }
+        
     }
 }
