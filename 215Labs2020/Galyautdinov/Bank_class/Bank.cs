@@ -24,10 +24,6 @@ namespace _215Labs2020.Galyautdinov
         {
             bank_balans = sum;
         }
-        public void Dep1(double sum)
-        {
-            
-        }
         public static double Sum { get; private set; }
         private static void DisplayMessage(string message)
         {
