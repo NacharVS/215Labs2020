@@ -4,7 +4,8 @@ using System.Text;
 
 namespace _215Labs2020.Galyautdinov.StrategyGames
 {
-    class Unit_abstract
+    abstract class Unit_abstract
     {
+        private static int xp {get; set;}
     }
 }
