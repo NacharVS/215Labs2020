@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Galyautdinov.StrategyGames.mirnyy
 {
-    class MirnyyRybak
+    class MirnyyRybak : Abstract
     {
     }
 }

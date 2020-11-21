@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Galyautdinov.StrategyGames.Voin
 {
-    class VoinOgr
+    class VoinOgr : Abstract
     {
     }
 }

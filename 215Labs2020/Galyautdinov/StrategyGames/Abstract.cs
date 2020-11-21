@@ -4,8 +4,10 @@ using System.Text;
 
 namespace _215Labs2020.Galyautdinov.StrategyGames
 {
-    abstract class Unit_abstract
+    abstract class Abstract
     {
+        private static string Name { get; set; }
         private static int xp {get; set;}
+        private static int radius { get; set; }
     }
 }
