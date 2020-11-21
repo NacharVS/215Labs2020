@@ -25,7 +25,7 @@ namespace _215Labs2020.Faizullin
             //BranchOffice.xx(mass1);
             
 
-            Bank.Proverka();
+            //Bank.Proverka();
         }
     }
 }
