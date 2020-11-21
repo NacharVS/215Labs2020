@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Garaev.Strategy_games
 {
-    class Unit_basa_1
+    class Unit_voin_saper : unit_abstract
     {
     }
 }

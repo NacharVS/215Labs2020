@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Garaev.Strategy_games
 {
-    class Unit_mir_Cook
+    class Unit_mir_Cook : unit_abstract
     {
     }
 }
