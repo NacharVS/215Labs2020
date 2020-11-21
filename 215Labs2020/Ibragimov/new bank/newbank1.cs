@@ -134,7 +134,7 @@ namespace _215Labs2020.Ibragimov.new_bank
         }
 
 
-        public static void percnt()
+        public static void Banktime ()
         {
             int period = 10;
             NewBank1 bank1 = new NewBank1();
@@ -150,11 +150,11 @@ namespace _215Labs2020.Ibragimov.new_bank
 
             for (int i = 0; i < v; i++)
             {
-                
 
+                NewBank1.vklad += (i * NewBank1.vklad);
 
             }
-            Console.WriteLine(money);
+            Console.WriteLine(NewBank1.vklad);
         }
 
         public static void prover()
