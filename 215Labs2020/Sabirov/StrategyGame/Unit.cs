@@ -1,50 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace _215Labs2020.Sabirov.StrategyGame
 {
-    abstract class Unit
+     class Unit
     {
-        private static int damage;
-        private const int minDamage = 0;
-        private static int maxDamage = 1000;
-        private static int _health;
-        private const int maxHealth = 9999;
-        private const int minHealth = 0;
-        
-        public static int Damage
+        static int _health;
+        static int _damage;
+        static int _range;
+
+        public static int Damage { get => _damage; set => _damage = value; }
+        public static int Range { get => _range; set => _range = value; }
+
+        public static int Health
         {
             get
             {
-                return damage;
+                return _health;
             }
             set
             {
-                damage = value;
+                if (value == 0)
+                {
+                    Console.WriteLine("Unit is dead");
+                }
+                else _health = value;
             }
-        }
-             public static int Maxdamage
-        {
-            get
-            {
-                return maxDamage;
-            }
-            set
-            {
-                maxDamage = value;
-            }
-        }
-
-        public static int MinHealth { get; set; }
-        public static int Health { get => _health; set => _health = value; }
-
-        public interface IDamage
-        {
-         
-            void DealDamage(Building g);
-            
-
         }
     }
 }

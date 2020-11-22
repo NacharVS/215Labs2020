@@ -1,22 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using static _215Labs2020.Sabirov.StrategyGame.Unit;
 
 namespace _215Labs2020.Sabirov.StrategyGame
 {
-    class Archer : Unit, IDamage
+    class Archer : Unit
     {
-       void Stats()
+        public Archer(int dam, int health,int range)
         {
-            Archer.Damage = 100;
-            Archer.Health = 150;
-
+            Archer.Damage = dam;
+            Archer.Health = health;
+            Archer.Range = range;
         }
-        public void DealDamage(Building DamagedBuilding) 
-        {
-            Console.WriteLine($"Archer attacked {DamagedBuilding} ");
+       
+        public static void stats()
+        { 
+            Archer first = new Archer(15,100,30);
+            Console.WriteLine(Archer.Damage);
+        }
+           
+        
             
-        }
+            
+   
     }
 }
