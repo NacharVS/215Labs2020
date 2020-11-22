@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace _215Labs2020.Mihaylov.StrategyGame
+{
+    class absract
+    {
+        private static int xp { get; set; }
+    }
+}

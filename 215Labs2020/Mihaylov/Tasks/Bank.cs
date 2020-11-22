@@ -52,7 +52,7 @@ namespace _215Labs2020.Mihaylov
                     catch 
                     {
                         Console.WriteLine("Ошибка! Диапазон пополнений  от 10000 до 200000. ");
-                        Console.Write("Введите сумму пополнения: ");
+                        Console.WriteLine("Введите сумму пополнения: ");
                         a = int.Parse(Console.ReadLine());
                     }
                 }
