@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Safiullin.Statistical_game
+namespace _215Labs2020.Safiullin.Statistical_game.Serviceman
 {
-    class Рeasant
+    class Spear
     {
     }
 }

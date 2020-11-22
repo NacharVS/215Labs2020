@@ -1,6 +1,7 @@
 ﻿using System;
 using _215Labs2020.Safiullin;
 using _215Labs2020.Safiullin.Delegates;
+using _215Labs2020.Safiullin.Statistical_game.Actions;
 
 namespace _215Labs2020
 {
@@ -8,10 +9,19 @@ namespace _215Labs2020
     {
         static void Main (string[] args)
         {
-            //int[]mainArray = { 100000, 8, 23, 12, 78 };
-            //int[] mainArray1 = { 5, 6, 10, 3, 4 };
-            //BranchOffice.Invoke(mainArray, mainArray1);
-            Bank.Program();
+            IAttack attack;
+            IMovable move;
+            int a = 1;
+            if (a > 1)
+            {
+                attack = new Human();
+                attack.Attack();
+            }
+            else
+            {
+                move = new Human();
+                move.Move();
+            }
         }
     }
 }

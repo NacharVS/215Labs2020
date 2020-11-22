@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Safiullin.Statistical_game
 {
-    class Working
+    class Miner
     {
     }
 }
