@@ -2,9 +2,7 @@
 using _215Labs2020.Galyautdinov;
 using _215Labs2020.Galyautdinov.Bank_class;
 using _215Labs2020.Galyautdinov.Delegates;
-using _215Labs2020.Galyautdinov.StrategyGames.Voin;
-using _215Labs2020.Galyautdinov.StrategyGames.mirnyy;
-using _215Labs2020.Galyautdinov.StrategyGames.Bashnya;
+using _215Labs2020.Galyautdinov.StrategyGames;
 
 namespace _215Labs2020
 {
@@ -12,10 +10,12 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            //int[] mass = new int[3] { 1, 2, 3, };
-            //int[] mass1 = new int[3] { 1, 2, 5, };
-            // BranchOffice.metod1(mass);
-            //BranchOffice.metod2(mass, mass1);
+            /*int[] mass = new int[3] { 1, 2, 3, };
+              int[] mass1 = new int[3] { 1, 2, 5, };
+              BranchOffice.metod1(mass);
+              BranchOffice.metod2(mass, mass1);
+            */
+            Run.RunStrategy();
         }
     }
 }
