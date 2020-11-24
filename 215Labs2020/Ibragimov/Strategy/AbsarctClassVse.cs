@@ -4,13 +4,10 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy
 {
-    class barraks
+    class AbsarctClassVse
     {
+        public static int XP { get; set; }
        
-            public static void bar()
-            {
-                barraks.Healtg
-            }
-        
+
     }
 }
