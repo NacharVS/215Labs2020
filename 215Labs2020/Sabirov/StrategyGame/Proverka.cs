@@ -30,7 +30,7 @@ namespace _215Labs2020.Sabirov.StrategyGame
             pea.Attack();
             pea.Move();
 
-            Barraks bar = new Barraks(1200, 20);
+            TownHall bar = new TownHall(1200, 20);
             time = bar;
             bar.Time();
             

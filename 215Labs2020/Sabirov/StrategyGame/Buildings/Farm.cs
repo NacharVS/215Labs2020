@@ -4,7 +4,8 @@ using System.Text;
 
 namespace _215Labs2020.Sabirov.StrategyGame.Buildings
 {
-    class Farm
+    class Farm : Building, IBuildingTime
     {
+
     }
 }

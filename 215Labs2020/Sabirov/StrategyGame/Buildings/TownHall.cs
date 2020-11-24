@@ -4,12 +4,12 @@ using System.Text;
 using System.Threading;
 namespace _215Labs2020.Sabirov.StrategyGame
 {
-    class Barraks : Building, IBuildingTime
+    class TownHall : Building, IBuildingTime
     {
-       public Barraks(int health, int armour)
+       public TownHall(int health, int armour)
         {
-            Barraks.Armour = armour;
-            Barraks.Health = health;
+            TownHall.Armour = armour;
+            TownHall.Health = health;
         }
         
         public void Time()

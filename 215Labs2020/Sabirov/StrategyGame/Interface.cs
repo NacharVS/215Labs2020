@@ -24,5 +24,9 @@ namespace _215Labs2020.Sabirov.StrategyGame {
         {
         public void Time();
         }
+    interface IProduction
+    {
+        public void 
+    }
     }
 
