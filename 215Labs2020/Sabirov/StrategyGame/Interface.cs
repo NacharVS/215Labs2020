@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace _215Labs2020.Sabirov.StrategyGame { 
+        interface IAttack
+        {
+        void Attack();
+        }
+        interface IMoveUnit
+        {
+        void Move();
+        }
+    
+        interface IResourceGatWood
+        {
+        public void ResW();
+        }
+        interface IResourceGatGold
+        {
+        public void ResG();
+        }
+        interface IBuildingTime
+        {
+        public void Time();
+        }
+    }
+
