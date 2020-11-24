@@ -4,7 +4,8 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class seeker 
+    class Tanker : Unit
     {
+ 
     }
 }

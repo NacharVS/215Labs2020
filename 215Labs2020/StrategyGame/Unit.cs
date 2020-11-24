@@ -6,12 +6,13 @@ namespace _215Labs2020.StrategyGame
 {
     abstract class Unit
     {
-        private static int _health;
-        private static  int minhealth = 34;
-        private static int maxhealth = 57;
-        private static int _damage;
-        private static int mindamage = 111;
-        private static int maxdamage = 12234;
+        public static int _speed = 12;
+        public static int _health;
+        public static int minhealth = 1;
+        public static int maxhealth = 10000;
+        public static int _damage;
+        public static int mindamage = 1;
+        public static int maxdamage = 10000;
 
 
         public static int Health
@@ -44,7 +45,19 @@ namespace _215Labs2020.StrategyGame
             }
             set
             {
-                mindamage= value;
+                mindamage = value;
+            }
+            
+        }
+        public static int Speed
+        {
+            get
+            {
+                return _speed;
+            }
+            set
+            {
+                _speed = value;
             }
             
         }

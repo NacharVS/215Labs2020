@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.StrategyGame
+namespace _215Labs2020.StrategyGame.building
 {
-    class Tanker
+    class Barracks : Unit
     {
     }
 }

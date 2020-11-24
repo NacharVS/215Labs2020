@@ -9,6 +9,7 @@ namespace _215Labs2020.StrategyGame
        public static void z()
        {
             knight.Damage = 30;
+            knight.MinDamage = 1;
             knight.Health = 25;
        }
     }

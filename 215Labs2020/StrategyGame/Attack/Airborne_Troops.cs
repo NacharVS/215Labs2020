@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class Marines
+    class Airborne_Troops : Unit
     {
     }
 }
