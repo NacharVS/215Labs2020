@@ -4,16 +4,16 @@ using System.Text;
 
 namespace _215Labs2020.Garaev.Strategy_games
 {
-    class Unit_voin_golem : unit_abstract, ISpeed, IAttack
+    class Unit_mir_kuznec : unit_abstract, IResource, ISpeed
     {
-        public int Damage { get; private set; }
         public double Speed { get; private set; }
-        public Unit_voin_golem(string name, int xp, double speed, int damage)
+        public int Resource { get; private set; }
+        public Unit_mir_kuznec(string name, int xp, double speed, int resorce)
         {
             Name = name;
             Xp = xp;
             Speed = speed;
-            Damage = damage;
+            Resource = resorce;
         }
     }
 }

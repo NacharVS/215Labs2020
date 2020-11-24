@@ -4,11 +4,11 @@ using System.Text;
 
 namespace _215Labs2020.Garaev.Strategy_games
 {
-    class Unit_voin_golem : unit_abstract, ISpeed, IAttack
+    class Unit_voin_gigant : unit_abstract, IAttack, ISpeed
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
-        public Unit_voin_golem(string name, int xp, double speed, int damage)
+        public Unit_voin_gigant(string name, int xp, double speed, int damage)
         {
             Name = name;
             Xp = xp;
