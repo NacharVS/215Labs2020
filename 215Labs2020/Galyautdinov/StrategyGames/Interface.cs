@@ -46,4 +46,13 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             Console.WriteLine($"работает {Hours} часов.");
         }
     }
+    interface IRadius
+    {
+        public double Radius { get; }
+
+        public void Rad()
+        {
+            Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
+        }
+    }
 }

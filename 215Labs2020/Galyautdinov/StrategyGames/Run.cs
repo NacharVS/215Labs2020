@@ -14,6 +14,7 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             IHeight height;
             IResource resource;
             IWork work;
+            IRadius radius;
 
             move = new VoinBatrak("Батрак", 30, 10, 5);
             Console.Write(VoinBatrak.Name + " ");
@@ -112,6 +113,12 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             work = new MirnyyStroitel("Строитель", 100, 3, 20, 10);
             Console.Write(MirnyyStroitel.Name + " ");
             work.Work();
+            Console.WriteLine($"Здоровье: {MirnyyStroitel.Xp}");
+            Console.WriteLine();
+
+            radius = new BashnyaDirizhabl("Дирижабель", 100, 50);
+            Console.Write(MirnyyStroitel.Name + " ");
+            radius.Rad();
             Console.WriteLine($"Здоровье: {MirnyyStroitel.Xp}");
             Console.WriteLine();
         }
