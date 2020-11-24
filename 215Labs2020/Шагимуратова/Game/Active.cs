@@ -14,14 +14,14 @@ namespace _215Labs2020.Шагимуратова.Game
         {
             void protect();
         }
-        interface Movable
-        {
-            void movable();
-        }
-        interface Movable
-        {
-            void movable();
-        }
+        //interface  
+        //{
+        //    void ();
+        //}
+        //interface 
+        //{
+        //    void movable();
+        //}
 
 
     }

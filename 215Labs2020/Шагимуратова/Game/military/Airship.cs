@@ -6,5 +6,6 @@ namespace _215Labs2020.Шагимуратова.Game.military
 {
     class Airship : All_Unit
     {
+
     }
 }

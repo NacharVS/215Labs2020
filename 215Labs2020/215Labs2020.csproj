@@ -6,8 +6,4 @@
     <RootNamespace>_215Labs2020</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Шагимуратова\Game\building\" />
-  </ItemGroup>
-
 </Project>
