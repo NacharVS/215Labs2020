@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace _215Labs2020.Imamov.BankAcc
@@ -15,6 +16,7 @@ namespace _215Labs2020.Imamov.BankAcc
         private static int birthDay;
         private static int birthMonth;
         private static int birthYear;
+        private static DateTime accountOpenDate;
 
         public delegate void AccountHandler(string message);
         private event AccountHandler Notify;
@@ -56,6 +58,28 @@ namespace _215Labs2020.Imamov.BankAcc
         private static void DisplayNotification(string message)
         {
             Console.WriteLine(message);
+        }
+        private static void PhoneNumber()
+        {
+            Console.WriteLine("Enter your phone number: ");
+            int check = 0;
+            while (check == 0);
+            {
+                try
+                {
+                    phoneNumber = long.Parse(Console.ReadLine());
+                    check++;
+                    if (phoneNumber / 10000000000 == 0 || phoneNumber / 10000000000 != 8) ;
+                    {
+                        check = 1;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter the correct phone number: ");
+                    check = 0;
+                }
+            }
         }
         private static void Refill(double balance)
         {
@@ -207,6 +231,65 @@ namespace _215Labs2020.Imamov.BankAcc
                 Console.WriteLine($"You recevied your cashback: {cashback.}. Your balance: {balance}");
             }
             cashback = 0;
+        }
+        private static void Check()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Your balance: {balance} ");
+        }
+        public static void Period()
+        {
+            int OpenSec = accountOpenDate.Hour * 3600 + accountOpenDate.Minute * 60 + accountOpenDate.Second;
+            int second = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
+            int time = second - OpenSec;
+            int period = 20;
+            period = time / period;
+            for(int i = 0; i < period; i++)
+            {
+                balance = Math.Round(balance + balance * percents, 2);
+            }
+            Console.WriteLine(balance);
+        }
+        public void Operation()
+        {
+            int check;
+            int num_of_operation;
+            Console.WriteLine("1.Sign up");
+            Console.WriteLine("2.Exit");
+            try
+            {
+                check = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.Write("Choose the option");
+                check = int.Parse(Console.ReadLine());
+            }
+            if (check == 1)
+            {
+                PhoneNumber();
+            }
+            Console.WriteLine("Enter your day of birth: ");
+                birthDay = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter month: ");
+            birthMonth = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter year: ");
+            birthYear = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(User.Name);
+            DateTime birthDate = new DateTime(birthDay, birthMonth, birthYear);
+            Console.WriteLine($"Your date if birth: {birthDay}.{birthMonth}.{birthYear} ");
+            Console.WriteLine($"Your phone number: {phoneNumber}");
+            Console.WriteLine($"The date of opening the account: {accountOpenDate}");
+            Console.WriteLine();
+            if(DateTime.Now.Year - birthYear < 14)
+            {
+                Console.WriteLine("You can't use our bank underage");
+            }
+            else
+            {
+
+            }
         }
     }
 }
