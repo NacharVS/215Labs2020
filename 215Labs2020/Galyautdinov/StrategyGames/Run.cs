@@ -15,7 +15,9 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             IResource resource;
             IWork work;
             IRadius radius;
-
+            IKuznitsa kuznitsa;
+            IKazarma kazarma;
+            Console.WriteLine("----------------------------Воины-------------------------------");
             move = new VoinBatrak("Батрак", 30, 10, 5);
             Console.Write(VoinBatrak.Name + " ");
             move.Move();
@@ -60,6 +62,8 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             attack.Attack();
             Console.WriteLine($"Здоровье: {VoinZulin.Xp}");
             Console.WriteLine();
+
+            Console.WriteLine("----------------------------Мирные жители-------------------------------");
 
             move = new MirnyyFermer("Фермер", 100, 4, 20, 6);
             Console.Write(MirnyyFermer.Name + " ");
@@ -116,10 +120,38 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             Console.WriteLine($"Здоровье: {MirnyyStroitel.Xp}");
             Console.WriteLine();
 
+            Console.WriteLine("----------------------------Башни-------------------------------");
+
             radius = new BashnyaDirizhabl("Дирижабель", 100, 50);
-            Console.Write(MirnyyStroitel.Name + " ");
+            Console.Write(BashnyaDirizhabl.Name + " ");
             radius.Rad();
-            Console.WriteLine($"Здоровье: {MirnyyStroitel.Xp}");
+            Console.WriteLine($"Здоровье: {BashnyaDirizhabl.Xp}");
+            Console.WriteLine();
+
+            radius = new BashnyaKrepost("Крепость", 80, 15, 200);
+            Console.Write(BashnyaKrepost.Name + " ");
+            radius.Rad();
+            resource = new BashnyaKrepost("Крепость", 80, 15, 200);
+            resource.Res();
+            Console.WriteLine($"Здоровье: {BashnyaKrepost.Xp}");
+            Console.WriteLine();
+
+            kuznitsa = new BashnyaKuznitsa("Кузница", 95, 23);
+            Console.Write(BashnyaKuznitsa.Name + " ");
+            kuznitsa.Kuz_kol();
+            Console.WriteLine($"Здоровье: {BashnyaKuznitsa.Xp}");
+            Console.WriteLine();
+
+            resource = new BashnyaMagazin("Магазин", 80, 300);
+            Console.WriteLine(BashnyaMagazin.Name);
+            resource.Res();
+            Console.WriteLine($"Здоровье: {BashnyaMagazin.Xp}");
+            Console.WriteLine();
+
+            kazarma = new BashnyaKazarma("Казарма", 95, 25);
+            Console.Write(BashnyaKazarma.Name + " ");
+            kazarma.VoinKol();
+            Console.WriteLine($"Здоровье: {BashnyaKazarma.Xp}");
             Console.WriteLine();
         }
     }

@@ -1,17 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace _215Labs2020.Galyautdinov.StrategyGames.Bashnya
 {
-    class BashnyaKrepost : Abstract, IRadius, IResource
+    class BashnyaMagazin : Abstract, IResource
     {
-        public double Radius { get; private set; }
         public int Resource { get; private set; }
 
-        public BashnyaKrepost(string name, int xp, double radius1, int resource1)
+        public BashnyaMagazin(string name, int xp, int resource1)
         {
             Name = name;
             Xp = xp;
-            Radius = radius1;
             Resource = resource1;
         }
     }

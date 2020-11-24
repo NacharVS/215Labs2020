@@ -21,7 +21,7 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
     interface IHeight
     {
         public int Damage { get; }
-        public double height { get;}
+        public double height { get; }
 
         public void Height()
         {
@@ -53,6 +53,24 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
         public void Rad()
         {
             Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
+        }
+    }
+    interface IKuznitsa
+    {
+        public int Kol { get; }
+
+        public void Kuz_kol()
+        {
+            Console.WriteLine($"изготовил {Kol} деталей");
+        }
+    }
+    interface IKazarma
+    {
+        public int Voin_kol { get; }
+
+        public void VoinKol()
+        {
+            Console.WriteLine($"содержит {Voin_kol} воинов");
         }
     }
 }
