@@ -7,7 +7,7 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
         public int Damage { get; }
         public void Attack()
         {
-            Console.WriteLine($"Атака Воина с уроном: {Damage} ед.");
+            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
         }
     }
     interface IMovable
@@ -15,7 +15,7 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
         public double Speed { get; }
         public void Move()
         {
-            Console.WriteLine($"Воин движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
         }
     }
     interface IHeight
@@ -25,7 +25,7 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
 
         public void Height()
         {
-            Console.WriteLine($"Воин нанес урон {Damage} с высоты: {height} м.");
+            Console.WriteLine($"нанес урон {Damage} с высоты: {height} м.");
         }
     }
     interface IResource
@@ -35,6 +35,15 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
         public void Res()
         {
             Console.WriteLine($"Ресурсы: {Resource} золота");
+        }
+    }
+    interface IWork
+    {
+        public int Hours { get; }
+
+        public void Work()
+        {
+            Console.WriteLine($"работает {Hours} часов.");
         }
     }
 }
