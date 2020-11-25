@@ -134,7 +134,7 @@ namespace _215Labs2020.Ibragimov.new_bank
         }
 
 
-        public static void Banktime ()
+        public static void Banktime () // проверка секунды 
         {
             int period = 10;
             NewBank1 bank1 = new NewBank1();
