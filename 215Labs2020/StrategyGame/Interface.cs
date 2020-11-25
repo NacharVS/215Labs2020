@@ -4,7 +4,12 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class Interface
+    interface IDamage
     {
+        void Damage();
+    }
+    interface IHealth
+    {
+        void IHealth();
     }
 }

@@ -4,7 +4,11 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class trudovic : Unit
+    class trudovic : Unit, IHealth
     {
+        void IHealth.IHealth()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

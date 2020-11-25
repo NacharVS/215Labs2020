@@ -21,9 +21,9 @@ namespace _215Labs2020.Faizullin
         {
             _balans = sum;
         }
-        
+
         public int BALANSE { get; private set; }
-        private static void  DisplayMessage(string message)
+        private static void DisplayMessage(string message)
         {
             Console.WriteLine(message);
         }
@@ -34,7 +34,7 @@ namespace _215Labs2020.Faizullin
         }
         public void Take(int sum)
         {
-            
+
             if (_balans >= sum)
             {
                 _balans -= sum;
@@ -101,7 +101,7 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine("**********************");
             _PhoneNumber = Console.ReadLine();
 
-           Bank bank = new Bank();
+            Bank bank = new Bank();
             try
             {
                 Console.WriteLine("Enter personal data");
@@ -137,9 +137,9 @@ namespace _215Labs2020.Faizullin
         }
         //private void Operation2()
         //{
-            //Bank bank = new Bank();
-            //Console.WriteLine("Ведите сумму для снятия ");
-            //_balans = Console.ReadLine();
+        //Bank bank = new Bank();
+        //Console.WriteLine("Ведите сумму для снятия ");
+        //_balans = Console.ReadLine();
         //}
         private void PROGNOZ()
         {

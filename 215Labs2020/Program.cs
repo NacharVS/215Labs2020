@@ -26,7 +26,10 @@ namespace _215Labs2020.Faizullin
 
 
             //Bank.Proverka();
-           
+            StrategyGame.Class1.proverka();
+
+
+
         }
     }
 }
