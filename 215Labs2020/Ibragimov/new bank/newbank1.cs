@@ -140,6 +140,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             NewBank1 bank1 = new NewBank1();
             Console.WriteLine("Введите сумму депозита не менее 10 00 и не более 200 000");
             int money = int.Parse(Console.ReadLine());
+            NewBank1.vklad += money;
             VkladDay = DateTime.Now;
 
 
@@ -156,6 +157,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             }
             Console.WriteLine(NewBank1.vklad);
         }
+
 
         public static void prover()
         {
