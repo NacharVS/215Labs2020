@@ -10,6 +10,8 @@ namespace _215Labs2020.Mihaylov
         private static int year;
         private static int day;
         private static int month;
+        public delegate void AccountHandler(string message);
+        public event AccountHandler Notify;
         private static void registration()
         {
             Console.WriteLine("Введите день своего рождения: ");
@@ -58,6 +60,7 @@ namespace _215Labs2020.Mihaylov
                 }
             }
             balans += a;
+            Bank.Notify?.Invoke($"Счет пополнен на: {a}");
             Console.WriteLine($"Ваш баланс составляет {balans} р.");
         }
         private static void cut()
@@ -81,6 +84,7 @@ namespace _215Labs2020.Mihaylov
                 }}
             balans -= a;
             Console.WriteLine("Снятие прошло успешно");
+            Bank.Notify?.Invoke($"Со счета снято: {a}");
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
         }
         private static void time()

@@ -9,7 +9,7 @@ namespace _215Labs2020.Mihaylov.StrategyGame
     {
         static void Main(string[] args)
         {
-            Game.Program();
+            Bank.Program();
         }
     }
 }
