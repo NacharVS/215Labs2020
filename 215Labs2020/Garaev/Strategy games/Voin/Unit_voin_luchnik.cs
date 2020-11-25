@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Garaev.Strategy_games
 {
-    class Unit_voin_luchnick : unit_abstract, IAttack, ISpeed, IDalnost
+    class Unit_voin_luchnick : unit_abstract, ISpeed, IDalnost
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -17,6 +17,14 @@ namespace _215Labs2020.Garaev.Strategy_games
             Speed = speed;
             Damage = damage;
             Dalnost = dalnost;
+        }
+        public void dalnost()
+        {
+            Console.WriteLine($"Воин нанес урон {Damage} с дальности: {Dalnost} м.");
+        }
+        public void scorost()
+        {
+            Console.WriteLine($"Воин движется со скоростью: {Speed} км/ч");
         }
     }
 }

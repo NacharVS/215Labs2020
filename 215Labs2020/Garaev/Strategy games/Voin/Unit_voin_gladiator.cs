@@ -15,5 +15,13 @@ namespace _215Labs2020.Garaev.Strategy_games
             Speed = speed;
             Damage = damage;
         }
+        public void scorost()
+        {
+            Console.WriteLine($"Воин движется со скоростью: {Speed} км/ч");
+        }
+        public void Attack()
+        {
+            Console.WriteLine($"Атака Воина с уроном: {Damage} ед.");
+        }
     }
 }

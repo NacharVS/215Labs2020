@@ -16,5 +16,13 @@ namespace _215Labs2020.Garaev.Strategy_games
             Speed = speed;
             Resource = resorce;
         }
+        public void Res()
+        {
+            Console.WriteLine($"Ресурсы: {Resource} золота");
+        }
+        public void scorost()
+        {
+            Console.WriteLine($"Работает с скоростью: {Speed} ед.");
+        }
     }
 }
