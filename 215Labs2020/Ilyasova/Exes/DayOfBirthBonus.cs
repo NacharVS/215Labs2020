@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Ilyasova
+namespace _215Labs2020.Maksimov_Aleksei
 {
     class DayOfBirthBonus
     {
@@ -35,5 +35,5 @@ namespace _215Labs2020.Ilyasova
             else
                 Console.WriteLine($"We have only {DayOfBirthBonus.bonuses} bonuses on your card");
         }
-    } 
+    }
 }
