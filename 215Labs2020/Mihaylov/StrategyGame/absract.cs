@@ -6,6 +6,6 @@ namespace _215Labs2020.Mihaylov.StrategyGame
 {
     class absract
     {
-        private static int xp { get; set; }
+       public static int Xp { get; set; }
     }
 }
