@@ -60,7 +60,7 @@ namespace _215Labs2020.Mihaylov
                 }
             }
             balans += a;
-            Bank.Notify?.Invoke($"Счет пополнен на: {a}");
+            //Bank.Notify?.Invoke($"Счет пополнен на: {a}");
             Console.WriteLine($"Ваш баланс составляет {balans} р.");
         }
         private static void cut()
@@ -84,7 +84,7 @@ namespace _215Labs2020.Mihaylov
                 }}
             balans -= a;
             Console.WriteLine("Снятие прошло успешно");
-            Bank.Notify?.Invoke($"Со счета снято: {a}");
+            //Bank.Notify?.Invoke($"Со счета снято: {a}");
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
         }
         private static void time()

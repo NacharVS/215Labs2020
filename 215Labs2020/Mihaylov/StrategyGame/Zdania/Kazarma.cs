@@ -8,8 +8,9 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
     {
         public int Voinkol { get; private set; }
 
-        public Kazarma(int xp, int voin_kol)
+        public Kazarma(string name, int xp, int voin_kol)
         {
+            Name = name;
             Xp = xp;
             Voinkol = Voinkol;
         }

@@ -8,8 +8,9 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
-        public Arbalet(int xp, int damage)
+        public Arbalet(string name, int xp, int damage)
         {
+            Name = name;
             Xp = xp;
             Damage = damage;
         }

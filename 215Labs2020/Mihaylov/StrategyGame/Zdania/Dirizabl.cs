@@ -8,9 +8,10 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
     {
         public double Radius { get; private set; }
 
-        public Dirizabl(int xp, double radius1)
+        public Dirizabl(string name, int xp, double radius1)
         {
-            Xp= xp;
+            Name = name;
+            Xp = xp;
             Radius = radius1;
         }
         public void Rad()

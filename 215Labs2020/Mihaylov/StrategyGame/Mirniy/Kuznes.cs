@@ -8,8 +8,9 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Mirniy
     {
         public double Speed { get; private set; }
         public int Resource { get; private set; }
-        public Kuznes(int xp, double speed, int resource)
+        public Kuznes(string name, int xp, double speed, int resource)
         {
+            Name = name;
             Xp = xp;
             Speed = speed;
             Resource = resource;

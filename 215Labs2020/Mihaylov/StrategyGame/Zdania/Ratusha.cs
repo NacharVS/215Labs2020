@@ -9,8 +9,9 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
         public double Radius { get; private set; }
         public int Resource { get; private set; }
 
-        public Ratusha(int xp, double radius, int resource)
+        public Ratusha(string name, int xp, double radius, int resource)
         {
+            Name = name;
             Xp = xp;
             Radius = radius;
             Resource = resource;

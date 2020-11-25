@@ -8,8 +8,9 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Voiny
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
-        public Risar(int xp, double speed, int damage)
+        public Risar(string name, int xp, double speed, int damage)
         {
+            Name = name;
             Xp = xp;
             Speed = speed;
             Damage = damage;
