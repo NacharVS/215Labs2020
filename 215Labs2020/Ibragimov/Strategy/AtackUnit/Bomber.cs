@@ -10,7 +10,7 @@ namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
         public double Speed { get; private set; }
 
 
-        public Bomber(int xp, double speed, int damage, int )
+        public Bomber(int xp, double speed, int damage )
         {
 
             XP = xp;

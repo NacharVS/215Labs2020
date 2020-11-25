@@ -95,7 +95,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             _accountOpen = DateTime.Now;
             Console.WriteLine($"Дата регистрации {_accountOpen}");
         }
-          private void Operation()
+          private void Operation() // проверка вклада через год
         {
 
             NewBank1 bank1 = new NewBank1();
@@ -134,7 +134,7 @@ namespace _215Labs2020.Ibragimov.new_bank
         }
 
 
-        public static void Banktime () // проверка секунды 
+        public static void Banktime () // проверка вклада через секунды
         {
             int period = 10;
             NewBank1 bank1 = new NewBank1();
@@ -146,10 +146,10 @@ namespace _215Labs2020.Ibragimov.new_bank
 
             Thread.Sleep(period * 1010);
             int c = DateTime.Now.Second;
-            int v = c - VkladDay.Second;
-            v = v / period;
+            int e = c - VkladDay.Second;
+            e = e / period;
 
-            for (int i = 0; i < v; i++)
+            for (int i = 0; i < e; i++)
             {
 
                 NewBank1.vklad += (i * NewBank1.vklad);

@@ -11,7 +11,7 @@ namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
         public double Speed { get; private set; }
 
 
-        public Nazem_voin(int xp, double speed, int damage, int )
+        public Desant(int xp, double speed, int damage)
         {
 
             XP = xp;

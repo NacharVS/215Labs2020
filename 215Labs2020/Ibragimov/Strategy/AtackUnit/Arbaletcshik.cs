@@ -10,7 +10,7 @@ namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
         public double Speed { get; private set; }
 
 
-        public Arbaletcshik(int xp, double speed, int damage, int )
+        public Arbaletcshik(int xp, double speed, int damage )
         {
 
             XP = xp;
