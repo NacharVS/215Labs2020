@@ -10,7 +10,7 @@ namespace _215Labs2020.Imamov.BankAcc
         private static double balance = 0;
         private static double percents = 0.05;
         private static double cashback_percents = 0.03;
-        private static double partnerCashbak_percents = 0.2;
+        private static double partnerCashbaсk_percents = 0.2;
         private static double cashback = 0;
         private static long phoneNumber;
         private static int birthDay;
@@ -18,8 +18,7 @@ namespace _215Labs2020.Imamov.BankAcc
         private static int birthYear;
         private static DateTime accountOpenDate;
 
-        public delegate void AccountHandler(string message);
-        private event AccountHandler Notify;
+        public delegate void AccountHandler();
         public BankAccount (double sum)
         {
             balance = sum;
@@ -27,7 +26,6 @@ namespace _215Labs2020.Imamov.BankAcc
         public void Put(double sum)
         {
             balance += sum;
-            Notify?.Invoke($"The account received: {sum} ");
         }
         public void Take(double sum)
         {
@@ -69,7 +67,7 @@ namespace _215Labs2020.Imamov.BankAcc
                 {
                     phoneNumber = long.Parse(Console.ReadLine());
                     check++;
-                    if (phoneNumber / 10000000000 == 0 || phoneNumber / 10000000000 != 8) ;
+                    if (phoneNumber / 10000000000 == 0 || phoneNumber / 10000000000 != 8);
                     {
                         check = 1;
                     }
@@ -220,7 +218,7 @@ namespace _215Labs2020.Imamov.BankAcc
             Console.WriteLine($"The amount of your purchase");
             if (a == 1)
             {
-                cashback += amount * partnerCashbak_percents;
+                cashback += amount * partnerCashbaсk_percents;
                 balance += cashback;
                 Console.WriteLine($"You recevied your cashback: {cashback}. Your balance: {balance}");
             }
@@ -228,7 +226,7 @@ namespace _215Labs2020.Imamov.BankAcc
             {
                 cashback += a * cashback_percents;
                 balance += cashback;
-                Console.WriteLine($"You recevied your cashback: {cashback.}. Your balance: {balance}");
+                Console.WriteLine($"You recevied your cashback: {cashback}. Your balance: {balance}");
             }
             cashback = 0;
         }

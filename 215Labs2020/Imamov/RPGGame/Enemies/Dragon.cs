@@ -14,7 +14,7 @@ namespace _215Labs2020.Imamov.RPGGame.Enemies
                 armor = _armor;
             }
 
-            // Battle methods ------------------------------------------------------------
+            // Battle methods
 
             public void FireBreath(Forgotten target)
             {
@@ -36,13 +36,13 @@ namespace _215Labs2020.Imamov.RPGGame.Enemies
                 if (choice == 1)
                 {
                     NormAttack(target);
-                    Console.WriteLine("Dragon sneezed on you!");
+                    Console.WriteLine("Dragon punched you by his tail!");
                 }
 
                 if (choice == 2)
                 {
                     FireBreath(target);
-                    Console.WriteLine("Dragon used flamethrower on you!");
+                    Console.WriteLine("Dragon used firebreath on you!");
                 }
 
                 if (choice == 3)
@@ -54,7 +54,7 @@ namespace _215Labs2020.Imamov.RPGGame.Enemies
                 if (choice == 4)
                 {
                     Bite(target);
-                    Console.WriteLine("Dragon bite you!");
+                    Console.WriteLine("Dragon bitted you!");
                 }
 
                 Console.ReadLine();

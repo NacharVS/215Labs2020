@@ -40,7 +40,7 @@ namespace _215Labs2020.Imamov.StrategyGame
             Console.WriteLine("But even now, his knowledge about medicine will be useful in a fight");
             Console.WriteLine("So, you decided to help this stranger. Your new mark on the map is: Graph's estate");
             Console.WriteLine("");
-            Console.WriteLine("The yard of estate was full of bodies and rats was everywhere");
+            Console.WriteLine("The yard of estate was full of bodies and rats were everywhere");
             Console.WriteLine("They sniffed you out the moment when you stepped to the yard");
             Console.WriteLine("Now you need to fight or die like this poor souls");
         }
@@ -73,7 +73,7 @@ namespace _215Labs2020.Imamov.StrategyGame
             Console.WriteLine("The Old Castle was really big");
             Console.WriteLine("A lot of dead knights, bandits and even peasunts was there");
             Console.WriteLine("Under one of them you saw some movement and after a little moment corpses started to awake");
-            Console.WriteLine("Their heads was pointed to you and your hands have been already on your sword");
+            Console.WriteLine("Their heads was pointed to you and your hands had been already on your sword");
         }
         public static void AfterZombie()
         {

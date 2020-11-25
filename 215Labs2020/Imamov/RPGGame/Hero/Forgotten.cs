@@ -29,7 +29,7 @@ namespace _215Labs2020.Imamov.RPGGame.Hero
             healLvl += 5;
         }
 
-        // Special -------------------------------------------
+        // Special
 
         public void Heal()
         {
@@ -51,9 +51,9 @@ namespace _215Labs2020.Imamov.RPGGame.Hero
             target.health -= attack * 2;
         }
 
-        // Methods used in Battle ----------------------------------------
+        // Methods used in Battle
 
-        public int Choice() // Produces heros decision
+        public int Choice() // Decisions
         {
             bool correctInput = true;
             int choice = 0, choice2;

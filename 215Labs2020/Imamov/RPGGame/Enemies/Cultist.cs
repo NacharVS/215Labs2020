@@ -11,7 +11,7 @@ namespace _215Labs2020.Imamov.RPGGame.Enemies
                 numOfAttack = 3;
             }
 
-            // Battle methods -------------------------------------------
+            // Battle methods
 
             public void Slash(Forgotten target)
             {

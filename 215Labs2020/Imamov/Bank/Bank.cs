@@ -2,7 +2,7 @@
 
 namespace _215Labs2020.Imamov
 {
-    class Bank : User j
+    class Bank : User
     {
         private static long phoneNumber;
         private static double deposit = 0;

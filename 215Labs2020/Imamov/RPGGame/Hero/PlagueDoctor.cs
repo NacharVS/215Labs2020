@@ -5,6 +5,4 @@ using System.Text;
 namespace _215Labs2020.Imamov.RPGGame.NPCs
 {
     class PlagueDoctor
-    {
-    }
 }

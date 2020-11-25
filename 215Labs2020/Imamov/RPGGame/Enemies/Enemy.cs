@@ -12,7 +12,7 @@ namespace _215Labs2020.Imamov.RPGGame.Enemies
         {
         }
 
-        // Battle methods -----------------------------------------
+        // Battle methods
 
         public int EChoice()
         {

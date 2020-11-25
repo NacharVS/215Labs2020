@@ -4,7 +4,7 @@ using System.Text;
 using _215Labs2020.Imamov.RPGGame.Hero;
 using _215Labs2020.Imamov.RPGGame.Enemies;
 
-namespace _215Labs2020.Imamov.StrategyGame
+namespace _215Labs2020.Imamov.RPGGame.BattleInfo
 {
     class Battle
     {

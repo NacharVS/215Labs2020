@@ -30,7 +30,7 @@ namespace _215Labs2020.Imamov.RPGGame.Enemies
                 if (choice == 2)
                 {
                     Bite(target);
-                    Console.WriteLine("Rat bite from you!");
+                    Console.WriteLine("Rat bitted you!");
 
                 }
 

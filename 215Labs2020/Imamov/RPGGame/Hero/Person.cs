@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Imamov.RPGGame.Hero
 {
-    public class Person
+    abstract public class Person
     {
         public string name;
         public int attack;
