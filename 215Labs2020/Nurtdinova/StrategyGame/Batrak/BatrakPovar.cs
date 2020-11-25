@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Nurtdinova.StrategyGame.Batrak
 {
-    class BatrakPovar : Abstract
+    class BatrakPovar 
     {
     }
 }

@@ -4,18 +4,24 @@ using System.Text;
 
 namespace _215Labs2020.Nurtdinova.StrategyGame.Warrior
 {
-    class WarriorBatrak
+    class WarriorBatrak : IAttack
     {
-        class WarriorBatrak : Abstract, IAttack, IMovable
+
+        public int Damage { get; private set; }
+        public double Speed { get; private set; }
+        public int Attack { get; private set; }
+
+        public WarriorBatrak(double speed, int damage, int attack)
         {
-            public int Damage { get; private set; }
-            public double Speed { get; private set; }
-            public WarriorBatrak(string name, int xp, double speed, int damage)
-            {
-                Name = name;
-                Xp = xp;
-                Speed = speed;
-                Damage = damage;
-            }
+            Speed = speed;
+            Damage = damage;
+            Attack = attack;
         }
+        public void Att()
+        {
+            Console.WriteLine($"rfgbvsrftgsr {Attack}");
+        }
+
+
+    }
 }

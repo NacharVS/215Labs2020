@@ -4,18 +4,24 @@ using System.Text;
 
 namespace _215Labs2020.Nurtdinova.StrategyGame.Warrior
 {
-    class WarriorZulin
+    class WarriorZulin : IAttack, ISpeeed
     {
-        class WarriorZulin : Abstract, IMovable, IAttack
+        public int Damage { get; private set; }
+        public int Speed { get; private set; }
+        public int Attack { get; private set; }
+
+        public WarriorZulin(int speed, int attack)
         {
-            public int Damage { get; private set; }
-            public double Speed { get; private set; }
-            public WarriorZulin(string name, int xp, double speed, int damage)
-            {
-                Name = name;
-                Xp = xp;
-                Speed = speed;
-                Damage = damage;
-            }
+            Attack = attack;
+            Speed = speed;
         }
+        public void Att()
+        {
+            Console.WriteLine($"Zulin -  {Attack}");
+        }
+        public void sp()
+        {
+            Console.WriteLine($"Speed - {Speed}");
+        }
+    }
 }
