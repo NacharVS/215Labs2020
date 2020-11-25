@@ -4,8 +4,16 @@ using System.Text;
 
 namespace _215Labs2020.Hasanov.Strategic_game.Interactions
 {
-    class Interface
+    class Interface:abilities_of_units
     {
+        interface Igo
+        {
+            public static void igo()
+            {
+                Console.WriteLine($"персонаж  двигается со скоростью{Sp}" );
+            }
+                
+        }
 
     }
 }

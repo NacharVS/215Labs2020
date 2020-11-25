@@ -8,39 +8,36 @@ namespace _215Labs2020.Hasanov.Strategic_game
     {
         private static int _maxhealth = 250;
         private static int _minhealth = 0;
-        private  int _health;
+        private int _health;
         private static int _maxarmour = 300;
         private static int _minarmour = 50;
-        private int  _armour;
+        private int _armour;
         private static int _maxspeed = 30;
         private static int _minspeed = 0;
         private int _speed;
         private static int _maxdamage = 250;
         private static int _mindamage = 10;
         private int _damage;
-        
-        private  int Health
+
+        private int Health
         {
             get
             {
-               
-                return  _health; 
+
+                return _health;
 
             }
             set
             {
                 _health = value;
                 if (value == 0)
-                    Console.WriteLine("animation dead") ;
-                if (value>= _maxhealth)
-                {
-                    _health = _maxhealth;
-                }
+                    Console.WriteLine("animation dead");
                 else _health = value;
+
             }
 
         }
-        private  int Armour
+        private int Armour
         {
             get
             {
@@ -49,8 +46,24 @@ namespace _215Labs2020.Hasanov.Strategic_game
             set
             {
                 _armour = value;
+                if (value == 0)
+                    Console.WriteLine("no armour");
+                else _armour = value;
             }
         }
-        
+        private int  Speed
+        {
+            get
+            {
+                return _speed;
+            }
+            set 
+            {
+
+                if (value == 0)
+                    Console.WriteLine("Стоит");
+            
+            }
+        }
     }
 }
