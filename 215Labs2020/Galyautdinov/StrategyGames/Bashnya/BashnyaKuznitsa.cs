@@ -14,5 +14,9 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Bashnya
             Xp = xp;
             Kol = kol;
         }
+        public void Kuz_kol()
+        {
+            Console.WriteLine($"изготовил {Kol} деталей");
+        }
     }
 }

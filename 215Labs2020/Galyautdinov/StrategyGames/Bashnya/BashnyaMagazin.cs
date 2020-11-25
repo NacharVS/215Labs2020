@@ -14,5 +14,9 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Bashnya
             Xp = xp;
             Resource = resource1;
         }
+        public void Res()
+        {
+            Console.WriteLine($"Ресурсы: {Resource} золота");
+        }
     }
 }

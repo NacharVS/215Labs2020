@@ -14,5 +14,9 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Bashnya
             Xp = xp;
             Voin_kol = voin_kol;
         }
+        public void VoinKol()
+        {
+            Console.WriteLine($"содержит {Voin_kol} воинов");
+        }
     }
 }

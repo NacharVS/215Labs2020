@@ -18,5 +18,17 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Voin
             height = height1;
             Damage = damage;
         }
+        public void Attack()
+        {
+            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
+        }
+        public void Move()
+        {
+            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+        }
+        public void Height()
+        {
+            Console.WriteLine($"нанес урон {Damage} с высоты: {height} м.");
+        }
     }
 }

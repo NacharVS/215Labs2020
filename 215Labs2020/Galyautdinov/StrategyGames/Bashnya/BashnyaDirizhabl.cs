@@ -14,5 +14,9 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Bashnya
             Xp = xp;
             Radius = radius1;
         }
+        public void Rad()
+        {
+            Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
+        }
     }
 }

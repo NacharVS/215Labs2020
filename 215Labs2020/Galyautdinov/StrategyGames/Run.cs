@@ -17,6 +17,7 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
             IRadius radius;
             IKuznitsa kuznitsa;
             IKazarma kazarma;
+
             Console.WriteLine("----------------------------Воины-------------------------------");
             move = new VoinBatrak("Батрак", 30, 10, 5);
             Console.Write(VoinBatrak.Name + " ");

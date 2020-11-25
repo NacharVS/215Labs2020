@@ -5,72 +5,48 @@ namespace _215Labs2020.Galyautdinov.StrategyGames
     interface IAttack
     {
         public int Damage { get; }
-        public void Attack()
-        {
-            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
-        }
+        public void Attack();
     }
     interface IMovable
     {
         public double Speed { get; }
-        public void Move()
-        {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
-        }
+        public void Move();
     }
     interface IHeight
     {
         public int Damage { get; }
         public double height { get; }
 
-        public void Height()
-        {
-            Console.WriteLine($"нанес урон {Damage} с высоты: {height} м.");
-        }
+        public void Height();
     }
     interface IResource
     {
         public int Resource { get; }
 
-        public void Res()
-        {
-            Console.WriteLine($"Ресурсы: {Resource} золота");
-        }
+        public void Res();
     }
     interface IWork
     {
         public int Hours { get; }
 
-        public void Work()
-        {
-            Console.WriteLine($"работает {Hours} часов.");
-        }
+        public void Work();
     }
     interface IRadius
     {
         public double Radius { get; }
 
-        public void Rad()
-        {
-            Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
-        }
+        public void Rad();
     }
     interface IKuznitsa
     {
         public int Kol { get; }
 
-        public void Kuz_kol()
-        {
-            Console.WriteLine($"изготовил {Kol} деталей");
-        }
+        public void Kuz_kol();
     }
     interface IKazarma
     {
         public int Voin_kol { get; }
 
-        public void VoinKol()
-        {
-            Console.WriteLine($"содержит {Voin_kol} воинов");
-        }
+        public void VoinKol();
     }
 }

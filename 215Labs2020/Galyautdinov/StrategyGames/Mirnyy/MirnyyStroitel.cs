@@ -18,5 +18,17 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.mirnyy
             Resource = resource1;
             Hours = hours;
         }
+        public void Move()
+        {
+            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+        }
+        public void Res()
+        {
+            Console.WriteLine($"Ресурсы: {Resource} золота");
+        }
+        public void Work()
+        {
+            Console.WriteLine($"работает {Hours} часов.");
+        }
     }
 }

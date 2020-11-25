@@ -15,5 +15,13 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Voin
             Speed = speed;
             Damage = damage;
         }
+        public void Attack()
+        {
+            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
+        }
+        public void Move()
+        {
+            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+        }
     }
 }

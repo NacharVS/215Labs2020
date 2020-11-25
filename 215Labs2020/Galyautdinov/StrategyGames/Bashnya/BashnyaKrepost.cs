@@ -14,5 +14,13 @@ namespace _215Labs2020.Galyautdinov.StrategyGames.Bashnya
             Radius = radius1;
             Resource = resource1;
         }
+        public void Res()
+        {
+            Console.WriteLine($"Ресурсы: {Resource} золота");
+        }
+        public void Rad()
+        {
+            Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
+        }
     }
 }
