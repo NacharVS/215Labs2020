@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Imamov.StrategyGame.Enemies
+namespace _215Labs2020.Imamov.RPGGame.NPCs
 {
-    class EnemiesDragon
+    class Paladin
     {
     }
 }

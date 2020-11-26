@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Imamov.StrategyGame.Hero
+namespace _215Labs2020.Imamov.RPGGame.NPCs
 {
-    class HeroDragonSlayer
+    class Witch
     {
     }
 }
