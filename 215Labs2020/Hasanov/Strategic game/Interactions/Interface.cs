@@ -2,18 +2,34 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Hasanov.Strategic_game.Interactions
+namespace _215Labs2020.Hasanov.Strategic_game.Interface
 {
-    class Interface:abilities_of_units
-    {
-        interface Igo
-        {
-            public static void igo()
-            {
-                Console.WriteLine($"персонаж  двигается со скоростью{Sp}" );
-            }
-                
-        }
 
+
+    interface IMaining
+    {
+        void Maining();
     }
+    interface ISermon
+    {
+        void Sermon();
+    }
+    interface ITraining
+    {
+        void Training();
+    }
+    interface ISecurity
+    {
+        public void Security();
+    }
+    interface IAttack
+    {
+        void Attack();
+    }
+    interface IMove
+    {
+        public void Move();
+    }
+
 }
+
