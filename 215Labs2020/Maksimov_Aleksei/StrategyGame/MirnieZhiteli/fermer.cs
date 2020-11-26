@@ -6,11 +6,18 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
 {
     class fermer : mainuint
     {
-        public string remeslo { get; private set; }
-        public int timeOfWork { get; private set; }
-        public fermer(string Name, int Health, int Radius, int TimeOfWork, string Remeslo)
+        public static string remeslo;
+        public static int timeOfWork;
+        public fermer(string Name, int Health, int TimeOfWork, string Remeslo)
         {
-            name = Name; health = Health; radius = Radius; remeslo = Remeslo; timeOfWork = TimeOfWork;
+            name = Name; health = Health; remeslo = Remeslo; timeOfWork = TimeOfWork;
+        }
+
+        public static void fer()
+        {
+            Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, направление: {remeslo}, время работы: {timeOfWork} в день.");
+            Console.WriteLine("Фермер заниается выращиванием культур.");
+            Console.WriteLine();
         }
     }
 }

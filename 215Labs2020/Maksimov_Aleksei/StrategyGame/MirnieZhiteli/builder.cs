@@ -6,11 +6,20 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
 {
     class builder : mainuint
     {
-        public int speedOfBuilding { get; private set; }
-        public string instrument { get; private set; }
-        public builder(string Name, int Health, int Radius, int SpeedOfBuilding, string Instrument)
+        public static int speedOfBuilding;
+        public static string instrument;
+        public builder(string Name, int Health, int SpeedOfBuilding, string Instrument)
         {
-            name = Name; health = Health; radius = Radius; speedOfBuilding = SpeedOfBuilding; instrument = Instrument;
+            name = Name; health = Health; speedOfBuilding = SpeedOfBuilding; instrument = Instrument;
         }
+
+        public static void bul()
+        {
+            Console.WriteLine($"Имя строителя: {name}, кол-во здоровья: {health}, скорость постройки: {speedOfBuilding} зданий в неделю, рабочий инструмент: {instrument}");
+            Console.WriteLine("Строитель строит защитные сооружения и дома для простых жителей");
+            Console.WriteLine();
+        }
+           
+
     }
 }
