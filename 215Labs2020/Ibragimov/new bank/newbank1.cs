@@ -14,12 +14,9 @@ namespace _215Labs2020.Ibragimov.new_bank
         private static double _id;
         private static DateTime _accountOpen;
         private static double vklad;
-        private static double procent = 0.06;
-
-       
-
-
-        private static DateTime Regis;
+        private  static double procent = 0.06;
+        private  int period = 10;
+        private static double CashBack = 0;
         private static DateTime VkladDay;
         public string FIO
         {
@@ -134,9 +131,9 @@ namespace _215Labs2020.Ibragimov.new_bank
         }
 
 
-        public static void Banktime () // проверка вклада через секунды
+        private  void Banktime () // проверка вклада через секунды
         {
-            int period = 10;
+            
             NewBank1 bank1 = new NewBank1();
             Console.WriteLine("Введите сумму депозита не менее 10 00 и не более 200 000");
             int money = int.Parse(Console.ReadLine());
@@ -152,23 +149,42 @@ namespace _215Labs2020.Ibragimov.new_bank
             for (int i = 0; i < e; i++)
             {
 
-                NewBank1.vklad += (i * NewBank1.vklad);
+                NewBank1.vklad += i * NewBank1.vklad;
 
             }
             Console.WriteLine(NewBank1.vklad);
         }
 
+        private void pokupka()
+        {
+            NewBank1 bank1 = new NewBank1();
+            Console.WriteLine("за сколько рублей купили вещь");
+            double money = double.Parse(Console.ReadLine());
+            NewBank1.vklad -= money;
+            Console.WriteLine("в каком магазине купили вещь");
+            string magaz = Console.ReadLine();
 
+            if (magaz == "ali") 
+            {
+                NewBank1.CashBack = money * 0.05;
+            }
+            else
+            {
+                NewBank1.CashBack = money * 0.03;
+            }
+            Console.WriteLine(CashBack);
+        }
         public static void prover()
         {
                  NewBank1 bank1 = new NewBank1();
                  bank1.Regs();
                  bank1.Operation();
+                 bank1.pokupka();
                  bank1.prognoz();
                  bank1.Datregist();
-                  
-        }
-
+                 bank1.Banktime();
+                 
+        }      
         
 
 
