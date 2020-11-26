@@ -98,13 +98,11 @@ namespace _215Labs2020.Garaev.Strategy_games
             resource.Res();
             Console.WriteLine();
 
-            var mir_mechanik = new Unit_mir_Mechanik("Механик", 90, 4, 20);//имя, хр, скорость, ресурс
+            var mir_mechanik = new Unit_mir_Mechanik("Механик", 90, 4);//имя, хр, скорость, ресурс
             Console.WriteLine(Unit_mir_Mechanik.Name);
             Console.WriteLine($"XP: {Unit_mir_Mechanik.Xp}");
             v = mir_mechanik;
             v.scorost();
-            resource = mir_mechanik;
-            resource.Res();
             Console.WriteLine();
 
             //БАШНИ

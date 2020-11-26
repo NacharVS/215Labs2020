@@ -17,7 +17,7 @@ namespace _215Labs2020.Garaev.Strategy_games
         }
         public void Res()
         {
-            Console.WriteLine($"Ресурсы: {Resource} золота");
+            Console.WriteLine($"Ресурсы (морепродукты): {Resource}");
         }
         public void scorost()
         {
