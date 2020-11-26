@@ -1,8 +1,8 @@
 ﻿using System;
 using _215Labs2020.Ohotnicov.StrategyGames.Warrior;
 using _215Labs2020.Ohotnicov.StrategyGames.Batrak;
-using _215Labs2020.Ohotnicov.StrategyGames.Tower;
-using System.Collections.Generic;
+//using _215Labs2020.Ohotnicov.StrategyGames.Tower;
+//using System.Collections.Generic;
 using System.Text;
 
 namespace _215Labs2020.Ohotnicov.StrategyGames
