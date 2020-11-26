@@ -17,8 +17,9 @@ namespace _215Labs2020.Galyautdinov
         private static int month_birthday;
         private static int year_birthday;
 
-        public delegate void AccountHandler(string message);
-        public event AccountHandler Notify;
+        //public delegate void AccountHandler(string message);
+        public delegate void AccountHandler();
+        //public event AccountHandler Notify;
 
         public Bank(double sum)
         {
@@ -53,7 +54,7 @@ namespace _215Labs2020.Galyautdinov
         private static void Refill()
         {
             Bank bank = new Bank(bank_balans);
-            bank.Notify += DisplayMessage;
+           // bank.Notify += DisplayMessage;
 
             int a=0;
             Console.Write("Введите сумму пополнения: ");
@@ -117,12 +118,15 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
             bank_balans += a;
-            bank.Notify?.Invoke($"На счет поступило: {a}");
+            AccountHandler messege = () => Console.WriteLine($"На счет поступило: {a}");
+            messege();
+            Console.WriteLine($"Ваш  баланс: {bank_balans}");
+            // bank.Notify?.Invoke($"На счет поступило: {a}");
         }
         private static void Withdrawal()
         {
             Bank bank = new Bank(bank_balans);
-            bank.Notify += DisplayMessage;
+            //bank.Notify += DisplayMessage;
             int a;
             Console.Write("Введите сумму которую хотите снять: ");
             try
@@ -198,13 +202,16 @@ namespace _215Labs2020.Galyautdinov
             if (bank_balans >= a)
             {
                 bank_balans -= a;
-                bank.Notify?.Invoke($"Со счета снято: {a}");
+                AccountHandler messege = () => Console.WriteLine($"Со счета снято: {a}");
+                messege();
+                Console.WriteLine($"Ваш  баланс: {bank_balans}");
+                //bank.Notify?.Invoke($"Со счета снято: {a}");
             }
         }
         private static void Transfer()
         {
             Bank bank = new Bank(bank_balans);
-            bank.Notify += DisplayMessage;
+            //bank.Notify += DisplayMessage;
             int a;
             Console.Write("Введите счет, на которую переводите деньги: ");
             int login_transfer = int.Parse(Console.ReadLine());
@@ -283,7 +290,10 @@ namespace _215Labs2020.Galyautdinov
             if (bank_balans >= a)
             {
                 bank_balans -= a;
-                bank.Notify?.Invoke($"Осуществлен перевод на  {a} рублей.");
+                AccountHandler messege = () => Console.WriteLine($"Осуществлен перевод на  {a} рублей.");
+                messege();
+                Console.WriteLine($"Ваш  баланс: {bank_balans}");
+                //bank.Notify?.Invoke($"Осуществлен перевод на  {a} рублей.");
             }
 
         }
@@ -311,18 +321,25 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
             bank_balans -= a;
-            Console.WriteLine($"Осуществлена покупка на сумму {a}  рублей");
+            AccountHandler messege = () => Console.WriteLine($"Осуществлена покупка на сумму {a}  рублей");
+            messege();
+            Console.WriteLine($"Ваш  баланс: {bank_balans}");
+            //Console.WriteLine($"Осуществлена покупка на сумму {a}  рублей");
             if (id == 1)
             {
                 cashback += a * cashback_partner_percent;
                 bank_balans += cashback;
-                Console.WriteLine($"Начислен кешбек {cashback} рублей. Ваш баланс: {bank_balans}");
+                AccountHandler messege1 = () => Console.WriteLine($"Начислен кешбек {cashback} рублей. Ваш баланс: {bank_balans}");
+                messege1();
+                Console.WriteLine($"Ваш  баланс: {bank_balans}");
             }
             else if (id == 2)
             {
                 cashback += a * cashback_percent;
                 bank_balans += cashback;
-                Console.WriteLine($"Начислен кешбек {cashback} рублей. Ваш баланс: {bank_balans}");
+                AccountHandler messege1 = () => Console.WriteLine($"Начислен кешбек {cashback} рублей. Ваш баланс: {bank_balans}");
+                messege1();
+                Console.WriteLine($"Ваш  баланс: {bank_balans}");
             }
             cashback = 0;
         }
@@ -337,7 +354,9 @@ namespace _215Labs2020.Galyautdinov
             {
                 bank_balans = Math.Round(bank_balans + bank_balans * percent, 2);
             }
-            Console.WriteLine(bank_balans);
+            AccountHandler messege1 = () => Console.WriteLine($"Начислена  процентная ставка");
+            messege1();
+            Console.WriteLine($"Ваш  баланс: {bank_balans}");
         }
         private static void CheckBalance()
         {
