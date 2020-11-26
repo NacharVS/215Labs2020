@@ -1,43 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace _215Labs2020.Nurtdinova
+namespace _215Labs2020.Maksimov_Aleksei
 {
-    class Bank
+    abstract class Bank
     {
-        private static double balance = 0;
-        private static double vklad = 0;
-        private static double procent = 0.8;
-        private static DateTime dateBorn { get; set; }
-        private void Operation()
+        private static string name;
+        private static string surname;
+        private static int age;
+        private static int dt;
+        private static int mm;
+        private static int yy;
+
+        public static string Name
         {
-            Bank bank = new Bank();
-            Console.WriteLine("Введите сумму депозита");
-            double money = int.Parse(Console.ReadLine());
-            if (money >= 1000 || money <= 200000) Bank.vklad = money;
-        }
-        private void prognoz()
-        {
-            Bank bank = new Bank();
-            Console.WriteLine("На сколько лет вы планируете вложение?");
-            int coat = int.Parse(Console.ReadLine());
-            for (int i = 1; i < coat; i++) ;
+            get
             {
-                Bank.vklad += Bank.procent * Bank.vklad;
+                return name;
+            }
+            set
+            {
+                name = value;
             }
         }
-        private void end()
+        public static string Surname
         {
-            Bank bank = new Bank();
-            Console.WriteLine($"Через указанный вами срок , ваш вклад составит {Bank.vklad} рублей");
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+            }
         }
-        public void method()
+        public static int Age
         {
-            Bank bank = new Bank();
-            bank.Operation();
-            bank.prognoz();
-            bank.end();
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
         }
+        public static int Dt
+        {
+            get
+            {
+                return dt;
+            }
+            set
+            {
+                dt = value;
+            }
+        }
+        public static int Mm
+        {
+            get
+            {
+                return mm;
+            }
+            set
+            {
+                mm = value;
+            }
+        }
+        public static int Yy
+        {
+            get
+            {
+                return yy;
+            }
+            set
+            {
+                yy = value;
+            }
+        }
+        
     }
 }

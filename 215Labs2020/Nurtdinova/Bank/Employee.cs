@@ -2,23 +2,57 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Nurtdinova
+namespace _215Labs2020.Maksimov_Aleksei.BankClasses
 {
-    class Employee: Person
+    class Employee : user
     {
-
-        public double salary = 45000;
-
-        public Employee()
+        private static string rabname = "Олег";
+        private static string rabsurname = "Иванов";
+        private static int zarplata;
+        private static int _id;
+        public static string Rabname
         {
-            id = 1;
+            get
+            {
+                return rabname;
+            }
+            set
+            {
+                rabname = value;
+            }
         }
-
-        public void PrintEmployee()
+        public static string Rabsurname
         {
-            Console.WriteLine("Введите ФИО работника");
-            SNP = Console.ReadLine();
-            Console.WriteLine($"ФИО: {SNP} Зарплата: {salary} руб");
+            get
+            {
+                return rabsurname;
+            }
+            set
+            {
+                rabsurname = value;
+            }
+        }
+        public static int Zarplata
+        {
+            get
+            {
+                return zarplata;
+            }
+            set
+            {
+                zarplata = 45000;
+            }
+        }
+        public static int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = 1;
+            }
         }
     }
 }
