@@ -86,7 +86,7 @@ namespace _215Labs2020.Kirillov
                 StudentsMarksGetSet std = new StudentsMarksGetSet();
                 Console.WriteLine("Введите имя студента");
                 std.Name = Console.ReadLine();
-                Console.WriteLine("Введите фамили. студента");
+                Console.WriteLine("Введите фамилию студента");
                 std.Surname = Console.ReadLine();
                 Console.WriteLine("Введите оценку по английскому");
                 std.Eng = int.Parse(Console.ReadLine());
