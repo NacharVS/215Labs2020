@@ -8,11 +8,14 @@ namespace _215Labs2020.Ibragimov.new_bank
 {
     class NewBank1
     {
-        private static string _FIO;
-        private static string _phoneNumber;
+        public delegate void BankAccount(string phoneNumber, string kakoetosoobchenie);
+        public event BankAccount Notify;
+
+        private  string _FIO;
+        private  string _phoneNumber;
         private static int _age;
-        private static double _id;
-        private static DateTime _accountOpen;
+        private  double _id;
+        private  DateTime _accountOpen;
         private static double vklad;
         private  static double procent = 0.06;
         private  int period = 10;
@@ -91,6 +94,7 @@ namespace _215Labs2020.Ibragimov.new_bank
 
             _accountOpen = DateTime.Now;
             Console.WriteLine($"Дата регистрации {_accountOpen}");
+            Notify?.Invoke(_phoneNumber, "поздравляем вы зарегались");
         }
           private void Operation() // проверка вклада через год
         {
@@ -120,6 +124,7 @@ namespace _215Labs2020.Ibragimov.new_bank
                 NewBank1.vklad += NewBank1.procent * NewBank1.vklad;
             }
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {NewBank1.vklad} рублей.");
+            Notify?.Invoke(_phoneNumber, "Поздравляем с вложением");
         }
         private void Datregist()
         {
@@ -128,6 +133,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             int b = (DateTime.Now.Minute - _accountOpen.Minute);
             int a =(DateTime.Now.Second -  _accountOpen.Second );
             Console.WriteLine($"с момента вашей регистрации прошло {c1} часов {b} минут {a} секунд ");
+            Notify?.Invoke(_phoneNumber, $"с момента вашей регистрации прошло {c1} часов {b} минут {a} секунд ");
         }
 
 
@@ -153,6 +159,7 @@ namespace _215Labs2020.Ibragimov.new_bank
 
             }
             Console.WriteLine(NewBank1.vklad);
+            
         }
 
         private void pokupka()
@@ -173,6 +180,8 @@ namespace _215Labs2020.Ibragimov.new_bank
                 NewBank1.CashBack = money * 0.03;
             }
             Console.WriteLine(CashBack);
+            Notify?.Invoke(_phoneNumber, $"Вы совершили покупку теперь ваш кэшбек {CashBack}");
+
         }
         public static void prover()
         {
