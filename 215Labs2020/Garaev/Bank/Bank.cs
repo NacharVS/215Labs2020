@@ -44,7 +44,6 @@ namespace _Bank
                 balans -= sum;
                 AccountHandler messege = () => Show_Messege2();
                 messege();
-                //Notify?.Invoke($"Со счета выведено: {_vivod}");
             }
         }
         public void perevod(double sum)
@@ -54,7 +53,6 @@ namespace _Bank
                 balans -= sum;
                 AccountHandler messege = () => Show_Messege3();
                 messege();
-                //Notify?.Invoke($"Со счета переведено: {_vivod}");
             }
         }
         private static DateTime _accountOpenDate;
@@ -226,7 +224,6 @@ namespace _Bank
         private static void vivod()
         {
             Client acc = new Client(balans);
-            //acc.Notify += DisplayMessage;
             Console.Write("Сколько денег хотите вывести: ");
             int f = 0;
             while (f == 0)
@@ -275,7 +272,6 @@ namespace _Bank
         private static void transaction()
         {
             Client acc = new Client(balans);
-            //acc.Notify += DisplayMessage;
             Console.Write("Введите номер счета на которую хотите перевести: ");
             int f = 0;
             while (f == 0)
