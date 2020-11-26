@@ -6,16 +6,44 @@ namespace _215Labs2020.Ohotnicov
 {
     abstract class Person
     {
-        private static string _name;
+        private static string name;
+        private static string surname;
+        private static int age;
+        private static int dt;
+        private static int mm;
+        private static int yy;
+
         public static string Name
         {
             get
             {
-                return _name;
+                return name;
             }
             set
             {
-                _name = value;
+                name = value;
+            }
+        }
+        public static string Surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+            }
+        }
+        public static int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
             }
         }
     }

@@ -7,36 +7,48 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
     interface IAttack
     {
         public int Damage { get; }
-        public void Attack()
-        {
-            Console.WriteLine($"Атака Воина с уроном: {Damage} ед.");
-        }
+        public void Attack();
     }
     interface IMovable
     {
         public double Speed { get; }
-        public void Move()
-        {
-            Console.WriteLine($"Воин движется со скоростью: {Speed} км/ч");
-        }
+        public void Move();
     }
     interface IHeight
     {
         public int Damage { get; }
         public double height { get; }
 
-        public void Height()
-        {
-            Console.WriteLine($"Воин нанес урон {Damage} с высоты: {height} м.");
-        }
+        public void Height();
     }
     interface IResource
     {
         public int Resource { get; }
 
-        public void Res()
-        {
-            Console.WriteLine($"Ресурсы: {Resource} золота");
-        }
+        public void Res();
+    }
+    interface IWork
+    {
+        public int Hours { get; }
+
+        public void Work();
+    }
+    interface IRadius
+    {
+        public double Radius { get; }
+
+        public void Rad();
+    }
+    interface IKuznitsa
+    {
+        public int Kol { get; }
+
+        public void Kuz_kol();
+    }
+    interface IKazarma
+    {
+        public int Voin_kol { get; }
+
+        public void VoinKol();
     }
 }
