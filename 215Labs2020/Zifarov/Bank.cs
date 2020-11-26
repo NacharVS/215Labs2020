@@ -6,8 +6,9 @@ using System.Text;
 
 namespace _215Labs2020.Hasanov
 {
-    public delegate void AccountHandler(string mesegge);
-
+    //public delegate void AccountHandler(string mesegge);
+    public delegate void AccountHandler();
+    
     class Bank
     {
         private string _name;
@@ -19,13 +20,13 @@ namespace _215Labs2020.Hasanov
         private int _day;
         private int _year;
         private int _month;
-        private double _summ;
+        private static double  _summ;
         private DateTime _openDate;
         private static double _cashbackpersent = 0.03;
         private static double _cashbackpersentreferal = 0.05;
         private static double _depositpersent = 1.025;
         public event AccountHandler Notify;
-
+       
 
         private void Put1(double sum)
         {
@@ -37,8 +38,11 @@ namespace _215Labs2020.Hasanov
                 if (sum >= _minideposit & sum <= _maxdeposit)
                 {
                     BankAccount += sum;
-                    Notify?.Invoke($"На счет поступило: {sum}");
-                    Notify?.Invoke($"На счетe : {BankAccount}");
+                    Notify += () => Console.WriteLine($"На счет поступило: {sum}");
+                    Notify += () => Console.WriteLine($"На счету: {BankAccount}");
+                    Notify.Invoke();
+                    //Notify?.Invoke($"На счет поступило: {sum}");
+                    //Notify?.Invoke($"На счетe : {BankAccount}");
                     r += 1;
                 }
                 else Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
@@ -57,8 +61,11 @@ namespace _215Labs2020.Hasanov
                 {
 
                     BankAccount -= sum;
-                    Notify?.Invoke($"Со счета выведено: {sum}");
-                    Notify?.Invoke($"На счетe : {BankAccount}");
+                    Notify += () => Console.WriteLine($"Со счета снято : {sum}");
+                    Notify += () => Console.WriteLine($"На счету: {BankAccount}");
+                    Notify.Invoke();
+                    //Notify?.Invoke($"Со счета выведено: {sum}");
+                    //Notify?.Invoke($"На счетe : {BankAccount}");
                     r += 1;
                 }
                 if (sum < _minideposit || sum > _maxdeposit) Console.WriteLine("Сумма должна быть не менее 10000 и не более 200000");
@@ -74,13 +81,19 @@ namespace _215Labs2020.Hasanov
                 Console.WriteLine("Введите его");
                 Console.ReadLine();
                 BankAccount += (sum * _cashbackpersentreferal);
-                Notify?.Invoke($"Кэшбэк : {sum}");
-                Notify?.Invoke($"На счетe : {BankAccount}");
+                Notify += () => Console.WriteLine($"Кэшбэк : {sum}");
+                Notify += () => Console.WriteLine($"На счету : {BankAccount}");
+                Notify.Invoke();
+                //Notify?.Invoke($"Кэшбэк : {sum}");
+                //Notify?.Invoke($"На счетe : {BankAccount}");
             }
             else
             {
                 BankAccount += (sum * _cashbackpersent);
-                Notify?.Invoke($"Кэшбэк : {sum}");
+                Notify += () => Console.WriteLine($"Кэшбэк : {sum}");
+                Notify += () => Console.WriteLine($"На счету : {BankAccount}");
+                Notify.Invoke();
+                //Notify?.Invoke($"Кэшбэк : {sum}");
             }
         }
         public double Summ
@@ -204,7 +217,7 @@ namespace _215Labs2020.Hasanov
             Bank acc = new Bank();
             Console.WriteLine("Введите сумму на которую совершали покупку");
             Summ = double.Parse(Console.ReadLine());
-            acc.Notify += DisplayMessage;
+            //acc.Notify += DisplayMessage;
             acc.CashBack1(Summ);
 
 
@@ -253,7 +266,7 @@ namespace _215Labs2020.Hasanov
             Bank acc = new Bank();
             Console.WriteLine("Введите сумму которую хотите снять ");
             Summ = int.Parse(Console.ReadLine());
-            acc.Notify += DisplayMessage;
+            //acc.Notify += DisplayMessage;
             acc.Take1(Summ);
 
 
@@ -268,7 +281,7 @@ namespace _215Labs2020.Hasanov
             Bank acc = new Bank();
             Console.WriteLine("Введите сумму которую хотите внести ");
             Summ = int.Parse(Console.ReadLine());
-            acc.Notify += DisplayMessage;
+            //acc.Notify += DisplayMessage;
             acc.Put1(Summ);
         }
 

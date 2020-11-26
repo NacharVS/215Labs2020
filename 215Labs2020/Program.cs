@@ -26,6 +26,8 @@ namespace _215Labs2020.Zifarov
             }
             Console.WriteLine();
             BranchOffice.ab(array1);
+            Bank.LaunchBank();
         }
+        
     }
 }
