@@ -13,7 +13,7 @@ namespace _215Labs2020.Sabirov.User
         }
         private static double money = 0;
         private static double deposit = 1.1;
-        public delegate void Handler(string message);
+        public delegate void Handler(string mes);
         public static event Handler Notify;
         private static DateTime Regis;
 
@@ -49,12 +49,19 @@ namespace _215Labs2020.Sabirov.User
         {
             Console.WriteLine("How many do you want to withdraw?");
             int x = int.Parse(Console.ReadLine());
+            string mess = "You don't have enough money";
+            string mess1 = "success!";
+            Notify += (string x) => Console.WriteLine();
             if (x > money | x < 0)
             {
-                Notify?.Invoke("insufficient funds to write off");
+
+                Notify?.Invoke(mess);
             }
-            else User.money -= x;
-            Notify?.Invoke($"You have {User.money} in your account");
+            else
+            {
+                User.money -= x;
+                Notify?.Invoke(mess1);
+            }
         }
         private static void Desposit()
         {
@@ -62,17 +69,20 @@ namespace _215Labs2020.Sabirov.User
             Console.WriteLine("How much do you want to deposit?");
             int y;
             string input = Console.ReadLine();
+            string mess = "Error";
+            string mess1 = "Success";
+           
             if (Int32.TryParse(input, out y))
             {
                 if (y < 10000 & y < 200000)
                 {
-                    Notify?.Invoke("Error! You can only deposit more than 100000 and less than 2000000");
+                    Notify?.Invoke(mess);
                 }
                 else
                 {
                     User.money += y;
-                    Notify?.Invoke($"Successful! Your bank account: {User.money}");
 
+                    Notify?.Invoke(mess1);
                 }
             }
             else
@@ -81,7 +91,12 @@ namespace _215Labs2020.Sabirov.User
             }
 
         }
-       
+
+        private static void User_Notify(string mes)
+        {
+            throw new NotImplementedException();
+        }
+
         public static void signIn()
         {
             

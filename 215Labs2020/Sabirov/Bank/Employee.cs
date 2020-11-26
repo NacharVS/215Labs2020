@@ -9,7 +9,7 @@ namespace _215Labs2020.Sabirov
         private static double salary;
         private static string profession;
         private static int exp;
-        public delegate void Handler(string message);
+        public delegate void Handler();
         public static event Handler Notify;
 
         public static void DisplayMes(string mes)
@@ -28,16 +28,17 @@ namespace _215Labs2020.Sabirov
 
 
         public static void prof(string x)
-        {
+        { 
+            Notify += () => Console.WriteLine($"Your salary: {Employee.salary}");
             if (x == "Manager")
             {
                 Employee.salary = 25000;
-                Notify?.Invoke($"Your salary: {Employee.salary}");
+                Notify?.Invoke();
             }
             else if (x == "Cashier")
             {
-                Employee.salary = 20000;
-                Notify?.Invoke($"Your salary: {Employee.salary}");
+                Employee.salary = 15000;
+                Notify?.Invoke();
             }
         }
         private static void signIn()
