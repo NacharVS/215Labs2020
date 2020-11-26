@@ -16,7 +16,7 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
         }
         public void Rad()
         {
-            Console.WriteLine($"Имеет радиус {Radius} м");
+            Console.WriteLine($"Имеет радиус разведки {Radius} м");
         }
     }
 }

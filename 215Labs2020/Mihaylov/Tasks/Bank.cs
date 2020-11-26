@@ -5,7 +5,6 @@ namespace _215Labs2020.Mihaylov
     {
         private static double balans = 0;
         private static double persent = 0.06;
-        delegate int Operation(int a, int balans);
         private static DateTime accountOpen;
         private static int age;
         private static int year;
@@ -60,9 +59,9 @@ namespace _215Labs2020.Mihaylov
                     }
                 }
             }
-
-            Operation operation = (a, balans) => a + balans;
-            //balans += a;
+            balans += a;
+            void messege() => Console.WriteLine($"На счет поступило: {a}");
+            messege();
             //Bank.Notify?.Invoke($"Счет пополнен на: {a}");
             Console.WriteLine($"Ваш баланс составляет {balans} р.");
         }
@@ -85,9 +84,9 @@ namespace _215Labs2020.Mihaylov
                         a = int.Parse(Console.ReadLine());
                     }
                 }}
-            Operation operation = (a, balans) => a - balans;
-            //balans -= a;
-            Console.WriteLine("Снятие прошло успешно");
+            balans -= a;
+            void messege() => Console.WriteLine($"Со счета снято: {a}");
+            messege();
             //Bank.Notify?.Invoke($"Со счета снято: {a}");
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
         }
