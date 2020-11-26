@@ -8,8 +8,20 @@ namespace _Bank
 {
     class Client: BankPerson
     {
-        public delegate void AccountHandler(string message);
-        public  event AccountHandler Notify;
+        private static void Show_Messege1()
+        {
+            Console.WriteLine($"На счет поступило: {summ}");
+        }
+        private static void Show_Messege2()
+        {
+            Console.WriteLine($"Со счета выведено: {_vivod}");
+        }
+        private static void Show_Messege3()
+        {
+            Console.WriteLine($"Со счета переведено: {summ1}");
+        }
+        public delegate void AccountHandler();
+        //public  event AccountHandler Notify;
         public Client(double sum)
         {
             balans = sum;
@@ -20,7 +32,9 @@ namespace _Bank
         public void Put(double sum)
         {
             balans += sum;
-            Notify?.Invoke($"На счет поступило: {summ}");
+            AccountHandler messege = () => Show_Messege1();
+            messege();
+            //Notify?.Invoke($"На счет поступило: {summ}");
         }
         // списание средств со счета
         public void Take(double sum)
@@ -28,7 +42,9 @@ namespace _Bank
             if (balans >= sum)
             {
                 balans -= sum;
-                Notify?.Invoke($"Со счета выведено: {_vivod}");
+                AccountHandler messege = () => Show_Messege2();
+                messege();
+                //Notify?.Invoke($"Со счета выведено: {_vivod}");
             }
         }
         public void perevod(double sum)
@@ -36,7 +52,9 @@ namespace _Bank
             if (balans >= sum)
             {
                 balans -= sum;
-                Notify?.Invoke($"Со счета переведено: {_vivod}");
+                AccountHandler messege = () => Show_Messege3();
+                messege();
+                //Notify?.Invoke($"Со счета переведено: {_vivod}");
             }
         }
         private static DateTime _accountOpenDate;
@@ -163,7 +181,8 @@ namespace _Bank
                 cashback = 0;
             }
             Client acc = new Client(balans);
-            acc.Notify += DisplayMessage;
+            //acc.Notify += DisplayMessage;
+
             Console.Write("Введите сумму пополнения: ");
             int f = 0;
             while (f==0)
@@ -207,7 +226,7 @@ namespace _Bank
         private static void vivod()
         {
             Client acc = new Client(balans);
-            acc.Notify += DisplayMessage;
+            //acc.Notify += DisplayMessage;
             Console.Write("Сколько денег хотите вывести: ");
             int f = 0;
             while (f == 0)
@@ -256,7 +275,7 @@ namespace _Bank
         private static void transaction()
         {
             Client acc = new Client(balans);
-            acc.Notify += DisplayMessage;
+            //acc.Notify += DisplayMessage;
             Console.Write("Введите номер счета на которую хотите перевести: ");
             int f = 0;
             while (f == 0)

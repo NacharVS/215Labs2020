@@ -10,8 +10,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            main.RunStrategy();
-            Console.ReadKey();
+            BankPerson.Bank_deysviya();
         }
     }
 }
