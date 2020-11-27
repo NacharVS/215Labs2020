@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
+namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Wars
 {
-    class luchnic : mainuint
+    class luchnic : mainuint, Iwar
     {
         public static int countOfArrow;
         public static string gun;
@@ -13,7 +13,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
             name = Name; health = Health; radius = Radius; gun = Gun; countOfArrow = CountOfArrow;
         }
 
-        public static void luch()
+        public void war()
         {
             Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, радиус действия:{radius}, оружие: {gun}, кол-во стрел{countOfArrow}");
             Console.WriteLine("Обычный лучник");

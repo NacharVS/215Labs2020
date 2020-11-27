@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
 {
-    class builder : mainuint
+    class builder : mainuint, Imzh
     {
         public static int speedOfBuilding;
         public static string instrument;
@@ -13,7 +13,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
             name = Name; health = Health; speedOfBuilding = SpeedOfBuilding; instrument = Instrument;
         }
 
-        public static void bul()
+        public void Mzh()
         {
             Console.WriteLine($"Имя строителя: {name}, кол-во здоровья: {health}, скорость постройки: {speedOfBuilding} зданий в неделю, рабочий инструмент: {instrument}");
             Console.WriteLine("Строитель строит защитные сооружения и дома для простых жителей");

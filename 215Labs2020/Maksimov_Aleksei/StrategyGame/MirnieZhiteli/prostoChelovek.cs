@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
 {
-    class prostoChelovek : mainuint
+    class prostoChelovek : mainuint, Imzh
     {
         public static int age;
         public static string job;
@@ -14,7 +14,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
             name = Name; health = Health; age = Age; job = Job;
         }
 
-        public static void chel()
+        public void Mzh()
         {
             Console.WriteLine($"Имя человека: {name}, кол-во здоровья: {health}, возраст: {age}, работа: {job}");
             Console.WriteLine("Просто мирный житель");

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
 {
-    class ohotnic : mainuint
+    class ohotnic : mainuint, Imzh
     {
         public static string gun;
         public static int countOfKapkan;
@@ -14,9 +14,9 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
             name = Name; health = Health; radius = Radius; gun = Gun; countOfKapkan = CountOfKapkan;
         }
 
-        public static void hunt()
+        public void Mzh()
         {
-            Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, радиус действия:{radius}, оружие: {gun}, кол-во капканов: {countOfKapkan}");
+            Console.WriteLine($"Имя охотниса: {name}, кол-во здоровья: {health}, радиус действия: {radius}, оружие: {gun}, кол-во капканов: {countOfKapkan}");
             Console.WriteLine("Профессиональный охотник.");
             Console.WriteLine();
         }

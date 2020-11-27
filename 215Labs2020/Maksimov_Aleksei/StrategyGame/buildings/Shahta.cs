@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
 {
-    class Shahta : mainuint
+    class Shahta : mainuint, Ibuilding1
     {
         public static int goldInSecond;
         public static int maxcount;
@@ -13,7 +13,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
             health = Health; goldInSecond = GoldInSecond; maxcount = Maxcount;
         }
 
-        public static void klan()
+        public void build1()
         {
             Console.WriteLine($"Kол-во здоровья:{health}, максимальное кол-во ресурса: {maxcount}, скорость добычи: {goldInSecond}");
             Console.WriteLine();
