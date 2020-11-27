@@ -1,4 +1,4 @@
-﻿using _215Labs2020.Hasanov.Strategic_game;
+﻿using _215Labs2020.Hasanov.Bank;
 using System;
 
 namespace _215Labs2020
@@ -9,7 +9,7 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            abilities_of_units.GHGgh();
+            Bank.LaunchBank();
 
         }
     }

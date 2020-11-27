@@ -15,8 +15,12 @@ namespace _215Labs2020.Hasanov.Strategic_game
             Console.WriteLine("Церковь открыта");
             Random rnd = new Random();
             int confidence = rnd.Next(2, 5);
-            System.Threading.Thread.Sleep(10000);
-            Console.WriteLine($"Добыча: {Units.Respect + confidence}");
+            if (Units.Respect == _maxrespect) Console.WriteLine("Ваши поданные верны вам, проповеди не нужны мой милорд");
+            else
+            {
+                System.Threading.Thread.Sleep(10000);
+                Console.WriteLine($"Любовь к вам растет : {Units.Respect + confidence}");
+            }
         }
     }
 }

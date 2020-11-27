@@ -15,8 +15,12 @@ namespace _215Labs2020.Hasanov.Strategic_game
             Console.WriteLine("Шахата построена");
             Random rnd = new Random();
             int resourse = rnd.Next(2, 5);
-            System.Threading.Thread.Sleep(10000);
-            Console.WriteLine($"Добыча: {Units.Gold + resourse}");
+            if (Units.Gold == _maxgold) Console.WriteLine("В казне нет места мой милорд, шахата перестает работать");
+            else
+            {
+                System.Threading.Thread.Sleep(10000);
+                Console.WriteLine($"Добыча: {Units.Gold + resourse}");
+            }
         }
     }
 }
