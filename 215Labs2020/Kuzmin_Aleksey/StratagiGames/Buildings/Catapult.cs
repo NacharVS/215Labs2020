@@ -4,16 +4,36 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Buildings
 {
-    abstract class Catapult : Skills
+    class Catapult : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
     {
         public Catapult()
         {
-            _hp = 0;
+            _name = "Катапульта";
+            _hp = 6;
             _armor = 0;
-            _damage = 0;
-            _spead = 0;
-            _vision = 0;
-            _benefit = 0;
+            _damage = 6;
+            _spead = 2;
+            _vision = 8;
+            _residence = 0;
+        }
+        public int attack
+        {
+            get { return _hp; }
+            set { _hp -= value; }
+        }
+        public int moveF
+        {
+            get { return _residence; }
+            set { _residence += value; }
+        }
+        public int moveB
+        {
+            get { return _residence; }
+            set { _residence -= value; }
+        }
+        public static void Program()
+        {
+            Catapult catapult = new Catapult();
         }
     }
 }

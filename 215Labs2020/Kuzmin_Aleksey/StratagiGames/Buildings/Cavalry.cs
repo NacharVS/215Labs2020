@@ -4,16 +4,36 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Buildings
 {
-    abstract class Cavalry : Skills
+    class Cavalry : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
     {
         public Cavalry()
         {
-            _hp = 0;
-            _armor = 0;
-            _damage = 0;
-            _spead = 0;
-            _vision = 0;
-            _benefit = 0;
+            _name = "Всадник";
+            _hp = 8;
+            _armor = 6;
+            _damage = 6;
+            _spead = 6;
+            _vision = 4;
+            _residence = 0;
+        }
+        public int attack
+        {
+            get { return _hp; }
+            set { _hp -= value; }
+        }
+        public int moveF
+        {
+            get { return _residence; }
+            set { _residence += value; }
+        }
+        public int moveB
+        {
+            get { return _residence; }
+            set { _residence -= value; }
+        }
+        public static void Program()
+        {
+            Cavalry cavalery = new Cavalry();
         }
     }
 }

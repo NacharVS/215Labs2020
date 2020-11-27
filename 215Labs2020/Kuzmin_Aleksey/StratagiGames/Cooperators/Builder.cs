@@ -4,16 +4,36 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Cooperators
 {
-    abstract class Builder : Skills
+    class Builder : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
     {
         public Builder()
         {
-            _hp = 0;
+            _name = "Строитель";
+            _hp = 4;
             _armor = 0;
             _damage = 0;
-            _spead = 0;
-            _vision = 0;
-            _benefit = 0;
+            _spead = 4;
+            _vision = 2;
+            _residence = 2;
+        }
+        public int attack
+        {
+            get { return _hp; }
+            set { _hp -= value; }
+        }
+        public int moveF
+        {
+            get { return _residence; }
+            set { _residence += value; }
+        }
+        public int moveB
+        {
+            get { return _residence; }
+            set { _residence -= value; }
+        }
+        public static void Program()
+        {
+            Builder builder = new Builder();
         }
     }
 }

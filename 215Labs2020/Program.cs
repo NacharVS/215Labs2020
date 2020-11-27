@@ -8,9 +8,10 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Person.Program();
-            
-          
+            _215Labs2020.Kuzmin_Aleksey.RPGgames.Arms.Archer.Program();
+
+
+
         }
     }
 }

@@ -4,16 +4,36 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Cooperators
 {
-    abstract class Hunter : Skills
+    class Hunter : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
     {
         public Hunter()
         {
-            _hp = 0;
+            _name = "Охотник";
+            _hp = 6;
             _armor = 0;
-            _damage = 0;
-            _spead = 0;
-            _vision = 0;
-            _benefit = 0;
+            _damage = 4;
+            _spead = 4;
+            _vision = 4;
+            _residence = 2;
+        }
+        public int attack
+        {
+            get { return _hp; }
+            set { _hp -= value; }
+        }
+        public int moveF
+        {
+            get { return _residence; }
+            set { _residence += value; }
+        }
+        public int moveB
+        {
+            get { return _residence; }
+            set { _residence -= value; }
+        }
+        public static void Program()
+        {
+            Hunter hunter = new Hunter();
         }
     }
 }

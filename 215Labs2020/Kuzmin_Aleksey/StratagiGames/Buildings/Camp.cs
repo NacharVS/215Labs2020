@@ -4,16 +4,36 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Buildings
 {
-    abstract class Camp : Skills
+    class Mine : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
     {
-        public Camp()
+        public Mine()
         {
-            _hp = 0;
+            _name = "Шахта";
+            _hp = 10;
             _armor = 0;
             _damage = 0;
             _spead = 0;
-            _vision = 0;
-            _benefit = 0;
+            _vision = 4;
+            _residence = 8;
+        }
+        public int attack
+        {
+            get { return _hp; }
+            set { _hp -= value; }
+        }
+        public int moveF
+        {
+            get { return _residence; }
+            set { _residence += value; }
+        }
+        public int moveB
+        {
+            get { return _residence; }
+            set { _residence -= value; }
+        }
+        public static void Program()
+        {
+            Mine mine = new Mine();
         }
     }
 }
