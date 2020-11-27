@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei
+namespace _215Labs2020.Ilyasova
 {
     class OperatorsOverloads
     {

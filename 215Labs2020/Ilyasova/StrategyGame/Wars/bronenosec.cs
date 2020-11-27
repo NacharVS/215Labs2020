@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
+namespace _215Labs2020.Ilyasova.StrategyGame.Wars
 {
-    class bronenosec : mainuint
+    class bronenosec : mainuint, Iwar
     {
         public static int speed;
         public static int armour;
@@ -14,7 +14,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
             name = Name; health = Health; radius = Radius; gun = Gun; speed = Speed; armour = Armour;
         }
 
-        public static void Bron()
+        public void war()
         {
             Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, радиус действия:{radius}, кол-во брони: {armour}, максимальная скорость: {speed}, оружие: {gun}");
             Console.WriteLine("Имеет способность переносить огромные повреждения.");

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
+namespace _215Labs2020.Ilyasova.StrategyGame.Wars
 {
-    class vor : mainuint
+    class vor : mainuint, Iwar
     {
         public static int spaceInBackpack;
         public static string gun;
@@ -13,7 +13,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
             name = Name; health = Health; gun = Gun; spaceInBackpack = SpaceInBackpack;
         }
 
-        public static void vr()
+        public void war()
         {
             Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, максимальное кол-во украденных ресурсов: {spaceInBackpack}, оружие: {gun}");
             Console.WriteLine("Имеет способность воровать ресурсы врага в огромных количествах");

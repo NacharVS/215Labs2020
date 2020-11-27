@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
+namespace _215Labs2020.Ilyasova.StrategyGame.buildings
 {
-    class KlanovoeZdanie : mainuint
+    class KlanovoeZdanie : mainuint, Ibuilding1
     {
         public static int maxCountOfGold;
         public KlanovoeZdanie( int Health, int MaxCountOfGold, int LevelOfBuilding)
         {
             health = Health; maxCountOfGold = MaxCountOfGold; levelOfBuilding = LevelOfBuilding;
         }
-        public static void klan()
+        public void build1()
         {
-            Console.WriteLine($"Kол-во здоровья:{health}, максимальный размер хранилища: {maxCountOfGold}, уровень постройки: {levelOfBuilding}");
+            Console.WriteLine($"Kол-во здоровья: {health}, максимальный размер хранилища: {maxCountOfGold}, уровень постройки: {levelOfBuilding}");
             Console.WriteLine();
         }
     }

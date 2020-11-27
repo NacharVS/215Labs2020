@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
+namespace _215Labs2020.Ilyasova.StrategyGame.Wars
 {
-    class klon : mainuint
+    class klon : mainuint, Iwar
     {
         public static int countKlon;
         public static string gun;
@@ -14,7 +14,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
             name = Name; health = Health; radius = Radius; gun = Gun; countKlon = Countklon;
         }
 
-        public void kln()
+        public void war()
         {
             Console.WriteLine($"Имя: {name}, здоровье: {health}, радиус действия:{radius}, оружие: {gun}, кол-во создаваемых клонов{countKlon}");
             Console.WriteLine("Имеет способность создавать клоны себя.");

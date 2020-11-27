@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 
-namespace _215Labs2020.Maksimov_Aleksei
+namespace _215Labs2020.Ilyasova
 {
     class LetterFix
     {

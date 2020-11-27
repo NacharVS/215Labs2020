@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
+namespace _215Labs2020.Ilyasova.StrategyGame.buildings
 {
-    class ScladResursov : mainuint
+    class ScladResursov : mainuint, Ibuilding1
     {
         public static int maxCountOfTree;
         public static int maxCountOfStone;
@@ -13,9 +13,9 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
             health = Health; maxCountOfTree = MaxCountOfTree; maxCountOfStone = MaxCountOfStone;
         }
 
-        public static void sk()
+        public void build1()
         {
-            Console.WriteLine($"Кол-во здоровья:{health}, максимальное хранимое кол-во дерева: {maxCountOfTree}, максимальное хранимое кол-во камня: {maxCountOfStone}");
+            Console.WriteLine($"Кол-во здоровья: {health}, максимальное хранимое кол-во дерева: {maxCountOfTree}, максимальное хранимое кол-во камня: {maxCountOfStone}");
             Console.WriteLine();
         }
     }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
+namespace _215Labs2020.Ilyasova.StrategyGame.Wars
 {
-    class pehotinec : mainuint
+    class pehotinec : mainuint, Iwar
     {
         public static int damage;
         public static string gun;
@@ -13,7 +13,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.Warier
             name = Name; health = Health; radius = Radius; gun = Gun; damage = Damage;
         }
 
-        public static void peh()
+        public void war()
         {
             Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, радиус действия:{radius}, кол-во особого урона: {damage}, оружие: {gun}");
             Console.WriteLine("Сильный воин, умеело орудующий мечом");

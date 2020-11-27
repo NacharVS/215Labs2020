@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
+namespace _215Labs2020.Ilyasova.StrategyGame.buildings
 {
-    class HouseOfBuilders : mainuint
+    class HouseOfBuilders : mainuint, Ibuilding1
     {
         public static string stroyMaterial;
         public HouseOfBuilders(int Health, string StroyMaterial, int LevelOfBuilding)
@@ -12,9 +12,9 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.buildings
              health = Health; stroyMaterial = StroyMaterial; levelOfBuilding = LevelOfBuilding;
         }
 
-        public static void ho()
+        public void build1()
         {
-            Console.WriteLine($"Кол-во здоровья:{health}, строительный материал: {stroyMaterial}, уровень постройки: {levelOfBuilding}");
+            Console.WriteLine($"Кол-во здоровья: {health}, строительный материал: {stroyMaterial}, уровень постройки: {levelOfBuilding}");
             Console.WriteLine();
         }
     }

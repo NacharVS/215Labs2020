@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
+namespace _215Labs2020.Ilyasova.StrategyGame.MirnieZhiteli
 {
-    class Rebenok : mainuint
+    class Rebenok : mainuint, Imzh
     {
         public static string color;
         public static int age;
@@ -13,7 +13,7 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
             name = Name; health = Health; age = Age; color = Color;
         }
 
-        public static void reb()
+        public void Mzh()
         {
             Console.WriteLine($"Имя: {name}, кол-во здоровья: {health}, возраст: {age}, цвет: {color}");
             Console.WriteLine("Имеет способность переносить огромные повреждения.");

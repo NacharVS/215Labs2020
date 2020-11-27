@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
+namespace _215Labs2020.Ilyasova.StrategyGame.MirnieZhiteli
 {
-    class fermer : mainuint
+    class fermer : mainuint, Imzh
     {
         public static string remeslo;
         public static int timeOfWork;
@@ -13,9 +13,9 @@ namespace _215Labs2020.Maksimov_Aleksei.StrategyGame.MirnieZhiteli
             name = Name; health = Health; remeslo = Remeslo; timeOfWork = TimeOfWork;
         }
 
-        public static void fer()
+        public void Mzh()
         {
-            Console.WriteLine($"Имя воина:{name}, кол-во здоровья:{health}, направление: {remeslo}, время работы: {timeOfWork} в день.");
+            Console.WriteLine($"Имя фермера: {name}, кол-во здоровья: {health}, направление: {remeslo}, время работы: {timeOfWork} в день.");
             Console.WriteLine("Фермер заниается выращиванием культур.");
             Console.WriteLine();
         }
