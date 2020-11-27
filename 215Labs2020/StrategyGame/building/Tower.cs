@@ -4,13 +4,26 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class Tower : Unit
+    class Tower : Unit, IHealth, IArmor
     {
-        public static void O()
+        public Tower()
         {
-            Tower.Damage = 55;
-            Tower.Health = 250;
-            Tower.Speed = 12;
+        }
+
+        public Tower(int _health, int _armor)
+        {
+            Health = _health;
+            Armor = _armor;
+        }
+
+        void IArmor.Armor()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IHealth.Health()
+        {
+            throw new NotImplementedException();
         }
     }
 }

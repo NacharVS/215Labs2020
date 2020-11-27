@@ -4,12 +4,28 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class builder : Unit
+    class builder : Unit, IHealth, ISpeed
     {
-        public static void B()
+        public builder()
         {
-            builder.Damage = 55;
-            builder.Health = 250;
+        }
+
+        public builder( int _health, int _speed)
+        {
+            Health = _health;
+            Speed = _speed;
+
+        }
+
+
+        void IHealth.Health()
+        {
+            throw new NotImplementedException();
+        }
+
+        void ISpeed.Speed()
+        {
+            throw new NotImplementedException();
         }
     }
 }

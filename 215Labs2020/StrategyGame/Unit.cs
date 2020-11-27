@@ -7,14 +7,15 @@ namespace _215Labs2020.StrategyGame
     abstract class Unit
     {
         public static int _speed = 12;
-        public static int _health;
-        public static int minhealth = 1;
-        public static int maxhealth = 10000;
-        public static int _damage;
-        public static int mindamage = 1;
-        public static int maxdamage = 10000;
+        public static int _health = 10000;
+        public static int _armor = 10000;
+        public static int _damage = 3535;
 
 
+
+        public static int Damage { get => _damage; set => _damage = value; }
+        public static int Speed { get => _speed; set => _speed = value; }
+        public static int Armor { get => _armor; set => _armor = value; }
         public static int Health
         {
             get
@@ -23,47 +24,18 @@ namespace _215Labs2020.StrategyGame
             }
             set
             {
-                _health = value;
+                if (value == 0)
+                {
+                    Console.WriteLine("Dead");
+                }
+                else _health = value;
             }
         }
-        public static int Damage
-        {
-            get
-            {
-                return _damage;
-            }
-            set
-            {
-                _damage = value;
-            }
-        }
-        public static int MinDamage
-        {
-            get
-            {
-                return mindamage;
-            }
-            set
-            {
-                mindamage = value;
-            }
-            
-        }
-        public static int Speed
-        {
-            get
-            {
-                return _speed;
-            }
-            set
-            {
-                _speed = value;
-            }
-            
-        }
-        
 
-         
-        
+
+
+
+
+
     }
 }

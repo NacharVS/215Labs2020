@@ -8,12 +8,15 @@ namespace _215Labs2020.StrategyGame
     {
         public static void proverka()
         {
-            IDamage damage;
+            IDamage _damage;
 
 
-            knight a = new knight();
-            damage = a;
+            knight a = new knight(12,14,14,13);
             
+            _damage = a;
+            //a.Damage();
+
+
 
         }
     }

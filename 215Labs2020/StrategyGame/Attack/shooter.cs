@@ -4,17 +4,23 @@ using System.Text;
 
 namespace _215Labs2020.StrategyGame
 {
-    class shooter : Unit, IDamage, IHealth
+    class shooter : Unit, IDamage, IHealth, ISpeed, IArmor
     {
         public shooter()
         {
         }
 
-        public shooter(int _damage, int _health, int _speed)
+        public shooter(int _damage, int _health, int _speed,int _armor)
         {
-            knight.Damage = _damage;
-            knight.Health = _health;
-            knight.Speed = _speed;
+            Damage = _damage;
+            Health = _health;
+            Speed = _speed;
+            Armor = _armor;
+        }
+
+        void IArmor.Armor()
+        {
+            throw new NotImplementedException();
         }
 
         void IDamage.Damage()
@@ -22,7 +28,12 @@ namespace _215Labs2020.StrategyGame
             throw new NotImplementedException();
         }
 
-        void IHealth.IHealth()
+        void IHealth.Health()
+        {
+            throw new NotImplementedException();
+        }
+
+        void ISpeed.Speed()
         {
             throw new NotImplementedException();
         }

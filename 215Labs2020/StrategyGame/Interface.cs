@@ -6,10 +6,18 @@ namespace _215Labs2020.StrategyGame
 {
     interface IDamage
     {
-        void Damage();
+        public void Damage();
     }
     interface IHealth
     {
-        void IHealth();
+        void Health();
+    }
+    interface ISpeed
+    {
+        void Speed();
+    }
+    interface IArmor
+    {
+        void Armor();
     }
 }
