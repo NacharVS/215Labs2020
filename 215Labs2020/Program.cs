@@ -12,7 +12,7 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            User.Check();
+            Proverka.proverka();
         }
 
        

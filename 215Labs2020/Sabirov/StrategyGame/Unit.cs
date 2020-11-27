@@ -12,14 +12,16 @@ namespace _215Labs2020.Sabirov.StrategyGame
         static int _range;
         static int _speed;
         static int _armor;
-        static int _gold;
+       public static int _gold;
         static int _wood;
+        static string _name;
 
 
         public static int Damage { get => _damage; set => _damage = value; }
         public static int Range { get => _range; set => _range = value; }
         public static int Speed { get => _speed; set => _speed = value; }
         public static int Armor { get => _armor; set => _armor = value; }
+        public static string Name { get => _name; set => _name = value; }
         public static int Gold
         {
             get
@@ -66,6 +68,6 @@ namespace _215Labs2020.Sabirov.StrategyGame
             }
         }
 
-        
+       
     }
 }

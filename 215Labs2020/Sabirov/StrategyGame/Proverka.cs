@@ -1,9 +1,7 @@
-﻿using _215Labs2020.Sabirov.StrategyGame.Buildings;
-using _215Labs2020.Sabirov.StrategyGame.Military;
+﻿
 
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace _215Labs2020.Sabirov.StrategyGame
 {
@@ -20,73 +18,115 @@ namespace _215Labs2020.Sabirov.StrategyGame
             IBuildingTime time;
             IProduction product;
 
-            Ballista bal = new Ballista(80, 110, 8, 5, 0);
-            move = bal;
-            attack = bal;
-            bal.Move();
-            bal.Attack();
+            
+            Millitary ballista = new Millitary("Ballista",80, 110, 8, 5, 0);
+            move = ballista;
+            attack = ballista;
+            ballista.Attack();
+            ballista.Move();
 
-            Footman fot = new Footman(6, 60, 1, 10, 2);
-            move = fot;
-            attack = fot;
-            fot.Move();
-            fot.Attack();
+            
+            Millitary footman = new Millitary("Footman",6, 60, 1, 10, 2);
+            move = footman;
+            attack = footman;
+            footman.Attack();
 
-            GnomishSubmarine gs  = new GnomishSubmarine(3, 40, 10, 9, 2);
-            move = gs;
-            attack = gs;
-            gs.Move();
-            gs.Attack();
 
-            Knight kn = new Knight(3, 40, 10, 9, 2);
-            move = kn;
-            attack = kn;
-            kn.Move();
-            kn.Attack();
+           Millitary GnomishSubmarine  = new Millitary("Gnomish Submarine",3, 40, 10, 9, 2);
+            move = GnomishSubmarine;
+            attack = GnomishSubmarine;
+            GnomishSubmarine.Move();
+            GnomishSubmarine.Attack();
 
-            Archer arc = new Archer(3, 40, 10, 9, 2);
-            move = arc;
-            attack = arc;
-            arc.Move();
-            arc.Attack();
 
-            Peasant pea = new Peasant(3, 30, 4, 10, 0);
-            move = pea;
-            attack = pea;
-            GatherGold = pea;
-            GatherWood = pea;
-            pea.Attack();
-            pea.Move();
+            Millitary knight = new Millitary("Knight",3, 40, 10, 9, 2);
+            move = knight;
+            attack = knight;
+            knight.Move();
+            knight.Attack();
 
-            TownHall bar = new TownHall(1200, 20);
-            time = bar;
-            product = bar;
-            bar.Time();
-            bar.Production();
 
-            Farm far = new Farm(400, 20);
-            time = far;
-            product = far;
-            far.Time();
-            far.Production();
+            Millitary archer = new Millitary("Archer",3, 40, 10, 9, 2);
+            move = archer;
+            attack = archer;
+            archer.Move();
+            archer.Attack();
 
-            ScoutTower sc = new ScoutTower(100, 20);
-            time = sc;
-            product = sc;
-            sc.Time();
-            sc.Production();
+            
+            Neutral peasant = new Neutral("Peasant",3, 30, 4, 10, 0);
+            move = peasant;
+            attack = peasant;
+            GatherGold = peasant;
+            GatherWood = peasant;
+            peasant.Attack();
+            peasant.Move();
+            peasant.ResG();
+            peasant.ResW();
 
-            Blacksmith blm = new Blacksmith(775, 20);
+            Neutral peon = new Neutral("Peon", 3, 30, 4, 10, 0);
+            move = peon;
+            attack = peon;
+            GatherGold = peon;
+            GatherWood = peon;
+            peon.Attack();
+            peon.Move();
+            peon.ResG();
+            peon.ResW();
+
+
+            Neutral PitLord = new Neutral("Pit Lord", 56, 300, 8, 30, 5);
+            move = PitLord;
+            attack = PitLord;
+            PitLord.Attack();
+            PitLord.Move();
+
+            Neutral FireLord = new Neutral("Firelord", 42, 400, 55, 320, 8);
+            move = FireLord;
+            attack = FireLord;
+            FireLord.Attack();
+            FireLord.Move();
+
+            Neutral Naga = new Neutral("Naga sea witch", 51, 429, 60, 270, 6);
+            move = Naga;
+            attack = Naga;
+            Naga.Attack();
+            Naga.Move();
+
+
+            Building barracks = new Building("Barracks", 20, 1200, 15000, 2000, 700);
+            time = barracks;
+            product = barracks;
+            barracks.Time();
+            barracks.Production();
+
+
+            Building farm = new Building("Farm",20,400,10000,1000,500);
+            time = farm;
+            product = farm;
+            farm.Time();
+            farm.Production();
+
+
+            Building ScoutTower = new Building("Scout Tower",20,100,13000,1000,550);
+            time = ScoutTower;
+            product = ScoutTower;
+            ScoutTower.Time();
+            ScoutTower.Production();
+
+
+            Building blm = new Building("Blacksmith",20,775,12000,2000,800);
             time = blm;
             product = blm;
             blm.Time();
             blm.Production();
 
-            Barracks barr = new Barracks(800, 20);
-            time = barr;
-            product = barr;
-            barr.Time();
-            barr.Production();
+
+            Building TownHall = new Building("Town Hall",20,800,17000,2500,700);
+            time = TownHall;
+            product = TownHall;
+            TownHall.Time();
+            TownHall.Production();
+            Console.WriteLine(Unit._gold);
         }
     }
 }
