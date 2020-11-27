@@ -6,7 +6,7 @@ using System.Text;
 
 namespace _215Labs2020.Ohotnicov.Bank
 {
-    class Bank
+    public class Bank
     {
         private static string name;
         private static string surname;
@@ -16,7 +16,7 @@ namespace _215Labs2020.Ohotnicov.Bank
         private static int day;
         private static int mounth;
         private static int year;
-    private static void Registration()
+    public static void Registration()
     {
         Bank bank = new Bank();
         Console.Write("Здравствуйте!Для регистрации введите ваше имя:");

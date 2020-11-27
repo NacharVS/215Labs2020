@@ -8,16 +8,14 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Towers
     {
         public double Radius { get; private set; }
 
-        public Luchniki
-            (string name, int xp, double radius1)
+        public Luchniki(int xp, double radius1)
         {
-            Name = name;
             Xp = xp;
             Radius = radius1;
         }
         public void Rad()
         {
-            Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
+            Console.WriteLine($"Башня лучниц наблюдает в {Radius} м. вокруг себя");
         }
     }
 }

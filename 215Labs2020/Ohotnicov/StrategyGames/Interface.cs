@@ -51,4 +51,10 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
 
         public void VoinKol();
     }
+    interface IBolnisa
+    {
+        public int Bol { get; }
+
+        public void bolychka();
+    }
 }

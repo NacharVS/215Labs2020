@@ -10,24 +10,23 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Batrak
         public int Resource { get; private set; }
         public int Hours { get; private set; }
 
-        public Stroitel(string name, int xp, double speed, int diamond, int hours)
+        public Stroitel(int xp, double speed, int diamond, int hours)
         {
-            Name = name;
             Xp = xp;
             Resource = diamond;
             Hours = hours;
         }
         public void Move()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"СТроитель движется со скоростью: {Speed} км/ч");
         }
         public void Res()
         {
-            Console.WriteLine($"Ресурсы: {Resource} алмазов");
+            Console.WriteLine($"Ресурсы: {Resource} золота");
         }
         public void Work()
         {
-            Console.WriteLine($"работает {Hours} часов.");
+            Console.WriteLine($"Он работает {Hours} часов.");
         }
     }
 }

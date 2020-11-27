@@ -10,16 +10,16 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Batrak
         public int Resource { get; private set; }
         public int Hours { get; private set; }
 
-        public Rabochiy(string name, int xp, double speed, int diamond, int hours)
+        public Rabochiy(int xp, double speed, int diamond, int hours)
         {
-            Name = name;
+            Speed = speed;
             Xp = xp;
             Resource = diamond;
             Hours = hours;
         }
         public void Move()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Рабочий движется со скоростью: {Speed} км/ч");
         }
         public void Res()
         {
@@ -27,7 +27,7 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Batrak
         }
         public void Work()
         {
-            Console.WriteLine($"работает {Hours} часов.");
+            Console.WriteLine($"Юнит работает {Hours} часов.");
         }
     }
 }

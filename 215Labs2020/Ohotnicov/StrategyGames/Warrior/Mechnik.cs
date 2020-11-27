@@ -8,20 +8,19 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Warrior
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
-        public Mechnik(string name, int xp, double speed, int damage)
+        public Mechnik(int xp, double speed, int damage)
         {
-            Name = name;
             Xp = xp;
             Speed = speed;
             Damage = damage;
         }
         public void Attack()
         {
-            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
+            Console.WriteLine($"Варвар произвел атаку и нанес {Damage} урона");
         }
         public void Move()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Варвар бежит со скоростью: {Speed}");
         }
     }
 }

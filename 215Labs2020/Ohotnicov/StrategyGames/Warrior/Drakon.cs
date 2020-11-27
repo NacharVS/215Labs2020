@@ -9,9 +9,8 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Warrior
         public int Damage { get; private set; }
         public double Speed { get; private set; }
         public double height { get; private set; }
-        public Drakon(string name, int xp, double speed, int damage, double height1)
+        public Drakon(int xp, double speed, int damage, double height1)
         {
-            Name = name;
             Xp = xp;
             Speed = speed;
             height = height1;
@@ -19,15 +18,15 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Warrior
         }
         public void Attack()
         {
-            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
+            Console.WriteLine($"Дракон нанес {Damage} ед. урона");
         }
         public void Move()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Дракон летит со скоростью: {Speed}");
         }
         public void Height()
         {
-            Console.WriteLine($"нанес урон {Damage} с высоты: {height} м.");
+            Console.WriteLine($"Дракон упал с высоты {height} и нанес {Damage} урона");
         }
     }
 }

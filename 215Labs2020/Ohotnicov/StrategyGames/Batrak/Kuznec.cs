@@ -10,9 +10,8 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Batrak
         public int Resource { get; private set; }
         public int Hours { get; private set; }
 
-        public Kuznec(string name, int xp, double speed, int resource1, int hours)
+        public Kuznec(int xp, double speed, int resource1, int hours)
         {
-            Name = name;
             Xp = xp;
             Speed = speed;
             Resource = resource1;
@@ -20,15 +19,15 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Batrak
         }
         public void Move()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Кузнец движется со скоростью: {Speed} км/ч");
         }
         public void Res()
         {
-            Console.WriteLine($"Ресурсы: {Resource} золота");
+            Console.WriteLine($"Ресурсы: {Resource} алмазов");
         }
         public void Work()
         {
-            Console.WriteLine($"работает {Hours} часов.");
+            Console.WriteLine($"Он работает {Hours} часов.");
         }
     }
 }

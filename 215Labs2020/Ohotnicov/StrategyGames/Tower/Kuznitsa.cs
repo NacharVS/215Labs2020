@@ -16,7 +16,7 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Towers
         }
         public void Kuz_kol()
         {
-            Console.WriteLine($"изготовил {Kol} деталей");
+            Console.WriteLine($"В кузнице готово {Kol} деталей");
         }
     }
 }

@@ -4,19 +4,19 @@ using System.Text;
 
 namespace _215Labs2020.Ohotnicov.StrategyGames.Towers
 {
-    class Ratusha : Abstract
+    class Ratusha : Abstract, IKazarma
     {
-        public double Radius { get; private set; }
+        public int Voin_kol { get; private set; }
 
-        public Ratusha(string name, int xp, double radius1)
+        public Ratusha(int xp, int radius1)
         {
-            Name = name;
             Xp = xp;
-            Radius = radius1;
+            Voin_kol = radius1;
         }
-        public void Rad()
+        public void VoinKol()
         {
-            Console.WriteLine($"наблюдает в радиусе: {Radius} м.");
+            Console.WriteLine($"Готово {Voin_kol} бойцов");
         }
+
     }
 }

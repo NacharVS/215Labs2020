@@ -4,19 +4,19 @@ using System.Text;
 
 namespace _215Labs2020.Ohotnicov.StrategyGames.Towers
 {
-    class MedPunkt : Abstract
+    class MedPunkt : Abstract, IBolnisa
     {
-        public double Bolnitsa { get; private set; }
+        public int Bol { get; private set; }
 
-        public MedPunkt(string name, int xp, double radius1, int bol)
+
+        public MedPunkt(int xp, int bol)
         {
-            Name = name;
             Xp = xp;
-            Bolnitsa = bol;
+            Bol = bol;
         }
-        public void Rad()
+        public void bolychka()
         {
-            Console.WriteLine($"Вылеченно: {Bolnitsa} воинов");
+            Console.WriteLine($"В больнице лечатся: {Bol} воинов");
         }
     }
 }

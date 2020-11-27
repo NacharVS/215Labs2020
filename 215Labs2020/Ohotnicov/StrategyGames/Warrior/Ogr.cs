@@ -8,20 +8,19 @@ namespace _215Labs2020.Ohotnicov.StrategyGames.Warrior
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
-        public Ogr(string name, int xp, double speed, int damage)
+        public Ogr(int xp, double speed, int damage)
         {
-            Name = name;
             Xp = xp;
             Speed = speed;
             Damage = damage;
         }
         public void Attack()
         {
-            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
+            Console.WriteLine($"Огр атаковал с уроном: {Damage} ");
         }
         public void Move()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Огр движется со скоростью: {Speed} км/ч");
         }
     }
 }
