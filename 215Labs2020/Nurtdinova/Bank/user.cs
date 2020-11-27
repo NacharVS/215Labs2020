@@ -1,10 +1,9 @@
-﻿using _215Labs2020.Maksimov_Aleksei.BankClasses;
-using System;
-using System.Dynamic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei
+namespace _215Labs2020.Nurtdinova.Bank
 {
-    
     class user : Bank
     {
         private static double vklad = 0;

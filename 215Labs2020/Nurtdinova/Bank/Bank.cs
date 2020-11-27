@@ -1,85 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei
+namespace _215Labs2020.Nurtdinova.Bank
 {
-    abstract class Bank
-    {
-        private static string name;
-        private static string surname;
-        private static int age;
-        private static int dt;
-        private static int mm;
-        private static int yy;
+ 
+        abstract class Bank
+        {
+            private static string name;
+            private static string surname;
+            private static int age;
+            private static int dt;
+            private static int mm;
+            private static int yy;
 
-        public static string Name
-        {
-            get
+            public static string Name
             {
-                return name;
+                get
+                {
+                    return name;
+                }
+                set
+                {
+                    name = value;
+                }
             }
-            set
+            public static string Surname
             {
-                name = value;
+                get
+                {
+                    return surname;
+                }
+                set
+                {
+                    surname = value;
+                }
             }
+            public static int Age
+            {
+                get
+                {
+                    return age;
+                }
+                set
+                {
+                    age = value;
+                }
+            }
+            public static int Dt
+            {
+                get
+                {
+                    return dt;
+                }
+                set
+                {
+                    dt = value;
+                }
+            }
+            public static int Mm
+            {
+                get
+                {
+                    return mm;
+                }
+                set
+                {
+                    mm = value;
+                }
+            }
+            public static int Yy
+            {
+                get
+                {
+                    return yy;
+                }
+                set
+                {
+                    yy = value;
+                }
+            }
+
         }
-        public static string Surname
-        {
-            get
-            {
-                return surname;
-            }
-            set
-            {
-                surname = value;
-            }
-        }
-        public static int Age
-        {
-            get
-            {
-                return age;
-            }
-            set
-            {
-                age = value;
-            }
-        }
-        public static int Dt
-        {
-            get
-            {
-                return dt;
-            }
-            set
-            {
-                dt = value;
-            }
-        }
-        public static int Mm
-        {
-            get
-            {
-                return mm;
-            }
-            set
-            {
-                mm = value;
-            }
-        }
-        public static int Yy
-        {
-            get
-            {
-                return yy;
-            }
-            set
-            {
-                yy = value;
-            }
-        }
-        
+
     }
-}

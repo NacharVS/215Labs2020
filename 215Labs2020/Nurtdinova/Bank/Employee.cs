@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.BankClasses
+namespace _215Labs2020.Nurtdinova.Bank
 {
     class Employee : user
     {
