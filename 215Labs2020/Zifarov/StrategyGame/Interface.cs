@@ -30,5 +30,14 @@ namespace _215Labs2020.Zifarov.StrategyGame
         {
             public void Move();
         }
-    
+    interface ITheft
+    {
+        public void Theft();
+    }
+    interface IBuilding
+    {
+        public void Building();
+    }
+
+
 }

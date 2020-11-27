@@ -20,7 +20,10 @@ namespace _215Labs2020.Zifarov.StrategyGame.Military
         }
         public void Attack()
         {
-            Console.WriteLine($"Нанес урон врагу  : {Gigant.Damage} ");
+            Console.WriteLine("Атаковал врага");
+            if (Units.Respect != _maxrespect) Console.WriteLine($"атаковал на  {Golem.Damage + 10} ");
+            else Console.WriteLine($"атаковал на  {Golem.Damage - 10} ");
+            
         }
         
     }

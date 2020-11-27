@@ -14,7 +14,8 @@ namespace _215Labs2020.Zifarov.StrategyGame.Buildings
         public void Security()
         {
             Console.WriteLine("Башня лучникак построена ");
-            Console.WriteLine("Теперь вы можете тренировать бойцов");
+            System.Threading.Thread.Sleep(10000);
+            Console.WriteLine("Враг был замечен на горизонте");
             System.Threading.Thread.Sleep(10000);
             Console.WriteLine($"Башня лучниц нанесла урон по противнику {ArcherTower.Damage}");
         }

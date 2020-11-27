@@ -184,10 +184,10 @@ namespace _215Labs2020.Hasanov
         }
         private void RegistrationBank()
         {
-            Console.WriteLine("Hello, plese registr in bank");
-            Console.WriteLine("Enter your Name");
+            Console.WriteLine("Здравствуйте, пожалуйста зарегистрируйтесь");
+            Console.WriteLine("Введите свое имя");
             Name = Console.ReadLine();
-            Console.WriteLine("Enter your Surname");
+            Console.WriteLine("Введите свою фамилию");
             Surname = Console.ReadLine();
             Console.WriteLine("Введите свою дату рождения (Например 15.07.2003)");
             string birthday = Console.ReadLine();

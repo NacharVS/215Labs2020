@@ -23,6 +23,10 @@ namespace _215Labs2020.Zifarov.StrategyGame.Military
             Console.WriteLine("Король повел свое войско в бой");
             System.Threading.Thread.Sleep(5000);
             Console.WriteLine($"атаковал на  {King.Damage} ");
+            
+            
+           
+            
         }
     }
 }
