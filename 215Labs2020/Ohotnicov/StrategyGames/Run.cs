@@ -21,7 +21,6 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
             IKuznitsa kuznitsa;
             IKazarma kazarma;
 
-            Console.WriteLine("----------------------------Воины-------------------------------");
 
             move = new Drakon("Дракон", 100, 14, 16, 5);
             Console.Write(Drakon.Name + " ");
@@ -50,7 +49,6 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
             Console.WriteLine($"Здоровье: {Mechnik.Xp}");
             Console.WriteLine();
 
-            Console.WriteLine("----------------------------Мирные жители-------------------------------");
 
             move = new Rabochiy("Фермер", 100, 4, 20, 6);
             Console.Write(Rabochiy.Name + " ");
@@ -63,37 +61,37 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
             Console.WriteLine($"Здоровье: {Rabochiy.Xp}");
             Console.WriteLine();
 
-            move = new MirnyyMekhanik("Механик", 100, 4, 20, 8);
-            Console.Write(MirnyyMekhanik.Name + " ");
-            move.Move();
-            resource = new MirnyyMekhanik("Механик", 100, 5, 23, 8);
-            resource.Res();
-            work = new MirnyyMekhanik("Механик", 100, 5, 23, 8);
-            Console.Write(MirnyyMekhanik.Name + " ");
-            work.Work();
-            Console.WriteLine($"Здоровье: {MirnyyMekhanik.Xp}");
-            Console.WriteLine();
-
-            move = new Povar("Повар", 100, 3, 15, 8);
+            move = new Povar("Повар", 100, 4, 20, 8);
             Console.Write(Povar.Name + " ");
             move.Move();
-            resource = new Povar("Повар", 100, 3, 15, 8);
+            resource = new Povar("Повар", 100, 5, 23, 8);
             resource.Res();
-            work = new Povar("Повар", 100, 3, 15, 8);
+            work = new Povar("Механик", 100, 5, 23, 8);
             Console.Write(Povar.Name + " ");
             work.Work();
             Console.WriteLine($"Здоровье: {Povar.Xp}");
             Console.WriteLine();
 
-            move = new MirnyyRybak("Рыбак", 100, 3, 10, 5);
-            Console.Write(MirnyyRybak.Name + " ");
+            move = new Stroitel("Строитель", 100, 3, 15, 8);
+            Console.Write(Stroitel.Name + " ");
             move.Move();
-            resource = new MirnyyRybak("Рыбак", 100, 3, 10, 5);
+            resource = new Stroitel("Строитель", 100, 3, 15, 8);
             resource.Res();
-            work = new MirnyyRybak("Рыбак", 100, 3, 10, 5);
-            Console.Write(MirnyyRybak.Name + " ");
+            work = new Stroitel("Строитель", 100, 3, 15, 8);
+            Console.Write(Stroitel.Name + " ");
             work.Work();
-            Console.WriteLine($"Здоровье: {MirnyyRybak.Xp}");
+            Console.WriteLine($"Здоровье: {Stroitel.Xp}");
+            Console.WriteLine();
+
+            move = new Rabochiy("Рабочий", 100, 3, 10, 5);
+            Console.Write(Rabochiy.Name + " ");
+            move.Move();
+            resource = new Rabochiy("Рабочий", 100, 3, 10, 5);
+            resource.Res();
+            work = new Rabochiy("Рабочий", 100, 3, 10, 5);
+            Console.Write(Rabochiy.Name + " ");
+            work.Work();
+            Console.WriteLine($"Здоровье: {Rabochiy.Xp}");
             Console.WriteLine();
 
             move = new Stroitel("Строитель", 100, 3, 20, 10);
@@ -107,7 +105,6 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
             Console.WriteLine($"Здоровье: {Stroitel.Xp}");
             Console.WriteLine();
 
-            Console.WriteLine("----------------------------Башни-------------------------------");
 
             radius = new Luchniki("Лучники", 100, 50);
             Console.Write(Luchniki.Name + " ");
@@ -115,30 +112,30 @@ namespace _215Labs2020.Ohotnicov.StrategyGames
             Console.WriteLine($"Здоровье: {Luchniki.Xp}");
             Console.WriteLine();
 
-            radius = new ("Крепость", 80, 15, 200);
-            Console.Write(BashnyaKrepost.Name + " ");
+            radius = new Kazarma("Крепость", 80, 15, 200);
+            Console.Write(kazarma.Name + " ");
             radius.Rad();
-            resource = new BashnyaKrepost("Крепость", 80, 15, 200);
+            resource = new Kazarma("Крепость", 80, 15, 200);
             resource.Res();
-            Console.WriteLine($"Здоровье: {BashnyaKrepost.Xp}");
+            Console.WriteLine($"Здоровье: {Kazarma.Xp}");
             Console.WriteLine();
 
-            kuznitsa = new BashnyaKuznitsa("Кузница", 95, 23);
-            Console.Write(BashnyaKuznitsa.Name + " ");
+            kuznitsa = new Kuznitsa("Кузница", 95, 23);
+            Console.Write(Kuznitsa.Name + " ");
             kuznitsa.Kuz_kol();
             Console.WriteLine($"Здоровье: {BashnyaKuznitsa.Xp}");
             Console.WriteLine();
 
-            resource = new BashnyaMagazin("Магазин", 80, 300);
-            Console.WriteLine(BashnyaMagazin.Name);
+            resource = new MedPunkt("Больница", 80, 300);
+            Console.WriteLine(MedPunkt.Name);
             resource.Res();
-            Console.WriteLine($"Здоровье: {BashnyaMagazin.Xp}");
+            Console.WriteLine($"Здоровье: {MedPunkt.Xp}");
             Console.WriteLine();
 
-            kazarma = new BashnyaKazarma("Казарма", 95, 25);
-            Console.Write(BashnyaKazarma.Name + " ");
+            kazarma = new Ratusha("Ратуша", 95, 25);
+            Console.Write(Ratusha.Name + " ");
             kazarma.VoinKol();
-            Console.WriteLine($"Здоровье: {BashnyaKazarma.Xp}");
+            Console.WriteLine($"Здоровье: {Ratusha.Xp}");
             Console.WriteLine();
         }
     }
