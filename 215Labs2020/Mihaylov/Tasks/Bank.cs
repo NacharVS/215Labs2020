@@ -4,6 +4,7 @@ namespace _215Labs2020.Mihaylov
     class Bank
     {
         private static double balans = 0;
+        private static double cash ;
         private static double persent = 0.06;
         private static DateTime accountOpen;
         private static int age;
@@ -42,7 +43,7 @@ namespace _215Labs2020.Mihaylov
         private static void addition()
         {
             Console.Write("Введите сумму пополнения от 10000 до 200000: ");
-            int a= 0;
+            int a = 0;
             if (a <= 10000 | a >= 200000)
             {
                 while (a <= 10000 | a >= 200000)
@@ -51,7 +52,7 @@ namespace _215Labs2020.Mihaylov
                     {
                         a = int.Parse(Console.ReadLine());
                     }
-                    catch 
+                    catch
                     {
                         Console.WriteLine("Ошибка! Диапазон пополнений  от 10000 до 200000. ");
                         Console.WriteLine("Введите сумму пополнения: ");
@@ -83,7 +84,8 @@ namespace _215Labs2020.Mihaylov
                         Console.Write("Введите сумму которую хотите снять:  ");
                         a = int.Parse(Console.ReadLine());
                     }
-                }}
+                }
+            }
             balans -= a;
             void messege() => Console.WriteLine($"Со счета снято: {a}");
             messege();
@@ -92,28 +94,57 @@ namespace _215Labs2020.Mihaylov
         }
         private static void time()
         {
-            int x= (DateTime.Now.Hour-accountOpen.Hour);
-            int y= (DateTime.Now.Minute - accountOpen.Minute);
+            int x = (DateTime.Now.Hour - accountOpen.Hour);
+            int y = (DateTime.Now.Minute - accountOpen.Minute);
             int z = (DateTime.Now.Second - accountOpen.Second);
             Console.WriteLine($"С момента вашей регистрации прошло {x} часов {y} минут {z} секунд ");
         }
-        public static void Program()
+        private static void cashbak()
         {
-            while (true)
+            Console.WriteLine("Введите сумму товара: ");
+            int a = int.Parse(Console.ReadLine());
+            while (balans - a < 0)
             {
-                Console.WriteLine("Регистрация: ( 1 )");
-                Console.WriteLine("Пополнить счет: ( 2 )");
-                Console.WriteLine("Снять с счета: ( 3 )");
-                Console.WriteLine("Проверить время акккаунта: (4)");
-                int a = int.Parse(Console.ReadLine());
-                switch (a)
+                try
                 {
-                    case 1: registration(); break;
-                    case 2: addition(); break;
-                    case 3: cut(); break;
-                    case 4: time(); break;
+                    a = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    if (a <= 10000 | a >= 200000)
+                    {
+                        Console.WriteLine($" У вас недостаточно средств для вывода денег, ваш баланс составляет: {balans}");
+                        Console.Write("Введите сумму товара:  ");
+                        a = int.Parse(Console.ReadLine());
+                    }
+                }
+            }
+            balans -= a;
+            cash += a * 0.05;
+            balans = balans + cash;
+            void messege() => Console.WriteLine($"Прибыл кэшбэк в размере {cash}");
+            messege();
+            Console.WriteLine($"Ваш баланс составляет: {balans} р.");
+        }
+            public static void Program()
+            {
+                while (true)
+                {
+                    Console.WriteLine("Регистрация: ( 1 )");
+                    Console.WriteLine("Пополнить счет: ( 2 )");
+                    Console.WriteLine("Снять с счета: ( 3 )");
+                    Console.WriteLine("Проверить время акккаунта: (4)");
+                    Console.WriteLine("Купить товары: (5)");
+                    int s = int.Parse(Console.ReadLine());
+                    switch (s)
+                    {
+                        case 1: registration(); break;
+                        case 2: addition(); break;
+                        case 3: cut(); break;
+                        case 4: time(); break;
+                        case 5: cashbak(); break;
+                    }
                 }
             }
         }
     }
-}
