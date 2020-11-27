@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.BuildUnit
 {
-    class GoldStore:AbsarctClassVse
+    class GoldStore:AbsarctClassVse,IZdanie
     {
         public int Gold { get; private set; }
 
@@ -15,6 +15,13 @@ namespace _215Labs2020.Ibragimov.Strategy.BuildUnit
             XP = xp;
 
             Gold = gold;
+
+        }
+
+        public void Zdanie1()
+        {
+            Console.WriteLine($"имеет хп {XP} и хранит {Gold} ");
+
 
         }
     }

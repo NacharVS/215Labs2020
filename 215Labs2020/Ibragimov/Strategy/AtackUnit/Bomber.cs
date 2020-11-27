@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
 {
-    class Bomber:AbsarctClassVse, IAttack, ISkorost
+    class Bomber:AbsarctClassVse, IAttack, ISkorost,IVoin
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -16,6 +16,11 @@ namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
             XP = xp;
             Speed = speed;
             Damage = damage;
+        }
+        public  void Voin1()
+        {
+            Console.WriteLine($"имеет хп {XP}  атака {Damage} скорость {Speed} ");
+
         }
     }
 }

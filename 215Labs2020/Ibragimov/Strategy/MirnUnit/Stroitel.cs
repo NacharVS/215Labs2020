@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Stroitel : AbsarctClassVse, IAttack, ISkorost, IStroit
+    class Stroitel : AbsarctClassVse, IAttack, ISkorost, IStroit,IMirn
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -17,6 +17,12 @@ namespace _215Labs2020.Ibragimov.Strategy.Unit
             Speed = speed;
             Damage = damage;
             Stroit = stroit;
+        }
+        public void Mirn1()
+        {
+            Console.WriteLine($"имеет хп {XP}  атака {Damage} скорость  {Speed} строит {Stroit} ");
+
+
         }
     }
 }

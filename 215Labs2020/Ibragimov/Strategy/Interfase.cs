@@ -56,6 +56,19 @@ namespace _215Labs2020.Ibragimov.Strategy
     }
 
 
+    interface IZdanie
+    {
+        public void Zdanie1();
+    }
 
+    interface IMirn
+    {
+        public void  Mirn1 ();
+    }
+
+    interface IVoin 
+    {
+        public void Voin1();
+    }
 }
 

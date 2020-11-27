@@ -4,19 +4,24 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
 {
-       
-    class Arbaletcshik: AbsarctClassVse,IAttack, ISkorost
+
+    class Arbaletcshik : AbsarctClassVse, IAttack, ISkorost,IVoin
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
 
 
-        public Arbaletcshik(int xp, double speed, int damage )
+        public Arbaletcshik(int xp, double speed, int damage)
         {
 
             XP = xp;
             Speed = speed;
             Damage = damage;
+        }
+        public void Voin1 ()
+        {
+            Console.WriteLine($"имеет хп {XP}  атака {Damage} скорость {Speed} ");
+
         }
     }
 }

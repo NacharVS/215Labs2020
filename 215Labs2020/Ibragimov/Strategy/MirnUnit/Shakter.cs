@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Shakter:AbsarctClassVse, IAttack, ISkorost, IDobychaRud
+    class Shakter:AbsarctClassVse, IAttack, ISkorost, IDobychaRud,IMirn
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -17,6 +17,13 @@ namespace _215Labs2020.Ibragimov.Strategy.Unit
             Speed = speed;
             Damage = damage;
             DobychaRuda = ruda;
+        }
+
+        public void Mirn1()
+        {
+            Console.WriteLine($"имеет хп {XP}  атака {Damage} скорость  {Speed} добывает {DobychaRuda} ");
+
+
         }
 
     }

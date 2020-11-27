@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.BuildUnit
 {
-    class ElixirStore : AbsarctClassVse
+    class ElixirStore : AbsarctClassVse, IZdanie
     {
         public int Elixir { get; private set; }
 
@@ -15,6 +15,12 @@ namespace _215Labs2020.Ibragimov.Strategy.BuildUnit
             XP = xp;
 
             Elixir = elixir;
+
+        }
+        public void Zdanie1()
+        {
+            Console.WriteLine($"имеет хп {XP} и хранит {Elixir} ");
+
 
         }
     }

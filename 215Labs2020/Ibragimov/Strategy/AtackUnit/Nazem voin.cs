@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
 {
-    class Nazem_voin : AbsarctClassVse, IAttack, ISkorost
+    class Nazem_voin : AbsarctClassVse, IAttack, ISkorost,IVoin
     {
         
             public int Damage { get; private set; }
@@ -18,6 +18,11 @@ namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
                 Speed = speed;
                 Damage = damage;
             }
-        
+
+        public void Voin1()
+        {
+            Console.WriteLine($"имеет хп {XP}  атака {Damage} скорость {Speed} ");
+
+        }
     }
 }
