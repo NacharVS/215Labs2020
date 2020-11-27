@@ -14,4 +14,8 @@
     <EmbeddedResource Include="Kirillov\BankClasses\Client.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Kirillov\StrategGame\" />
+  </ItemGroup>
+
 </Project>
