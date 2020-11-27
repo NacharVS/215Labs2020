@@ -13,16 +13,16 @@ namespace _215Labs2020.Kirillov
         public event AccountOperations Notify;
         private static void Registration()
         {
-            Console.WriteLine("Greetings, you need sign in in our bank");
+            Console.WriteLine("Здравствуйте, зарегестрируйтесь,чтобы внести первые деньги");
             Bank InfoBase = new Bank();
-            Console.WriteLine("Enter your name");
+            Console.WriteLine("Введите ваше имя");
             name = Console.ReadLine();
-            Console.WriteLine("Enter your surname");
+            Console.WriteLine("Введите вашу фамилию");
             surname = Console.ReadLine();
         }
         private static void DateInfo()
         {
-            Console.WriteLine("Enter your date of your birthday");
+            Console.WriteLine("Введите дату вашего дня рождения");
             string a = Console.ReadLine();
             string[] date = a.Split(new char[] { '.' });
             User.date = int.Parse(date[0]);
@@ -39,7 +39,7 @@ namespace _215Labs2020.Kirillov
                 try
                 {
                     Bank InfoBase = new Bank();
-                    Console.WriteLine("Enter the amount of deposit");
+                    Console.WriteLine("Введите первоначальную сумму депозита");
                     double money = int.Parse(Console.ReadLine());
                     if (money >= 10000 || money <= 200000) Bank.deposit = money;
                     {
@@ -48,14 +48,14 @@ namespace _215Labs2020.Kirillov
                 }
                 catch
                 {
-                    Console.WriteLine("Error! Deposit can't have any words in it!");
+                    Console.WriteLine("Ошибка! Депозит не содержит слов");
                 }
             }
         }
         private static void Procents()
         {
             Bank InfoBase = new Bank();
-            Console.WriteLine("Enter the loan length");
+            Console.WriteLine("Срок кредите");
             int lenght = int.Parse(Console.ReadLine());
             for (int i = 1; i < lenght; i++)
             {
@@ -65,8 +65,8 @@ namespace _215Labs2020.Kirillov
         private static void Finish()
         {
             Bank InfoBase = new Bank();
-            Console.WriteLine($"After the loan, that you chose, your deposit will be: {deposit} rubles");
-            Console.WriteLine($"{name} {surname},thank you for using our bank!");
+            Console.WriteLine($"После закрытия ваш депозит будет отправлен на осмотр");
+            Console.WriteLine($"{name} {surname},Спасибо,что пользуетесь именно нашим банком!");
         }
         public static void Method()
         {
@@ -84,10 +84,10 @@ namespace _215Labs2020.Kirillov
                     }
                 }
                 else
-                    Console.WriteLine("Sorry, but you can't use our bank underage");
+                    Console.WriteLine("Извините, но пока вам не исполнилось 18+ лет вы не можете пользоваться нашим банком");
             }
             else
-                Console.WriteLine($"Greetings, {EmployeeN} {EmployeeS}. Your salary: {Pay}");
+                Console.WriteLine($"Здравствуйте,{EmployeeS}. Ваш оклад:{User.Pay}");
         }
     }
 }
