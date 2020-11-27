@@ -9,138 +9,130 @@ namespace _215Labs2020.Mihaylov.StrategyGame
     {
         public static void Program()
         {
-            Movable move;
+            Movement move;
             Attack attack;
-            Resource resource;
+            Productivity product;
             Radius radius;
             Ikazarma kazarma;
 
-            Console.WriteLine("********Мирные********");
+            Console.WriteLine("Мирные - 5 видов");
             Console.WriteLine();
             move = new Fermer("Фермер", 100, 6, 20);
-            Console.Write(Fermer.Name + " ");
-            move.Move();
-            resource = new Fermer("Фермер", 100, 6, 20);
-            resource.Res();
-            Console.Write(Fermer.Name + " ");
-            Console.WriteLine($"Здоровье: {Fermer.Xp}");
+            Console.WriteLine(Fermer.Name + " ");
+            move.Movemen();
+            product = new Fermer("Фермер", 100, 6, 20);
+            product.product();
+            Console.WriteLine($"Здоровье: {Fermer.Xp} ед.");
             Console.WriteLine();
 
             move = new Kuznes("Кузнец", 150, 6, 16);
-            Console.Write(Kuznes.Name + " ");
-            move.Move();
-            resource = new Kuznes("Кузнец", 150, 6, 16);
-            resource.Res();
-            Console.Write(Kuznes.Name + " ");
-            Console.WriteLine($"Здоровье: {Kuznes.Xp}");
+            Console.WriteLine(Kuznes.Name + " ");
+            move.Movemen();
+            product = new Kuznes("Кузнец", 150, 6, 16);
+            product.product();
+            Console.WriteLine($"Здоровье: {Kuznes.Xp} ед.");
             Console.WriteLine();
 
             move = new Lesnik("Лесник", 160, 6, 15);
-            Console.Write(Lesnik.Name + " ");
-            move.Move();
-            resource = new Lesnik("Лесник", 160, 6, 15);
-            resource.Res();
-            Console.Write(Lesnik.Name + " ");
-            Console.WriteLine($"Здоровье: {Lesnik.Xp}");
+            Console.WriteLine(Lesnik.Name + " ");
+            move.Movemen();
+            product = new Lesnik("Лесник", 160, 6, 15);
+            product.product();
+            Console.WriteLine($"Здоровье: {Lesnik.Xp} ед.");
             Console.WriteLine();
 
             move = new Povar("Повар", 80, 6, 30);
-            Console.Write(Povar.Name + " ");
-            move.Move();
-            resource = new Povar("Повар", 80, 6, 30);
-            resource.Res();
-            Console.Write(Povar.Name + " ");
-            Console.WriteLine($"Здоровье: {Povar.Xp}");
+            Console.WriteLine(Povar.Name + " ");
+            move.Movemen();
+            product = new Povar("Повар", 80, 6, 30);
+            product.product();
+            Console.WriteLine($"Здоровье: {Povar.Xp} ед.");
             Console.WriteLine();
 
             move = new Stroitel("Строитель", 170, 6, 25);
-            Console.Write(Stroitel.Name + " ");
-            move.Move();
-            resource = new Stroitel("Строитель", 170, 6, 25);
-            resource.Res();
-            Console.Write(Stroitel.Name + " ");
-            Console.WriteLine($"Здоровье: {Stroitel.Xp}");
+            Console.WriteLine(Stroitel.Name + " ");
+            move.Movemen();
+            product = new Stroitel("Строитель", 170, 6, 25);
+            product.product();
+            Console.WriteLine($"Здоровье: {Stroitel.Xp} ед.");
             Console.WriteLine();
 
-            Console.WriteLine("********Воины********");
+            Console.WriteLine("Воины - 5 видов");
+            Console.WriteLine();
+
             move = new Goblin("Гоблин", 250, 20, 60);
-            Console.Write(Goblin.Name + " ");
-            move.Move();
+            Console.WriteLine(Goblin.Name + " ");
+            move.Movemen();
             attack = new Goblin("Гоблин", 250, 20, 60);
-            Console.Write(Goblin.Name + " ");
             attack.Attack();
-            Console.WriteLine($"Здоровье: {Goblin.Xp}");
+            Console.WriteLine($"Здоровье: {Goblin.Xp} ед.");
             Console.WriteLine();
 
             move = new Golem("Голем", 1000, 2, 100);
-            Console.Write(Golem.Name + " ");
-            move.Move();
+            Console.WriteLine(Golem.Name + " ");
+            move.Movemen();
             attack = new Golem("Голем", 1000, 2, 100);
-            Console.Write(Golem.Name + " ");
             attack.Attack();
-            Console.WriteLine($"Здоровье: {Golem.Xp}");
+            Console.WriteLine($"Здоровье: {Golem.Xp} ед.");
             Console.WriteLine();
 
             move = new Luchnik("Лучник", 300, 20, 50);
-            Console.Write(Luchnik.Name + " ");
-            move.Move();
+            Console.WriteLine(Luchnik.Name + " ");
+            move.Movemen();
             attack = new Luchnik("Лучник", 300, 20, 50);
-            Console.Write(Luchnik.Name + " ");
             attack.Attack();
-            Console.WriteLine($"Здоровье: {Luchnik.Xp}");
+            Console.WriteLine($"Здоровье: {Luchnik.Xp} ед.");
             Console.WriteLine();
 
             move = new Risar("Рыцарь", 500, 15, 65);
-            Console.Write(Risar.Name + " ");
-            move.Move();
+            Console.WriteLine(Risar.Name + " ");
+            move.Movemen();
             attack = new Risar("Рыцарь", 500, 15, 65);
-            Console.Write(Risar.Name + " ");
             attack.Attack();
-            Console.WriteLine($"Здоровье: {Risar.Xp}");
+            Console.WriteLine($"Здоровье: {Risar.Xp} ед.");
             Console.WriteLine();
 
             move = new Stenoboi("Стенобой", 100, 30, 200);
-            Console.Write(Stenoboi.Name + " ");
-            move.Move();
+            Console.WriteLine(Stenoboi.Name + " ");
+            move.Movemen();
             attack = new Stenoboi("Стенобой", 100, 30, 200);
-            Console.Write(Stenoboi.Name + " ");
             attack.Attack();
-            Console.WriteLine($"Здоровье: {Stenoboi.Xp}");
+            Console.WriteLine($"Здоровье: {Stenoboi.Xp} ед.");
             Console.WriteLine();
 
-            Console.WriteLine("********Здания********");
+            Console.WriteLine("Здания - 5 типов");
             Console.WriteLine();
-
 
             attack = new Arbalet("Арбалет", 1000, 20);
+            Console.WriteLine(Kazarma.Name + " ");
             attack.Attack();
-            Console.Write(Kazarma.Name + " ");
-            Console.WriteLine($"Здоровье: {Arbalet.Xp}");
+            Console.WriteLine($"Здоровье: {Arbalet.Xp} ед.");
             Console.WriteLine();
 
             radius = new Dirizabl("Дирижабль", 400, 20);
+            Console.WriteLine(Dirizabl.Name + " ");
             radius.Rad();
-            Console.Write(Inferno.Name + " ");
-            Console.WriteLine($"Здоровье: {Inferno.Xp}");
+            Console.WriteLine($"Здоровье: {Dirizabl.Xp} ед.");
             Console.WriteLine();
 
-            attack = new Inferno("Адская башня", 500, 60);
+            attack = new Inferno("Адская башня", 500, 60);            
+            Console.WriteLine(Inferno.Name + " ");
             attack.Attack();
-            Console.Write(Inferno.Name + " ");
-            Console.WriteLine($"Здоровье: {Inferno.Xp}");
+            Console.WriteLine($"Здоровье: {Inferno.Xp} ед.");
             Console.WriteLine();
 
             kazarma = new Kazarma("Казарма", 300, 50);
-            Console.Write(Kazarma.Name + " ");
+            Console.WriteLine(Kazarma.Name + " ");
             kazarma.VoinKol();
-            Console.WriteLine($"Здоровье: {Kazarma.Xp}");
+            Console.WriteLine($"Здоровье: {Kazarma.Xp} ед.");
             Console.WriteLine();
 
-            resource = new Ratusha("Ратуша", 1500, 3000);
-            Console.Write(Ratusha.Name + " ");
-            resource.Res();
-            Console.WriteLine($"Здоровье: {Ratusha.Xp}");
+            product = new Ratusha("Ратуша", 1500, 3000);
+            Console.WriteLine(Ratusha.Name + " ");
+            product.product();
+            Console.WriteLine($"Здоровье: {Ratusha.Xp} ед.");
             Console.WriteLine();
         }
     }
 }
+

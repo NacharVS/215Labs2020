@@ -4,11 +4,11 @@ using System.Text;
 
 namespace _215Labs2020.Mihaylov.StrategyGame.Voiny
 {
-    class Stenoboi : absract, Attack, Movable
+    class Stenoboi : absract, Attack, Movement
     {
         public int Damage { get; private set; }
-        public double Speed { get; private set; }
-        public Stenoboi(string name, int xp, double speed, int damage)
+        public int Speed { get; private set; }
+        public Stenoboi(string name, int xp, int speed, int damage)
         {
             Name = name;
             Xp = xp;
@@ -18,11 +18,11 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Voiny
 
         public void Attack()
         {
-            Console.WriteLine($"атаковал с уроном: {Damage} ед.");
+            Console.WriteLine($"Урон: {Damage} ед.");
         }
-        public void Move()
+        public void Movemen()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Скорость: {Speed} км/ч");
         }
     }
 }

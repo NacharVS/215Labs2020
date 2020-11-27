@@ -4,24 +4,24 @@ using System.Text;
 
 namespace _215Labs2020.Mihaylov.StrategyGame.Mirniy
 {
-    class Kuznes : absract, Movable, Resource
+    class Kuznes : absract, Movement, Productivity
     {
-        public double Speed { get; private set; }
-        public int Resource { get; private set; }
-        public Kuznes(string name, int xp, double speed, int resource)
+        public int Speed { get; private set; }
+        public int Gold { get; private set; }
+        public Kuznes(string name, int xp, int speed, int gold)
         {
             Name = name;
             Xp = xp;
             Speed = speed;
-            Resource = resource;
+            Gold = gold;
         }
-        public void Move()
+        public void Movemen()
         {
-            Console.WriteLine($"движется со скоростью: {Speed} км/ч");
+            Console.WriteLine($"Скорость: {Speed} км/ч");
         }
-        public void Res()
+        public void product()
         {
-            Console.WriteLine($"Ресурсы: {Resource} золота");
+            Console.WriteLine($"Производительность: {Gold} золота/ч");
         }
 
 

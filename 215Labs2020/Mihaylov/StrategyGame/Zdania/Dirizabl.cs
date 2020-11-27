@@ -6,9 +6,9 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
 {
     class Dirizabl : absract, Radius
     {
-        public double Radius { get; private set; }
+        public int Radius { get; private set; }
 
-        public Dirizabl(string name, int xp, double radius1)
+        public Dirizabl(string name, int xp, int radius1)
         {
             Name = name;
             Xp = xp;
@@ -16,7 +16,7 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
         }
         public void Rad()
         {
-            Console.WriteLine($"Имеет радиус разведки {Radius} м");
+            Console.WriteLine($"Радиус: {Radius} м.");
         }
     }
 }

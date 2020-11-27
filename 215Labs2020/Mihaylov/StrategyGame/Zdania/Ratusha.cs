@@ -4,20 +4,20 @@ using System.Text;
 
 namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
 {
-    class Ratusha : absract, Resource
+    class Ratusha : absract, Productivity
     {
         public double Radius { get; private set; }
-        public int Resource { get; private set; }
+        public int Gold { get; private set; }
 
-        public Ratusha(string name, int xp, int resource)
+        public Ratusha(string name, int xp, int gold)
         {
             Name = name;
             Xp = xp;
-            Resource = resource;
+            Gold = gold;
         }
-        public void Res()
+        public void product()
         {
-            Console.WriteLine($"В казне {Resource} золота");
+            Console.WriteLine($"Запас: {Gold} золота.");
         }
     }
 }

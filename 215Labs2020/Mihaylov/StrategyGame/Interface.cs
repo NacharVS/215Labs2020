@@ -9,20 +9,20 @@ namespace _215Labs2020.Mihaylov.StrategyGame
         public int Damage { get; }
         public void Attack();
     }
-    interface Movable
+    interface Movement
     {
-        public double Speed { get; }
-        public void Move();
+        public int Speed { get; }
+        public void Movemen();
     }
-    interface Resource
+    interface Productivity
     {
-        public int Resource { get; }
+        public int Gold { get; }
 
-        public void Res();
+        public void product();
     }
     interface Radius
     {
-        public double Radius { get; }
+        public int Radius { get; }
 
         public void Rad();
     }

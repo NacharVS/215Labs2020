@@ -17,7 +17,7 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
 
         public void Attack()
         {
-            Console.WriteLine($"Атаковал с уроном: {Damage} ед.");
+            Console.WriteLine($"Урон: {Damage} ед.");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace _215Labs2020.Mihaylov.StrategyGame.Zdania
         }
         public void VoinKol()
         {
-            Console.WriteLine($"Готовы {Voinkol} воинов");
+            Console.WriteLine($"Воины: {Voinkol}.");
         }
     }
 }
