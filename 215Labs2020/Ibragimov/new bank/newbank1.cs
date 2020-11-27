@@ -137,7 +137,7 @@ namespace _215Labs2020.Ibragimov.new_bank
         }
 
 
-        private  void Banktime () // проверка вклада через секунды
+        private void Banktime () // проверка вклада через секунды
         {
             
             NewBank1 bank1 = new NewBank1();
@@ -147,7 +147,7 @@ namespace _215Labs2020.Ibragimov.new_bank
             VkladDay = DateTime.Now;
 
 
-            Thread.Sleep(period * 1010);
+            Thread.Sleep(period * 1000);
             int c = DateTime.Now.Second;
             int e = c - VkladDay.Second;
             e = e / period;
