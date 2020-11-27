@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
 {
-    class Nazem_voin : AbsarctClassVse
+    class Nazem_voin : AbsarctClassVse, IAttack, ISkorost
     {
         
             public int Damage { get; private set; }

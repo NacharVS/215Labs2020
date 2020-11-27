@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
 {
-    class Bomber:AbsarctClassVse
+    class Bomber:AbsarctClassVse, IAttack, ISkorost
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

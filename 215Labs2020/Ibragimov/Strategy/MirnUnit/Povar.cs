@@ -5,7 +5,7 @@ using System.Xml.XPath;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Povar :AbsarctClassVse
+    class Povar :AbsarctClassVse, IAttack, ISkorost, Igotovka
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

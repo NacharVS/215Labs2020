@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Farmer : AbsarctClassVse, IAttack
+    class Farmer : AbsarctClassVse, IAttack, ISkorost
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -12,7 +12,7 @@ namespace _215Labs2020.Ibragimov.Strategy.Unit
         public double ProizvodctvoEda { get; private set; }
         public Farmer(int xp, double speed, int damage,int eda)
         {
-            IAttack attack;
+           
             XP = xp;
             Speed = speed;
             Damage = damage;

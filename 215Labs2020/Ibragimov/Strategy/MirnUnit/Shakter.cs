@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Shakter:AbsarctClassVse
+    class Shakter:AbsarctClassVse, IAttack, ISkorost, IDobychaRud
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

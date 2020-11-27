@@ -4,13 +4,13 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Stroitel : AbsarctClassVse
+    class Stroitel : AbsarctClassVse, IAttack, ISkorost, IStroit
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
 
-        public int Stroit { get; private set; }
-        public Stroitel(int xp, double speed, int damage,int stroit)
+        public short Stroit { get; private set; }
+        public Stroitel(int xp, double speed, int damage, short stroit)
         {
 
             XP = xp;
