@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy
 {
-    class minigames
+    class Minigame
     {
         public static void mingame()
         {
@@ -13,6 +13,10 @@ namespace _215Labs2020.Ibragimov.Strategy
             IZdanie zd;
             voi = new AtackUnit.Arbaletcshik(5, 6.5, 7);
             voi.Voin1();
+
+            voi = new AtackUnit.Bomber(5, 6.5, 7);
+            voi.Voin1();
+
 
             mir = new Unit.Farmer(5, 5.5, 5,5);
             mir.Mirn1();
