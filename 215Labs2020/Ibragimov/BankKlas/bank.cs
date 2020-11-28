@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Text;
-
-namespace _215Labs2020.Ibragimov.BankKlas
+﻿namespace _215Labs2020.Ibragimov.BankKlas
 {
     abstract class bank2
     {

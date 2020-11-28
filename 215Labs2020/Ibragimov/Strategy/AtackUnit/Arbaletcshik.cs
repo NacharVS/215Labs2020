@@ -5,7 +5,7 @@ using System.Text;
 namespace _215Labs2020.Ibragimov.Strategy.AtackUnit
 {
 
-    class Arbaletcshik : AbsarctClassVse, IAttack, ISkorost,IVoin
+    class Arbaletcshik : AbsarctClassVse, IAttackUnit
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

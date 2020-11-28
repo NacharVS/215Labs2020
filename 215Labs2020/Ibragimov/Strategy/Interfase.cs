@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace _215Labs2020.Ibragimov.Strategy
 {
-    interface IAttack
+    interface IAttackUnit
     {
         public int Damage { get; }
         public void Attack()

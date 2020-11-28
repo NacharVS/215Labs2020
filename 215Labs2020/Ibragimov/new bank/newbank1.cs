@@ -1,7 +1,4 @@
-﻿using _215Labs2020.Ibragimov.BankKlas;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading;
 
 namespace _215Labs2020.Ibragimov.new_bank
