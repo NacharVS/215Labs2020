@@ -10,7 +10,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
         private string _name, _birthday, _telephone;          
         private static string name, number, birthday;        
         delegate double Opperation(double opperation);
-        delegate  void Message(string message);
+        delegate  string Message(string message);
         event  Message Notify;
         private Bank(string name, string telephone, string birthday)
         {
@@ -30,13 +30,13 @@ namespace _215Labs2020.Kuzmin_Aleksey
         }
         private void GetInfo()
         {
-            Console.WriteLine($"ФИО: {_name}");
-            Console.WriteLine($"Дата рождания: {_birthday}");
-            Console.WriteLine($"Телефон: {_telephone}");
+            Console.WriteLine(Notify?.Invoke($"ФИО: {_name}"));
+            Console.WriteLine(Notify?.Invoke($"Дата рождания: {_birthday}"));
+            Console.WriteLine(Notify?.Invoke($"Телефон: {_telephone}"));
         }
         private void Balance()
         {
-            Console.WriteLine($"Баланс счета: {_bill}");
+            Console.WriteLine(Notify?.Invoke($"Баланс счета: {_bill}"));
         }
         private double Refill(double donation)
         {
