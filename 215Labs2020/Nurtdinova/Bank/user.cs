@@ -8,6 +8,15 @@ namespace _215Labs2020.Nurtdinova.Bank
     {
         private static double vklad = 0;
         private static double procent = 0.1;
+
+        public delegate void Messege();
+        public static event Messege EV1;
+
+        public delegate void Messege2();
+        public static event Messege2 EV2;
+
+        public delegate void Messege3();
+        public static event Messege3 EV3;
         private void Daa()
         {
             user us = new user();
@@ -27,6 +36,11 @@ namespace _215Labs2020.Nurtdinova.Bank
             Bank.Name = Console.ReadLine();
             Console.WriteLine("Введите вашу фамилию");
             Bank.Surname = Console.ReadLine();
+            EV1 += () => Console.WriteLine($"{Bank.Name} {Bank.Surname}, Регистрация прошла успешно");
+            if (Bank.Name != null)
+            {
+                EV1?.Invoke();
+            }
         }
         private void Operation()
         {
@@ -35,6 +49,8 @@ namespace _215Labs2020.Nurtdinova.Bank
                 Console.WriteLine("Введите сумму депозита");
                 int money = int.Parse(Console.ReadLine());
                 if (money >= 10000 && money <= 200000) user.vklad = money;
+                EV2 += () => Console.WriteLine($"Пополнение счета: {user.vklad}");
+                EV2.Invoke();
             }
             catch
             {
@@ -57,7 +73,9 @@ namespace _215Labs2020.Nurtdinova.Bank
         private void end()
         {
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {user.vklad} рублей.");
-            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьАлмазИнвест'.");
+            EV3 += () => Console.WriteLine($"Расчет готов!");
+            EV3.Invoke();
+            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку.");
         }
         public static void method()
         {
