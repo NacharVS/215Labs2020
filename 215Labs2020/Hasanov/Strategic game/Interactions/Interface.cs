@@ -30,6 +30,15 @@ namespace _215Labs2020.Hasanov.Strategic_game.Interface
     {
         public void Move();
     }
+    interface ITheft
+    {
+        public void Theft();
+    }
+    interface IBuilding
+    {
+        public void Building();
+    }
+
 
 }
 
