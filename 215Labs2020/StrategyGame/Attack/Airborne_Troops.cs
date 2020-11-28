@@ -38,5 +38,23 @@ namespace _215Labs2020.StrategyGame
         {
             throw new NotImplementedException();
         }
+        public  void Attak()
+        {
+            Console.WriteLine("Airborne_Troops damage");
+        }
+        public void Go()
+        {
+            Console.WriteLine("Airborne_Troops speed");
+        }
+        //public void proverka()
+        //{
+        //    Airborne_Troops c = new Airborne_Troops(12, 13, 35, 57);
+        //    Console.WriteLine("введите урон");
+        //    Console.ReadLine();
+        //    Console.WriteLine("враг убит");
+        //}
+
+
+
     }
 }

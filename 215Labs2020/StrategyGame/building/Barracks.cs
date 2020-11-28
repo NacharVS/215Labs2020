@@ -25,5 +25,6 @@ namespace _215Labs2020.StrategyGame.building
         {
             throw new NotImplementedException();
         }
+
     }
 }

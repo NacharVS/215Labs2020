@@ -6,7 +6,7 @@ namespace _215Labs2020.StrategyGame
 {
     interface IDamage
     {
-        public void Damage();
+        void Damage();
     }
     interface IHealth
     {

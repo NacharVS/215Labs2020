@@ -27,5 +27,13 @@ namespace _215Labs2020.StrategyGame
         {
             throw new NotImplementedException();
         }
+        public void proverka2()
+        {
+            builder c = new builder(12, 13);
+            Console.WriteLine("скорость builder ");
+            double a = int.Parse(Console.ReadLine());
+            if (a >= 10 || a <= 2000) builder.Damage = 0;
+            Console.WriteLine("builder ходит");
+        }
     }
 }

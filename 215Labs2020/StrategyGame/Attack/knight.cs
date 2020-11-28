@@ -9,7 +9,6 @@ namespace _215Labs2020.StrategyGame
         public knight()
         {
         }
-        public int a { get; private set; }
 
         public knight(int _damage, int _health,int _speed, int _armor)
         {
@@ -20,13 +19,10 @@ namespace _215Labs2020.StrategyGame
 
         }
 
-
         void IDamage.Damage()
         {
             throw new NotImplementedException();
         }
-
-       
 
         void IArmor.Armor()
         {
@@ -43,6 +39,22 @@ namespace _215Labs2020.StrategyGame
         void ISpeed.Speed()
         {
             throw new NotImplementedException();
+        }
+        public void proverka()
+        {
+            knight c = new knight(12,13,35,57);
+            Console.WriteLine("урон knight ");
+            double a = int.Parse(Console.ReadLine());
+            if (a >= 10 || a <= 2000) knight.Damage = 0;
+            Console.WriteLine("враг убит");
+        }
+        public void proverka2()
+        {
+            builder c = new builder(12, 13);
+            Console.WriteLine("скорость builder ");
+            double a = int.Parse(Console.ReadLine());
+            if (a >= 10 || a <= 2000) builder.Speed = 0;
+            Console.WriteLine("builder ходит");
         }
     }
 }
