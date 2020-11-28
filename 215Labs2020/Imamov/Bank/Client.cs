@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using _215Labs2020.Imamov.BankAcc;
 
-namespace _215Labs2020.Imamov.Bank
+namespace _215Labs2020.Imamov.BankAcc
 {
     class Client : User
     {

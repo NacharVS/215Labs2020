@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using _215Labs2020.Imamov.RPGGame;
-using _215Labs2020.Imamov.RPGGame.NPCs;
+using _215Labs2020.Imamov.RPGGame.Hero;
+using _215Labs2020.Imamov.RPGGame.Texts;
 
 namespace _215Labs2020.Imamov.RPGGame.Location
 {
     class OldVillage
     {
-       public static void Active()
+       public static void VillageCamp()
        {
+            Story.OldVillage();
             Console.WriteLine("*Choose stranger you want to speek: ");
             Console.WriteLine("1.Bounty Hunter");
             Console.WriteLine("2.Plague Doctor");
@@ -18,19 +20,19 @@ namespace _215Labs2020.Imamov.RPGGame.Location
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                BountyHunter.Quest();
+                BountyHunter.DialogBH();
             }
             if (choice == 2)
             {
-                Quest.PlagueDoctor();
+                PlagueDoctor.DialogPD();
             }
             if (choice == 3)
             {
-                Quest.Paladin();
+                Paladin.DialogPldn();
             }
             if (choice == 4)
             {
-                Quest.Witch();
+                Witch.DialogWtch();
             }
        }
     }

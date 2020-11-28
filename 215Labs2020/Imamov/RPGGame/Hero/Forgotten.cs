@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using _215Labs2020.Imamov.RPGGame.Enemies;
 
 namespace _215Labs2020.Imamov.RPGGame.Hero
@@ -107,31 +105,30 @@ namespace _215Labs2020.Imamov.RPGGame.Hero
             }
             return choice;
         }
-
+        private const int _NormAttack = 1;
+        private const int _Heal = 2;
+        private const int _SpinAttack = 3;
+        private const int _DoubleSlash = 4;
         public void YourTurn(int decision, Enemy target)
         {
-            if (decision == 1)
+            switch (decision)
             {
-                NormAttack(target);
-                Console.WriteLine("You kicked the enemy!");
-            }
-
-            if (decision == 2)
-            {
-                Heal();
-                Console.WriteLine($"You healed for {healLvl} health!");
-            }
-
-            if (decision == 4)
-            {
-                SpinAttack(target);
-                Console.WriteLine("You used spin attack!");
-            }
-
-            if (decision == 5)
-            {
-                DoubleSlash(target);
-                Console.WriteLine("You used double slash!");
+                case _NormAttack:
+                    NormAttack(target);
+                    Console.WriteLine("You kicked the enemy!");
+                    break;
+                case _Heal:
+                    Heal();
+                    Console.WriteLine($"You healed for {healLvl} health!");
+                    break;
+                case _SpinAttack:
+                    SpinAttack(target);
+                    Console.WriteLine("You used spin attack!");
+                    break;
+                case _DoubleSlash:
+                    DoubleSlash(target);
+                    Console.WriteLine("You used double slash!");
+                    break;
             }
         }
     }

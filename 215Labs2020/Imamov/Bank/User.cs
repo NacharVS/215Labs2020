@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Transactions;
+using _215Labs2020.Imamov.BankAcc;
 
-namespace _215Labs2020.Imamov
+namespace _215Labs2020.Imamov.BankAcc
 {
 
     abstract class User

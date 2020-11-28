@@ -6,4 +6,10 @@
     <RootNamespace>_215Labs2020</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Imamov\RPGGame\**" />
+    <EmbeddedResource Remove="Imamov\RPGGame\**" />
+    <None Remove="Imamov\RPGGame\**" />
+  </ItemGroup>
+
 </Project>

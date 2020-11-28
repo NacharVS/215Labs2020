@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Imamov.StrategyGame
+namespace _215Labs2020.Imamov.RPGGame.Texts
 {
     class Story
     {
@@ -19,9 +19,9 @@ namespace _215Labs2020.Imamov.StrategyGame
             Console.WriteLine("You have been ready to fight, but four strangers near it told you to hide your sword and came near to them if you wanna talk");
             Console.WriteLine("That's it. Now it's a chance to get some information from this people.");
         }
-        public static void ForestCamp()
+        public static void ForestCampQuest()
         {
-            Console.WriteLine("His helmet and battle axe inspired you to move to the Forest Camp");
+            Console.WriteLine("His offer will be useful for you...");
             Console.WriteLine("If he didn't lie, they must be there");
             Console.WriteLine("It's good chance to improve your skills after so many years");
             Console.WriteLine("");
@@ -31,7 +31,7 @@ namespace _215Labs2020.Imamov.StrategyGame
         public static void AfterBandits()
         {
             Console.WriteLine("Nobody will cry about them.");
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.WriteLine("The fire went out. Sounds of the battle could attract someone more danger then this cowards, so you decided to get back to the village");
         }
         public static void Yard()

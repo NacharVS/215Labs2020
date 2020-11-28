@@ -6,9 +6,9 @@ namespace _215Labs2020.Imamov.RPGGame.Hero
 {
     abstract public class Person
     {
-        public string name;
-        public int attack;
-        public int health;
+        public string name { get; set; }
+        public int attack { get; set; }
+        public int health { get; set; }
 
         public Person(string _name, int _attack, int _health)
         {
@@ -20,7 +20,7 @@ namespace _215Labs2020.Imamov.RPGGame.Hero
         public void PrintStats()
         {
             Console.WriteLine($"{name} stats: ");
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.WriteLine($"Attack value is: {attack}");
             Console.WriteLine($"Health value is: {health}");
         }
