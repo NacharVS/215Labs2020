@@ -1,6 +1,7 @@
 ﻿using System;
 using _215Labs2020.Sadukov.User;
 using _215Labs2020.Sadukov.Delegates;
+using _215Labs2020.Sadukov.StrategyGames;
 namespace _215Labs2020
 {
     class Program
@@ -29,7 +30,7 @@ namespace _215Labs2020
 
             //BranchOffice.gal2(GeneralOffice.array, GeneralOffice.array2);
             //BranchOffice.gal(GeneralOffice.array);
-            User.Login();
+            Proverka.proverka();
             
 
             
