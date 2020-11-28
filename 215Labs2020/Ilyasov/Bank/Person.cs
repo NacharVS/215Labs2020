@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Ohotnicov
+namespace _215Labs2020.Ilyasov
 {
     abstract class Person
     {

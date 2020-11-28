@@ -1,5 +1,5 @@
 ﻿using System;
-using _215Labs2020.Ohotnicov.StrategyGames;
+using _215Labs2020.Ilyasov.StrategyGames;
 
 namespace _215Labs2020
 {

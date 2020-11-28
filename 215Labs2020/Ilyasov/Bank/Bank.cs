@@ -4,7 +4,7 @@ using System.Data;
 using System.Dynamic;
 using System.Text;
 
-namespace _215Labs2020.Ohotnicov.Bank
+namespace _215Labs2020.Ilyasov.Bank 
 {
     public class Bank
     {

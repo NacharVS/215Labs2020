@@ -240,7 +240,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Ohotnicov.StrategyGames.Towers
+namespace _215Labs2020.Ilyasov.StrategyGames.Towers
 {
     class Kazarma : Abstract, IKazarma
     {

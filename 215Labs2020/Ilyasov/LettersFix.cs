@@ -4,7 +4,7 @@ using System.Net.Cache;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace _215Labs2020.Ohotnicov
+namespace _215Labs2020.Ilyasov
 {
     class LettersFix
     {

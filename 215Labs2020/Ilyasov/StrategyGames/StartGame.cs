@@ -1,9 +1,9 @@
 ﻿using System;
-using _215Labs2020.Ohotnicov.StrategyGames.Warrior;
-using _215Labs2020.Ohotnicov.StrategyGames.Batrak;
-using _215Labs2020.Ohotnicov.StrategyGames.Towers;
+using _215Labs2020.Ilyasov.StrategyGames.Warrior;
+using _215Labs2020.Ilyasov.StrategyGames.Batrak;
+using _215Labs2020.Ilyasov.StrategyGames.Towers;
 
-namespace _215Labs2020.Ohotnicov.StrategyGames
+namespace _215Labs2020.Ilyasov.StrategyGames
 
 {
     class StartGame
