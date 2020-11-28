@@ -6,4 +6,9 @@
     <RootNamespace>_215Labs2020</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Davletshina\StrategyGame\Tower\" />
+    <Folder Include="Davletshina\StrategyGame\Warrior\" />
+  </ItemGroup>
+
 </Project>

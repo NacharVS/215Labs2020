@@ -41,7 +41,7 @@ namespace _215Labs2020.Davletshina.Delegates
             }
             for (int i = 0; i < mass.Length; i++)
             {
-                Console.WriteLine(mass[]);
+                Console.WriteLine(mass[5]);
             }
             Console.ReadLine();
         }
@@ -77,14 +77,7 @@ namespace _215Labs2020.Davletshina.Delegates
                 Console.WriteLine("mass2[{ 0}]=", i);
                 mass2[i] = int.Parse(Console.ReadLine());
             }
-            int[] mass = new int[5];
-            for (int i = 0; i < 5; i++)
-            {
-                sum[i] = mass[i] + mass2[i];
-            }
-            Console.WriteLine("Сумма масивов");
-            foreach (var v in sum)
-                Console.WriteLine(v);
+
         }
         public static void RaznMass()
         {
@@ -132,7 +125,7 @@ namespace _215Labs2020.Davletshina.Delegates
             {
                 mult[i] = mass[i] + mass2[i];
             }
-            Console.WriteLine("Умножение масивов");
+            Console.WriteLine("Умножение массивов");
             foreach (var v in mult)
                 Console.WriteLine(v);
         }
