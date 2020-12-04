@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Buildings
 {
-    class Cavalry : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
+    class Cavalry : Skills, StratagiGames.IMove
     {
         public Cavalry()
         {

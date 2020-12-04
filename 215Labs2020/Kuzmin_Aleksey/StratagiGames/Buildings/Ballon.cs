@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Buildings
 {
-    class Ballon : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
+    class Ballon : Skills, StratagiGames.IMove
     {
         public Ballon()
         {

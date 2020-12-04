@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Arms
 {
-     class Scout : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
+     class Scout : Skills, StratagiGames.IMove
     {
         public Scout()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.RPGgames.Cooperators
 {
-    class Builder : Skills, StratagiGames.IAttack, StratagiGames.IMoveForward, StratagiGames.IMoveBack
+    class Builder : Skills, StratagiGames.IMove
     {
         public Builder()
         {
