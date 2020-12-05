@@ -3,6 +3,7 @@ using System.Reflection.Metadata;
 using System.Security;
 using _215Labs2020.Garaev.Bank;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace _Bank
 {
@@ -82,6 +83,18 @@ namespace _Bank
         private static void DisplayMessage(string message)
         {
             Console.WriteLine(message);
+        }
+        private static ArrayList Name_list = new ArrayList();
+        private static void chek_accounts()
+        {
+            ArrayList Name_list = new ArrayList();
+            
+            for (int i = 0; i < Name_list.Count; i++)
+            {
+                Console.WriteLine($"{i+1}){Name_list[i]}");
+                Console.WriteLine($"   {Balans_list[i]}");
+                Console.WriteLine();
+            }
         }
         private static void dataofbirth()
         {
@@ -167,6 +180,7 @@ namespace _Bank
                     yearofbirth = int.Parse(Console.ReadLine());
                 }
             }
+            Name_list.Add();
             _surname = surname;
             _name = name;
             _otchestvo = otchestvo;
