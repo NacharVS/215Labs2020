@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace _215Labs2020.Sadukov
 {
@@ -11,6 +12,8 @@ namespace _215Labs2020.Sadukov
         private static int age;
         private static string email;
         private static int id;
+
+
 
         public static string Name
         {

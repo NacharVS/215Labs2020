@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections;
+
 
 namespace _215Labs2020.Sadukov.User
 {
@@ -22,6 +22,9 @@ namespace _215Labs2020.Sadukov.User
                     break;
                 case "2":
                     User.Login();
+                    break;
+                case "3":
+
                     break;
             }
 
@@ -74,20 +77,29 @@ namespace _215Labs2020.Sadukov.User
 
         public static void signIn()
         {
-            User person = new User();
+            
+            
             Console.WriteLine("Enter your full name:");
             string name = Console.ReadLine();
             User.UserName(name);
+           
             Console.WriteLine("Enter your BirthDay");
             Bank.Day = int.Parse(Console.ReadLine());
+            
             Console.WriteLine("Enter your BirthMonth");
             Bank.Month = int.Parse(Console.ReadLine());
+            
             Console.WriteLine("Enter your BirthYear");
             Bank.Age = int.Parse(Console.ReadLine());
+            
             User.Birth(Month, Age, Day);
             User.EmailCheck();
             
+           
+            
+
         }
+        
         private static void UserName(string Newname)
         {
 
@@ -98,7 +110,9 @@ namespace _215Labs2020.Sadukov.User
                 var other = Newname.Remove(0, 1);
                 Newname = first.ToString().ToUpper() + other;
                 Console.WriteLine($"Your name with a capital letter: {Newname}");
+                User.Name = Newname;
             }
+            User.Name = Newname;
 
         }
         private static void Birth(int a, int b, int c)
@@ -148,6 +162,13 @@ namespace _215Labs2020.Sadukov.User
             User.signIn();
             Random bank123 = new Random();
             Bank.Id = bank123.Next(1000000, 1999999);
+            ArrayList list = new ArrayList();
+            list.Add(User.Name);
+            list.Add(User.Month);
+            list.Add(User.Day);
+            list.Add(User.Age);
+            list.Add(Bank.Id);
+
             Console.WriteLine($"Your id: {Bank.Id}");
             int yes = 1;
             while (yes == 1)
@@ -160,6 +181,7 @@ namespace _215Labs2020.Sadukov.User
                     case "1":
 
                         User.Desposit();
+                        list.Add(User.money);
                         Console.WriteLine("Do you want to continue?\n y/n");
                         string cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
@@ -177,7 +199,10 @@ namespace _215Labs2020.Sadukov.User
                         if (cont == "n") yes = 0;
 
                         break;
-                }
+                    case "4":
+                        User.Check();
+                        break;
+                        }
             }
         }
     }

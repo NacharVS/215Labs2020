@@ -15,8 +15,9 @@ namespace _215Labs2020.Sadukov
         {
             Console.WriteLine("Your work experience:");
             Employee.experience = int.Parse(Console.ReadLine());
-
+            Bank.
         }
+        
 
 
         public static void prof(string x)
@@ -49,8 +50,10 @@ namespace _215Labs2020.Sadukov
         }
         private static void signIn()
         {
+            
             Console.WriteLine("Enter your full name:");
             Bank.Name = Console.ReadLine();          
+         
             Console.WriteLine("Enter your BirthDay");
             Bank.Day = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter your BirthMonth");
