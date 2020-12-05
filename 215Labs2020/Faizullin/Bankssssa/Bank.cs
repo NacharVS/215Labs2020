@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace _215Labs2020.Faizullin
 
 {
     class Bank
     {
+        public delegate void AccountHadler(string message);
+        public event AccountHadler Notify;
         private DateTime _birth;
         private static string _SNF;
         private static string _PhoneNumber;
@@ -15,8 +18,6 @@ namespace _215Labs2020.Faizullin
         private static int _balans = 0;
         private static DateTime _accountOpenDate;
 
-        public delegate void AccountHadler(string message);
-        public event AccountHadler Notify;
         public void Bankk(int sum)
         {
             _balans = sum;
@@ -115,6 +116,9 @@ namespace _215Labs2020.Faizullin
                 bank.Birth = Convert.ToDateTime(inputDate);
 
                 Console.WriteLine("Ваш возвраст: {0}", bank.Age);
+                ArrayList list = new ArrayList();
+                
+
             }
             catch (Exception ex)
             {

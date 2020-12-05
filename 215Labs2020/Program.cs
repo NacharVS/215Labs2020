@@ -25,8 +25,8 @@ namespace _215Labs2020.Faizullin
             //BranchOffice.xx(mass1);
 
 
-            //Bank.Proverka();
-            StrategyGame.Class1.proverka();
+            Bank.Proverka();
+            //StrategyGame.Class1.proverka();
 
 
 
