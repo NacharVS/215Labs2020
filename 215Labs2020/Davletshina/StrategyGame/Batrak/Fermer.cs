@@ -17,4 +17,3 @@ namespace _215Labs2020.Davletshina.StrategyGame.Batrak
         }
     }
 }
-

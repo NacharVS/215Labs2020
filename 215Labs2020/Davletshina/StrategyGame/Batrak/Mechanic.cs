@@ -6,7 +6,13 @@ namespace _215Labs2020.Davletshina.StrategyGame.Batrak
 {
     class Mechanic
     {
-        public double {get; private set;};
-    public
+        public double Strength { get; private set; }
+        public int Fantasy { get; private set; }
+
+        public Mechanic(double strength, int fantasy)
+        {
+            Strength = strength;
+            Fantasy = fantasy;
+        }
     }
 }
