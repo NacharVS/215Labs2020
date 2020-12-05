@@ -1,8 +1,9 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
+using System.Collections;
+
 
 namespace _215Labs2020.Hasanov
 {
@@ -196,6 +197,10 @@ namespace _215Labs2020.Hasanov
             _year = int.Parse(array[2]);
             _openDate = DateTime.Now;
             Age = DateTime.Now.Year - _year;
+            ArrayList list1 = new ArrayList();
+            list1.Add = Name;
+            list1.Add = Surname;
+            Console.WriteLine(Name);
         }
         private void Depositsonthebalance()
         {
@@ -283,6 +288,10 @@ namespace _215Labs2020.Hasanov
             //acc.Notify += DisplayMessage;
             acc.Put1(Summ);
         }
+        private static void Client()
+        {
+            Console.WriteLine(list1);
+        }
 
         public void OperationInBank()
         {
@@ -308,6 +317,9 @@ namespace _215Labs2020.Hasanov
                     case "Накрутить деньги":
                         Depositsonthebalance();
                         break;
+                    case "Клиенты":
+                        Client();
+                        break;
 
                 }
                 Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
@@ -316,6 +328,9 @@ namespace _215Labs2020.Hasanov
 
             }
             Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
+            Bank bank = new Bank();
+            bank.RegistrationBank();
+            
         }
     }
 }

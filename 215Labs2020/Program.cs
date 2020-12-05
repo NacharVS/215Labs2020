@@ -9,7 +9,8 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            Bank.LaunchBank();
+            Bank bank = new Bank();
+            bank.LaunchBank();
 
         }
     }
