@@ -37,7 +37,7 @@ namespace _Bank
             messege();
             //Notify?.Invoke($"На счет поступило: {summ}");
         }
-        // списание средств со счета
+        //списание средств со счета
         public void Take(double sum)
         {
             if (balans >= sum)
@@ -84,21 +84,28 @@ namespace _Bank
         {
             Console.WriteLine(message);
         }
+        private static ArrayList Surname_list = new ArrayList();
         private static ArrayList Name_list = new ArrayList();
+        private static ArrayList Otchestvo_list = new ArrayList();
+        private static ArrayList Balans_list = new ArrayList();
+        private static ArrayList Registrate_Data = new ArrayList();
         private static void chek_accounts()
         {
-            ArrayList Name_list = new ArrayList();
-            
             for (int i = 0; i < Name_list.Count; i++)
             {
-                Console.WriteLine($"{i+1}){Name_list[i]}");
-                Console.WriteLine($"   {Balans_list[i]}");
+                Console.WriteLine($"{i + 1}){Registrate_Data[i]}");
+                Console.WriteLine($"   Фамилия: {Surname_list[i]}");
+                Console.WriteLine($"   Имя: {Name_list[i]}");
+                Console.WriteLine($"   Отчество: {Otchestvo_list[i]}");
+                Console.WriteLine($"   Баланс: {Balans_list[i]}");
                 Console.WriteLine();
             }
         }
         private static void dataofbirth()
         {
+            balans = 0;
             _accountOpenDate = new DateTime(DateTime.Now.Minute);
+            Registrate_Data.Add($"Дата регистрации: {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year} Время регистрации: {DateTime.Now.Hour}:{DateTime.Now.Minute}.{DateTime.Now.Second}");
             Console.Write("Введите Фамилия: ");
             surname = Console.ReadLine();
             Console.Write("Введите имя: ");
@@ -180,7 +187,10 @@ namespace _Bank
                     yearofbirth = int.Parse(Console.ReadLine());
                 }
             }
-            Name_list.Add();
+            Surname_list.Add(surname);
+            Name_list.Add(name);
+            Otchestvo_list.Add(otchestvo);
+            Balans_list.Add(balans);
             _surname = surname;
             _name = name;
             _otchestvo = otchestvo;
@@ -234,6 +244,7 @@ namespace _Bank
             }
             acc.Put(summ);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
+            Balans_list[Name_list.Count - 1] = balans;
         }
         private static void vivod()
         {
@@ -282,6 +293,7 @@ namespace _Bank
             }
             acc.Take(_vivod);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
+            Balans_list[Name_list.Count - 1] = balans;
         }
         private static void transaction()
         {
@@ -349,6 +361,7 @@ namespace _Bank
             Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
             acc.perevod(summ1);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
+            Balans_list[Name_list.Count - 1] = balans;
         }
         private static void _dohod()
         {
@@ -383,10 +396,12 @@ namespace _Bank
             {
                 Console.WriteLine($"Через {year} лет ваш баланс будет {balans1} руб. Чистый доход: {dohod} руб.");
             }
+            Balans_list[Name_list.Count - 1] = balans;
         }
         private static void tecush_balans()
         {
             Console.WriteLine($"Ваш текущий баланс: {balans} руб.");
+            Balans_list[Name_list.Count - 1] = balans;
         }
         private static void pucupka()
         {
@@ -412,6 +427,7 @@ namespace _Bank
             }
             
             popolnenie_cashback();
+            Balans_list[Name_list.Count - 1] = balans;
         }
         public static void vibor_deistviy()
         {
@@ -436,17 +452,18 @@ namespace _Bank
             }
             if (a == 2)
                 a = 0;
-            while (a > 0 && a < 8)
+            while (a > 0 && a < 9)
             {
                 switch (a)
                 {
                     case 1: dataofbirth(); break;
                     case 2: bank_account(); break;
-                    case 3: vivod(); break;
-                    case 4: transaction(); break;
-                    case 5: _dohod(); break;
-                    case 6: tecush_balans(); break;
-                    case 7: pucupka(); break;
+                    case 3: { vivod(); } break;
+                    case 4: { transaction();} break;
+                    case 5: { _dohod();} break;
+                    case 6: { tecush_balans();} break;
+                    case 7: { pucupka();} break;
+                    case 8: chek_accounts(); break;
                 }
                 Console.WriteLine();
                 Console.WriteLine("Выберите действие: ");
@@ -457,7 +474,8 @@ namespace _Bank
                 Console.WriteLine("5) Посчитать проценты");
                 Console.WriteLine("6) Узнать текущий баланс");
                 Console.WriteLine("7) Покупка");
-                Console.WriteLine("8) Выйти");
+                Console.WriteLine("8) Просмотр зарегистрированных пользователей");
+                Console.WriteLine("9) Выйти");
                 int f1 = 0;
                 while (f1 == 0)
                 {
