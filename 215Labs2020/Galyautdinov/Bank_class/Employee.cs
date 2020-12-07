@@ -9,11 +9,11 @@ namespace _215Labs2020.Galyautdinov.Bank_class
         public int _id { get; set; }
         private static int zp=35000;
         private static double zp_balans = 0;
-        public Employee(string name1)
-        {
+        //public Employee(string name1)
+        //{
             
-            Name1 = name1;
-        }
+        //    Name1 = name1;
+        //}
         public static void employee()
         {
             Console.WriteLine($"Сегодняшнее число: {DateTime.Now}");
