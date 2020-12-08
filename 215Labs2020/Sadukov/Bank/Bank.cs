@@ -12,7 +12,8 @@ namespace _215Labs2020.Sadukov
         private static int age;
         private static string email;
         private static int id;
-
+        private static string surname;
+        private static double money = 0;
 
 
         public static string Name
@@ -88,7 +89,9 @@ namespace _215Labs2020.Sadukov
                 day = value;
             }
         }
-       
+
+        public static string Surname { get => surname; set => surname = value; }
+        public static double Money { get => Money; set => Money = value; }
        
     }
 }

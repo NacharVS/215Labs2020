@@ -15,7 +15,7 @@ namespace _215Labs2020.Sadukov
         {
             Console.WriteLine("Your work experience:");
             Employee.experience = int.Parse(Console.ReadLine());
-            Bank.
+            
         }
         
 

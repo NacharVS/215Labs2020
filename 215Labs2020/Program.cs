@@ -31,7 +31,7 @@ namespace _215Labs2020
             //BranchOffice.gal2(GeneralOffice.array, GeneralOffice.array2);
             //BranchOffice.gal(GeneralOffice.array);
             //Proverka.proverka();
-            User.Check();
+            Bank.Check();
             
 
             

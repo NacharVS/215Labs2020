@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Collections;
-
+using System.Collections.Generic;
 
 namespace _215Labs2020.Sadukov.User
 {
-    class User : Bank
+    class Bank : Sadukov.Bank
     {
-        private static double money = 0;
+        
         private static double deposit = 0.061;
+       
 
+        public Bank(string Name, string Surname, int Day, int Month, int Year, string Email, double Money)
+        {
+            Sadukov.Bank.Name = Name;
+            Sadukov.Bank.Surname = Surname;
+            Sadukov.Bank.Day = Day;
+            Sadukov.Bank.Month = Month;
+            Sadukov.Bank.Age = Year;
+            Sadukov.Bank.Email = Email;
+            Sadukov.Bank.Money = Money;
 
+        }
+        public static List<Bank> list;
         public static void Check()
         {
             Console.WriteLine($"Login as Employee or User?");
@@ -21,7 +33,7 @@ namespace _215Labs2020.Sadukov.User
                     Employee.Login();
                     break;
                 case "2":
-                    User.Login();
+                    Bank.Login();
                     break;
                 case "3":
 
@@ -35,12 +47,12 @@ namespace _215Labs2020.Sadukov.User
         {
             Console.WriteLine("How many do you want to withdraw?");
             int x = int.Parse(Console.ReadLine());
-            if (x > money | x < 0)
+            if (x > Money | x < 0)
             {
                 Console.WriteLine("insufficient funds to write off");
             }
-            else User.money -= x;
-            Console.WriteLine($"You have {User.money} in your account");
+            else Bank.Money -= x;
+            Console.WriteLine($"You have {Bank.Money} in your account");
         }
         private static void Desposit()
         {
@@ -53,11 +65,15 @@ namespace _215Labs2020.Sadukov.User
                 if (y < 10000 & y < 200000)
                 {
                     Console.WriteLine("Error. Deposit is less than 10000 or more than 200000");
+                    
                 }
                 else
                 {
-                    User.money += y;
-                    Console.WriteLine($"Account replenished\n{User.money}");
+                   foreach (var item in list)
+                    {
+                        Bank.Money += y;
+                    }
+                    Console.WriteLine($"Account replenished\n{Bank.Money}");
 
                 }
             }
@@ -70,30 +86,33 @@ namespace _215Labs2020.Sadukov.User
         private static void percent()
         {
 
-            double x = User.money * User.deposit;
-            User.money += x;
-            Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {User.money}");
+            double x = Bank.Money * Bank.deposit;
+            Bank.Money += x;
+            Console.WriteLine($"Your deposit will change in {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year + 1} and will be: {Bank.Money}");
         }
 
         public static void signIn()
         {
             
             
-            Console.WriteLine("Enter your full name:");
+            Console.WriteLine("Enter your name:");
             string name = Console.ReadLine();
-            User.UserName(name);
-           
+            Bank.UserName(name);
+            Console.WriteLine("Enter your surname:");
+            string surname = Console.ReadLine();
+            Bank.UserName(surname);
+
             Console.WriteLine("Enter your BirthDay");
-            Bank.Day = int.Parse(Console.ReadLine());
+            Sadukov.Bank.Day = int.Parse(Console.ReadLine());
             
             Console.WriteLine("Enter your BirthMonth");
-            Bank.Month = int.Parse(Console.ReadLine());
+            Sadukov.Bank.Month = int.Parse(Console.ReadLine());
             
             Console.WriteLine("Enter your BirthYear");
-            Bank.Age = int.Parse(Console.ReadLine());
-            
-            User.Birth(Month, Age, Day);
-            User.EmailCheck();
+            Sadukov.Bank.Age = int.Parse(Console.ReadLine());
+
+            Bank.Birth(Month, Age, Day);
+            Bank.EmailCheck();
             
            
             
@@ -110,9 +129,9 @@ namespace _215Labs2020.Sadukov.User
                 var other = Newname.Remove(0, 1);
                 Newname = first.ToString().ToUpper() + other;
                 Console.WriteLine($"Your name with a capital letter: {Newname}");
-                User.Name = Newname;
+                Bank.Name = Newname;
             }
-            User.Name = Newname;
+            Bank.Name = Newname;
 
         }
         private static void Birth(int a, int b, int c)
@@ -126,10 +145,10 @@ namespace _215Labs2020.Sadukov.User
                 }
                 else if (c == DateTime.Now.Day & a == DateTime.Now.Month)
                 {
-                    User.money += 100;
+                    Bank.Money += 100;
 
                     Console.WriteLine($"it's your birthday!!! You are now {DateTime.Now.Year - b} year old.");
-                    Console.WriteLine(User.money);
+                    Console.WriteLine(Bank.Money);
                 }
 
             }
@@ -147,7 +166,7 @@ namespace _215Labs2020.Sadukov.User
                 if (c == true)
                 {
                     a = 0;
-                    User.Email = em;
+                    Bank.Email = em;
                 }
                 else
                 {
@@ -159,48 +178,44 @@ namespace _215Labs2020.Sadukov.User
 
         public static void Login()
         {
-            User.signIn();
+            Bank.signIn();
             Random bank123 = new Random();
-            Bank.Id = bank123.Next(1000000, 1999999);
-            ArrayList list = new ArrayList();
-            list.Add(User.Name);
-            list.Add(User.Month);
-            list.Add(User.Day);
-            list.Add(User.Age);
-            list.Add(Bank.Id);
+            Sadukov.Bank.Id = bank123.Next(1000000, 1999999);
+           
+            list.Add(new Bank());
 
-            Console.WriteLine($"Your id: {Bank.Id}");
+            Console.WriteLine($"Your id: {Sadukov.Bank.Id}");
             int yes = 1;
             while (yes == 1)
             {
                 Console.WriteLine("What do you want to do (deposit money, withdraw money, Find out the amount of funds after replenishment of the deposit)");
-                Console.WriteLine("Press 1 to deposit money\nPress 2 to withdraw money\nPress 3 to find out the amount of funds after replenishment of the deposit ");
+                Console.WriteLine("Press 1 to deposit money\nPress 2 to withdraw money\nPress 3 to find out the amount of funds after replenishment of the deposit");
                 string enter = Console.ReadLine();
                 switch (enter)
                 {
                     case "1":
 
-                        User.Desposit();
-                        list.Add(User.money);
+                        Bank.Desposit();
+                       
                         Console.WriteLine("Do you want to continue?\n y/n");
                         string cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
                         break;
                     case "2":
-                        User.Withdraw();
+                        Bank.Withdraw();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
                         break;
                     case "3":
-                        User.percent();
+                        Bank.percent();
                         Console.WriteLine("Do you want to continue?\n y/n");
                         cont = Console.ReadLine();
                         if (cont == "n") yes = 0;
 
                         break;
                     case "4":
-                        User.Check();
+                        Bank.Check();
                         break;
                         }
             }
