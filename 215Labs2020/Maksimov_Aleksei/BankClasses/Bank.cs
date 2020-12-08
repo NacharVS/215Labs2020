@@ -80,6 +80,6 @@ namespace _215Labs2020.Maksimov_Aleksei
                 yy = value;
             }
         }
-        
+
     }
 }
