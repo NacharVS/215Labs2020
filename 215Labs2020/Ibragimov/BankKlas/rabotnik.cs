@@ -4,48 +4,57 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.BankKlas
 {
-    
-        class rabotnikk : bank2
+
+    class Employee : user
+    {
+        private static string rabname = "Олег";
+        private static string rabsurname = "Иванов";
+        private static int zarplata;
+        private static int _id;
+        public static string Rabname
         {
-            private static string fio11 = "Иванов Иван Иванович";
-            private static int zarplata;
-            private static int _id=288;
-            public static string FIO1
+            get
             {
-                get
-                {
-                    return fio11;
-                }
-                set
-                {
-                    fio11 = value;
-                }
+                return rabname;
             }
-            public static int Zarplata
+            set
             {
-                get
-                {
-                    return zarplata;
-                }
-                set
-                {
-                    zarplata = 9999000;
-                }
+                rabname = value;
             }
-            public static int Id
+        }
+        public static string Rabsurname
+        {
+            get
             {
-                get
-                {
-                    return _id;
-                }
-                set
-                {
-                    _id = 228;
-                }
+                return rabsurname;
             }
-          
+            set
+            {
+                rabsurname = value;
+            }
+        }
+        public static int Zarplata
+        {
+            get
+            {
+                return zarplata;
+            }
+            set
+            {
+                zarplata = 45000;
+            }
+        }
+        public static int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = 1;
+            }
+        }
+    }
 
-        }      
-
-    
 }

@@ -1,61 +1,80 @@
 ﻿namespace _215Labs2020.Ibragimov.BankKlas
 {
-    abstract class bank2
+    abstract class Bank
     {
-        private static double Years;
-        private static double mec1;
-        private static double day1;
-        private static string FIo;
+        private static string name;
+        private static string surname;
+        private static int age;
+        private static int dt;
+        private static int mm;
+        private static int yy;
 
-
-        public static string FIO
+        public static string Name
         {
             get
             {
-                return FIo;
+                return name;
             }
             set
             {
-                FIo = value;
+                name = value;
             }
         }
-        public static double Year
+        public static string Surname
         {
             get
             {
-                return Years;
+                return surname;
             }
             set
             {
-                Years = value;
+                surname = value;
             }
         }
-        public static double mec
+        public static int Age
         {
             get
             {
-                return mec1;
+                return age;
             }
             set
             {
-                mec1 = value;
+                age = value;
             }
         }
-        public static double day
+        public static int Dt
         {
             get
             {
-                return day1;
+                return dt;
             }
             set
             {
-                day1 = value;
+                dt = value;
             }
         }
-        
-
-
-
+        public static int Mm
+        {
+            get
+            {
+                return mm;
+            }
+            set
+            {
+                mm = value;
+            }
+        }
+        public static int Yy
+        {
+            get
+            {
+                return yy;
+            }
+            set
+            {
+                yy = value;
+            }
+        }
 
     }
 
