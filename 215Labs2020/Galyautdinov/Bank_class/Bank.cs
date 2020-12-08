@@ -447,7 +447,6 @@ namespace _215Labs2020.Galyautdinov
                 {
                     switch (number_operation)
                     {
-
                         case 1: Refill(); break;
                         case 2: Withdrawal(); break;
                         case 3: Transfer(); break;
@@ -456,8 +455,6 @@ namespace _215Labs2020.Galyautdinov
                         case 6: PeriodProfit(bank_balans); break;
                         case 7: ListOfClients(); break;
                         case 8: FullName(); break;
-
-                        
                     }
                     Console.WriteLine("Выберите дальнейшие действие");
                     try
