@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace _215Labs2020.Kuzmin_Aleksey.Bank
 {
@@ -14,6 +15,7 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             _telephone = "";
         }
         private static string name, number, birthday;
+        public static ArrayList Humans = new ArrayList();
         delegate double Message(double a);
         event Message Notify;
         private Client(string name, string telephone, string birthday)
@@ -24,13 +26,17 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
         }
         private static void Registration()
         {
+            
             Console.WriteLine("Регистрация:");
-            Console.Write("Введите сове ФИО: ");
+            Console.Write("Введите свое ФИО: ");
             name = Console.ReadLine();
+            Humans.Add(name);
             Console.Write("Введите свой номер: ");
             number = Console.ReadLine();
+            Humans.Add(number);
             Console.Write("Введите свою дату рожедения: ");
             birthday = Console.ReadLine();
+            Humans.Add(birthday);
         }
         private void GetInfo()
         {
