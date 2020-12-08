@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
+using _215Labs2020.Faizullin.Bankssssa;
 
 namespace _215Labs2020.Faizullin
 
@@ -13,6 +14,7 @@ namespace _215Labs2020.Faizullin
         private DateTime _birth;
         private static string _SNF;
         private static string _PhoneNumber;
+        private static string _id;
         private static double _contribution = 0;
         private static double _percent = 0.3;
         private static int _balans = 0;
@@ -63,6 +65,17 @@ namespace _215Labs2020.Faizullin
                 _PhoneNumber = phoneNumber;
             }
         }
+        public string id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = id;
+            }
+        }
         public DateTime Birth
         {
             get
@@ -81,7 +94,8 @@ namespace _215Labs2020.Faizullin
                 }
                 else
                 {
-                    Console.WriteLine(" Можете внести депозит ");
+
+                    Console.WriteLine("Можете внести депозит");
                 }
             }
         }
@@ -93,6 +107,17 @@ namespace _215Labs2020.Faizullin
             }
 
         }
+        //public void Client()
+        //{
+        //    List<Client> clientList = new List<Client>();
+
+        //    clientList.Add(new Client("hvjv"));
+        //    clientList.Add(new Client("hvjv"));
+        //    foreach (Client iteam in clientList)
+        //    {
+        //        Console.WriteLine(iteam);
+        //    }
+        //}
 
         public void Registration()
         {
@@ -101,6 +126,9 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine("Введите номер телефона");
             Console.WriteLine("**********************");
             _PhoneNumber = Console.ReadLine();
+            Console.WriteLine("Введите id ");
+            Console.WriteLine("**********************");
+            _id = Console.ReadLine();
 
             Bank bank = new Bank();
             try
@@ -116,7 +144,13 @@ namespace _215Labs2020.Faizullin
                 bank.Birth = Convert.ToDateTime(inputDate);
 
                 Console.WriteLine("Ваш возвраст: {0}", bank.Age);
-                ArrayList list = new ArrayList();
+                //ArrayList list = new ArrayList();
+                //string SNF = Console.ReadLine();
+                //foreach (var iteam in list)
+                //{
+                //    Console.WriteLine(iteam);
+                //}
+
                 
 
             }
@@ -126,10 +160,12 @@ namespace _215Labs2020.Faizullin
                 Console.ReadLine();
                 return;
             }
+           
 
 
 
         }
+       
         private void Operation()
         {
             Bank bank = new Bank();
