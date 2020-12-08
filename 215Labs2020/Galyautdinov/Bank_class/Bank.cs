@@ -21,6 +21,7 @@ namespace _215Labs2020.Galyautdinov
         private static ArrayList ListName = new ArrayList();
         private static ArrayList ListBalans = new ArrayList();
         private static ArrayList ListID = new ArrayList();
+        private static ArrayList ListSurName = new ArrayList();
 
         //public delegate void AccountHandler(string message);
         public delegate void AccountHandler();
@@ -38,7 +39,9 @@ namespace _215Labs2020.Galyautdinov
         private static void FullName()
         {
             bank_balans = 0;
-            Console.WriteLine("ФИО: ");
+            Console.Write("Введите фамилию: ");
+            SurName = Console.ReadLine();
+            Console.Write("Введите имя: ");
             Name = Console.ReadLine();
             Console.WriteLine("Укажиет день рождение");
             Console.Write("День: ");
@@ -53,6 +56,7 @@ namespace _215Labs2020.Galyautdinov
             ID += 1;
             ListID.Add(ID);
             ListName.Add(Name);
+            ListSurName.Add(SurName);
             ListBalans.Add(bank_balans);
         }
         private static void ListOfClients()
@@ -60,7 +64,7 @@ namespace _215Labs2020.Galyautdinov
             for (int i = 0; i < ListName.Count; i++)
             {
                 Console.WriteLine($"  ID: {ListID[i]}");
-                Console.WriteLine($"  ФИО: {ListName[i]}");
+                Console.WriteLine($"  Фамилия: {ListName[i]} \n  Имя: {ListSurName[i]}");
                 Console.WriteLine($"  Баланс: {ListBalans[i]}");
                 Console.WriteLine();
             }
@@ -70,9 +74,9 @@ namespace _215Labs2020.Galyautdinov
             Console.WriteLine("Введите ID ");
             int set_id = int.Parse(Console.ReadLine());
             Console.WriteLine("Выберите параметр для редактирования ");
-            Console.WriteLine("1. Surname");
-            Console.WriteLine("2. Name");
-            Console.WriteLine("3. Конец");
+            Console.WriteLine("1. Фамилия");
+            Console.WriteLine("2. Имя");
+            Console.WriteLine("3. Выход из редактирования");
 
             int proverka_red = int.Parse(Console.ReadLine());
             while(proverka_red<2 && proverka_red > 0)
@@ -81,16 +85,22 @@ namespace _215Labs2020.Galyautdinov
                 {
                     case 1:
                         {
-                            Console.WriteLine("New Surname");
+                            Console.Write("Введите новую фамилию: ");
+                            ListSurName[set_id - 1] = Console.ReadLine();
+                        }
+                        break;
+                    case 2:
+                        {
+                            Console.Write("Введите новую имю: ");
                             ListName[set_id - 1] = Console.ReadLine();
                         }
                         break;
                 }
                 Console.WriteLine("Выберите параметр для редактирования ");
 
-                Console.WriteLine("1. Surname");
-                Console.WriteLine("2. Name");
-                Console.WriteLine("3. Конец");
+                Console.WriteLine("1. Фамилия");
+                Console.WriteLine("2. Имя");
+                Console.WriteLine("3. Выход из редактирования");
 
                 proverka_red = int.Parse(Console.ReadLine());
             }
