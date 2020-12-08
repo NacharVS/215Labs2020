@@ -74,6 +74,7 @@ namespace _Bank
         private static string _surname;
         private static string _name;
         private static string _otchestvo;
+        private static int ID;
         private static int summ = 0;
         private static int _vivod = 0;
         private static int summ1 = 0;
@@ -84,6 +85,7 @@ namespace _Bank
         {
             Console.WriteLine(message);
         }
+        private static ArrayList ID_list = new ArrayList();
         private static ArrayList Surname_list = new ArrayList();
         private static ArrayList Name_list = new ArrayList();
         private static ArrayList Otchestvo_list = new ArrayList();
@@ -94,12 +96,56 @@ namespace _Bank
             for (int i = 0; i < Name_list.Count; i++)
             {
                 Console.WriteLine($"{i + 1}){Registrate_Data[i]}");
+                Console.WriteLine($"   ID номер: {ID_list[i]}");
                 Console.WriteLine($"   Фамилия: {Surname_list[i]}");
                 Console.WriteLine($"   Имя: {Name_list[i]}");
                 Console.WriteLine($"   Отчество: {Otchestvo_list[i]}");
                 Console.WriteLine($"   Баланс: {Balans_list[i]}");
                 Console.WriteLine();
             }
+        }
+        private static void set_account()
+        {
+            Console.Write("Введите ID пользователя, у которого хотите отредактировать профиль");
+            int select_id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Что хотите отредактировать?");
+            Console.WriteLine("1) Фамилию");
+            Console.WriteLine("2) Имя");
+            Console.WriteLine("3) Отчество");
+            Console.WriteLine("4) Выйти");
+            int select = int.Parse(Console.ReadLine());
+            while (select<4 && select > 0)
+            {
+                switch (select)
+                {
+                    case 1:
+                        {
+                            Console.Write("Введите новую фамилию: ");
+                            Surname_list[select_id-1] = Console.ReadLine();
+                        }
+                        break;
+                    case 2:
+                        {
+                            Console.Write("Введите новое имя: ");
+                            Name_list[select_id-1] = Console.ReadLine();
+                        }
+                        break;
+                    case 3:
+                        {
+                            Console.Write("Введите новое отчество: ");
+                            Otchestvo_list[select_id-1] = Console.ReadLine();
+                        }
+                        break;
+                }
+                Console.WriteLine("Что хотите отредактировать?");
+                Console.WriteLine("1) Фамилию");
+                Console.WriteLine("2) Имя");
+                Console.WriteLine("3) Отчество");
+                Console.WriteLine("4) Выйти");
+                select = int.Parse(Console.ReadLine());
+            }
+
+            
         }
         private static void dataofbirth()
         {
@@ -187,6 +233,8 @@ namespace _Bank
                     yearofbirth = int.Parse(Console.ReadLine());
                 }
             }
+            ID += 1;
+            ID_list.Add(ID);
             Surname_list.Add(surname);
             Name_list.Add(name);
             Otchestvo_list.Add(otchestvo);
@@ -452,7 +500,7 @@ namespace _Bank
             }
             if (a == 2)
                 a = 0;
-            while (a > 0 && a < 9)
+            while (a > 0 && a < 10)
             {
                 switch (a)
                 {
@@ -464,6 +512,7 @@ namespace _Bank
                     case 6: { tecush_balans();} break;
                     case 7: { pucupka();} break;
                     case 8: chek_accounts(); break;
+                    case 9: set_account(); break;
                 }
                 Console.WriteLine();
                 Console.WriteLine("Выберите действие: ");
@@ -475,7 +524,8 @@ namespace _Bank
                 Console.WriteLine("6) Узнать текущий баланс");
                 Console.WriteLine("7) Покупка");
                 Console.WriteLine("8) Просмотр зарегистрированных пользователей");
-                Console.WriteLine("9) Выйти");
+                Console.WriteLine("9) Редактирование профиля");
+                Console.WriteLine("10) Выйти");
                 int f1 = 0;
                 while (f1 == 0)
                 {
