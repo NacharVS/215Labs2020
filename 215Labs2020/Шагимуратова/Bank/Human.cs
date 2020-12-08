@@ -8,9 +8,17 @@ namespace _215Labs2020.Шагимуратова.Bank
     {
         private string _name;
         private string _Surname;
-      
-        
-        public string Name
+        private string _Otchestvo;
+        private string _DayBD;
+        private string _MonthBD;
+        private string _YearBD;
+        private int _id;
+
+
+
+
+
+        public  string Name
         {
             get
             {
@@ -33,8 +41,52 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _Surname = value;
             }
         }
+        public string Otchestvo
+        {
+            get
+            {
+                return _Otchestvo;
+            }
+            set
+            {
+                _Otchestvo = value;
+            }
+        }
+        public string DayBD
+        {
+            get
+            {
+                return _DayBD;
+            }
+            set
+            {
+                _DayBD = value;
+            }
+        }
+        public string MonhtBD
+        {
+            get
+            {
+                return _MonthBD;
+            }
+            set
+            {
+                _MonthBD = value;
+            }
+        }
+        public string YearBD
+        {
+            get
+            {
+                return _YearBD;
+            }
+            set
+            {
+                _YearBD = value;
+            }
+        }
 
-       
+        public int Id { get => _id; set => _id = value; }
     }
     class Sotrudnic : Human
     {

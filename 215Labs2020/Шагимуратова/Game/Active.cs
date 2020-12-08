@@ -8,21 +8,24 @@ namespace _215Labs2020.Шагимуратова.Game
     {
         interface Movable
         {
-            void movable();
+            void movable()
+            {
+                Console.WriteLine($"Скорость передвижения: {Speed} км/ч.");
+            }
         }
         interface Protect
         {
             void protect();
+            
         }
-        //interface  
-        //{
-        //    void ();
-        //}
-        //interface 
-        //{
-        //    void movable();
-        //}
-
+        interface Attack
+        {
+            void attack()
+            {
+                Console.WriteLine($"Атака Воина с уроном: {Damage} ед.");
+            }
+        }
+       
 
     }
 }

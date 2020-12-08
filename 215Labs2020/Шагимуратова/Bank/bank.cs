@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace _215Labs2020.Шагимуратова.Bank
 {
@@ -15,9 +16,9 @@ namespace _215Labs2020.Шагимуратова.Bank
         private double _summa;
         private int _years;
         private static string _Patronymic;
-        private static string _dayB;
-        private static string _mounthB;
-        private static string _yearB;
+        //private static string _dayB;
+        //private static string _mounthB;
+        //private static string _yearB;
        
         public delegate void Handler(string message);
         public event Handler Notify;
@@ -58,21 +59,27 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _summinvklad = value;
             }
         }
-       
-        public static void Reg (bank User)
+
+
+        public static void Reg (List<bank> klients,bank User)
         {
+           
             Console.WriteLine("Введите имя ");
-            User.Name = Console.ReadLine();
+             User.Name = Console.ReadLine();
             Console.WriteLine("Введите Фамилию ");
+           // String buffSurname = Console.ReadLine();
             User.SurName = Console.ReadLine();
             Console.Write("Введите Отчество ");
-            User._ = Console.ReadLine();
+            User.Otchestvo = Console.ReadLine();
             Console.Write("День: ");
-             = int.Parse(Console.ReadLine());
+            User.DayBD=Console.ReadLine();
             Console.Write("Месяц: ");
-            monthofbirth = int.Parse(Console.ReadLine());
+            //String buffMonthBD = Console.ReadLine();
+             User.MonhtBD = Console.ReadLine();
             Console.Write("Год: ");
-            yearofbirth = int.Parse(Console.ReadLine());
+            //String buffYearBD = Console.ReadLine();
+             User.YearBD = Console.ReadLine();
+
             int k=0;
             do
             {
@@ -124,13 +131,22 @@ namespace _215Labs2020.Шагимуратова.Bank
 
 
         }
-        public static void Nachalo()
+        List<bank> kleints = new List<bank>();
+
+        public static void Nachalo(List<bank> klients)
         {
             int c = 0;
             int ii = 1;
-            bank[] Accounts = new bank[ii];
+
+
+           // bank[] Accounts = new bank[ii];
             do
             {
+                foreach(bank Account in kleints)
+                {
+
+
+                }
                 for (int i = 0; i < ii; i++)
                 {
                     Accounts[i] = new bank();
@@ -147,6 +163,8 @@ namespace _215Labs2020.Шагимуратова.Bank
             }
             while (c == 1);
         }
+
+
     }
     
     //static void M (string[] args)

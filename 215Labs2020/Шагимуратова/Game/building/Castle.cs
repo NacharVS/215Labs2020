@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Шагимуратова.Game.building
 {
-    class Castle
+    class Castle : All_Unit
     {
     }
 }
