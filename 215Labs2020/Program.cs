@@ -10,7 +10,7 @@ namespace _215Labs2020
     {
         static void Main (string[] args)
         {
-            //Bank1.Program();
+            Bank1.Program();
 
         }
     }
