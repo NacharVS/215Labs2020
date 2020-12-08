@@ -1,14 +1,37 @@
 ﻿using _215Labs2020.Maksimov_Aleksei.BankClasses;
 using System;
 using System.Dynamic;
+using System.Collections.Generic;
 
-namespace _215Labs2020.Maksimov_Aleksei
+namespace _215Labs2020.Maksimov_Aleksei.BankClasses
 {
     
     class user : Bank
     {
         private static double vklad = 0;
         private static double procent = 0.1;
+        private string _name;
+        private string _surname;
+        private int __id;
+        private int _moneyCount;
+        public string LName => _name;
+        public string LSurName => _surname;
+        public int Lid;
+        public int LmoneyCount;
+        
+        public user()
+
+        public void InfoOfdan() {
+            List<user> dannie = new List<user>();
+            dannie.Add(new user("Kirill", "Ohotnicov",);
+        }
+
+
+
+
+
+
+
 
         public delegate void Messege();
         public static event Messege EV1;
