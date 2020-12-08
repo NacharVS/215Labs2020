@@ -8,7 +8,8 @@ namespace _215Labs2020.Galyautdinov.Bank_class
     abstract class Person
     {
         private static string _name;
-        private static string _name1;
+        private static int _id;
+        //private static double _bank_balans;
         public static string Name
         {
             get
@@ -20,16 +21,27 @@ namespace _215Labs2020.Galyautdinov.Bank_class
                 _name = value;
             }
         }
-        public static string Name1
+        public static int ID
         {
             get
             {
-                return _name1;
+                return _id;
             }
             set
             {
-                _name1 = value;
+                _id = value;
             }
         }
+        /*public static double bank_balans
+        {
+            get
+            {
+                return _bank_balans;
+            }
+            set
+            {
+                _bank_balans = value;
+            }
+        }*/
     }
 }

@@ -5,22 +5,22 @@ using System.Threading.Tasks;
 
 namespace _215Labs2020.Galyautdinov
 {
-    class Bank
+    class Bank : Person
     {
-        private static string name;
         private static double bank_balans = 0;
         private static double percent = 0.001;
         private static double cashback_percent = 0.05;
         private static double cashback_partner_percent = 0.2;
         private static double cashback = 0;
         private static DateTime _accountOpenDate;
-        private static long phone;
+        private static string phone;
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
 
         private static ArrayList ListName = new ArrayList();
         private static ArrayList ListBalans = new ArrayList();
+        private static ArrayList ListID = new ArrayList();
 
         //public delegate void AccountHandler(string message);
         public delegate void AccountHandler();
@@ -39,7 +39,7 @@ namespace _215Labs2020.Galyautdinov
         {
             bank_balans = 0;
             Console.WriteLine("ФИО: ");
-            name = Console.ReadLine();
+            Name = Console.ReadLine();
             Console.WriteLine("Укажиет день рождение");
             Console.Write("День: ");
             day_birthday = int.Parse(Console.ReadLine());
@@ -47,34 +47,52 @@ namespace _215Labs2020.Galyautdinov
             month_birthday = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
             year_birthday = int.Parse(Console.ReadLine());
-            try
-            {
-                Console.Write("Введите ваш номер телефона: ");
-                phone = long.Parse(Console.ReadLine());
-            }
-            catch
-            {
-                Console.Write("Введите правильный номер телефона: ");
-                phone = long.Parse(Console.ReadLine());
-            }
-            if (phone/10000000000==0 || phone/ 1000000000 != 8)
-            {
-                while (phone / 10000000000 == 0 || phone / 10000000000 != 8)
-                {
-                    Console.Write("Введиет правильный номер телефона: ");
-                    phone = long.Parse(Console.ReadLine());
-                }
-            }
-            ListName.Add(name);
+            Console.Write("Введите номер телефона: ");
+            phone = Console.ReadLine();
+
+            ID += 1;
+            ListID.Add(ID);
+            ListName.Add(Name);
             ListBalans.Add(bank_balans);
         }
         private static void ListOfClients()
         {
             for (int i = 0; i < ListName.Count; i++)
             {
-                Console.WriteLine($"   ФИО: {ListName[i]}");
-                Console.WriteLine($"   Баланс: {ListBalans[i]}");
+                Console.WriteLine($"  ID: {ListID[i]}");
+                Console.WriteLine($"  ФИО: {ListName[i]}");
+                Console.WriteLine($"  Баланс: {ListBalans[i]}");
                 Console.WriteLine();
+            }
+        }
+        private static void set_account()
+        {
+            Console.WriteLine("Введите ID ");
+            int set_id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Выберите параметр для редактирования ");
+            Console.WriteLine("1. Surname");
+            Console.WriteLine("2. Name");
+            Console.WriteLine("3. Конец");
+
+            int proverka_red = int.Parse(Console.ReadLine());
+            while(proverka_red<2 && proverka_red > 0)
+            {
+                switch (proverka_red)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("New Surname");
+                            ListName[set_id - 1] = Console.ReadLine();
+                        }
+                        break;
+                }
+                Console.WriteLine("Выберите параметр для редактирования ");
+
+                Console.WriteLine("1. Surname");
+                Console.WriteLine("2. Name");
+                Console.WriteLine("3. Конец");
+
+                proverka_red = int.Parse(Console.ReadLine());
             }
         }
         private static void Refill()
@@ -234,6 +252,7 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine($"Ваш  баланс: {bank_balans}");
                 //bank.Notify?.Invoke($"Со счета снято: {a}");
             }
+            ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void Transfer()
         {
@@ -321,6 +340,7 @@ namespace _215Labs2020.Galyautdinov
                 messege();
                 Console.WriteLine($"Ваш  баланс: {bank_balans}");
                 //bank.Notify?.Invoke($"Осуществлен перевод на  {a} рублей.");
+                ListBalans[ListName.Count - 1] = bank_balans;
             }
 
         }
@@ -369,6 +389,7 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine($"Ваш  баланс: {bank_balans}");
             }
             cashback = 0;
+            ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void PeriodProfit(double bank_balans)
         {
@@ -384,6 +405,7 @@ namespace _215Labs2020.Galyautdinov
             AccountHandler messege1 = () => Console.WriteLine($"Начислена  процентная ставка");
             messege1();
             Console.WriteLine($"Ваш  баланс: {bank_balans}");
+            ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void CheckBalance()
         {
@@ -409,14 +431,9 @@ namespace _215Labs2020.Galyautdinov
             {
                 FullName();
             }
-            Console.Clear();
-            _accountOpenDate = DateTime.Now;
-            Console.WriteLine($"Дата открытия счета {_accountOpenDate} ");
-            Console.WriteLine(Person.Name);
-            Console.WriteLine($"Ваш номер телефона: {phone}");
+
             DateTime dataBorn = new DateTime(year_birthday, month_birthday, day_birthday);
-            Console.WriteLine($"Дата рождения: {dataBorn.Day}.{dataBorn.Month}.{dataBorn.Year}");
-            Console.WriteLine();
+
             if (DateTime.Now.Year - dataBorn.Year < 14)
             {
                 Console.WriteLine("Люди младше 14 лет не могут открыть счет.");
@@ -431,6 +448,7 @@ namespace _215Labs2020.Galyautdinov
                 Console.WriteLine("6. Процентный остаток");
                 Console.WriteLine("7. Список клиентов");
                 Console.WriteLine("8. Зарегистрировать нового клиента");
+                Console.WriteLine("9. Редактировать данные клиента");
                 Console.WriteLine("\t Выберите любое число для выхода");
                 Console.WriteLine();
                 Console.Write("Выберите дальшейшие действие ");
@@ -443,7 +461,7 @@ namespace _215Labs2020.Galyautdinov
                     Console.WriteLine("Введите правильную сумму");
                     number_operation = int.Parse(Console.ReadLine());
                 }
-                while (number_operation > 0 && number_operation < 9)
+                while (number_operation > 0 && number_operation < 10)
                 {
                     switch (number_operation)
                     {
@@ -455,6 +473,7 @@ namespace _215Labs2020.Galyautdinov
                         case 6: PeriodProfit(bank_balans); break;
                         case 7: ListOfClients(); break;
                         case 8: FullName(); break;
+                        case 9: set_account(); break;
                     }
                     Console.WriteLine("Выберите дальнейшие действие");
                     try
