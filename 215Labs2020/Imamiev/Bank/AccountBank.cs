@@ -111,7 +111,7 @@ namespace _215Labs2020.Imamiev
         }
         private static void Withdraw()
         {
-            BankAccount operations = new BankAccount(balance);
+            AccountBank operations = new AccountBank(balance);
             int money = 0;
             int check = 0;
             Console.Write("Enter the amount you want to withdraw: ");
@@ -148,7 +148,7 @@ namespace _215Labs2020.Imamiev
         }
         private static void Transfer()
         {
-            AccountBank operations = new AccountBankt(balance);
+            AccountBank operations = new AccountBank(balance);
             int money = 0;
             Console.Write("Enter the number of account that you want to transfer: ");
             int accNumber = int.Parse(Console.ReadLine());
