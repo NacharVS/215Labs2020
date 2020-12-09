@@ -7,6 +7,8 @@ namespace _215Labs2020.Sabirov.User
 {
     class User : Bank
     {
+        public string _Name => Name;
+        static List<User> a = new List<User>();
         public User(string Name, string Surname, int Day, int Month, int Year, string Email)
         {
             Bank.Name = Name;
@@ -237,16 +239,11 @@ namespace _215Labs2020.Sabirov.User
             Random bank123 = new Random();
             Bank.Id = bank123.Next(1000000, 1999999);
             Console.WriteLine($"Your id: {Bank.Id}");
-            List<Object> a = new List<Object>();
-            a.Add(Name);
-            a.Add(Surname);
-            a.Add(Day);
-            a.Add(Month);
-            a.Add(Age);
-            a.Add(Email);
+            
+            a.Add(new User(Bank.Name, Bank.Surname, Bank.Day, Bank.Month, Bank.Age, Bank.Email));
             foreach (var item in a)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item._Name);
             
             }
 
@@ -293,15 +290,7 @@ namespace _215Labs2020.Sabirov.User
                     case "5":
                         Console.WriteLine("Enter your ID");
                         int i = int.Parse(Console.ReadLine());
-                        a.Add(i);
-                        foreach (var item in a)
-                        { 
-                        if(item.)
-                        
-                        
-                        
-                        }
-                        Console.WriteLine();
+                       
 
 
 
