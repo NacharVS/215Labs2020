@@ -12,7 +12,7 @@ namespace _215Labs2020.Sabirov.StrategyGame
         static int _range;
         static int _speed;
         static int _armor;
-       public static int _gold;
+        public static int _gold;
         static int _wood;
         static string _name;
 

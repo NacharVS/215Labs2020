@@ -23,13 +23,13 @@ namespace _215Labs2020.Sabirov.StrategyGame
             int yes = 1;
             while (yes == 1)
             {
-                Console.WriteLine("What do you want to do(build a building(1),hire a squad(2),hire neutral creatures(3),hire peaceful creatures(4),Find out how much gold you have(5))");
+                Console.WriteLine("What do you want to do(build a building(1)\nhire a squad(2)\nhire neutral creatures(3)\nhire peaceful creatures(4)\nFind out how much gold you have(5))");
                 int a = int.Parse(Console.ReadLine());
                 switch (a)
                 {
 
                     case (2):
-                        Console.WriteLine("who exactly(Ballista(1), Footman(2), Gnomish Submarine(3), Knight(4), Archer(5))");
+                        Console.WriteLine("who exactly(Ballista(1)\nFootman(2)\nGnomish Submarine(3)\nKnight(4)\nArcher(5))");
                         int b = int.Parse(Console.ReadLine());
 
                         switch (b)
@@ -93,7 +93,7 @@ namespace _215Labs2020.Sabirov.StrategyGame
 
 
                     case (4):
-                        Console.WriteLine("who exactly(Peasant(1), Peon(2))");
+                        Console.WriteLine("who exactly(Peasant(1)\nPeon(2))");
                         int c = int.Parse(Console.ReadLine());
                         switch (c)
                         {
@@ -131,7 +131,7 @@ namespace _215Labs2020.Sabirov.StrategyGame
 
 
                     case (3):
-                        Console.WriteLine("who exactly(Pitlord(1), Firelord(2), Maga sea witch(3))");
+                        Console.WriteLine("who exactly(Pitlord(1)\nFirelord(2)\nNaga sea witch(3))");
                         int d = int.Parse(Console.ReadLine());
                         switch (d)
                         {
@@ -173,7 +173,7 @@ namespace _215Labs2020.Sabirov.StrategyGame
 
                     case (1):
 
-                        Console.WriteLine("What exactly(Barracks(1),Farm(2),Scout Tower(3), Blacksmith(4),Town Hall(5))");
+                        Console.WriteLine("What exactly(Barracks(1)\nFarm(2)\nScout Tower(3)\nBlacksmith(4)\nTown Hall(5))");
                         int e = int.Parse(Console.ReadLine());
                         switch (e)
                         {

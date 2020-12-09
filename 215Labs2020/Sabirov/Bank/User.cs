@@ -7,9 +7,14 @@ namespace _215Labs2020.Sabirov.User
 {
     class User : Bank
     {
-        private interface IUser
+        public User(string Name, string Surname, int Day, int Month, int Year, string Email)
         {
-
+            Bank.Name = Name;
+            Bank.Surname = Surname;
+            Bank.Day = Day;
+            Bank.Month = Month;
+            Bank.Age = Year;
+            Bank.Email = Email;
         }
         private static double money = 0;
         private static double deposit = 1.1;
@@ -102,9 +107,12 @@ namespace _215Labs2020.Sabirov.User
             
             User person = new User(0, DateTime.Now);
             Console.WriteLine(User.Regis);
-            Console.WriteLine("Enter your full name:");
+            Console.WriteLine("Enter your name:");
             string name = Console.ReadLine();
             User.UserName(name);
+            Console.WriteLine("Enter your surname");
+            string surname = Console.ReadLine();
+            User.UserName(surname);
             Console.WriteLine("Enter your BirthDay");
             Bank.Day = int.Parse(Console.ReadLine());
             User.MonthCheck();
@@ -229,11 +237,24 @@ namespace _215Labs2020.Sabirov.User
             Random bank123 = new Random();
             Bank.Id = bank123.Next(1000000, 1999999);
             Console.WriteLine($"Your id: {Bank.Id}");
+            List<Object> a = new List<Object>();
+            a.Add(Name);
+            a.Add(Surname);
+            a.Add(Day);
+            a.Add(Month);
+            a.Add(Age);
+            a.Add(Email);
+            foreach (var item in a)
+            {
+                Console.WriteLine(item);
+            
+            }
+
             int yes = 1;
             while (yes == 1)
             {
                 Console.WriteLine("What do you want to do (deposit money, withdraw money, Find out the amount of funds after replenishment of the deposit)");
-                Console.WriteLine("Press 1 to deposit money\nPress 2 to withdraw money\nPress 3 to find out the amount of funds after replenishment of the deposit\n Press 4 to find out about your Cashback");
+                Console.WriteLine("Press 1 to deposit money\nPress 2 to withdraw money\nPress 3 to find out the amount of funds after replenishment of the deposit\n Press 4 to find out about your Cashback\n Press 5 to change personal data");
                 string enter = Console.ReadLine();
                 switch (enter)
                 {
@@ -268,6 +289,22 @@ namespace _215Labs2020.Sabirov.User
                         Console.WriteLine("How much?:");
                         double price = double.Parse(Console.ReadLine());
                         User.CashBack(shop, price);
+                        break;
+                    case "5":
+                        Console.WriteLine("Enter your ID");
+                        int i = int.Parse(Console.ReadLine());
+                        a.Add(i);
+                        foreach (var item in a)
+                        { 
+                        if(item.)
+                        
+                        
+                        
+                        }
+                        Console.WriteLine();
+
+
+
                         break;
                    
                 }

@@ -12,6 +12,7 @@ namespace _215Labs2020.Sabirov
         private static int age;
         private static string email;
         private static int id;
+        private static string surname;
        
 
         public static string Name
@@ -26,6 +27,7 @@ namespace _215Labs2020.Sabirov
             }
 
         }
+
         public static int Id
         {
             get
@@ -88,6 +90,6 @@ namespace _215Labs2020.Sabirov
             }
         }
 
-
+        public static string Surname { get => surname; set => surname = value; }
     }
 }
