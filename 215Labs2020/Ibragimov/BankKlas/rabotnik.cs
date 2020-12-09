@@ -32,6 +32,8 @@ namespace _215Labs2020.Ibragimov.BankKlas
             {
                 rabsurname = value;
             }
+
+
         }
         public static int Zarplata
         {
