@@ -10,7 +10,10 @@ namespace _215Labs2020.Maksimov_Aleksei.BankClasses
         private static string bsurname;
         private static int _vklad;
         private static int id;
+        public static ArrayList Lid = new ArrayList();
         public static ArrayList Lnames = new ArrayList();
+        public static ArrayList LSnames = new ArrayList();
+        public static ArrayList LVklad = new ArrayList();
 
         //public string Name => bname;
         //public string Surname => bsurname;
@@ -34,8 +37,12 @@ namespace _215Labs2020.Maksimov_Aleksei.BankClasses
             //}
             //int n = int.Parse(Console.ReadLine());
             //if ()
-           
+            Lid.Add(123); Lid.Add(007); Lid.Add(228);
+            Lnames.Add("Cillian"); Lnames.Add("Tom"); Lnames.Add("James");
+            LSnames.Add("Murfy"); LSnames.Add("Hardy"); LSnames.Add("Bond");
+            LVklad.Add(159000); LVklad.Add(177000); LVklad.Add(190000);
 
+            Console.WriteLine("Enter name");
 
         }
     }
