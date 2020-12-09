@@ -7,15 +7,7 @@ namespace _215Labs2020.Imamiev
     abstract class User
     {
         public static string name;
-        public static string surname;
-        public static int date;
-        public static int month;
-        public static int year;
-        public static int age;
-        public static string EmployeeName = "Zahar";
-        public static string EmployeeSurname = "Anisimov";
-        public static int payment;
-
+        public static string name2;
         public static string Name
         {
             get
@@ -27,93 +19,18 @@ namespace _215Labs2020.Imamiev
                 name = value;
             }
         }
-        public static string Surname
+        public static string Name2
         {
             get
             {
-                return surname;
+                return name2;
             }
             set
             {
-                surname = value;
-            }
-        }
-        public static int Age
-        {
-            get
-            {
-                return age;
-            }
-            set
-            {
-                age = value;
-            }
-        }
-        public static int Month
-        {
-            get
-            {
-                return month;
-            }
-            set
-            {
-                month = value;
-            }
-        }
-        public static int Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
-        }
-        public static int Year
-        {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                year = value;
-            }
-        }
-        public static string EmployeeN
-        {
-            get
-            {
-                return EmployeeName;
-            }
-            set
-            {
-                EmployeeName = value;
-            }
-        }
-        public static string EmployeeS
-        {
-            get
-            {
-                return EmployeeSurname;
-            }
-            set
-            {
-                EmployeeSurname = value;
-            }
-        }
-        public static int Pay
-        {
-            get
-            {
-                return payment;
-            }
-            set
-            {
-                payment = 6250;
+                name2 = value;
             }
         }
     }
 }
+    
+
