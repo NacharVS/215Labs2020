@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Maksimov_Aleksei.BankClasses
 {
-    class Employee : user
+    class Employee 
     {
         private static string rabname = "Олег";
         private static string rabsurname = "Иванов";

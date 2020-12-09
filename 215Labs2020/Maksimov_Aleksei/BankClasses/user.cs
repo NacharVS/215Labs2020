@@ -14,23 +14,11 @@ namespace _215Labs2020.Maksimov_Aleksei.BankClasses
         private string _surname;
         private int __id;
         private int _moneyCount;
-        public string LName => _name;
-        public string LSurName => _surname;
-        public int Lid => __id;
-        public int LmoneyCount => _moneyCount;
+
         
-        public user(string lname, string lsname, int lid, int lmoneyCount)
-        {
-            _name = lname; _surname = lsname; __id = lid; _moneyCount = lmoneyCount;
-        }
-
-        public void InfoOfdan() {
-            List<user> dannie = new List<user>();
-            dannie.Add(new user("Kirill", "Ohotnicov", 228, 60000));
-
-        }
 
 
+        
 
 
 

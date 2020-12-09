@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei.StrategyGame
+namespace _215Labs2020.Maksimov_Aleksei.BankClasses
 {
     class Program
     {
         static void Main(string[] args)
         {
-            game.zapusk();
+            Class1.collections();
         }
     }
 }
