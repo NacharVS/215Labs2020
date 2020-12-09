@@ -9,9 +9,9 @@ namespace _215Labs2020.Шагимуратова.Bank
         private string _name;
         private string _Surname;
         private string _Otchestvo;
-        private string _DayBD;
-        private string _MonthBD;
-        private string _YearBD;
+        private int _DayBD;
+        private int _MonthBD;
+        private int _YearBD;
         private int _id;
 
 
@@ -52,7 +52,7 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _Otchestvo = value;
             }
         }
-        public string DayBD
+        public int DayBD
         {
             get
             {
@@ -63,7 +63,7 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _DayBD = value;
             }
         }
-        public string MonhtBD
+        public int MonhtBD
         {
             get
             {
@@ -74,7 +74,7 @@ namespace _215Labs2020.Шагимуратова.Bank
                 _MonthBD = value;
             }
         }
-        public string YearBD
+        public int YearBD
         {
             get
             {

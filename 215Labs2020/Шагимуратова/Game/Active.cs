@@ -10,7 +10,7 @@ namespace _215Labs2020.Шагимуратова.Game
         {
             void movable()
             {
-                Console.WriteLine($"Скорость передвижения: {Speed} км/ч.");
+                Console.WriteLine($"Скорость передвижения:  км/ч.");
             }
         }
         interface Protect
@@ -22,7 +22,7 @@ namespace _215Labs2020.Шагимуратова.Game
         {
             void attack()
             {
-                Console.WriteLine($"Атака Воина с уроном: {Damage} ед.");
+                Console.WriteLine($"Атака Воина с уроном:  ед.");
             }
         }
        

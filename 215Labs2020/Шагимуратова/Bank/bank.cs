@@ -16,17 +16,17 @@ namespace _215Labs2020.Шагимуратова.Bank
         private double _summa;
         private int _years;
         private static string _Patronymic;
-        //private static string _dayB;
-        //private static string _mounthB;
-        //private static string _yearB;
-       
+        private static DateTime _dateOpen;
+      
+
         public delegate void Handler(string message);
         public event Handler Notify;
        
-        public  bank( double Summ)
-        {
-            _balans = Summ;
-        }
+        //public bank( double Summ)
+        //{
+        //    _balans = Summ;
+        //}
+
        public void came_money(double Summ)
         {
             _balans += Summ;
@@ -60,25 +60,43 @@ namespace _215Labs2020.Шагимуратова.Bank
             }
         }
 
+        public static DateTime DateOpen { get => _dateOpen; set => _dateOpen = value; }
 
-        public static void Reg (List<bank> klients,bank User)
+
+        public static void  Reg (List<bank> klients,int num) 
         {
-           
-            Console.WriteLine("Введите имя ");
+            bank User = new bank();
+            Boolean buf;
+            DateOpen = new DateTime(DateTime.Now.Minute);
+            Console.WriteLine("Введите имя");
              User.Name = Console.ReadLine();
-            Console.WriteLine("Введите Фамилию ");
+            Console.WriteLine("Введите Фамилию");
            // String buffSurname = Console.ReadLine();
             User.SurName = Console.ReadLine();
-            Console.Write("Введите Отчество ");
+            Console.Write("Введите Отчество");
             User.Otchestvo = Console.ReadLine();
             Console.Write("День: ");
-            User.DayBD=Console.ReadLine();
+            do
+            { User.DayBD = int.Parse(Console.ReadLine());
+                if (User.DayBD > 31 || User.DayBD < 1) buf = false;
+            }
+            while (buf = false);
+
             Console.Write("Месяц: ");
             //String buffMonthBD = Console.ReadLine();
-             User.MonhtBD = Console.ReadLine();
+             
+            do
+            {
+                User.MonhtBD = int.Parse(Console.ReadLine());
+                if (User.MonhtBD > 12 || User.MonhtBD < 1) buf = true;
+            }
+            while (buf = true);
+
             Console.Write("Год: ");
-            //String buffYearBD = Console.ReadLine();
-             User.YearBD = Console.ReadLine();
+
+             User.YearBD = int.Parse(Console.ReadLine());
+
+             User.Id = num; 
 
             int k=0;
             do
@@ -126,34 +144,25 @@ namespace _215Labs2020.Шагимуратова.Bank
                 }
             }
             while (k == 1);
-            
-           
-
-
+            klients.Add(User);
+  
         }
+
+
         List<bank> kleints = new List<bank>();
 
-        public static void Nachalo(List<bank> klients)
+        public int numer = 0;
+        public static void Nachalo(List<bank> klients,int numer)
         {
             int c = 0;
-            int ii = 1;
-
-
-           // bank[] Accounts = new bank[ii];
             do
             {
-                foreach(bank Account in kleints)
-                {
-
-
-                }
-                for (int i = 0; i < ii; i++)
-                {
-                    Accounts[i] = new bank();
-                    bank.Reg(Accounts[i]);
-                    Console.WriteLine($"{Accounts[i].Name} {Accounts[i].SurName} , у вас на счету {Accounts[i].summinvklad} ");
-                    Console.WriteLine($"По истечению срока вклада на вашем счету будет {Accounts[i].Summa} руб.");
-                }
+                    bank.Reg(klients,numer);
+                    
+                    Console.WriteLine($"{klients[numer].Name} {klients[numer].SurName} , у вас на счету {klients[numer].summinvklad} ");
+                    Console.WriteLine($"По истечению срока вклада на вашем счету будет 8888 руб.");
+                   
+                numer++;
                 Console.WriteLine("Вы хотите зарегистрировать еще одного юзера? нажмите 1-да , 2 - нет");
                 int choose = int.Parse(Console.ReadLine());
                 if (choose == 1)
@@ -166,26 +175,14 @@ namespace _215Labs2020.Шагимуратова.Bank
 
 
     }
-    
-    //static void M (string[] args)
+
+    //public static void Delit(List<bank> klients, int numer)
     //{
-    //    int c;
-    //    int ii = 1;
-    //    bank[] Users = new bank[ii];
-    //    do
-    //    {
-    //        for (int i = 0; i < ii; i++)
-    //        {
-    //            Users[i] = new bank();
-    //            bank.Reg(Users[i]);
-    //            Console.WriteLine($"{Users[i].Name} {Users[i].SurName} , у вас на счету {Users[i].summinvklad} ");
-    //        }
-    //        Console.WriteLine("Вы хотите зарегистрировать еще одного юзера? нажмите 1-да , 2 - нет");
-    //        int choose = int.Parse(Console.ReadLine());
-    //        if (choose == 1) c = 1;
-    //    } while (c == 1);
 
     //}
+
+    
+  
 
 
 }
