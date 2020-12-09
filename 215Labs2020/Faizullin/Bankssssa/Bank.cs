@@ -179,29 +179,56 @@ namespace _215Labs2020.Faizullin
                 //Console.WriteLine();
             }
         }
-        public void Redaktiv()
-        {
-            List<Client> clientList = new List<Client>();
+        //public void Redaktiv()
+        //{
+        //    List<Client> clientList = new List<Client>();
 
-            clientList.Add(new Client("popov"));
-            foreach(Client iteam in clientList)
+        //    clientList.Add(new Client("popov", 12));
+        //    clientList.Add(new Client("dfw", 1324));
+        //    foreach (Client item in clientList)
+        //    {
+        //        Console.WriteLine(item._SNF);
+        //        Console.WriteLine(item.ID);
+        //    }
+        //    //foreach (Client item in clientList)
+        //    //{
+        //    //    if (item._SNF == "popov")
+        //    //    {
+        //    //        int Redaktiv_id = int.Parse(Console.ReadLine());
+        //    //    }
+        //    //}
+        //    //Console.WriteLine("******************************");
+        //    //foreach (var item in clientList)
+        //    //{
+        //    //    Console.WriteLine(item._SNF);
+        //    //    Console.WriteLine(item.ID);
+        //    //}
+        //}
+        public void Redaktivv()
+        {
+            Console.WriteLine("введите id");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Выберите номер редактирования");
+            Console.WriteLine("1. SNF");
+            //Console.WriteLine("2. Id");
+            Console.WriteLine("3. Выход из редактирования");
+
+            int wfwf = int.Parse(Console.ReadLine());
+            while (wfwf < 2 && wfwf > 0)
             {
-                Console.WriteLine(iteam._SNF);
-            }
-            foreach (Client iteam in clientList)
-            {
-                if (iteam._SNF == "12d")
+                switch (wfwf)
                 {
+                    case 1:
+                    {
+                            Console.Write("Введите новые данные:");
+                            ListSNF[wfwf - 1] = Console.ReadLine();
+
+                    }
+                        break;
 
                 }
-                //{
-                //    iteam.Equals(23);
-                //}
-            }
-            Console.WriteLine("******************************");
-            foreach (var iteam in clientList)
-            {
-                Console.WriteLine(iteam._SNF);
+                Console.WriteLine("3. Выход из редактирования");
+                wfwf = int.Parse(Console.ReadLine());
             }
         }
 
@@ -249,7 +276,8 @@ namespace _215Labs2020.Faizullin
             bank.RegistDate();
             bank.Registration();
             bank.ListClient();
-            bank.Redaktiv();
+            //bank.Redaktiv();
+            bank.Redaktivv();
             bank.Operation();
             bank.PROGNOZ();
             bank.END();

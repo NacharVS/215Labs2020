@@ -8,15 +8,17 @@ namespace _215Labs2020.Faizullin.Bankssssa
     {
         public int _id { get; set; }
         public  string _SNF { get; set; }
-        public Client(string name)
+        public Client(string name, int id)
         {
             Name = name;
-
+            ID = id;
         }
         public static void SnowName()
         {
 
             Console.WriteLine("ведите свои данные");
         }
+
+
     }
 }
