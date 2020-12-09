@@ -7,15 +7,25 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
 {
     class Client : Person
     {
-        public Client()
+        public string Name => _name;
+        public double Bill => _bill;
+        public string Birthday => _birthday;
+        public string Telephone => _telephone;
+        public int Id => _id;
+        static List<Client> PersonInfo = new List<Client>();
+        private void SetName(string newName)
         {
-            _bill = 0;
-            _name="";
-            _birthday="";
-            _telephone = "";
+            _name = newName;
         }
-        private static string name, number, birthday;
-        public static ArrayList Humans = new ArrayList();
+        public Client(double bill, string name, string birthday, string telephone)
+        {
+            _bill = bill;
+            _name = name;
+            _birthday = birthday;
+            _telephone = telephone;
+            _users += 1;
+            _id = _users;
+        }
         delegate double Message(double a);
         event Message Notify;
         private Client(string name, string telephone, string birthday)
@@ -25,24 +35,27 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             _birthday = birthday;
         }
         private static void Registration()
-        {
-            
+        {            
             Console.WriteLine("Регистрация:");
             Console.Write("Введите свое ФИО: ");
-            name = Console.ReadLine();
-            Humans.Add(name);
+            string name = Console.ReadLine();           
             Console.Write("Введите свой номер: ");
-            number = Console.ReadLine();
-            Humans.Add(number);
+            string number = Console.ReadLine();            
             Console.Write("Введите свою дату рожедения: ");
-            birthday = Console.ReadLine();
-            Humans.Add(birthday);
-        }
-        private void GetInfo()
-        {
-            Console.WriteLine($"ФИО: {_name}");
-            Console.WriteLine($"Дата рождания: {_birthday}");
-            Console.WriteLine($"Телефон: {_telephone}");
+            string birthday = Console.ReadLine();
+            Console.Write("Введите сумму первого взноса: ");
+            int bill = int.Parse(Console.ReadLine());            
+            PersonInfo.Add(new Client(bill, name, birthday, number));
+        }     
+        private static void Change(string change)
+        {            
+            foreach (var item in PersonInfo)
+            {
+                if (item.Name==change)
+                {
+                    item.SetName(change);
+                }
+            }
         }
         private void Balance()
         {
@@ -105,9 +118,9 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             }
         }
         public static void Program()
-        {
-            Registration();
-            Client man = new Client(name, number, birthday);
+        {    
+
+            Client man = new Client(0, "", "", "");
             while (true)
             {           
                 Console.WriteLine("\"1\" — Проверить баланс.");
@@ -132,7 +145,13 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
                         Console.Write("Введите сумму покупки: ");
                         man.CashBack = double.Parse(Console.ReadLine());                        
                         break;
-                    case "5": man.GetInfo(); break;
+                    case "5": Registration(); break;
+                    case "6":
+                        foreach (var item in PersonInfo)
+                        {
+                            Console.WriteLine($"{item.Name} {item.Bill} {item.Id}");
+                        }
+                        break;
                 }
             }
         }

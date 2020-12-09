@@ -11,5 +11,7 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
         public string _birthday;
         public string _telephone;
         public int _salary;
+        public static int _users = -1;
+        public int _id;
     }
 }
