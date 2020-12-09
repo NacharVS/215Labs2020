@@ -19,6 +19,9 @@ namespace _215Labs2020.Faizullin
         private static double _percent = 0.3;
         private static int _balans = 0;
         private static DateTime _accountOpenDate;
+        private static ArrayList ListSNF = new ArrayList();
+        private static ArrayList Listid = new ArrayList();
+        //private static ArrayList Listbirth = new ArrayList();
 
         public void Bankk(int sum)
         {
@@ -129,6 +132,7 @@ namespace _215Labs2020.Faizullin
             Console.WriteLine("Введите id ");
             Console.WriteLine("**********************");
             _id = Console.ReadLine();
+            Listid.Add(_id);
 
             Bank bank = new Bank();
             try
@@ -136,23 +140,21 @@ namespace _215Labs2020.Faizullin
                 Console.WriteLine("Enter personal data");
                 Console.WriteLine("***************");
                 Bank._SNF = Console.ReadLine();
+                ListSNF.Add(_SNF);
                 Console.WriteLine("Enter date of birth");
                 Console.WriteLine("***************");
-
                 Console.Write("Введите дату рождения (17/06/1996):");
                 string inputDate = Console.ReadLine();
                 bank.Birth = Convert.ToDateTime(inputDate);
-
                 Console.WriteLine("Ваш возвраст: {0}", bank.Age);
+                //Listbirth.Add(_birth);
+
                 //ArrayList list = new ArrayList();
                 //string SNF = Console.ReadLine();
                 //foreach (var iteam in list)
                 //{
                 //    Console.WriteLine(iteam);
                 //}
-
-                
-
             }
             catch (Exception ex)
             {
@@ -165,7 +167,45 @@ namespace _215Labs2020.Faizullin
 
 
         }
-       
+        public void ListClient()
+        {
+            //ArrayList list = new ArrayList();
+            //ListSNF.Add(_SNF);
+            for (int v = 0; v < ListSNF.Count; v++)
+            {
+                Console.WriteLine($"SNF: {ListSNF[v]}");
+                Console.WriteLine($"id: {Listid[v]}");
+                //Console.WriteLine($"birth: {Listbirth[v]}");
+                //Console.WriteLine();
+            }
+        }
+        public void Redaktiv()
+        {
+            List<Client> clientList = new List<Client>();
+
+            clientList.Add(new Client("popov"));
+            foreach(Client iteam in clientList)
+            {
+                Console.WriteLine(iteam._SNF);
+            }
+            foreach (Client iteam in clientList)
+            {
+                if (iteam._SNF == "12d")
+                {
+
+                }
+                //{
+                //    iteam.Equals(23);
+                //}
+            }
+            Console.WriteLine("******************************");
+            foreach (var iteam in clientList)
+            {
+                Console.WriteLine(iteam._SNF);
+            }
+        }
+
+
         private void Operation()
         {
             Bank bank = new Bank();
@@ -208,6 +248,8 @@ namespace _215Labs2020.Faizullin
             bank.Take(70);
             bank.RegistDate();
             bank.Registration();
+            bank.ListClient();
+            bank.Redaktiv();
             bank.Operation();
             bank.PROGNOZ();
             bank.END();
