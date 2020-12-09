@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
-using System.Collections;
-
 
 namespace _215Labs2020.Hasanov
 {
-    public delegate void AccountHandler(string mesegge);
+    //public delegate void AccountHandler(string mesegge);
+    public delegate void AccountHandler();
 
     class Bank
     {
@@ -26,10 +26,9 @@ namespace _215Labs2020.Hasanov
         private static double _cashbackpersentreferal = 0.05;
         private static double _depositpersent = 1.025;
         public event AccountHandler Notify;
-        List<Bank> banklist = new List<Bank>();
 
 
-        private void Put1(double sum)                                                                                  
+        private void Put1(double sum)
         {
 
             int r;
@@ -185,10 +184,10 @@ namespace _215Labs2020.Hasanov
         }
         private void RegistrationBank()
         {
-            Console.WriteLine("Hello, plese registr in bank");
-            Console.WriteLine("Enter your Name");
+            Console.WriteLine("Здравствуйте, пожалуйста зарегистрируйтесь");
+            Console.WriteLine("Введите свое имя");
             Name = Console.ReadLine();
-            Console.WriteLine("Enter your Surname");
+            Console.WriteLine("Введите свою фамилию");
             Surname = Console.ReadLine();
             Console.WriteLine("Введите свою дату рождения (Например 15.07.2003)");
             string birthday = Console.ReadLine();
@@ -198,8 +197,6 @@ namespace _215Labs2020.Hasanov
             _year = int.Parse(array[2]);
             _openDate = DateTime.Now;
             Age = DateTime.Now.Year - _year;
-            banklist.Add(Name, Surname, Age);
-            
         }
         private void Depositsonthebalance()
         {
@@ -287,78 +284,6 @@ namespace _215Labs2020.Hasanov
             //acc.Notify += DisplayMessage;
             acc.Put1(Summ);
         }
-        private static void Client()
-        {
-            foreach (var item in banklist)
-            {
-                Console.WriteLine(item.Name);
-                Console.WriteLine(item.Age);
-            }
-            Console.WriteLine("Введите свою фамилию");
-            string surname1 = Console.ReadLine();
-            Console.WriteLine("Что вы хотите изменить ");
-            string redaction = Console.ReadLine();
-            switch(redaction)
-            {
-                case "Фамилию":
-                    foreach (var item in banklist)
-                    {
-                        if(item.Surname == surname1)
-                        {
-                            Console.WriteLine("Введите новую фамилию");
-                            item.Surname = Console.ReadLine();
-                            
-                        }
-                        else Console.WriteLine("Пользователей с такой фамилией не найдено");
-                    }
-                    foreach (var item in banklist)
-                    {
-                        Console.WriteLine(item.Name);
-                        Console.WriteLine(item.Surname);
-                        Console.WriteLine(item.Age);
-                    }
-                    break;
-                case "Имя":
-                    foreach (var item in banklist)
-                    {
-                        if (item.Surname == surname1)
-                        {
-                            Console.WriteLine("Введите новое имя");
-                            item.Name = Console.ReadLine();
-
-                        }
-                        else Console.WriteLine("Пользователей с такой фамилией не найдено");
-                    }
-                    foreach (var item in banklist)
-                    {
-                        Console.WriteLine(item.Name);
-                        Console.WriteLine(item.Surname);
-                        Console.WriteLine(item.Age);
-                    }
-
-                    break;
-                case "Возраст":
-                    foreach (var item in banklist)
-                    {
-                        if (item.Surname == surname1)
-                        {
-                            Console.WriteLine("Введите новыйе возраст");
-                            item.Age = Console.ReadLine();
-
-                        }
-                        else Console.WriteLine("Пользователей с такой фамилией не найдено");
-                    }
-                    foreach (var item in banklist)
-                    {
-                        Console.WriteLine(item.Name);
-                        Console.WriteLine(item.Surname);
-                        Console.WriteLine(item.Age);
-                    }
-                    break;
-            }
-        }
-       
-
 
         public void OperationInBank()
         {
@@ -384,10 +309,6 @@ namespace _215Labs2020.Hasanov
                     case "Накрутить деньги":
                         Depositsonthebalance();
                         break;
-                    case "Клиенты":
-                        Client();
-                        break;
-                     
 
                 }
                 Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
@@ -396,9 +317,7 @@ namespace _215Labs2020.Hasanov
 
             }
             Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
-            Bank bank = new Bank();
-            bank.RegistrationBank();
-            
         }
     }
 }
+
