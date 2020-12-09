@@ -26,9 +26,10 @@ namespace _215Labs2020.Hasanov
         private static double _cashbackpersentreferal = 0.05;
         private static double _depositpersent = 1.025;
         public event AccountHandler Notify;
+        List<Bank> banklist = new List<Bank>();
 
 
-        private void Put1(double sum)
+        private void Put1(double sum)                                                                                  
         {
 
             int r;
@@ -197,10 +198,8 @@ namespace _215Labs2020.Hasanov
             _year = int.Parse(array[2]);
             _openDate = DateTime.Now;
             Age = DateTime.Now.Year - _year;
-            ArrayList list1 = new ArrayList();
-            list1.Add = Name;
-            list1.Add = Surname;
-            Console.WriteLine(Name);
+            banklist.Add(Name, Surname, Age);
+            
         }
         private void Depositsonthebalance()
         {
@@ -290,8 +289,76 @@ namespace _215Labs2020.Hasanov
         }
         private static void Client()
         {
-            Console.WriteLine(list1);
+            foreach (var item in banklist)
+            {
+                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Age);
+            }
+            Console.WriteLine("Введите свою фамилию");
+            string surname1 = Console.ReadLine();
+            Console.WriteLine("Что вы хотите изменить ");
+            string redaction = Console.ReadLine();
+            switch(redaction)
+            {
+                case "Фамилию":
+                    foreach (var item in banklist)
+                    {
+                        if(item.Surname == surname1)
+                        {
+                            Console.WriteLine("Введите новую фамилию");
+                            item.Surname = Console.ReadLine();
+                            
+                        }
+                        else Console.WriteLine("Пользователей с такой фамилией не найдено");
+                    }
+                    foreach (var item in banklist)
+                    {
+                        Console.WriteLine(item.Name);
+                        Console.WriteLine(item.Surname);
+                        Console.WriteLine(item.Age);
+                    }
+                    break;
+                case "Имя":
+                    foreach (var item in banklist)
+                    {
+                        if (item.Surname == surname1)
+                        {
+                            Console.WriteLine("Введите новое имя");
+                            item.Name = Console.ReadLine();
+
+                        }
+                        else Console.WriteLine("Пользователей с такой фамилией не найдено");
+                    }
+                    foreach (var item in banklist)
+                    {
+                        Console.WriteLine(item.Name);
+                        Console.WriteLine(item.Surname);
+                        Console.WriteLine(item.Age);
+                    }
+
+                    break;
+                case "Возраст":
+                    foreach (var item in banklist)
+                    {
+                        if (item.Surname == surname1)
+                        {
+                            Console.WriteLine("Введите новыйе возраст");
+                            item.Age = Console.ReadLine();
+
+                        }
+                        else Console.WriteLine("Пользователей с такой фамилией не найдено");
+                    }
+                    foreach (var item in banklist)
+                    {
+                        Console.WriteLine(item.Name);
+                        Console.WriteLine(item.Surname);
+                        Console.WriteLine(item.Age);
+                    }
+                    break;
+            }
         }
+       
+
 
         public void OperationInBank()
         {
@@ -320,6 +387,7 @@ namespace _215Labs2020.Hasanov
                     case "Клиенты":
                         Client();
                         break;
+                     
 
                 }
                 Console.WriteLine("Вы хотите продолжить?(Да/Нет)");
