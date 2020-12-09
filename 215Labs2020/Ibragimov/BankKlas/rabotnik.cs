@@ -22,6 +22,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
                 rabname = value;
             }
         }
+
         public static string Rabsurname
         {
             get
