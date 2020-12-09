@@ -1,6 +1,7 @@
 ﻿using _215Labs2020.Galyautdinov.Bank_class;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace _215Labs2020.Galyautdinov
@@ -17,11 +18,14 @@ namespace _215Labs2020.Galyautdinov
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
+        private static int edit_id;
 
+        private static List<Bank> List_Name = new List<Bank>();
         private static ArrayList ListName = new ArrayList();
         private static ArrayList ListBalans = new ArrayList();
         private static ArrayList ListID = new ArrayList();
         private static ArrayList ListSurName = new ArrayList();
+        private static ArrayList ListPhone = new ArrayList();
 
         public delegate void AccountHandler(string message);
         public event AccountHandler Notify = (message) =>
@@ -56,13 +60,14 @@ namespace _215Labs2020.Galyautdinov
             ListName.Add(Name);
             ListSurName.Add(SurName);
             ListBalans.Add(bank_balans);
+            ListPhone.Add(phone);
         }
         private static void ListOfClients()
         {
             for (int i = 0; i < ListName.Count; i++)
             {
                 Console.WriteLine($"  ID: {ListID[i]}");
-                Console.WriteLine($"  Фамилия: {ListName[i]} \n  Имя: {ListSurName[i]}");
+                Console.WriteLine($"  Фамилия: {ListSurName[i]} \n  Имя: {ListName[i]}\n  Номер: {ListPhone[i]}");
                 Console.WriteLine($"  Баланс: {ListBalans[i]}");
                 Console.WriteLine();
             }
@@ -70,38 +75,47 @@ namespace _215Labs2020.Galyautdinov
         private static void set_account()
         {
             Console.WriteLine("Введите ID ");
-            int set_id = int.Parse(Console.ReadLine());
+            edit_id = int.Parse(Console.ReadLine());
             Console.WriteLine("Выберите параметр для редактирования ");
-            Console.WriteLine("1. Фамилия");
-            Console.WriteLine("2. Имя");
-            Console.WriteLine("3. Выход из редактирования");
+            Console.WriteLine("1. Фамилия\n2. Имя\n3. Номер\n4. Дата рождения\n5. Выход из редактирования");
 
-            int proverka_red = int.Parse(Console.ReadLine());
-            while(proverka_red<2 && proverka_red > 0)
+            int proverka_reg = int.Parse(Console.ReadLine());
+            while(proverka_reg<5 && proverka_reg > 0)
             {
-                switch (proverka_red)
-                {
-                    case 1:
-                        {
-                            Console.Write("Введите новую фамилию: ");
-                            ListSurName[set_id - 1] = Console.ReadLine();
-                        }
-                        break;
-                    case 2:
-                        {
-                            Console.Write("Введите новую имю: ");
-                            ListName[set_id - 1] = Console.ReadLine();
-                        }
-                        break;
-                }
+                if (proverka_reg == 1)
+                    EditSurName();
+                else if (proverka_reg == 2)
+                    EditName();
+                else if (proverka_reg == 3)
+                    EditPhone();
+                else if (proverka_reg == 4)
+                    EditDataBirthday();
+                
                 Console.WriteLine("Выберите параметр для редактирования ");
-
-                Console.WriteLine("1. Фамилия");
-                Console.WriteLine("2. Имя");
-                Console.WriteLine("3. Выход из редактирования");
-
-                proverka_red = int.Parse(Console.ReadLine());
+                Console.WriteLine("1. Фамилия\n2. Имя\n3. Номер\n4. Дата рождения\n5. Выход из редактирования");
+                proverka_reg = int.Parse(Console.ReadLine());
             }
+        }
+        private static void EditName()
+        {
+            Console.Write("Введите новую имю: ");
+            ListName[edit_id - 1] = Console.ReadLine();
+
+        }
+        private static void EditSurName()
+        {
+            Console.Write("Введите новую фамилию: ");
+            ListSurName[edit_id - 1] = Console.ReadLine();
+        }
+        private static void EditPhone()
+        {
+            Console.Write("Введите новый номер: ");
+            ListPhone[edit_id - 1] = Console.ReadLine();
+        }
+        private static void EditDataBirthday()
+        {
+            Console.Write("Скоро будет!");
+            Console.WriteLine();
         }
         private static void Refill()
         {
