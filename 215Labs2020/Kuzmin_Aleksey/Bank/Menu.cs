@@ -11,7 +11,7 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             Console.WriteLine("Если вы работник банка, нажмите { 0 }.");
             Console.WriteLine("Если вы клиент банка, нажмите { 1 }.");
             string choise = Console.ReadLine();
-            if (choise == "0") { Worker.Program(); }
+            if (choise == "0") { /*Worker.Program();*/ }
             else { Client.Program(); }
         }
     }

@@ -8,10 +8,11 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
     {
         public double _bill;
         public string _name;
-        public string _birthday;
+        public DateTime _birthday;
+        public int _age;
         public string _telephone;
         public int _salary;
-        public static int _users = -1;
+        public static int _users = 0;
         public int _id;
     }
 }

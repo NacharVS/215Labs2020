@@ -9,15 +9,12 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
     {
         public string Name => _name;
         public double Bill => _bill;
-        public string Birthday => _birthday;
+        public DateTime Birthday => _birthday;
         public string Telephone => _telephone;
         public int Id => _id;
-        static List<Client> PersonInfo = new List<Client>();
-        private void SetName(string newName)
-        {
-            _name = newName;
-        }
-        public Client(double bill, string name, string birthday, string telephone)
+        public int Age => _age;
+        static List<Client> PersonInfo = new List<Client>();        
+        public Client(double bill, string name, DateTime birthday, string telephone, int age) 
         {
             _bill = bill;
             _name = name;
@@ -25,102 +22,91 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             _telephone = telephone;
             _users += 1;
             _id = _users;
+            _age = age;
         }
         delegate double Message(double a);
         event Message Notify;
-        private Client(string name, string telephone, string birthday)
-        {
-            _name = name;
-            _telephone = telephone;
-            _birthday = birthday;
-        }
         private static void Registration()
-        {            
+        {
             Console.WriteLine("Регистрация:");
             Console.Write("Введите свое ФИО: ");
-            string name = Console.ReadLine();           
+            string name = Console.ReadLine();
             Console.Write("Введите свой номер: ");
-            string number = Console.ReadLine();            
+            string number = Console.ReadLine();
             Console.Write("Введите свою дату рожедения: ");
-            string birthday = Console.ReadLine();
+            DateTime birthday = DateTime.Parse(Console.ReadLine());
+            int age = 0;
+            if (DateTime.Now.Month <= birthday.Month && DateTime.Now.Day < birthday.Day)
+            { age -= 1; }
+            age = age + DateTime.Now.Year - birthday.Year;
             Console.Write("Введите сумму первого взноса: ");
-            int bill = int.Parse(Console.ReadLine());            
-            PersonInfo.Add(new Client(bill, name, birthday, number));
-        }     
-        private static void Change(string change)
-        {            
-            foreach (var item in PersonInfo)
-            {
-                if (item.Name==change)
-                {
-                    item.SetName(change);
-                }
-            }
+            int bill = int.Parse(Console.ReadLine());
+            if (age < 16 || bill < 10000 || bill > 200000)
+            { Console.WriteLine("Ошибка"); }
+            else { PersonInfo.Add(new Client(bill, name, birthday, number, age)); }            
         }
-        private void Balance()
+        private void SetName(string newName)
         {
-            Console.WriteLine($"Баланс счета: {_bill}");
+            _name = newName;
         }
-        private double Refill
+        private void SetTelephone(string newTelephone)
         {
-            get { return _bill; }
-            set
-            {
-                if (value > 200000 || value < 10000)
-                {
-                    Console.WriteLine("Ошибка. Взнос должен быть больше 10 000 и меньше 200 000.");                           
-                }
-                else 
-                {
-                    _bill += value;
-                    Console.WriteLine($"Баланс: {Notify?.Invoke(_bill)}"); 
-                }
-            }
+            _telephone = newTelephone;
         }
-        private double TakeAway
+        private void SetBirthday(DateTime newBirthday)
         {
-            get { return _bill; }
-            set
-            {
-                if (value > 200000 || value < 10000)
-                {
-                    Console.WriteLine("Ошибка. Взнос должен быть больше 10 000 и меньше 200 000.");
-                    
-                }
-                else if (_bill < value)
-                {
-                    Console.WriteLine("Ошибка. Не достаточно средств на балансе.");
-                   
-                }
-                else 
-                { 
-                    _bill -= value;
-                    Console.WriteLine($"Баланс: {Notify?.Invoke(_bill)}");
-                }
-            }
+            _birthday = newBirthday;
+            _age = 0;
+            if (DateTime.Now.Month <= _birthday.Month && DateTime.Now.Day < _birthday.Day)
+            { _age -= 1; }
+            _age = _age + DateTime.Now.Year - _birthday.Year;
         }
-        private double CashBack
+        private static void Change(int id)
         {
-            get { return _bill; }
-            set
+            Console.WriteLine("Какое поле вы хатите изменить?");
+            Console.WriteLine("ФИО           { 1 }.");
+            Console.WriteLine("Номер телефон { 2 }.");
+            Console.WriteLine("Дату рождения { 3 }.");
+            string nomination = Console.ReadLine();
+            switch (nomination)
             {
-                if (_bill < value)
-                {
-                    Console.WriteLine("Ошибка. Не достаточно средств на балансе.");
-                    
-                }
-                else
-                {
-                    _bill -= value;
-                    _bill += value * 0.01;
-                    Console.WriteLine($"Баланс: {Notify?.Invoke(_bill)}");
-                }
-            }
-        }
+                case "1":
+                    Console.Write("Введите новое имя: ");
+                    string change = Console.ReadLine();
+                    foreach (var item in PersonInfo)
+                    {
+                        if (item.Id==id)
+                        {
+                            item.SetName(change);
+                        }
+                    }
+                    break;
+                case "2":
+                    Console.Write("Введите новый телефон: ");
+                    change = Console.ReadLine();
+                    foreach (var item in PersonInfo)
+                    {
+                        if (item.Id == id)
+                        {
+                            item.SetTelephone(change);
+                        }
+                    }
+                    break;
+                case "3":
+                    Console.Write("Введите новую дату рождения: ");
+                    change = Console.ReadLine();
+                    foreach (var item in PersonInfo)
+                    {
+                        if (item.Id == id)
+                        {
+                            item.SetBirthday(DateTime.Parse(change));
+                        }
+                    }
+                    break;
+            }            
+        } 
         public static void Program()
         {    
-
-            Client man = new Client(0, "", "", "");
             while (true)
             {           
                 Console.WriteLine("\"1\" — Проверить баланс.");
@@ -132,25 +118,29 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
                 string action = Console.ReadLine();
                 switch (action)
                 {
-                    case "1": man.Balance(); break;
+                    
                     case "2":
                         Console.Write("Введите сумму пополнения: ");
-                        man.Refill=double.Parse(Console.ReadLine());                       
+                                           
                         break;
                     case "3":
                         Console.Write("Введите сумму снятия: ");
-                        man.TakeAway = double.Parse(Console.ReadLine());                       
+                                             
                         break;
                     case "4":                        
                         Console.Write("Введите сумму покупки: ");
-                        man.CashBack = double.Parse(Console.ReadLine());                        
+                                              
                         break;
                     case "5": Registration(); break;
                     case "6":
                         foreach (var item in PersonInfo)
                         {
-                            Console.WriteLine($"{item.Name} {item.Bill} {item.Id}");
+                            Console.WriteLine($"{item.Name} {item._telephone} {item.Bill} {item._birthday} {item.Age} {item.Id}");
                         }
+                        break;
+                    case "7":
+                        Console.Write("Введите ip: ");
+                        Change(int.Parse(Console.ReadLine()));
                         break;
                 }
             }
