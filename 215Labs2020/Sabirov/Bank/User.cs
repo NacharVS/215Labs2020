@@ -7,17 +7,17 @@ namespace _215Labs2020.Sabirov.User
 {
     class User : Bank
     {
-        public string _Name => Name;
-        static List<User> a = new List<User>();
+        public string Name => name;
         public User(string Name, string Surname, int Day, int Month, int Year, string Email)
         {
-            Bank.Name = Name;
+            User.name = Name;
             Bank.Surname = Surname;
-            Bank.Day = Day;
-            Bank.Month = Month;
-            Bank.Age = Year;
-            Bank.Email = Email;
+            User.Day = Day;
+            User.Month = Month;
+            User.Age = Year;
+            User.Email = Email;
         }
+        
         private static double money = 0;
         private static double deposit = 1.1;
         public delegate void Handler(string mes);
@@ -33,7 +33,7 @@ namespace _215Labs2020.Sabirov.User
             money = sum;
             Regis = res;
         }
-        public static void Check()
+        public static void Check(List<User>a)
         {
             Console.WriteLine($"Login as Employee or User?");
             Console.WriteLine($"Enter 1 to login as Employee or enter 2 to login as User");
@@ -44,11 +44,17 @@ namespace _215Labs2020.Sabirov.User
                     Employee.Login();
                     break;
                 case "2":
-                    User.Login();
+                    User.Login(a);
                     break;
             }
 
         }
+
+        private static void ChangeSur(List<User> NeedChange)
+        {
+            NeedChange.Remove(.Name);
+        }
+
 
 
 
@@ -111,17 +117,25 @@ namespace _215Labs2020.Sabirov.User
             Console.WriteLine(User.Regis);
             Console.WriteLine("Enter your name:");
             string name = Console.ReadLine();
-            User.UserName(name);
+           
+            
             Console.WriteLine("Enter your surname");
             string surname = Console.ReadLine();
-            User.UserName(surname);
+           
             Console.WriteLine("Enter your BirthDay");
             Bank.Day = int.Parse(Console.ReadLine());
-            User.MonthCheck();
+            
             Console.WriteLine("Enter your BirthYear");
             Bank.Age = int.Parse(Console.ReadLine());
+           
+            
             User.Birth(Month, Age, Day);
             User.EmailCheck();
+            User.UserName(name);
+            User.UserName(surname);
+            User.MonthCheck();
+          
+
 
         }
         private static void UserName(string Newname)
@@ -134,6 +148,7 @@ namespace _215Labs2020.Sabirov.User
                 var other = Newname.Remove(0, 1);
                 Newname = first.ToString().ToUpper() + other;
                 Notify?.Invoke($"Your name with a capital letter: {Newname}");
+               
             }
 
         }
@@ -232,20 +247,15 @@ namespace _215Labs2020.Sabirov.User
             }
         }
 
-        public static void Login()
+        public static void Login(List<User>a)
         {
-            User.signIn();
+            //User.signIn();
             
             Random bank123 = new Random();
             Bank.Id = bank123.Next(1000000, 1999999);
             Console.WriteLine($"Your id: {Bank.Id}");
             
-            a.Add(new User(Bank.Name, Bank.Surname, Bank.Day, Bank.Month, Bank.Age, Bank.Email));
-            foreach (var item in a)
-            {
-                Console.WriteLine(item._Name);
-            
-            }
+           
 
             int yes = 1;
             while (yes == 1)
@@ -290,10 +300,10 @@ namespace _215Labs2020.Sabirov.User
                     case "5":
                         Console.WriteLine("Enter your ID");
                         int i = int.Parse(Console.ReadLine());
-                       
+                        break;
+                    case "6":
 
-
-
+                        ChangeSur(a);
                         break;
                    
                 }

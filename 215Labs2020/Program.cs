@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using _215Labs2020.Sabirov;
 using _215Labs2020.Sabirov.StrategyGame;
@@ -33,7 +34,15 @@ namespace _215Labs2020
 
             //BranchOffice.gal2(GeneralOffice.array, GeneralOffice.array2);
             //BranchOffice.gal(GeneralOffice.array);
-            User.Check();
+
+            List<User> Users = new List<User>();
+            Users.Add(new User("Ayaz", "Sadukov", 12, 12, 2000, "saduk@"));
+            Users.Add(new User("Ruzal", "Saburov", 1, 10, 2003, "sabur@"));
+            Users.Add(new User("Bulat", "almuhametov", 23, 12, 2001, "almuh@"));
+            Users.Add(new User("Artyom", "litvinenko", 10, 3, 2000, "litv@"));
+            Users.Add(new User("Sultan", "Ismagilov", 12, 12, 2002, "ismag@"));
+            User.Check(Users);
+         
         }
 
        

@@ -3,17 +3,17 @@ using System.Xml.Serialization;
 
 namespace _215Labs2020.Sabirov
 {
-    abstract class Bank
+     abstract class Bank
     {
 
-        private static string name;
+        public static string name;
         private static int day;
         private static int month;
         private static int age;
         private static string email;
         private static int id;
         private static string surname;
-       
+
 
         public static string Name
         {
