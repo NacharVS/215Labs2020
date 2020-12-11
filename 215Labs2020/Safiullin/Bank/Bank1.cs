@@ -36,11 +36,17 @@ namespace _215Labs2020.Safiullin
         {
             _balans = sum;
         }
-        public static double summ { get; private set; }
-        private static void DisplayMessage(string message)
+        public void SnowName(string newName)
         {
-            Console.WriteLine(message);
+            _name = newName;
         }
+        public void SnowNumber(string newPhone)
+        {
+            _phone = newPhone;
+        }
+
+
+        public static double summ { get; private set; }
         private static void Check_Age()
         {
             Console.WriteLine("-----Введите дату своего рождения----- ");
@@ -84,20 +90,6 @@ namespace _215Labs2020.Safiullin
                 Console.WriteLine($"Баланс счета составляет: {_balans}");
                 Console.WriteLine();
             }
-        }
-        private static void Check_Symbol(string donation)
-        {
-            try
-            {
-                double a = double.Parse(donation);
-                _donation = a;
-
-            }
-            catch
-            {
-                Console.WriteLine("Ошибка. Введенные символы не допустимы.");
-            }
-
         }
         private static void popolnenie_cashback()
         {
@@ -170,7 +162,7 @@ namespace _215Labs2020.Safiullin
                     {
                         Console.WriteLine("На вашем счету недостаточно средств");
                     }
-
+                    
                     Console.Write("Через сколько лет вы хотите узнать свой баланс: ");
                     double a = double.Parse(Console.ReadLine());
                     double b = s;
@@ -232,10 +224,8 @@ namespace _215Labs2020.Safiullin
             CreateAccount();
             Bank1 human = new Bank1(_name, _phone, _birthday);
             {
-                int number_operation;
                 while (true)
                 {
-                    Handling operation;
                     Console.WriteLine("1. Проверка баланса счета. ");
                     Console.WriteLine("2. Снять деньги со счета. ");
                     Console.WriteLine("3. Пополнить счет. ");
