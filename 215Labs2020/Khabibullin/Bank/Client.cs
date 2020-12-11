@@ -1,5 +1,5 @@
 ﻿using System;
-namespace _215Labs2020.Khabibullin.Bank
+namespace _215Labs2020.Khabibullin
 {
     class Client : User
     {
