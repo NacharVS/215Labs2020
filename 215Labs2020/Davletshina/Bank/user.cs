@@ -132,5 +132,6 @@ namespace _215Labs2020.Davletshina.Bank
             else
                 Console.WriteLine($"Здравствуйте {Employee.Rabname} {Employee.Rabsurname}, ваша зарплата на данный момент составляет: {Employee.Zarplata}");
         }
+
     }
 }
