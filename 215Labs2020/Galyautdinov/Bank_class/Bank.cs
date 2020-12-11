@@ -8,21 +8,23 @@ namespace _215Labs2020.Galyautdinov
 {
     class Bank : Person
     {
+        //private  string Name => _name;
         private static double bank_balans = 0;
         private static double percent = 0.001;
         private static double cashback_percent = 0.05;
         private static double cashback_partner_percent = 0.2;
         private static double cashback = 0;
         private static DateTime _accountOpenDate;
-        private static string phone;
+        private static string Phone;
         private static int day_birthday;
         private static int month_birthday;
         private static int year_birthday;
         private static int edit_id;
 
-        private static List<Bank> List_Name = new List<Bank>();
+        private static List<Bank> list = new List<Bank>();
+
         private static ArrayList ListName = new ArrayList();
-        private static ArrayList ListBalans = new ArrayList();
+        private static ArrayList ListBaslans = new ArrayList();
         private static ArrayList ListID = new ArrayList();
         private static ArrayList ListSurName = new ArrayList();
         private static ArrayList ListPhone = new ArrayList();
@@ -30,21 +32,22 @@ namespace _215Labs2020.Galyautdinov
         public delegate void AccountHandler(string message);
         public event AccountHandler Notify = (message) =>
         {
-            Console.WriteLine($"\nНа номер {phone} было отправлено сообщение \nСообщение: {message}\n");
+            Console.WriteLine($"\nНа номер {Phone} было отправлено сообщение \nСообщение: {message}\n");
         };
-
-        public Bank(double sum)
+        public Bank(int id, string surname, string name, string phone)
         {
-            bank_balans = sum;
+            ID = id;
+            SurName = surname;
+            Name = name;
+            Phone = phone;
         }
-       // public static double Sum { get; private set; }
         private static void FullName()
         {
             bank_balans = 0;
-            Console.Write("Введите фамилию: ");
-            SurName = Console.ReadLine();
-            Console.Write("Введите имя: ");
-            Name = Console.ReadLine();
+            //Console.Write("Введите фамилию: ");
+            //SurName = Console.ReadLine();
+            //Console.Write("Введите имя: ");
+            //Name = Console.ReadLine();
             Console.WriteLine("Укажиет день рождение");
             Console.Write("День: ");
             day_birthday = int.Parse(Console.ReadLine());
@@ -52,24 +55,29 @@ namespace _215Labs2020.Galyautdinov
             month_birthday = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
             year_birthday = int.Parse(Console.ReadLine());
-            Console.Write("Введите номер телефона: ");
-            phone = Console.ReadLine();
+            //Console.Write("Введите номер телефона: ");
+            //Phone = Console.ReadLine();
 
             ID += 1;
-            ListID.Add(ID);
-            ListName.Add(Name);
-            ListSurName.Add(SurName);
-            ListBalans.Add(bank_balans);
-            ListPhone.Add(phone);
+            list.Add(new Bank(1, "Галяутдинов", "Ислам", "89093087045"));
+            list.Add(new Bank(2, "Гараев", "Ильяс", "89093087045"));
+
         }
+        //private static void ListOfClients()
+        //{
+        //    for (int i = 0; i < ListName.Count; i++)
+        //    {
+        //        Console.WriteLine($"  ID: {ListID[i]}");
+        //        Console.WriteLine($"  Фамилия: {ListSurName[i]} \n  Имя: {ListName[i]}\n  Номер: {ListPhone[i]}");
+        //        Console.WriteLine($"  Баланс: {ListBalans[i]}");
+        //        Console.WriteLine();
+        //    }
+        //}
         private static void ListOfClients()
         {
-            for (int i = 0; i < ListName.Count; i++)
+            foreach (var item in list)
             {
-                Console.WriteLine($"  ID: {ListID[i]}");
-                Console.WriteLine($"  Фамилия: {ListSurName[i]} \n  Имя: {ListName[i]}\n  Номер: {ListPhone[i]}");
-                Console.WriteLine($"  Баланс: {ListBalans[i]}");
-                Console.WriteLine();
+                Console.WriteLine(item.Name);
             }
         }
         private static void set_account()
@@ -119,7 +127,7 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void Refill()
         {
-            Bank bank = new Bank(bank_balans);
+            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
 
             int a=0;
             Console.Write("Введите сумму пополнения: ");
@@ -184,11 +192,11 @@ namespace _215Labs2020.Galyautdinov
             }
             bank_balans += a;
             bank.Notify?.Invoke($"Пополнение баланса на сумму {a} рублей. Ваш  баланс: {bank_balans}");
-            ListBalans[ListName.Count - 1] = bank_balans;
+            //ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void Withdrawal()
         {
-            Bank bank = new Bank(bank_balans);
+            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int a;
             Console.Write("Введите сумму которую хотите снять: ");
             try
@@ -266,11 +274,11 @@ namespace _215Labs2020.Galyautdinov
                 bank_balans -= a;
                 bank.Notify?.Invoke($"Со счета был снят {a} рублей. Ваш  баланс: {bank_balans}");
             }
-            ListBalans[ListName.Count - 1] = bank_balans;
+            //ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void Transfer()
         {
-            Bank bank = new Bank(bank_balans);
+            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int a;
             Console.Write("Введите счет, на которую переводите деньги: ");
             int login_transfer = int.Parse(Console.ReadLine());
@@ -349,13 +357,13 @@ namespace _215Labs2020.Galyautdinov
             {
                 bank_balans -= a;
                 bank.Notify?.Invoke($"Был осуществлен перевод на счет {login_transfer} на сумма {a} рублей. Ваш баланс {bank_balans} рублей.");
-                ListBalans[ListName.Count - 1] = bank_balans;
+                //ListBalans[ListName.Count - 1] = bank_balans;
             }
 
         }
         public static void Purchase()
         {
-            Bank bank = new Bank(bank_balans);
+            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int a;
             Console.WriteLine("\t 1. Покупка у партнера || 2. Обычная покупка");
             Console.Write("Выберите вид покупки: ");
@@ -392,11 +400,11 @@ namespace _215Labs2020.Galyautdinov
                 bank.Notify?.Invoke($"Начислен кешбек {cashback} рублей. Ваш  баланс: {bank_balans}");
             }
             cashback = 0;
-            ListBalans[ListName.Count - 1] = bank_balans;
+            //ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void PeriodProfit(double bank_balans)
         {
-            Bank bank = new Bank(bank_balans);
+            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int second = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
             int secondOpen = _accountOpenDate.Hour * 3600 + _accountOpenDate.Minute * 60 + _accountOpenDate.Second;
             int deltaTime = second - secondOpen;
@@ -407,7 +415,7 @@ namespace _215Labs2020.Galyautdinov
                 bank_balans = Math.Round(bank_balans + bank_balans * percent, 2);
             }
             bank.Notify?.Invoke($"Начислена  процентная ставка. Ваш  баланс: {bank_balans}");
-            ListBalans[ListName.Count - 1] = bank_balans;
+            //ListBalans[ListName.Count - 1] = bank_balans;
         }
         private static void CheckBalance()
         {
@@ -492,7 +500,7 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void A()
         {
-            Bank bank = new Bank(0);
+            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             Client client = new Client();
             Employee employee1 = new Employee();
 

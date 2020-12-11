@@ -9,7 +9,7 @@ namespace _215Labs2020.Galyautdinov.Bank_class
     {
 
         private static string _surname;
-        private static string _name;
+        private string _name;
         private static int _id;
         public static string SurName
         {
@@ -22,7 +22,7 @@ namespace _215Labs2020.Galyautdinov.Bank_class
                 _surname = value;
             }
         }
-        public static string Name
+        public  string Name
         {
             get
             {
