@@ -8,7 +8,7 @@ namespace _215Labs2020.Maksimov_Aleksei.BankClasses
     {
         static void Main(string[] args)
         {
-            Baza.collections();
+            Student.collect();
         }
     }
 }
