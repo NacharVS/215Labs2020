@@ -6,18 +6,19 @@ namespace _215Labs2020.Faizullin.Bankssssa
 {
     abstract class Person
     {
-        private static string _name;
+        private static string _snf;
         private int _id;
+        private int _age;
 
-        public static string Name
+        public static string SNF
         {
             get
             {
-                return _name;
+                return _snf;
             }
             set
             {
-                _name = value;
+                _snf = value;
             }
         }
         public int ID
@@ -29,6 +30,17 @@ namespace _215Labs2020.Faizullin.Bankssssa
             set
             {
                 _id = value;
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                _age = value;
             }
         }
     }

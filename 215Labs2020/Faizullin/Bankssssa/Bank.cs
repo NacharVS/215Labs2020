@@ -179,42 +179,22 @@ namespace _215Labs2020.Faizullin
                 //Console.WriteLine();
             }
         }
-        //public void Redaktiv()
-        //{
-        //    List<Client> clientList = new List<Client>();
-
-        //    clientList.Add(new Client("popov", 12));
-        //    clientList.Add(new Client("dfw", 1324));
-        //    foreach (Client item in clientList)
-        //    {
-        //        Console.WriteLine(item._SNF);
-        //        Console.WriteLine(item.ID);
-        //    }
-        //    //foreach (Client item in clientList)
-        //    //{
-        //    //    if (item._SNF == "popov")
-        //    //    {
-        //    //        int Redaktiv_id = int.Parse(Console.ReadLine());
-        //    //    }
-        //    //}
-        //    //Console.WriteLine("******************************");
-        //    //foreach (var item in clientList)
-        //    //{
-        //    //    Console.WriteLine(item._SNF);
-        //    //    Console.WriteLine(item.ID);
-        //    //}
-        //}
+        
+        
         public void Redaktivv()
         {
             Console.WriteLine("введите id");
             int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ведите SNF");
+            //string q = int.Parse
+                Console.ReadLine();
             Console.WriteLine("Выберите номер редактирования");
             Console.WriteLine("1. SNF");
-            //Console.WriteLine("2. Id");
+            Console.WriteLine("2. Id");
             Console.WriteLine("3. Выход из редактирования");
 
             int wfwf = int.Parse(Console.ReadLine());
-            while (wfwf < 2 && wfwf > 0)
+            while (wfwf < 3 && wfwf > 0)
             {
                 switch (wfwf)
                 {
@@ -224,9 +204,18 @@ namespace _215Labs2020.Faizullin
                             ListSNF[wfwf - 1] = Console.ReadLine();
 
                     }
+                    break;
+
+                    case 2:
+                        {
+                            Console.Write("Введите новые данные:");
+                            Listid[wfwf - 1] = Console.ReadLine();
+                        }
                         break;
 
                 }
+                
+
                 Console.WriteLine("3. Выход из редактирования");
                 wfwf = int.Parse(Console.ReadLine());
             }
