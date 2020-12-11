@@ -17,6 +17,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
 
         public delegate void Messege3();
         public static event Messege3 EV3;
+
         private void Daa()
         {
             yser us = new yser();
@@ -102,5 +103,24 @@ namespace _215Labs2020.Ibragimov.BankKlas
             else
                 Console.WriteLine($"Здравствуйте {Employee.Rabname} {Employee.Rabsurname}, ваша зарплата на данный момент составляет: {Employee.Zarplata}");
         }
+        public static void df()
+        {
+            
+
+
+
+
+        }
     }
 } 
+
+
+
+
+
+
+
+
+
+
+
