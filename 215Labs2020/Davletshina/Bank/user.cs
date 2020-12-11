@@ -1,13 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace _215Labs2020.Davletshina.Bank
 {
+    class Baza
+    {
+        public string _name { get; set; }
+        public string _surname { get; set; }
+        public int __id { get; set; }
+        public int _moneyCount { get; set; }
+        public static void Collections()
+        {
+
+            List<Baza> Lbaza = new List<Baza>(3);
+            Lbaza.Add(new Baza() { _name = "Tom" });
+            Lbaza.Add(new Baza() { _name = "Cillian" });
+            Lbaza.Add(new Baza() { _name = "James" });
+            Lbaza.Add(new Baza() { _surname = "Hardy" });
+            foreach (Baza item in Lbaza)
+            {
+                Console.WriteLine(item._name);
+            }
+        }
+    }
     class user : Bank
     {
         private static double vklad = 0;
         private static double procent = 0.1;
+
+        public static ArrayList Lid = new ArrayList();
+        public static ArrayList Lnames = new ArrayList();
+        public static ArrayList LSnames = new ArrayList();
+        public static ArrayList LVklad = new ArrayList();
+
 
         public delegate void Messege();
         public static event Messege EV1;
@@ -17,6 +44,8 @@ namespace _215Labs2020.Davletshina.Bank
 
         public delegate void Messege3();
         public static event Messege3 EV3;
+
+
         private void Daa()
         {
             user us = new user();
@@ -28,7 +57,7 @@ namespace _215Labs2020.Davletshina.Bank
             Bank.Yy = int.Parse(dt[2]);
             Bank.Age = DateTime.Now.Year - Bank.Yy;
         }
-        private void Registration()
+        public  void Registration()
         {
             user us = new user();
             Console.WriteLine("Здравствуйте, для вложения средств в наш банк необходимо зарегистрироваться.");
@@ -60,6 +89,7 @@ namespace _215Labs2020.Davletshina.Bank
             {
 
             }
+
         }
         private void prognoz()
         {
@@ -75,14 +105,14 @@ namespace _215Labs2020.Davletshina.Bank
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {user.vklad} рублей.");
             EV3 += () => Console.WriteLine($"Расчет готов!");
             EV3.Invoke();
-            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку.");
+            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьАлмазИнвест'.");
         }
         public static void method()
         {
             user bank = new user();
             Console.WriteLine("Введите ваш id");
             int id = int.Parse(Console.ReadLine());
-            bank.Registration();
+
             if (id != Employee.Id)
             {
                 bank.Registration();
@@ -104,4 +134,3 @@ namespace _215Labs2020.Davletshina.Bank
         }
     }
 }
-

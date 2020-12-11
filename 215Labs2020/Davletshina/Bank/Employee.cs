@@ -7,8 +7,8 @@ namespace _215Labs2020.Davletshina.Bank
 
         class Employee : user
         {
-            private static string rabsurname = "Ivanov";
-            private static string rabname = "Ivan";
+            private static string rabsurname = " Ivanov ";
+            private static string rabname = " Ivan ";
             private static int zarplata;
             private static int _id;
             public static string Rabname

@@ -7,12 +7,12 @@ namespace _215Labs2020.Davletshina.Bank
 
     abstract class Bank
     {
-        private static string name;
-        private static string surname;
         private static int age;
         private static int dt;
         private static int mm;
         private static int yy;
+        private static string name;
+        public static string surname;
 
         public static string Name
         {
@@ -82,6 +82,5 @@ namespace _215Labs2020.Davletshina.Bank
         }
 
     }
-
 }
 
