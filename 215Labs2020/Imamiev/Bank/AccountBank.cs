@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace _215Labs2020.Imamiev
 {
     class AccountBank
@@ -11,7 +8,7 @@ namespace _215Labs2020.Imamiev
         private static double cashback_percents = 0.03;
         private static double partnerCashback_percents = 0.2;
         private static double cashback = 0;
-        private static long phonenumber;
+        private static long phoneNumber;
         private static int birthDay;
         private static int birthMonth;
         private static int birthYear;
@@ -85,7 +82,7 @@ namespace _215Labs2020.Imamiev
         }
         private static void Refill()
         {
-            BankAccount operations = new BankAccount(balance);
+            AccountBank operations = new AccountBank(balance);
 
             int money = 0;
             Console.Write("Enter the amount of deposit: ");
@@ -218,7 +215,7 @@ namespace _215Labs2020.Imamiev
             message();
             if (a == 1)
             {
-                cashback += amount * partnerCashbaсk_percents;
+                cashback += amount * partnerCashback_percents;
                 balance += cashback;
                 Console.WriteLine($"You recevied your cashback: {cashback}. Your balance: {balance}");
             }
@@ -331,8 +328,8 @@ namespace _215Labs2020.Imamiev
         public static void CheckUser()
         {
             AccountBank bank = new AccountBank(0);
-            Client client = new Client("Ivan Ivanov");
-            Employee Employee = new Employee("Oleg Olegov");
+            Client client = new Client("Zahar Pavlov");
+            Employee Employee = new Employee("Alan Chechencov");
 
             Console.WriteLine("1.Client");
             Console.WriteLine("2.Employee");

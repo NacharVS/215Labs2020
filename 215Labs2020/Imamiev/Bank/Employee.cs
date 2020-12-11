@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace _215Labs2020.Imamiev.Bank
+
+namespace _215Labs2020.Imamiev
 {
     class Employee : User
     {
