@@ -11,8 +11,6 @@ namespace _215Labs2020.Ibragimov.Strategy
             IMirn mir;
             IVoin voi;
             IZdanie zd;
-            voi = new AtackUnit.Arbaletcshik(5, 6.5, 7);
-            voi.Voin1();
 
             voi = new AtackUnit.Bomber(5, 6.5, 7);
             voi.Voin1();

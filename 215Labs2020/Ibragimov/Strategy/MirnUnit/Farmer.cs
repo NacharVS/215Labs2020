@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Farmer : AbsarctClassVse, IAttack, ISkorost,IMirn
+    class Farmer : AbsarctClassVse,  ISkorost,IMirn
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

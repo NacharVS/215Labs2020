@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.BankKlas
 {
-    class user : Bank
+    class yser : Bank
     {
         private static double vklad = 0;
         private static double procent = 0.1;
@@ -19,7 +19,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
         public static event Messege3 EV3;
         private void Daa()
         {
-            user us = new user();
+            yser us = new yser();
             Console.WriteLine("Введите дату вашего рождения через точку)");
             string h = Console.ReadLine();
             string[] dt = h.Split(new char[] { '.' });
@@ -30,7 +30,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
         }
         private void Registration()
         {
-            user us = new user();
+            yser us = new yser();
             Console.WriteLine("Здравствуйте, для вложения средств в наш банк необходимо зарегистрироваться.");
             Console.WriteLine("Введите ваше имя");
             Bank.Name = Console.ReadLine();
@@ -48,8 +48,8 @@ namespace _215Labs2020.Ibragimov.BankKlas
             {
                 Console.WriteLine("Введите сумму депозита");
                 int money = int.Parse(Console.ReadLine());
-                if (money >= 10000 && money <= 200000) user.vklad = money;
-                EV2 += () => Console.WriteLine($"Пополнение счета: {user.vklad}");
+                if (money >= 10000 && money <= 200000) yser.vklad = money;
+                EV2 += () => Console.WriteLine($"Пополнение счета: {yser.vklad}");
                 EV2.Invoke();
             }
             catch
@@ -68,19 +68,19 @@ namespace _215Labs2020.Ibragimov.BankKlas
             int coat = int.Parse(Console.ReadLine());
             for (int i = 0; i < coat; i++)
             {
-                user.vklad += user.procent * user.vklad;
+                yser.vklad += yser.procent * yser.vklad;
             }
         }
         private void end()
         {
-            Console.WriteLine($"Через указанный вами срок, ваш вклад составит {user.vklad} рублей.");
+            Console.WriteLine($"Через указанный вами срок, ваш вклад составит {yser.vklad} рублей.");
             EV3 += () => Console.WriteLine($"Расчет готов!");
             EV3.Invoke();
             Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьАлмазИнвест'.");
         }
         public static void method()
         {
-            user bank = new user();
+            yser bank = new yser();
             Console.WriteLine("Введите ваш id");
             int id = int.Parse(Console.ReadLine());
             if (id != Employee.Id)
@@ -90,7 +90,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
                 if (Bank.Age >= 14)
                 {
                     bank.Operation();
-                    if (user.vklad != 0)
+                    if (yser.vklad != 0)
                     {
                         bank.prognoz();
                         bank.end();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Ibragimov.Strategy.Unit
 {
-    class Stroitel : AbsarctClassVse, IAttack, ISkorost, IStroit,IMirn
+    class Stroitel : AbsarctClassVse, ISkorost, IStroit,IMirn
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

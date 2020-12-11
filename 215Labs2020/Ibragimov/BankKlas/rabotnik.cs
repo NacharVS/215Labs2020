@@ -5,7 +5,7 @@ using System.Text;
 namespace _215Labs2020.Ibragimov.BankKlas
 {
 
-    class Employee : user
+    class Employee : yser
     {
         private static string rabname = "Олег";
         private static string rabsurname = "Иванов";
@@ -61,3 +61,4 @@ namespace _215Labs2020.Ibragimov.BankKlas
     }
 
 }
+//Скопировано у ************, ставьте 2
