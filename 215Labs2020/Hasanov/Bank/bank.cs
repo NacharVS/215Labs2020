@@ -26,6 +26,8 @@ namespace _215Labs2020.Hasanov
         private static double _cashbackpersentreferal = 0.05;
         private static double _depositpersent = 1.025;
         public event AccountHandler Notify;
+        List<Bank> accountlist = new List<Bank>();
+        private static int Id = 0000001;
 
 
         private void Put1(double sum)
@@ -197,6 +199,8 @@ namespace _215Labs2020.Hasanov
             _year = int.Parse(array[2]);
             _openDate = DateTime.Now;
             Age = DateTime.Now.Year - _year;
+            accountlist.Add(new Bank(Bank.Name, ))
+
         }
         private void Depositsonthebalance()
         {
