@@ -209,7 +209,7 @@ namespace _215Labs2020.Шагимуратова.Bank
             }
         }
 
-        private void setAny(List<bank> klients, string anyParams,string oldValue,string newValue)
+        public void setAny(List<bank> klients, string anyParams,string oldValue,string newValue)
         {
             if (anyParams == "Name" || anyParams == "name")
             {
@@ -243,7 +243,94 @@ namespace _215Labs2020.Шагимуратова.Bank
             }
         }
 
-            public static void Nachalo(List<bank> klients,int numer)
+        public void delete(List<bank> klients, string anyParams, string oldValue)
+        {
+            if (anyParams == "Name" || anyParams == "name")
+            {
+                foreach (var item in klients)
+                {
+                    if (oldValue == item.Name)
+                    {
+                        klients.Remove(item);
+                        if (klients.Remove(item)==true)
+                        {
+                            Console.WriteLine("удаление прошло успешно");
+                        }
+                    }
+                }
+            }
+            if (anyParams == "Surname" || anyParams == "surname" || anyParams == "SurName")
+            {
+                foreach (var item in klients)
+                {
+                    if (oldValue == item.SurName)
+                    {
+                        klients.Remove(item);
+                        if (klients.Remove(item) == true)
+                        {
+                            Console.WriteLine("удаление прошло успешно");
+                        }
+                    }
+                }
+            }
+            if (anyParams == "Phone" || anyParams == "phone")
+            {
+                foreach (var item in klients)
+                {
+                    if (oldValue == item.Phone)
+                    {
+                        klients.Remove(item);
+                        if (klients.Remove(item) == true)
+                        {
+                            Console.WriteLine("удаление прошло успешно");
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        static void Edit(Dictionary<int, bank> directoria, int searchID, string param,string newvalue)
+        {
+            if (param == "Name" || param == "name")
+            {
+                directoria[searchID].Name = newvalue;  
+            }
+            if (param == "Surname" || param == "surname" || param == "SurName")
+            {
+                directoria[searchID].SurName = newvalue;
+
+            }
+            if (param == "Phone" || param == "phone")
+            {
+                directoria[searchID].Phone = newvalue;
+            }
+
+        }
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public static void Nachalo(List<bank> klients,int numer)
         {
             int c = 0;
             do
