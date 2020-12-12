@@ -35,17 +35,22 @@ namespace _215Labs2020
             //BranchOffice.gal2(GeneralOffice.array, GeneralOffice.array2);
             //BranchOffice.gal(GeneralOffice.array);
 
-            List<User> Users = new List<User>();
-            Users.Add(new User("Ayaz", "Sadukov", 12, 12, 2000, "saduk@"));
-            Users.Add(new User("Ruzal", "Saburov", 1, 10, 2003, "sabur@"));
-            Users.Add(new User("Bulat", "almuhametov", 23, 12, 2001, "almuh@"));
-            Users.Add(new User("Artyom", "litvinenko", 10, 3, 2000, "litv@"));
-            Users.Add(new User("Sultan", "Ismagilov", 12, 12, 2002, "ismag@"));
-            User.Check(Users);
-         
-        }
+            Dictionary<int, User> Users = new Dictionary<int, User>();
+            Users.Add(123, new User("Ayaz", "Sadukov", 12, 12, 2000, "saduk@"));
+            //Users.Add(1234523, new User("Ruzal", "Saburov", 1, 10, 2003, "sabur@"));
+            //Users.Add(34765,new User("Bulat", "almuhametov", 23, 12, 2001, "almuh@"));
+            //Users.Add(564786,new User("Artyom", "litvinenko", 10, 3, 2000, "litv@"));
+            //Users.Add(124563,new User("Sultan", "Ismagilov", 12, 12, 2002, "ismag@"));
+            foreach (var item in Users)
+            {
+                Console.WriteLine(item.Value.Name);
 
-       
+            }
+
+
+        }
+        public void editName(Dictionary<int, User> a, int Id) => a[Id].Name = "Ruzal";
+
     }
 
 }

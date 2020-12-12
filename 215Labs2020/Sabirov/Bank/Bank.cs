@@ -6,6 +6,8 @@ namespace _215Labs2020.Sabirov
      abstract class Bank
     {
 
+       
+       
         public static string name;
         private static int day;
         private static int month;

@@ -11,7 +11,7 @@ namespace _215Labs2020.Sabirov.User
         public User(string Name, string Surname, int Day, int Month, int Year, string Email)
         {
             User.name = Name;
-            Bank.Surname = Surname;
+            User.Surname = Surname;
             User.Day = Day;
             User.Month = Month;
             User.Age = Year;
@@ -50,11 +50,7 @@ namespace _215Labs2020.Sabirov.User
 
         }
 
-        private static void ChangeSur(List<User> NeedChange)
-        {
-            NeedChange.Remove(.Name);
-        }
-
+ 
 
 
 
@@ -303,7 +299,7 @@ namespace _215Labs2020.Sabirov.User
                         break;
                     case "6":
 
-                        ChangeSur(a);
+            
                         break;
                    
                 }
