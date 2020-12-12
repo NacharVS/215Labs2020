@@ -4,6 +4,7 @@ using System.Security;
 using _215Labs2020.Garaev.Bank;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace _Bank
 {
@@ -85,84 +86,56 @@ namespace _Bank
         {
             Console.WriteLine(message);
         }
-        public Client(string name)
-        { 
-
+        public Client(string name, string surname, string otchestvo)
+        {
+            _name = name;
+            _surname = surname;
+            _otchestvo = otchestvo;
         }
-        private static List<Client> list = new List<Client>();
-        //private static List<int> ID_list = new List<int>();
-        //private static List<string> Surname_list = new List<string>();
-        //private static List<string> Name_list = new List<string>();
-        //private static List<string> Otchestvo_list = new List<string>();
-        //private static List<double> Balans_list = new List<double>();
-        //private static List<string> Registrate_Data = new List<string>();
+        private static ArrayList Balans_list = new ArrayList();
+        private static Dictionary<int, Client> Client_list = new Dictionary<int, Client>();
         private static void chek_accounts()
         {
-            for (int i = 0; i < list.Count; i++)
+            foreach (var item in Client_list)
             {
-                Console.WriteLine($"{i + 1}){list[i]._name}");
-                //Console.WriteLine($"   ID номер: {ID_list[i]}");
-                //Console.WriteLine($"   Фамилия: {Surname_list[i]}");
-                //Console.WriteLine($"   Имя: {Name_list[i]}");
-                //Console.WriteLine($"   Отчество: {Otchestvo_list[i]}");
-                //Console.WriteLine($"   Баланс: {Balans_list[i]}");
-                Console.WriteLine();
+                Console.WriteLine(item.Value._surname);
+                Console.WriteLine(item.Value._name);
+                Console.WriteLine(item.Value._otchestvo);
+                
             }
         }
         private static void set_account()
         {
             Console.Write("Введите ID пользователя, у которого хотите отредактировать профиль");
             int select_id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Что хотите отредактировать?");
-            Console.WriteLine("1) Фамилию");
-            Console.WriteLine("2) Имя");
-            Console.WriteLine("3) Отчество");
-            Console.WriteLine("4) Выйти");
-            int select = int.Parse(Console.ReadLine());
-            while (select<4 && select > 0)
+            Console.Write("Введите новую фамилию: ");
+            string new_surname = Console.ReadLine();
+            Console.Write("Введите новое имя: ");
+            string new_name = Console.ReadLine();
+            Console.Write("Введите новое отчество: ");
+            string new_otchestvo = Console.ReadLine();
+            foreach (var item in Client_list)
             {
-                switch (select)
+                if(item.Key == select_id)
                 {
-                    case 1:
-                        {
-                            Console.Write("Введите новую фамилию: ");
-                            //Surname_list[select_id-1] = Console.ReadLine();
-                        }
-                        break;
-                    case 2:
-                        {
-                            Console.Write("Введите новое имя: ");
-                            //Name_list[select_id-1] = Console.ReadLine();
-                        }
-                        break;
-                    case 3:
-                        {
-                            Console.Write("Введите новое отчество: ");
-                            //Otchestvo_list[select_id-1] = Console.ReadLine();
-                        }
-                        break;
+                    item.Value._name = new_name;
+                    item.Value._surname = new_surname;
+                    item.Value._otchestvo = new_otchestvo;
                 }
-                Console.WriteLine("Что хотите отредактировать?");
-                Console.WriteLine("1) Фамилию");
-                Console.WriteLine("2) Имя");
-                Console.WriteLine("3) Отчество");
-                Console.WriteLine("4) Выйти");
-                select = int.Parse(Console.ReadLine());
-            }
-
-            
+            }         
         }
         private static void dataofbirth()
         {
+            Random rnd = new Random();
             balans = 0;
             _accountOpenDate = new DateTime(DateTime.Now.Minute);
             //Registrate_Data.Add($"Дата регистрации: {DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year} Время регистрации: {DateTime.Now.Hour}:{DateTime.Now.Minute}.{DateTime.Now.Second}");
-            //Console.Write("Введите Фамилия: ");
-            //surname = Console.ReadLine();
-            //Console.Write("Введите имя: ");
-            //name = Console.ReadLine();
-            //Console.Write("Введите Отчество: ");
-            //otchestvo = Console.ReadLine();
+            Console.Write("Введите Фамилия: ");
+            surname = Console.ReadLine();
+            Console.Write("Введите имя: ");
+            name = Console.ReadLine();
+            Console.Write("Введите Отчество: ");
+            otchestvo = Console.ReadLine();
             Console.WriteLine("Введите дату рождение");
             Console.Write("День: ");
             dayofbirth = int.Parse(Console.ReadLine());
@@ -221,13 +194,13 @@ namespace _Bank
                     yearofbirth = int.Parse(Console.ReadLine());
                 }
             }
-            list.Add(new Client() );
+            Client_list.Add(rnd.Next(100000,999999), new Client(name, surname, otchestvo));
             //ID += 1;
             //ID_list.Add(ID);
             //Surname_list.Add(surname);
             //Name_list.Add(name);
             //Otchestvo_list.Add(otchestvo);
-            //Balans_list.Add(balans);
+            Balans_list.Add(balans);
             //_surname = surname;
             //_name = name;
             //_otchestvo = otchestvo;
@@ -281,7 +254,7 @@ namespace _Bank
             }
             acc.Put(summ);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
-            //Balans_list[Name_list.Count - 1] = balans;
+            Balans_list[Balans_list.Count - 1] = balans;
         }
         private static void vivod()
         {
@@ -330,7 +303,7 @@ namespace _Bank
             }
             acc.Take(_vivod);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
-            //Balans_list[Name_list.Count - 1] = balans;
+            Balans_list[Balans_list.Count - 1] = balans;
         }
         private static void transaction()
         {
@@ -398,7 +371,7 @@ namespace _Bank
             Console.WriteLine($"Вы перевели {summ1} руб. на счет {nomer}");
             acc.perevod(summ1);
             Console.WriteLine($"Ваш текущий баланс: {balans}");
-            //Balans_list[Name_list.Count - 1] = balans;
+            Balans_list[Balans_list.Count - 1] = balans;
         }
         private static void _dohod()
         {
@@ -433,12 +406,12 @@ namespace _Bank
             {
                 Console.WriteLine($"Через {year} лет ваш баланс будет {balans1} руб. Чистый доход: {dohod} руб.");
             }
-            //Balans_list[Name_list.Count - 1] = balans;
+            Balans_list[Balans_list.Count - 1] = balans;
         }
         private static void tecush_balans()
         {
             Console.WriteLine($"Ваш текущий баланс: {balans} руб.");
-            //Balans_list[Name_list.Count - 1] = balans;
+            Balans_list[Balans_list.Count - 1] = balans;
         }
         private static void pucupka()
         {
@@ -464,7 +437,7 @@ namespace _Bank
             }
             
             popolnenie_cashback();
-            //Balans_list[Name_list.Count - 1] = balans;
+            Balans_list[Balans_list.Count - 1] = balans;
         }
         public static void vibor_deistviy()
         {
