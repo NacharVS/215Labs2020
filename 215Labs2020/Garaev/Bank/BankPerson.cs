@@ -8,9 +8,32 @@ namespace _215Labs2020.Garaev.Bank
 {
     class BankPerson
     {
-        protected static string name;
-        protected static string surname;
-        protected static string otchestvo;
+        private string surname;
+        private string name;
+        private string otchestvo;
+        public  string _name{ get; set; }
+        public  string _surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+            }
+        }
+        public string _otchestvo
+        {
+            get
+            {
+                return otchestvo;
+            }
+            set
+            {
+                otchestvo = value;
+            }
+        }
         public static void Bank_deysviya()
         {
             Console.Clear();
