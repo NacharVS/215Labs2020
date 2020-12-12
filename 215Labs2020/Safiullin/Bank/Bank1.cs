@@ -7,7 +7,9 @@ namespace _215Labs2020.Safiullin
     class Bank1
     {
 
-        private static string _name, _phone, _birthday;
+        private static string _name;
+        private static string _surname;
+        private static int _id;
         private static double cashback = 0;
         private static double cashback_percent = 0.05;
         private static double cashback_partner_percent = 0.2;
@@ -15,37 +17,28 @@ namespace _215Labs2020.Safiullin
         private static int day = 0;
         private static int month = 0;
         private static double _donation;
+        private static string _phone;
         private static double _balans = 0;
         private static double _percent = 0.0061;
         private static DateTime _accounOpenDate;
 
-        public delegate void Handling(string massage);
+
+        static List<Bank1> Person = new List<Bank1>();
+
+
+        public delegate void Handling(string message);
         //public delegate void Handling();
-        public event Handling Notify;
-
-       
-
-        
-        private Bank1(string name, string phone, string birthday)
+        public event Handling Notify = (message) =>
         {
+            Console.WriteLine($"На ваш номер телефон: {_phone}. Прибыло соообщение: {message} . ");
+        };
+        public Bank1(int id, string name, string surname, string phone)
+        {
+            _id = id;
             _name = name;
+            _surname = surname;
             _phone = phone;
-            _birthday = birthday;
         }
-        public Bank1(double sum)
-        {
-            _balans = sum;
-        }
-        public void SnowName(string newName)
-        {
-            _name = newName;
-        }
-        public void SnowNumber(string newPhone)
-        {
-            _phone = newPhone;
-        }
-
-
         public static double summ { get; private set; }
         private static void Check_Age()
         {
@@ -65,7 +58,11 @@ namespace _215Labs2020.Safiullin
                 DateTime dataBorn = new DateTime(year, month, day);
                 Console.WriteLine($"Дата рождения: {dataBorn.Day}.{dataBorn.Month}.{dataBorn.Year}");
                 Console.WriteLine();
-                if (DateTime.Now.Year - year < 14 )
+                _id += 1;
+                Person.Add(new Bank1(1, "Сафиуллин", "Расиф", "89393987849"));
+                Person.Add(new Bank1(2, "Камальдинов", "Ринат", "89393747785"));
+
+                if (DateTime.Now.Year - year < 14)
                 {
                     Console.WriteLine("Люди младше 14 лет не могут открыть счет.");
                 }
@@ -76,6 +73,13 @@ namespace _215Labs2020.Safiullin
             }
 
         }
+        private static void Amendment()
+        {
+            Person<int, Bank1> bankList = new Person<int, Bank1> 
+        }
+
+
+
         private static void Check_Remove()
         {
             Console.Write("Укажите сумму которое хотите снять: ");

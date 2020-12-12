@@ -18,6 +18,7 @@ namespace _215Labs2020.Safiullin.Bank
         public DateTime Birthday => _birthday;
 
         static List<Client> Person = new List<Client>();
+
         public Client(string name, string phone,int age, int id, DateTime birthday)
         {
             _name = name;
