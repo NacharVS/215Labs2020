@@ -7,26 +7,22 @@ namespace _215Labs2020.Шагимуратова.Bank
 {
     class bank:Human
     {
-       
         private static double _balans;
         private static double _cashback = 0;
-        private static long _phone;
+        private string _phone;
         private int _summinvklad;
         private static double _procent = 0.13;
         private double _summa;
         private int _years;
         private static string _Patronymic;
         private static DateTime _dateOpen;
-      
+        private static int _shetchik;
+
 
         public delegate void Handler(string message);
         public event Handler Notify;
        
-        //public bank( double Summ)
-        //{
-        //    _balans = Summ;
-        //}
-
+       
        public void came_money(double Summ)
         {
             _balans += Summ;
@@ -48,7 +44,7 @@ namespace _215Labs2020.Шагимуратова.Bank
             Notify?.Invoke($"money transfer:{Summ}");
         }
 
-    public int summinvklad
+        public int summinvklad
         {
             get
             {
@@ -56,49 +52,68 @@ namespace _215Labs2020.Шагимуратова.Bank
             }
             set
             {
-                _summinvklad = value;
+                if (value >= 10000 & value < 200000)
+                {
+                    _summinvklad = value;
+                  
+                }
+                if (value < 10000)
+                {
+                    Console.WriteLine("сумма не должна быть меньше 10000");
+                    
+                }
+                if (value >= 200000)
+                {
+                    Console.WriteLine("сумма не должна превышать 200000");
+
+                }
             }
         }
 
         public static DateTime DateOpen { get => _dateOpen; set => _dateOpen = value; }
-
+        public string Phone { get => _phone; set => _phone = value; }
 
         public static void  Reg (List<bank> klients,int num) 
         {
             bank User = new bank();
             Boolean buf;
             DateOpen = new DateTime(DateTime.Now.Minute);
-            Console.WriteLine("Введите имя");
-             User.Name = Console.ReadLine();
-            Console.WriteLine("Введите Фамилию");
-           // String buffSurname = Console.ReadLine();
-            User.SurName = Console.ReadLine();
-            Console.Write("Введите Отчество");
-            User.Otchestvo = Console.ReadLine();
-            Console.Write("День: ");
-            do
-            { User.DayBD = int.Parse(Console.ReadLine());
-                if (User.DayBD > 31 || User.DayBD < 1) buf = false;
-            }
-            while (buf = false);
-
-            Console.Write("Месяц: ");
-            //String buffMonthBD = Console.ReadLine();
-             
+            Console.WriteLine("Введите имя");             User.Name = Console.ReadLine();
+            Console.WriteLine("Введите Фамилию");         User.SurName = Console.ReadLine();
+            Console.WriteLine("Введите Отчество");        User.Otchestvo = Console.ReadLine();
+           
             do
             {
+                Console.WriteLine("Введите день рождения: ");
+                User.DayBD = int.Parse(Console.ReadLine());
+                if (User.DayBD > 31 || User.DayBD < 1) buf = false;
+            }while (buf = false);
+            
+            do
+            {
+               Console.WriteLine("Введите месяц рождения: ");
                 User.MonhtBD = int.Parse(Console.ReadLine());
-                if (User.MonhtBD > 12 || User.MonhtBD < 1) buf = true;
-            }
-            while (buf = true);
-
-            Console.Write("Год: ");
-
-             User.YearBD = int.Parse(Console.ReadLine());
+                if (User.MonhtBD > 12 || User.MonhtBD < 1)
+                {
+                    Console.WriteLine("Uncorrect value. Try again");
+                    buf = true;
+                }
+            } while (buf = true);
+            
+            do
+            {
+                Console.WriteLine("Введите Год рождения: ");
+                User.YearBD = int.Parse(Console.ReadLine());
+                if (User.MonhtBD > 12 || User.MonhtBD < 1)
+                { buf = true;
+                    Console.WriteLine("Uncorrect value. Try again");
+                }
+            } while (buf = true);
 
              User.Id = num; 
 
             int k=0;
+            
             do
             {
                 Console.WriteLine("Введите сумму пополнения");
@@ -143,16 +158,92 @@ namespace _215Labs2020.Шагимуратова.Bank
                     k = 1;
                 }
             }
+
             while (k == 1);
+           
             klients.Add(User);
   
         }
 
 
-        List<bank> kleints = new List<bank>();
 
         public int numer = 0;
-        public static void Nachalo(List<bank> klients,int numer)
+
+        public bank()
+        {
+
+        }
+
+        public bank(string name,string surname,int summinvklad, string phone,int db , int mb,int yb ,int pos)
+        {
+            this.Id = pos ;
+            this.DayBD = db;
+            this.MonhtBD = mb;
+            this.YearBD = yb;
+            this.Name = name;
+            this.SurName = surname;
+            this.summinvklad = summinvklad;
+            Phone = phone ?? throw new ArgumentNullException(nameof(phone));
+        }
+
+
+        public static void setAny (List<bank> klients , string anyParams,int id, string move )
+        {
+            foreach (var item in klients)
+            {
+                if (item.Id==id)
+                {
+                    if (anyParams == "Name" || anyParams == "name")
+                    { 
+                     item.Name = move;
+                    }
+                    if (anyParams == "Surname" || anyParams == "surname" || anyParams == "SurName")
+                    {
+                     item.SurName = move;
+                    }
+                    if (anyParams=="Phone"||anyParams=="phone")
+                    {
+                        item.Phone = move;
+                    }
+                }
+            }
+        }
+
+        private void setAny(List<bank> klients, string anyParams,string oldValue,string newValue)
+        {
+            if (anyParams == "Name" || anyParams == "name")
+            {
+                foreach (var item in klients)
+                {
+                    if (oldValue==item.Name)
+                    {
+                        item.Name = newValue;
+                    }
+                }
+            }
+            if (anyParams == "Surname" || anyParams == "surname" || anyParams == "SurName")
+            {
+                foreach (var item in klients)
+                {
+                    if (oldValue == item.SurName)
+                    {
+                        item.SurName = newValue;
+                    }
+                }
+            }
+            if (anyParams == "Phone" || anyParams == "phone")
+            {
+                foreach (var item in klients)
+                {
+                    if (oldValue == item.Phone)
+                    {
+                        item.Phone = newValue;
+                    }
+                }
+            }
+        }
+
+            public static void Nachalo(List<bank> klients,int numer)
         {
             int c = 0;
             do
@@ -173,16 +264,13 @@ namespace _215Labs2020.Шагимуратова.Bank
             while (c == 1);
         }
 
-
+      
     }
 
-    //public static void Delit(List<bank> klients, int numer)
-    //{
+   
 
-    //}
 
-    
-  
+
 
 
 }

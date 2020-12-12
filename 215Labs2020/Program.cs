@@ -9,25 +9,15 @@ namespace _215Labs2020
 
         static void Main(string[] args)
         {
-        int numer = 0;
-        List<bank> kleints = new List<bank>();
 
-             bank.Nachalo(kleints,numer);
-             Console.WriteLine("sssssssssssssssssssssssssssssssssssssssssssssss");
-            //bank.Nachalo(kleints, numer);
-            //Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-
-            if (kleints != null)
-            {
-            foreach (bank item in kleints)
-            {
-                Console.WriteLine(item.Name , item );
-            }
-            }
-
-           
-
-
+           int numer = 0;
+            List<bank> kleints = new List<bank>();
+            kleints.Add(new bank("Masha","Domova",23000,"89874568945",12,03,1998, kleints.Count));
+            kleints.Add(new bank("Natalia", "Nikonova", 45000, "89874523945", 22, 12, 2000, kleints.Count));
+            kleints.Add(new bank("Rima", "Shveth", 10000, "79874523445", 07, 11, 2001, kleints.Count));
+            kleints.Add(new bank("Mark", "Drob", 90000, "89634523425", 17, 04, 1950, kleints.Count));
+            
+            
 
 
 
