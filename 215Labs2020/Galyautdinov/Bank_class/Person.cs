@@ -5,13 +5,13 @@ using _215Labs2020.Galyautdinov;
 
 namespace _215Labs2020.Galyautdinov.Bank_class
 {
-    abstract class Person
+    class Person
     {
 
         private static string _surname;
         private string _name;
         private static int _id;
-        public static string SurName
+        public string SurName
         {
             get
             {
@@ -22,7 +22,7 @@ namespace _215Labs2020.Galyautdinov.Bank_class
                 _surname = value;
             }
         }
-        public  string Name
+        public string Name
         {
             get
             {
@@ -33,7 +33,7 @@ namespace _215Labs2020.Galyautdinov.Bank_class
                 _name = value;
             }
         }
-        public static int ID
+        public int ID
         {
             get
             {

@@ -8,7 +8,6 @@ namespace _215Labs2020.Galyautdinov
 {
     class Bank : Person
     {
-        //private  string Name => _name;
         private static double bank_balans = 0;
         private static double percent = 0.001;
         private static double cashback_percent = 0.05;
@@ -21,33 +20,38 @@ namespace _215Labs2020.Galyautdinov
         private static int year_birthday;
         private static int edit_id;
 
-        private static List<Bank> list = new List<Bank>();
-
+        private static List<Bank> List_Name = new List<Bank>();
         private static ArrayList ListName = new ArrayList();
-        private static ArrayList ListBaslans = new ArrayList();
+        private static ArrayList ListBa1lans = new ArrayList();
         private static ArrayList ListID = new ArrayList();
         private static ArrayList ListSurName = new ArrayList();
         private static ArrayList ListPhone = new ArrayList();
 
+        static Person person = new Person();
+        private static Dictionary<int, Bank> ClientList = new Dictionary<int, Bank>();
+        private static List<double> ListBalans = new List<double>();
+
         public delegate void AccountHandler(string message);
-        public event AccountHandler Notify = (message) =>
+        public static event AccountHandler Notify = (message) =>
         {
             Console.WriteLine($"\nНа номер {Phone} было отправлено сообщение \nСообщение: {message}\n");
         };
-        public Bank(int id, string surname, string name, string phone)
+        public Bank(string surname, string name, string phone, int _day_birthday, int _month_birthday, int _year_birthday)
         {
-            ID = id;
             SurName = surname;
             Name = name;
             Phone = phone;
+            day_birthday = _day_birthday;
+            month_birthday = _month_birthday;
+            year_birthday = _year_birthday;
         }
         private static void FullName()
         {
             bank_balans = 0;
-            //Console.Write("Введите фамилию: ");
-            //SurName = Console.ReadLine();
-            //Console.Write("Введите имя: ");
-            //Name = Console.ReadLine();
+            Console.Write("Введите фамилию: ");
+            person.SurName = Console.ReadLine();
+            Console.Write("Введите имя: ");
+            person.Name = Console.ReadLine();
             Console.WriteLine("Укажиет день рождение");
             Console.Write("День: ");
             day_birthday = int.Parse(Console.ReadLine());
@@ -55,29 +59,21 @@ namespace _215Labs2020.Galyautdinov
             month_birthday = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
             year_birthday = int.Parse(Console.ReadLine());
-            //Console.Write("Введите номер телефона: ");
-            //Phone = Console.ReadLine();
+            Console.Write("Введите номер телефона: ");
+            Phone = Console.ReadLine();
 
-            ID += 1;
-            list.Add(new Bank(1, "Галяутдинов", "Ислам", "89093087045"));
-            list.Add(new Bank(2, "Гараев", "Ильяс", "89093087045"));
+            person.ID += 1;
+            ClientList.Add(person.ID, new Bank(person.SurName, person.Name, Phone, day_birthday, month_birthday, year_birthday));
+            ListBalans.Add(bank_balans);
 
         }
-        //private static void ListOfClients()
-        //{
-        //    for (int i = 0; i < ListName.Count; i++)
-        //    {
-        //        Console.WriteLine($"  ID: {ListID[i]}");
-        //        Console.WriteLine($"  Фамилия: {ListSurName[i]} \n  Имя: {ListName[i]}\n  Номер: {ListPhone[i]}");
-        //        Console.WriteLine($"  Баланс: {ListBalans[i]}");
-        //        Console.WriteLine();
-        //    }
-        //}
         private static void ListOfClients()
         {
-            foreach (var item in list)
+            foreach (var item in ClientList)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine($"ID: {item.Key}");
+                Console.WriteLine($"ФИ: {item.Value.SurName}, {item.Value.Name}");
+                Console.WriteLine($"Bаш баланс: {ListBalans[item.Key-1]}");
             }
         }
         private static void set_account()
@@ -107,18 +103,18 @@ namespace _215Labs2020.Galyautdinov
         private static void EditName()
         {
             Console.Write("Введите новую имю: ");
-            ListName[edit_id - 1] = Console.ReadLine();
+            //ListName[edit_id - 1] = Console.ReadLine();
 
         }
         private static void EditSurName()
         {
             Console.Write("Введите новую фамилию: ");
-            ListSurName[edit_id - 1] = Console.ReadLine();
+            //ListSurName[edit_id - 1] = Console.ReadLine();
         }
         private static void EditPhone()
         {
             Console.Write("Введите новый номер: ");
-            ListPhone[edit_id - 1] = Console.ReadLine();
+            //ListPhone[edit_id - 1] = Console.ReadLine();
         }
         private static void EditDataBirthday()
         {
@@ -127,8 +123,6 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void Refill()
         {
-            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
-
             int a=0;
             Console.Write("Введите сумму пополнения: ");
             int prov2 = 0;
@@ -191,12 +185,11 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
             bank_balans += a;
-            bank.Notify?.Invoke($"Пополнение баланса на сумму {a} рублей. Ваш  баланс: {bank_balans}");
-            //ListBalans[ListName.Count - 1] = bank_balans;
+            Notify?.Invoke($"Пополнение баланса на сумму {a} рублей. Ваш  баланс: {bank_balans}");
+            ListBalans[ClientList.Count-1] = bank_balans;
         }
         private static void Withdrawal()
         {
-            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int a;
             Console.Write("Введите сумму которую хотите снять: ");
             try
@@ -272,13 +265,12 @@ namespace _215Labs2020.Galyautdinov
             if (bank_balans >= a)
             {
                 bank_balans -= a;
-                bank.Notify?.Invoke($"Со счета был снят {a} рублей. Ваш  баланс: {bank_balans}");
+                Notify?.Invoke($"Со счета был снят {a} рублей. Ваш  баланс: {bank_balans}");
             }
-            //ListBalans[ListName.Count - 1] = bank_balans;
+            //ListBalans[person.ID] = bank_balans;
         }
         private static void Transfer()
         {
-            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int a;
             Console.Write("Введите счет, на которую переводите деньги: ");
             int login_transfer = int.Parse(Console.ReadLine());
@@ -356,14 +348,13 @@ namespace _215Labs2020.Galyautdinov
             if (bank_balans >= a)
             {
                 bank_balans -= a;
-                bank.Notify?.Invoke($"Был осуществлен перевод на счет {login_transfer} на сумма {a} рублей. Ваш баланс {bank_balans} рублей.");
-                //ListBalans[ListName.Count - 1] = bank_balans;
+                Notify?.Invoke($"Был осуществлен перевод на счет {login_transfer} на сумма {a} рублей. Ваш баланс {bank_balans} рублей.");
+               // ListBalans[person.ID] = bank_balans;
             }
 
         }
         public static void Purchase()
         {
-            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int a;
             Console.WriteLine("\t 1. Покупка у партнера || 2. Обычная покупка");
             Console.Write("Выберите вид покупки: ");
@@ -386,25 +377,24 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
             bank_balans -= a;
-            bank.Notify?.Invoke($"Осуществлена покупка на сумму {a}  рублей. Ваш  баланс: {bank_balans}");
+            Notify?.Invoke($"Осуществлена покупка на сумму {a}  рублей. Ваш  баланс: {bank_balans}");
             if (id == 1)
             {
                 cashback += a * cashback_partner_percent;
                 bank_balans += cashback;
-                bank.Notify?.Invoke($"Начислен кешбек {cashback} рублей. Ваш  баланс: {bank_balans}");
+                Notify?.Invoke($"Начислен кешбек {cashback} рублей. Ваш  баланс: {bank_balans}");
             }
             else if (id == 2)
             {
                 cashback += a * cashback_percent;
                 bank_balans += cashback;
-                bank.Notify?.Invoke($"Начислен кешбек {cashback} рублей. Ваш  баланс: {bank_balans}");
+                Notify?.Invoke($"Начислен кешбек {cashback} рублей. Ваш  баланс: {bank_balans}");
             }
             cashback = 0;
-            //ListBalans[ListName.Count - 1] = bank_balans;
+            //ListBalans[person.ID] = bank_balans;
         }
         private static void PeriodProfit(double bank_balans)
         {
-            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             int second = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
             int secondOpen = _accountOpenDate.Hour * 3600 + _accountOpenDate.Minute * 60 + _accountOpenDate.Second;
             int deltaTime = second - secondOpen;
@@ -414,15 +404,15 @@ namespace _215Labs2020.Galyautdinov
             {
                 bank_balans = Math.Round(bank_balans + bank_balans * percent, 2);
             }
-            bank.Notify?.Invoke($"Начислена  процентная ставка. Ваш  баланс: {bank_balans}");
-            //ListBalans[ListName.Count - 1] = bank_balans;
+            Notify?.Invoke($"Начислена  процентная ставка. Ваш  баланс: {bank_balans}");
+            //ListBalans[person.ID] = bank_balans;
         }
         private static void CheckBalance()
         {
             Console.WriteLine();
             Console.WriteLine($"Ваш баланс на текущий момент {bank_balans} рублей");
         }
-        private void Operation()
+        private static void Operation()
         {
             int prov;
             int number_operation;
@@ -500,7 +490,6 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void A()
         {
-            Bank bank = new Bank(1, "Галяутдинов", "Ислам", "89093087045");
             Client client = new Client();
             Employee employee1 = new Employee();
 
@@ -510,7 +499,7 @@ namespace _215Labs2020.Galyautdinov
             _accountOpenDate = DateTime.Now;
             if (client._id == 1)
             {
-                bank.Operation();
+                Operation();
             }
             else if (client._id == 2)
             {
