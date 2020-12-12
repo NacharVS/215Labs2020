@@ -1,4 +1,7 @@
-﻿using System;
+﻿using _215Labs2020.Faizullin.Bankssssa;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace _215Labs2020.Faizullin
 {
@@ -25,11 +28,21 @@ namespace _215Labs2020.Faizullin
             //BranchOffice.xx(mass1);
 
 
-            Bank.Proverka();
+
             //StrategyGame.Class1.proverka();
-
-
-
+            //Dictionary<int, Client> ClientList = new Dictionary<int, Client>();
+            //ClientList.Add(134, new Client("Popov", 45));
+            //ClientList.Add(235, new Client("Faizullin", 23));
+            //ClientList.Add(232, new Client("Ivanov", 56));
+            //ClientList.Add(443, new Client("Ibragimov", 13));
+            //ClientList.Add(311, new Client("IIIIII", 20));
+            //foreach (var item in ClientList)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    Console.WriteLine(item.Value);
+            //}
+            
+            Bank.Proverka();
         }
     }
 }

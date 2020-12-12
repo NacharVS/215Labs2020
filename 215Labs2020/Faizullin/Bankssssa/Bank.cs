@@ -179,6 +179,7 @@ namespace _215Labs2020.Faizullin
                 //Console.WriteLine();
             }
         }
+
         
         
         public void Redaktivv()
@@ -265,6 +266,7 @@ namespace _215Labs2020.Faizullin
             bank.RegistDate();
             bank.Registration();
             bank.ListClient();
+            
             //bank.Redaktiv();
             bank.Redaktivv();
             bank.Operation();
