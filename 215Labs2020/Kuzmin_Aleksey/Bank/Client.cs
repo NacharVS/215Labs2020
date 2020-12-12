@@ -7,76 +7,32 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
 {
     class Client : Person
     {
-        public string Name => _name;
-        public double Bill => _bill;
-        public DateTime Birthday => _birthday;
-        public string Telephone => _telephone;
-        public int Id => _id;
-        public int Age => _age;       
-        public Client(double bill, string name, DateTime birthday, string telephone, int ip) 
+        private string Name => _name;
+        private double Bill => _bill;
+        private DateTime Birthday => _birthday;
+        private string Telephone => _telephone;
+        private int Age => _age;
+        private Client(double bill, string name, DateTime birthday, string telephone) 
         {
             _bill = bill;
             _name = name;
             _birthday = birthday;
             _telephone = telephone;
-            _users += 1;
-            _id = ip;            
+            _users += 1;          
             _age = DateTime.Now.Year - birthday.Year;
             if (DateTime.Now.Month <= birthday.Month && DateTime.Now.Day < birthday.Day)
             {
                 _age -= 1;
             }
         }
-        delegate double Message(double a);
-        event Message Notify;
-        static List<Client> PersonInfo = new List<Client>();
-        private double Refill
-        {
-            get { return _bill; }
-            set
-            {
-                if (value>=10000 && value<=200000)
-                {
-                    _bill += value;
-                }
-            }
-        }
-        private double Remove
-        {
-            get { return _bill; }
-            set
-            {
-                if(_bill>=value)
-                {
-                    _bill -= value;
-                }
-            }
-        }
-        private void SetName(string newName)
-        {
-            _name = newName;
-        }
-        private void SetPhone(string newTelephone)
-        {
-            _telephone = newTelephone;
-        }
-        private void SetBirthday(DateTime newBirthday)
-        {
-            _birthday = newBirthday;
-            _age = 0;
-            if (DateTime.Now.Month <= _birthday.Month && DateTime.Now.Day < _birthday.Day)
-            {
-                _age -= 1;
-            }
-            _age = _age + DateTime.Now.Year - _birthday.Year;
-        }
-        private static void ChangeNme(int id, string name)
+        private static Dictionary<int, Client> PersonInfo = new Dictionary<int, Client>();        
+        private static void ChangeName(int id, string name)
         {           
             foreach (var item in PersonInfo)
             {
-                if (item.Id == id)
+                if (item.Key == id)
                 {
-                    item.SetName(name);
+                    item.Value.SetName(name);
                 }
             }
         }          
@@ -84,9 +40,9 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
         {
             foreach (var item in PersonInfo)
             {
-                if (item.Id == id)
+                if (item.Key == id)
                 {
-                    item.SetPhone(phone);
+                    item.Value.SetPhone(phone);
                 }
             }
         }        
@@ -94,9 +50,9 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
         {
             foreach (var item in PersonInfo)
             {
-                if (item.Id == id)
+                if (item.Key == id)
                 {
-                    item.SetBirthday(birthday);
+                    item.Value.SetBirthday(birthday);
                 }
             }
         }     
@@ -104,14 +60,20 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
         {
             foreach (var item in PersonInfo)
             {
-                Console.WriteLine($"Счет: {item.Bill}, ФИО: {item.Name}, Дата рождения: {item.Birthday}, Возраст: {item.Age}, Телефон: {item.Telephone}, id: {item.Id}");
+                Console.WriteLine($"Счет: {item.Value.Bill}, ФИО: {item.Value.Name}, Дата рождения: {item.Value.Birthday}, Возраст: {item.Value.Age}, Телефон: {item.Value.Telephone}");
             }
             
         }
         public static void Program()
         {               
-            //Первый взнос, Имя, Дата рождения, телефон, ip.
-            PersonInfo.Add(new Client(100000, "Клиент1", new DateTime(2000, 2, 21), "8989829198", 0001));
+            //Первый взнос, Имя, Дата рождения, телефон.
+            PersonInfo.Add(1111, new Client(100000, "Егор", new DateTime(2000, 2, 21), "8989829198"));
+            PersonInfo.Add(1112, new Client(500000, "Василий", new DateTime(2002, 12, 31), "213124323"));
+            GetInfo();
+            PersonInfo[1111].Refill = 100000;
+            ChangeName(1111, "Иван");
+            GetInfo();
+            ChangeBirthday(1111, new DateTime(2000, 12, 21));
             GetInfo();
         }
     }

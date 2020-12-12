@@ -4,135 +4,78 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.Bank
 {
-    //class Worker : Person
-    //{
-    //    public Worker()
-    //    {
-    //        _bill = 0;
-    //        _name = "";
-    //        _birthday = "";
-    //        _telephone = "";
-    //        _salary = 0;
-    //    }
-    //    private static string name, number, birthday;
-    //    delegate double Message(double a);
-    //    event Message Notify;
-    //    private Worker(string name, string telephone, string birthday)
-    //    {
-    //        _name = name;
-    //        _telephone = telephone;
-    //        _birthday = birthday;
-    //        _salary = 60000;
-    //    }
-    //    private static void Registration()
-    //    {
-    //        Console.WriteLine("Регистрация:");
-    //        Console.Write("Введите сове ФИО: ");
-    //        name = Console.ReadLine();
-    //        Console.Write("Введите свой номер: ");
-    //        number = Console.ReadLine();
-    //        Console.Write("Введите свою дату рожедения: ");
-    //        birthday = Console.ReadLine();
-    //    }
-    //    private void GetInfo()
-    //    {
-    //        Console.WriteLine($"ФИО: {_name}");
-    //        Console.WriteLine($"Дата рождания: {_birthday}");
-    //        Console.WriteLine($"Телефон: {_telephone}");
-    //        Console.WriteLine($"Зарплата: {_salary}");
-    //    }
-    //    private void Balance()
-    //    {
-    //        Console.WriteLine($"Баланс счета: {_bill}");
-    //    }
-    //    private double Refill
-    //    {
-    //        get { return _bill; }
-    //        set
-    //        {
-    //            if (value > 200000 || value < 10000)
-    //            {
-    //                Console.WriteLine("Ошибка. Взнос должен быть больше 10 000 и меньше 200 000.");
-    //            }
-    //            else
-    //            {
-    //                _bill += value;
-    //                Console.WriteLine($"Баланс: {Notify?.Invoke(_bill)}");
-    //            }
-    //        }
-    //    }
-    //    private double TakeAway
-    //    {
-    //        get { return _bill; }
-    //        set
-    //        {
-    //            if (value > 200000 || value < 10000)
-    //            {
-    //                Console.WriteLine("Ошибка. Взнос должен быть больше 10 000 и меньше 200 000.");
+    class Worker : Person
+    {
+        private string Name => _name;
+        private double Bill => _bill;
+        private DateTime Birthday => _birthday;
+        private string Telephone => _telephone;
+        private int Age => _age;
+        private int Salary => _salary;
+        private Worker(double bill, string name, DateTime birthday, string telephone)
+        {
+            _bill = bill;
+            _name = name;
+            _birthday = birthday;
+            _telephone = telephone;
+            _users += 1;
+            _salary = 30000;
+            _age = DateTime.Now.Year - birthday.Year;
+            if (DateTime.Now.Month <= birthday.Month && DateTime.Now.Day < birthday.Day)
+            {
+                _age -= 1;
+            }
+        }
+        private static Dictionary<int, Worker> PersonInfo = new Dictionary<int, Worker>();
+        private static void ChangeName(int id, string name)
+        {
+            foreach (var item in PersonInfo)
+            {
+                if (item.Key == id)
+                {
+                    item.Value.SetName(name);
+                }
+            }
+        }
+        private static void ChangePhone(int id, string phone)
+        {
+            foreach (var item in PersonInfo)
+            {
+                if (item.Key == id)
+                {
+                    item.Value.SetPhone(phone);
+                }
+            }
+        }
+        private static void ChangeBirthday(int id, DateTime birthday)
+        {
+            foreach (var item in PersonInfo)
+            {
+                if (item.Key == id)
+                {
+                    item.Value.SetBirthday(birthday);
+                }
+            }
+        }
+        private static void GetInfo()
+        {
+            foreach (var item in PersonInfo)
+            {
+                Console.WriteLine($"Счет: {item.Value.Bill}, ФИО: {item.Value.Name}, Дата рождения: {item.Value.Birthday}, Возраст: {item.Value.Age}, Телефон: {item.Value.Telephone}, Зарплата: {item.Value.Salary}");
+            }
 
-    //            }
-    //            else if (_bill < value)
-    //            {
-    //                Console.WriteLine("Ошибка. Не достаточно средств на балансе.");
-
-    //            }
-    //            else
-    //            {
-    //                _bill -= value;
-    //                Console.WriteLine($"Баланс: {Notify?.Invoke(_bill)}");
-    //            }
-    //        }
-    //    }
-    //    private double CashBack
-    //    {
-    //        get { return _bill; }
-    //        set
-    //        {
-    //            if (_bill < value)
-    //            {
-    //                Console.WriteLine("Ошибка. Не достаточно средств на балансе.");
-
-    //            }
-    //            else
-    //            {
-    //                _bill -= value;
-    //                _bill += value * 0.01;
-    //                Console.WriteLine($"Баланс: {Notify?.Invoke(_bill)}");
-    //            }
-    //        }
-    //    }
-    //    public static void Program()
-    //    {
-    //        Registration();
-    //        Worker man = new Worker(name, number, birthday);
-    //        while (true)
-    //        { 
-    //            Console.WriteLine("\"1\" — Проверить баланс.");
-    //            Console.WriteLine("\"2\" — Пополнить.");
-    //            Console.WriteLine("\"3\" — Снять деньги.");
-    //            Console.WriteLine("\"4\" — Вернуть деньги с покупки.");
-    //            Console.WriteLine("\"5\" — Информация о аккаунте.");
-    //            Console.Write("Выберите действие: ");
-    //            string action = Console.ReadLine();
-    //            switch (action)
-    //            {
-    //                case "1": man.Balance(); break;
-    //                case "2":
-    //                    Console.Write("Введите сумму пополнения: ");
-    //                    man.Refill = double.Parse(Console.ReadLine());
-    //                    break;
-    //                case "3":
-    //                    Console.Write("Введите сумму снятия: ");
-    //                    man.TakeAway = double.Parse(Console.ReadLine());
-    //                    break;
-    //                case "4":
-    //                    Console.Write("Введите сумму покупки: ");
-    //                    man.CashBack = double.Parse(Console.ReadLine());
-    //                    break;
-    //                case "5": man.GetInfo(); break;
-    //            }
-    //        }
-    //    }
-    //}
+        }
+        public static void Program()
+        {
+            //Первый взнос, Имя, Дата рождения, телефон.
+            PersonInfo.Add(1111, new Worker(100000, "Клиент1", new DateTime(2000, 2, 21), "8989829198"));
+            PersonInfo.Add(1112, new Worker(500000, "Клиент5", new DateTime(2002, 12, 31), "213124323"));
+            GetInfo();
+            PersonInfo[1111].Refill = 100000;
+            ChangeName(1111, "Клиент2");
+            GetInfo();
+            ChangeBirthday(1111, new DateTime(2000, 12, 21));
+            GetInfo();
+        }
+    }
 }
-
