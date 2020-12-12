@@ -6,31 +6,7 @@ using System.Collections;
 
 namespace _215Labs2020.Maksimov_Aleksei.BankClasses
 {
-    class Baza
-    {
-        public string _name { get; set; }
-        public string _surname { get; set; }
-        public int __id { get; set; }
-        public int _moneyCount { get; set; }
-        public static void collections()
-        {
-            //Lid.AddRange(new int[] { 123, 007, 228 });
-            ////Lid.Add(123); Lid.Add(007); Lid.Add(228);
-            //Lnames.Add("Cillian"); Lnames.Add("Tom"); Lnames.Add("James");
-            //LSnames.Add("Murfy"); LSnames.Add("Hardy"); LSnames.Add("Bond");
-            //LVklad.Add(159000); LVklad.Add(177000); LVklad.Add(190000);
-
-            List<Baza> Lbaza = new List<Baza>(3);
-            Lbaza.Add(new Baza() { _name = "Tom" });
-            Lbaza.Add(new Baza() { _name = "Cillian" });
-            Lbaza.Add(new Baza() { _name = "James" });
-            Lbaza.Add(new Baza() { _surname = "Hardy" });
-            foreach (Baza item in Lbaza)
-            {
-                Console.WriteLine(item._name);
-            }
-        }
-    }
+    
     class user : Bank
     {
         private static double vklad = 0;
