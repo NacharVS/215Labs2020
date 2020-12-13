@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+//Надо сделать словарь и события
 namespace _215Labs2020.Mihaylov.Bank_class
 {
     class Bank
