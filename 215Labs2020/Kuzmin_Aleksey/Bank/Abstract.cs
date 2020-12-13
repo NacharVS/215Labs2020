@@ -4,15 +4,20 @@ using System.Text;
 
 namespace _215Labs2020.Kuzmin_Aleksey.Bank
 {
-    abstract class Person
+    abstract class Abstract
     {
-        public double _bill;
-        public string _name;
         public DateTime _birthday;
+        public double _bill;
+        public string _name;        
         public int _age;
         public string _telephone;
         public int _salary;
-        public static int _users = 0;
+        public string Name => _name;
+        public double Bill => _bill;
+        public DateTime Birthday => _birthday;
+        public string Telephone => _telephone;
+        public int Age => _age;
+        public int Salary => _salary;
         public void SetName(string name)
         {
             _name = name;
@@ -31,28 +36,19 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             }
             _age = _age + DateTime.Now.Year - _birthday.Year;
         }
-        public double Refill
+        public void Refill(double donation)
         {
-            get { return _bill; }
-            set
+            if (donation >= 10000 && donation <= 200000)
             {
-                if (value >= 10000 && value <= 200000)
-                {
-                    _bill += value;
-                }
+                _bill += donation;
             }
         }
-        public double Remove
+        public void Remove(double donation)
         {
-            get { return _bill; }
-            set
+            if (_bill >= donation)
             {
-                if (_bill >= value)
-                {
-                    _bill -= value;
-                }
+                _bill -= donation;
             }
         }
-
     }
 }
