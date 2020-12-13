@@ -5,8 +5,7 @@ namespace _215Labs2020.Mihaylov
     class Bank_Client:Person
     {
         private static double cash;
-        private static double persent = 0.06;
-        private static DateTime accountOpen;
+        private static double persent = 0.08;
         public delegate void AccountHandler(string message);
         public event AccountHandler Notify;
         private static void registration()
@@ -96,6 +95,7 @@ namespace _215Labs2020.Mihaylov
             Console.WriteLine($"Номер телефона :{numberphone}");
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
         }
+
         private static void cashbak()
         {
             Console.Write("Введите сумму товара: ");
@@ -123,6 +123,29 @@ namespace _215Labs2020.Mihaylov
             messege();
             Console.WriteLine($"Ваш баланс составляет: {balans} р.");
         }
+        private static void vklad()
+        {
+            Console.Write("Введите сумму товара: ");
+            int a = int.Parse(Console.ReadLine());
+            while (balans - a < 0)
+            {
+                try
+                {
+                    a = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    if (a <= 10000 | a >= 200000)
+                    {
+                        Console.WriteLine($" У вас недостаточно средств для вывода денег, ваш баланс составляет: {balans}");
+                        Console.Write("Введите сумму товара:  ");
+                        a = int.Parse(Console.ReadLine());
+                    }
+                }
+            }
+            balans+= balans*persent;
+            Console.WriteLine($"Ваш баланс в следующем году составит: {balans} р.");
+        }
         public static void сhangeFIO()
         {
             Console.WriteLine("Введите новое ФИО");
@@ -142,8 +165,9 @@ namespace _215Labs2020.Mihaylov
                     Console.WriteLine("Снять с счета: ( 3 )");
                     Console.WriteLine("Информация о аккаунте: (4)");
                     Console.WriteLine("Купить товары: (5)");
-                    Console.WriteLine("Поменять ФИО: (6)");
-                    Console.WriteLine("Поменять номер телефона: (7)");
+                    Console.WriteLine("Сделать вклад: (6)");
+                    Console.WriteLine("Поменять ФИО: (7)");
+                    Console.WriteLine("Поменять номер телефона: (8)");
                 int s = int.Parse(Console.ReadLine());
                     switch (s)
                     {
@@ -152,8 +176,9 @@ namespace _215Labs2020.Mihaylov
                         case 3: cut(); break;
                         case 4: info(); break;
                         case 5: cashbak(); break;
-                        case 6: сhangeFIO(); break;
-                        case 7: сhangephone(); break;
+                        case 6: vklad(); break;
+                        case 7: сhangeFIO(); break;
+                        case 8: сhangephone(); break;
                     }
                 }
         }

@@ -12,6 +12,7 @@ namespace _215Labs2020.Mihaylov.Bank_class
             Console.WriteLine("За сколько месяцев вы хотите получить зарплату?");
             month = int.Parse(Console.ReadLine());
             balans+= month * salary;
+            Console.WriteLine("Вы получили зарплату");
         }
         public static void bank_vacation()
         {
@@ -22,6 +23,7 @@ namespace _215Labs2020.Mihaylov.Bank_class
             {
                 case "Да":
                     balans += salary/2;
+                    Console.WriteLine("Вы получили отпускную в размере пол зарплаты");
                     break;
                 case "Нет":
                     Console.WriteLine("Приятной работы");
