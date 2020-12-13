@@ -153,8 +153,8 @@ namespace _215Labs2020.Mihaylov
         }
         public static void сhangephone()
         {
-            Console.WriteLine("Введите новое ФИО");
-            name = Console.ReadLine();
+            Console.WriteLine("Введите новый номер телефона");
+            numberphone = int.Parse(Console.ReadLine());
         }
         public static void Program()
             {
