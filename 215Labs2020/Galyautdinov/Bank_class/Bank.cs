@@ -8,26 +8,13 @@ namespace _215Labs2020.Galyautdinov
 {
     class Bank : Person
     {
-        private static double bank_balans = 0;
-        private static double percent = 0.001;
-        private static double cashback_percent = 0.05;
-        private static double cashback_partner_percent = 0.2;
-        private static double cashback = 0;
+        private static Person person = new Person();
+        public static int chek_id { get; set; }
+        private static double bank_balans = 0, percent = 0.001, cashback_percent = 0.05, cashback_partner_percent = 0.2, cashback = 0;
         private static DateTime _accountOpenDate;
         private static string Phone;
-        private static int day_birthday;
-        private static int month_birthday;
-        private static int year_birthday;
-        private static int edit_id;
+        private static int day_birthday, month_birthday, year_birthday, edit_id;
 
-        private static List<Bank> List_Name = new List<Bank>();
-        private static ArrayList ListName = new ArrayList();
-        private static ArrayList ListBa1lans = new ArrayList();
-        private static ArrayList ListID = new ArrayList();
-        private static ArrayList ListSurName = new ArrayList();
-        private static ArrayList ListPhone = new ArrayList();
-
-        static Person person = new Person();
         private static Dictionary<int, Bank> ClientList = new Dictionary<int, Bank>();
         private static List<double> ListBalans = new List<double>();
 
@@ -65,20 +52,18 @@ namespace _215Labs2020.Galyautdinov
             person.ID += 1;
             ClientList.Add(person.ID, new Bank(person.SurName, person.Name, Phone, day_birthday, month_birthday, year_birthday));
             ListBalans.Add(bank_balans);
-
         }
         private static void ListOfClients()
         {
             foreach (var item in ClientList)
             {
-                Console.WriteLine($"ID: {item.Key}");
-                Console.WriteLine($"ФИ: {item.Value.SurName}, {item.Value.Name}");
-                Console.WriteLine($"Bаш баланс: {ListBalans[item.Key-1]}");
+                Console.WriteLine($"ID:{item.Key} {item.Value.SurName} {item.Value.Name} Баланс: {ListBalans[item.Key - 1]}");
             }
         }
-        private static void set_account()
+        private static void Set_account()
         {
-            Console.WriteLine("Введите ID ");
+            ListOfClients();
+            Console.Write("Введите ID ");
             edit_id = int.Parse(Console.ReadLine());
             Console.WriteLine("Выберите параметр для редактирования ");
             Console.WriteLine("1. Фамилия\n2. Имя\n3. Номер\n4. Дата рождения\n5. Выход из редактирования");
@@ -94,7 +79,6 @@ namespace _215Labs2020.Galyautdinov
                     EditPhone();
                 else if (proverka_reg == 4)
                     EditDataBirthday();
-                
                 Console.WriteLine("Выберите параметр для редактирования ");
                 Console.WriteLine("1. Фамилия\n2. Имя\n3. Номер\n4. Дата рождения\n5. Выход из редактирования");
                 proverka_reg = int.Parse(Console.ReadLine());
@@ -103,18 +87,29 @@ namespace _215Labs2020.Galyautdinov
         private static void EditName()
         {
             Console.Write("Введите новую имю: ");
-            //ListName[edit_id - 1] = Console.ReadLine();
-
+            foreach (var item in ClientList)
+            {
+                if (item.Key==edit_id)
+                {
+                    item.Value.Name = Console.ReadLine();
+                }
+            }
         }
         private static void EditSurName()
         {
             Console.Write("Введите новую фамилию: ");
-            //ListSurName[edit_id - 1] = Console.ReadLine();
+            foreach (var item in ClientList)
+            {
+                if (item.Key == edit_id)
+                {
+                    item.Value.SurName = Console.ReadLine();
+                }
+            }
         }
         private static void EditPhone()
         {
             Console.Write("Введите новый номер: ");
-            //ListPhone[edit_id - 1] = Console.ReadLine();
+           
         }
         private static void EditDataBirthday()
         {
@@ -267,7 +262,7 @@ namespace _215Labs2020.Galyautdinov
                 bank_balans -= a;
                 Notify?.Invoke($"Со счета был снят {a} рублей. Ваш  баланс: {bank_balans}");
             }
-            //ListBalans[person.ID] = bank_balans;
+            ListBalans[ClientList.Count - 1] = bank_balans;
         }
         private static void Transfer()
         {
@@ -349,7 +344,7 @@ namespace _215Labs2020.Galyautdinov
             {
                 bank_balans -= a;
                 Notify?.Invoke($"Был осуществлен перевод на счет {login_transfer} на сумма {a} рублей. Ваш баланс {bank_balans} рублей.");
-               // ListBalans[person.ID] = bank_balans;
+                ListBalans[ClientList.Count - 1] = bank_balans;
             }
 
         }
@@ -391,7 +386,7 @@ namespace _215Labs2020.Galyautdinov
                 Notify?.Invoke($"Начислен кешбек {cashback} рублей. Ваш  баланс: {bank_balans}");
             }
             cashback = 0;
-            //ListBalans[person.ID] = bank_balans;
+            ListBalans[ClientList.Count - 1] = bank_balans;
         }
         private static void PeriodProfit(double bank_balans)
         {
@@ -405,7 +400,7 @@ namespace _215Labs2020.Galyautdinov
                 bank_balans = Math.Round(bank_balans + bank_balans * percent, 2);
             }
             Notify?.Invoke($"Начислена  процентная ставка. Ваш  баланс: {bank_balans}");
-            //ListBalans[person.ID] = bank_balans;
+            ListBalans[ClientList.Count - 1] = bank_balans;
         }
         private static void CheckBalance()
         {
@@ -473,7 +468,7 @@ namespace _215Labs2020.Galyautdinov
                         case 6: PeriodProfit(bank_balans); break;
                         case 7: ListOfClients(); break;
                         case 8: FullName(); break;
-                        case 9: set_account(); break;
+                        case 9: Set_account(); break;
                     }
                     Console.WriteLine("Выберите дальнейшие действие");
                     try
@@ -490,18 +485,15 @@ namespace _215Labs2020.Galyautdinov
         }
         public static void A()
         {
-            Client client = new Client();
-            Employee employee1 = new Employee();
-
             Console.WriteLine("1. Клиент");
             Console.WriteLine("2. Сотрудник");
-            client._id = int.Parse(Console.ReadLine());
+            chek_id = int.Parse(Console.ReadLine());
             _accountOpenDate = DateTime.Now;
-            if (client._id == 1)
+            if (chek_id == 1)
             {
                 Operation();
             }
-            else if (client._id == 2)
+            else if (chek_id == 2)
             {
                 Employee.employee();
             }
