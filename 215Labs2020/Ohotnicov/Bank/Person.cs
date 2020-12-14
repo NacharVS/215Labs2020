@@ -6,6 +6,7 @@ namespace _215Labs2020.Ohotnicov
 {
     abstract class Person
     {
+        q
         private static string name;
         private static string surname;
         private static int age;
