@@ -96,12 +96,16 @@ namespace _Bank
         private static Dictionary<int, Client> Client_list = new Dictionary<int, Client>();
         private static void chek_accounts()
         {
+            int _item = 0;
             foreach (var item in Client_list)
             {
+                Console.WriteLine($"ID: {item.Key}");
                 Console.WriteLine(item.Value._surname);
                 Console.WriteLine(item.Value._name);
                 Console.WriteLine(item.Value._otchestvo);
-                
+                Console.WriteLine(Balans_list[_item]);
+                Console.WriteLine();
+                _item++;
             }
         }
         private static void set_account()
@@ -194,7 +198,9 @@ namespace _Bank
                     yearofbirth = int.Parse(Console.ReadLine());
                 }
             }
-            Client_list.Add(rnd.Next(100000,999999), new Client(name, surname, otchestvo));
+            int id = rnd.Next(100000, 999999);
+            Client_list.Add(id, new Client(name, surname, otchestvo));
+            Console.WriteLine($"Ваш ID: {id}");
             //ID += 1;
             //ID_list.Add(ID);
             //Surname_list.Add(surname);
