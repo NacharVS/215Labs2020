@@ -6,16 +6,4 @@
     <RootNamespace>_215Labs2020</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Kirillov\BankClasses\Client.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Kirillov\BankClasses\Client.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Kirillov\StrategGame\" />
-  </ItemGroup>
-
 </Project>
