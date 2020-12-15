@@ -1,13 +1,22 @@
-﻿using System;
+﻿using _215Labs2020.Nurtdinova.Bank;
+using System;
+using System.Dynamic;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections;
 
 namespace _215Labs2020.Nurtdinova.Bank
 {
+
     class user : Bank
     {
         private static double vklad = 0;
         private static double procent = 0.1;
+
+        public static ArrayList Lid = new ArrayList();
+        public static ArrayList Lnames = new ArrayList();
+        public static ArrayList LSnames = new ArrayList();
+        public static ArrayList LVklad = new ArrayList();
+
 
         public delegate void Messege();
         public static event Messege EV1;
@@ -17,6 +26,8 @@ namespace _215Labs2020.Nurtdinova.Bank
 
         public delegate void Messege3();
         public static event Messege3 EV3;
+
+
         private void Daa()
         {
             user us = new user();
@@ -60,6 +71,7 @@ namespace _215Labs2020.Nurtdinova.Bank
             {
 
             }
+
         }
         private void prognoz()
         {
@@ -75,14 +87,20 @@ namespace _215Labs2020.Nurtdinova.Bank
             Console.WriteLine($"Через указанный вами срок, ваш вклад составит {user.vklad} рублей.");
             EV3 += () => Console.WriteLine($"Расчет готов!");
             EV3.Invoke();
-            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку.");
+            Console.WriteLine($"{Bank.Name} {Bank.Surname}, cпасибо за оказанное вами довериe к банку 'МаксимовСтройГазНефтьАлмазИнвест'.");
         }
         public static void method()
         {
             user bank = new user();
             Console.WriteLine("Введите ваш id");
             int id = int.Parse(Console.ReadLine());
-            bank.Registration();
+
+
+
+
+
+
+
             if (id != Employee.Id)
             {
                 bank.Registration();

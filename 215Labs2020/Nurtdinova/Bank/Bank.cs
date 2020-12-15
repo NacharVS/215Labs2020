@@ -1,86 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace _215Labs2020.Nurtdinova.Bank
 {
- 
-        abstract class Bank
+
+    abstract class Bank
+    {
+
+        private static int age;
+        private static int dt;
+        private static int mm;
+        private static int yy;
+        private static string name;
+        public static string surname;
+
+
+
+
+
+
+        public static string Name
         {
-            private static string name;
-            private static string surname;
-            private static int age;
-            private static int dt;
-            private static int mm;
-            private static int yy;
-
-            public static string Name
+            get
             {
-                get
-                {
-                    return name;
-                }
-                set
-                {
-                    name = value;
-                }
+                return name;
             }
-            public static string Surname
+            set
             {
-                get
-                {
-                    return surname;
-                }
-                set
-                {
-                    surname = value;
-                }
+                name = value;
             }
-            public static int Age
+        }
+        public static string Surname
+        {
+            get
             {
-                get
-                {
-                    return age;
-                }
-                set
-                {
-                    age = value;
-                }
+                return surname;
             }
-            public static int Dt
+            set
             {
-                get
-                {
-                    return dt;
-                }
-                set
-                {
-                    dt = value;
-                }
+                surname = value;
             }
-            public static int Mm
+        }
+        public static int Age
+        {
+            get
             {
-                get
-                {
-                    return mm;
-                }
-                set
-                {
-                    mm = value;
-                }
+                return age;
             }
-            public static int Yy
+            set
             {
-                get
-                {
-                    return yy;
-                }
-                set
-                {
-                    yy = value;
-                }
+                age = value;
             }
-
+        }
+        public static int Dt
+        {
+            get
+            {
+                return dt;
+            }
+            set
+            {
+                dt = value;
+            }
+        }
+        public static int Mm
+        {
+            get
+            {
+                return mm;
+            }
+            set
+            {
+                mm = value;
+            }
+        }
+        public static int Yy
+        {
+            get
+            {
+                return yy;
+            }
+            set
+            {
+                yy = value;
+            }
         }
 
     }
+
+}
