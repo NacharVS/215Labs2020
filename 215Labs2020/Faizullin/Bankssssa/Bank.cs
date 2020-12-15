@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
-using _215Labs2020.Faizullin.Bankssssa;
 
 namespace _215Labs2020.Faizullin
 
@@ -221,8 +220,7 @@ namespace _215Labs2020.Faizullin
                 wfwf = int.Parse(Console.ReadLine());
             }
         }
-
-
+       
         private void Operation()
         {
             Bank bank = new Bank();
@@ -266,12 +264,13 @@ namespace _215Labs2020.Faizullin
             bank.RegistDate();
             bank.Registration();
             bank.ListClient();
-            
             //bank.Redaktiv();
             bank.Redaktivv();
             bank.Operation();
             bank.PROGNOZ();
             bank.END();
         }
+
+
     }
 }

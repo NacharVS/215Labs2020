@@ -8,19 +8,19 @@ namespace _215Labs2020.Faizullin.Bankssssa
     {
         public int _id { get; set; }
         public int _age { get; set; }
-        public  string _snf { get; set; }
+        public string _snf { get; set; }
         public Client(string snf, int id, int age)
         {
             _snf = snf;
             _id = id;
-            _age = age; 
+            _age = age;
         }
 
         public Client(string v1, int v2)
         {
 
         }
-        
+
 
         public void SetSNF(string newSNF)
         {
@@ -42,9 +42,7 @@ namespace _215Labs2020.Faizullin.Bankssssa
                 Console.WriteLine(item.Value);
             }
         }
-
-
-    public static void EditSNF(List<Client> list, string newSNF, int searchID)
+        public static void EditSNF(List<Client> list, string newSNF, int searchID)
         {
             foreach (var item in list)
             {
@@ -54,13 +52,6 @@ namespace _215Labs2020.Faizullin.Bankssssa
                 }
             }
         }
+           
     }
-
-        //public static void SnowName()
-        //{
-
-        //    Console.WriteLine("ведите свои данные");
-        //}
-
-    
 }
