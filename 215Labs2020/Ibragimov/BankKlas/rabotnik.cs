@@ -61,4 +61,3 @@ namespace _215Labs2020.Ibragimov.BankKlas
     }
 
 }
-//Скопировано у ************, ставьте 2
