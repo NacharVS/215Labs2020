@@ -182,7 +182,7 @@ namespace _215Labs2020.Sadukov.User
             Random bank123 = new Random();
             Sadukov.Bank.Id = bank123.Next(1000000, 1999999);
            
-            list.Add(new Bank());
+            //list.Add(new Bank());
 
             Console.WriteLine($"Your id: {Sadukov.Bank.Id}");
             int yes = 1;
