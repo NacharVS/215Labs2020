@@ -51,6 +51,7 @@ namespace _215Labs2020.Galyautdinov
 
             person.ID += 1;
             ClientList.Add(person.ID, new Bank(person.SurName, person.Name, Phone, day_birthday, month_birthday, year_birthday));
+            //ClientList[1].ToString 
             ListBalans.Add(bank_balans);
         }
         private static void ListOfClients()
@@ -109,7 +110,13 @@ namespace _215Labs2020.Galyautdinov
         private static void EditPhone()
         {
             Console.Write("Введите новый номер: ");
-           
+            foreach (var item in ClientList)
+            {
+                if (item.Key == edit_id)
+                {
+                    
+                }
+            }
         }
         private static void EditDataBirthday()
         {
