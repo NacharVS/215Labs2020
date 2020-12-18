@@ -15,39 +15,56 @@ namespace _215Labs2020.Galyautdinov
 
             Task task1 = new Task(() =>
             {
-                Console.Write("1 массив: ");
+                //Заполнение 1-го массива
                 for (int i = 0; i < array1.Length; i++)
                 {
                     array1[i] = rnd.Next(1, 9);
-                    Console.Write(array1[i] + " ");
                 }
             });
             Task task2 = new Task(() =>
             {
-                Console.WriteLine();
-                Console.Write("2 массив: ");
+                //Заполнение 2-го массива
+                Thread.Sleep(1000);
                 for (int i = 0; i < array2.Length; i++)
                 {
                     array2[i] = rnd.Next(1, 9);
-                    Console.Write(array2[i] + " ");
                 }
             });
             Task task3 = new Task(() =>
             {
-                Console.WriteLine();
-                Console.Write("Сумма двух массива: ");
+                //Сложение 1-2-го массива
+                Thread.Sleep(2000);
                 for (int i = 0; i < array3.Length; i++)
                 {
                     array3[i] = array1[i] + array2[i];
-                    Console.Write(array3[i] + " ");
                 }
             });
             task1.Start();
-            task1.Wait();
             task2.Start();
-            task2.Wait();
             task3.Start();
+            task2.Wait();
+            task1.Wait();
             task3.Wait();
+            //Вывод на консоль
+            Console.Write("1 массив: ");
+            for (int i = 0; i < array1.Length; i++)
+            {
+                Console.Write(array1[i] + " ");
+            }
+            Console.WriteLine();
+            Console.Write("2 массив: ");
+            for (int i = 0; i < array2.Length; i++)
+            {
+                Console.Write(array2[i] + " ");
+            }
+            Console.WriteLine();
+            Console.Write("Суммированный массив массив: ");
+            for (int i = 0; i < array3.Length; i++)
+            {
+                Console.Write(array3[i] + " ");
+            }
+            Console.WriteLine();
+            //Сортировка массива
             int temp;
             for (int i = 0; i < array3.Length - 1; i++)
             {
@@ -61,7 +78,6 @@ namespace _215Labs2020.Galyautdinov
                     }
                 }
             }
-            Console.WriteLine();
             Console.Write("Вывод отсортированного массива: ");
             for (int i = 0; i < array3.Length; i++)
             {
