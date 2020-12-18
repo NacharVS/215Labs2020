@@ -41,8 +41,18 @@ namespace _215Labs2020.Faizullin
             //    Console.WriteLine(item.Key);
             //    Console.WriteLine(item.Value);
             //}
-            Bank.Proverka();
-            Client.zzzz();    
+
+
+
+
+            //Bank.Proverka();
+            //Client.zzzz();  
+
+
+
+
+
+            Threading.Azatmethod();
         }
     }
     
