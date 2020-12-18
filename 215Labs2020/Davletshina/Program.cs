@@ -9,7 +9,7 @@ namespace _215Labs2020.Davletshina.Bank
     {
         static void Main(string[] args)
         {
-        Baza.Collections();
+            Baza.Collections();
         }
     }
 }
