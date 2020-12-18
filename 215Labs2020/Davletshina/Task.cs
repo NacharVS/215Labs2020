@@ -44,13 +44,7 @@ namespace _215Labs2020.Davletshina
                     array3[i] = array1[i] + array2[i];
                 }
             });
-            //task.Start();
-            //task2.Start();
-            //task3.Start();
-            //task2.Wait();
-            //task1.Wait();
-            //task3.Wait();
-            //Вывод на консоль
+
             Console.Write("1 массив: ");
             for (int i = 0; i < array1.Length; i++)
             {
@@ -63,18 +57,18 @@ namespace _215Labs2020.Davletshina
                 Console.Write(array2[i] + " ");
             }
             Console.WriteLine();
-            Console.Write("Суммированный массив массив: ");
+            Console.Write("Суммированный массив массива: ");
             for (int i = 0; i < array3.Length; i++)
             {
                 Console.Write(array3[i] + " ");
             }
             Console.WriteLine();
-            //Сортировка массива
+            
             int temp;
             for (int i = 0; i < array3.Length - 1; i++)
             {
                 for (int j = i + 1; j < array3.Length; j++)
-                {
+                {                      
                     if (array3[i] > array3[j])
                     {
                         temp = array3[i];
