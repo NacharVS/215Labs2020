@@ -1,5 +1,5 @@
 ﻿using System;
-using _215Labs2020.Imamov.StrategyGame;
+using _215Labs2020.Imamov;
 
 namespace _215Labs2020
 {
@@ -7,7 +7,7 @@ namespace _215Labs2020
     {
        static void Main(string[] args)
         {
-            Checking.Run();
+            Multitask.Start();
         }
     }
 }
