@@ -21,6 +21,13 @@ namespace _215Labs2020.Mihaylov.Bank2
         {
             _name = new_name;
         }
-
+        public void ChangeTelephone(string new_telephone)
+        {
+            _telephone = new_telephone;
+        }
+        public void ChangeBirthday(DateTime new_birthday)
+        {
+            _birthday = new_birthday;
+        }
     }
 }

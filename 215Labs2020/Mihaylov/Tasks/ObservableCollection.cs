@@ -10,7 +10,7 @@ namespace _215Labs2020.Mihaylov.Tasks
     {
         string _name;
         int _age;
-        public Student(string name, int age)
+        public ObservableCollection(string name, int age)
         {
             _name = name;
             _age = age;
@@ -34,11 +34,11 @@ namespace _215Labs2020.Mihaylov.Tasks
         }
         public static void Program()
         {
-            ObservableCollection<Student> student = new ObservableCollection<Student>();
+            ObservableCollection<ObservableCollection> student = new ObservableCollection<ObservableCollection>();
 
             student.CollectionChanged += Changed;
-            student.Add(new Student("Рифат", 18));
-            student.Add(new Student("Расиф", 18));
+            student.Add(new ObservableCollection("Рифат", 18));
+            student.Add(new ObservableCollection("Расиф", 18));
             student[0]._name = "Рузаль";
             foreach (var item in student)
             {
