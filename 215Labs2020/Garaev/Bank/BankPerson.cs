@@ -11,6 +11,9 @@ namespace _215Labs2020.Garaev.Bank
         private string surname;
         private string name;
         private string otchestvo;
+        public int _day { get; set; }
+        public int _month { get; set; }
+        public int _year { get; set; }
         public  string _name
         {
             get

@@ -75,7 +75,6 @@ namespace _Bank
         private static string surname;
         private static string name;
         private static string otchestvo;
-        private static int ID;
         private static int summ = 0;
         private static int _vivod = 0;
         private static int summ1 = 0;
@@ -86,11 +85,14 @@ namespace _Bank
         {
             Console.WriteLine(message);
         }
-        public Client(string name, string surname, string otchestvo)
+        public Client(string name, string surname, string otchestvo, int day, int month, int year)
         {
             _name = name;
             _surname = surname;
             _otchestvo = otchestvo;
+            _day = day;
+            _month = month;
+            _year = year;
         }
         private static ArrayList Balans_list = new ArrayList();
         private static Dictionary<int, Client> Client_list = new Dictionary<int, Client>();
@@ -103,6 +105,8 @@ namespace _Bank
                 Console.WriteLine(item.Value._surname);
                 Console.WriteLine(item.Value._name);
                 Console.WriteLine(item.Value._otchestvo);
+                Console.Write("Дата рождения: ");
+                Console.WriteLine($"{item.Value._day}.{item.Value._month}.{item.Value._year}");
                 Console.WriteLine(Balans_list[_item]);
                 Console.WriteLine();
                 _item++;
@@ -118,6 +122,13 @@ namespace _Bank
             string new_name = Console.ReadLine();
             Console.Write("Введите новое отчество: ");
             string new_otchestvo = Console.ReadLine();
+            Console.WriteLine("Введите новую дату рождения: ");
+            Console.Write("День: ");
+            int new_dayofbirth = int.Parse(Console.ReadLine());
+            Console.Write("Месяц: ");
+            int new_monthofbirth = int.Parse(Console.ReadLine());
+            Console.Write("Год: ");
+            int new_yearofbirth = int.Parse(Console.ReadLine());
             foreach (var item in Client_list)
             {
                 if(item.Key == select_id)
@@ -125,6 +136,10 @@ namespace _Bank
                     item.Value._name = new_name;
                     item.Value._surname = new_surname;
                     item.Value._otchestvo = new_otchestvo;
+                    item.Value._day = new_dayofbirth;
+                    item.Value._month = new_monthofbirth;
+                    item.Value._year = new_yearofbirth;
+                    //item.Value.dataBorn.Year = 2004;
                 }
             }         
         }
@@ -199,17 +214,10 @@ namespace _Bank
                 }
             }
             int id = rnd.Next(100000, 999999);
-            Client_list.Add(id, new Client(name, surname, otchestvo));
+            Client_list.Add(id, new Client(name, surname, otchestvo, dayofbirth, monthofbirth, yearofbirth));
             Console.WriteLine($"Ваш ID: {id}");
-            //ID += 1;
-            //ID_list.Add(ID);
-            //Surname_list.Add(surname);
-            //Name_list.Add(name);
-            //Otchestvo_list.Add(otchestvo);
             Balans_list.Add(balans);
-            //_surname = surname;
-            //_name = name;
-            //_otchestvo = otchestvo;
+            //DateTime dataBorn = new DateTime(yearofbirth, monthofbirth, dayofbirth);
         }
         private static void bank_account()
         {
