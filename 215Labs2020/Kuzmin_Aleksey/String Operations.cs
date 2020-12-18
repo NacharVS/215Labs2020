@@ -22,7 +22,6 @@ namespace _215Labs2020.Kuzmin_Aleksey
             {
                 Console.Write(mass[i] + " ");
             }
-            
         }
         public static void Ex3()
         {
