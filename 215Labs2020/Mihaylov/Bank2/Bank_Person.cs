@@ -68,6 +68,7 @@ namespace _215Labs2020.Mihaylov.Bank2
         {
             Info.Add(001, new Bank_Person(1000, "Рифат", new DateTime(1999, 12, 20), "89839128391238"));
             Info.Add(002, new Bank_Person(2000, "Рузаль", new DateTime(1999, 01, 1), "89839128391238"));
+            GetInfo();
             NewName(001, "Расиф");
             NewBirthday(001, new DateTime(2003, 04, 28));
             NewTelephone(001, "89858585855");

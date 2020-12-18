@@ -13,7 +13,7 @@ namespace _215Labs2020.Mihaylov
     {
         static void Main(string[] args)
         {
-            Task.Program();
+            Bank_Person.Program();
         }
     }
 }
