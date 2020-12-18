@@ -12,7 +12,7 @@ namespace _215Labs2020.Kuzmin_Aleksey
             int[] mass1 = new int[5];
             int[] mass2 = new int[5];
             int[] summ = new int[5];
-            Task task1 = new Task(() =>
+            Task Creature = new Task(() =>
             {
                 for (int i = 0; i < mass1.Length; i++)
                 {
@@ -23,16 +23,16 @@ namespace _215Labs2020.Kuzmin_Aleksey
                     Console.WriteLine($"{mass1[i]} {mass2[i]}");
                 }
             });
-            Task task2 = new Task(() =>
+            Task Summation = new Task(() =>
             {
                 for (int i = 0; i < summ.Length; i++)
                 {
-                    Thread.Sleep();
+                    Thread.Sleep(2);
                     summ[i] = mass1[i] + mass2[i];
                     Console.WriteLine(summ[i]);
                 }
             });
-            Task task3 = new Task(() =>
+            Task Sorting = new Task(() =>
             {
                 
                 for (int i = 0; i < summ.Length; i++)
@@ -53,10 +53,10 @@ namespace _215Labs2020.Kuzmin_Aleksey
                     Console.WriteLine(item);
                 }
             });
-            task1.Start();
-            task2.Start();
-            task3.Start();
-            task3.Wait();
+            Creature.Start();
+            Summation.Start();
+            Sorting.Start();
+            Sorting.Wait();
         }
     }
 }

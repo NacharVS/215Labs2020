@@ -50,5 +50,13 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
                 _bill -= donation;
             }
         }
+        public void CashBack(double donation)
+        {
+            if (_bill >= donation)
+            {
+                _bill -= donation;
+                _bill += donation * 0.1;
+            }
+        }
     }
 }
