@@ -7,10 +7,55 @@ namespace _215Labs2020.Galyautdinov.Bank_class
 {
     class Person
     {
-
+        private static int _day_birthday, _month_birthday, _year_birthday;
         private static string _surname;
         private string _name;
         private static int _id;
+        private static string _Phone;
+        public string Phone
+        {
+            get
+            {
+                return _Phone;
+            }
+            set
+            {
+                _Phone = value;
+            }
+        }
+        public int day_birthday
+        {
+            get
+            {
+                return _day_birthday;
+            }
+            set
+            {
+                _day_birthday = value;
+            }
+        }
+        public int month_birthday
+        {
+            get
+            {
+                return _month_birthday;
+            }
+            set
+            {
+                _month_birthday = value;
+            }
+        }
+        public int year_birthday
+        {
+            get
+            {
+                return _year_birthday;
+            }
+            set
+            {
+                _year_birthday = value;
+            }
+        }
         public string SurName
         {
             get
