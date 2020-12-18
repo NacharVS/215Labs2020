@@ -24,7 +24,6 @@ namespace _215Labs2020.Galyautdinov
             Task task2 = new Task(() =>
             {
                 //Заполнение 2-го массива
-                Thread.Sleep(1000);
                 for (int i = 0; i < array2.Length; i++)
                 {
                     array2[i] = rnd.Next(1, 9);
@@ -33,17 +32,16 @@ namespace _215Labs2020.Galyautdinov
             Task task3 = new Task(() =>
             {
                 //Сложение 1-2-го массива
-                Thread.Sleep(2000);
                 for (int i = 0; i < array3.Length; i++)
                 {
                     array3[i] = array1[i] + array2[i];
                 }
             });
             task1.Start();
-            task2.Start();
-            task3.Start();
-            task2.Wait();
             task1.Wait();
+            task2.Start();
+            task2.Wait();
+            task3.Start();
             task3.Wait();
             //Вывод на консоль
             Console.Write("1 массив: ");
@@ -83,7 +81,7 @@ namespace _215Labs2020.Galyautdinov
             {
                 Console.Write(array3[i]+ " ");
             }
+            Console.WriteLine();
         }
-
     }
 }

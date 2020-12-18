@@ -8,11 +8,11 @@ namespace _215Labs2020.Galyautdinov
 {
     class Bank : Person
     {
-        private static Person person = new Person();
         public static int chek_id { get; set; }
         private static double bank_balans = 0, percent = 0.001, cashback_percent = 0.05, cashback_partner_percent = 0.2, cashback = 0;
         private static DateTime _accountOpenDate;
-        private static int edit_id;
+        private static int Day_birthday, Month_birthday, Year_birthday, edit_id, id;
+        private static string name, surname, phone;
 
         private static Dictionary<int, Bank> ClientList = new Dictionary<int, Bank>();
         private static List<double> ListBalans = new List<double>();
@@ -20,43 +20,46 @@ namespace _215Labs2020.Galyautdinov
         public delegate void AccountHandler(string message);
         public static event AccountHandler Notify = (message) =>
         {
-            Console.WriteLine($"\nНа номер {person.Phone} было отправлено сообщение \nСообщение: {message}\n");
+            Console.WriteLine($"\nНа номер {phone} было отправлено сообщение \nСообщение: {message}\n");
         };
-        public Bank(string surname, string name, string phone, int _day_birthday, int _month_birthday, int _year_birthday)
+        public Bank(string surname, string name, string phone, int Day_birthday, int Month_birthday, int Year_birthday)
         {
             SurName = surname;
             Name = name;
             Phone = phone;
-            day_birthday = _day_birthday;
-            month_birthday = _month_birthday;
-            year_birthday = _year_birthday;
+            day_birthday = Day_birthday;
+            month_birthday = Month_birthday;
+            year_birthday = Year_birthday;
         }
         private static void FullName()
         {
             bank_balans = 0;
             Console.Write("Введите фамилию: ");
-            person.SurName = Console.ReadLine();
+            surname = Console.ReadLine();
             Console.Write("Введите имя: ");
-            person.Name = Console.ReadLine();
+            name = Console.ReadLine();
             Console.WriteLine("Укажиет день рождение");
             Console.Write("День: ");
-            person.day_birthday = int.Parse(Console.ReadLine());
+            Day_birthday = int.Parse(Console.ReadLine());
             Console.Write("Месяц: ");
-            person.month_birthday = int.Parse(Console.ReadLine());
+            Month_birthday = int.Parse(Console.ReadLine());
             Console.Write("Год: ");
-            person.year_birthday = int.Parse(Console.ReadLine());
+            Year_birthday = int.Parse(Console.ReadLine());
             Console.Write("Введите номер телефона: ");
-            person.Phone = Console.ReadLine();
+            phone = Console.ReadLine();
 
-            person.ID += 1;
-            ClientList.Add(person.ID, new Bank(person.SurName, person.Name, person.Phone, person.day_birthday, person.month_birthday, person.year_birthday));
+            id+= 1;
+            ClientList.Add(id, new Bank(surname, name, phone, Day_birthday, Month_birthday, Year_birthday));
             ListBalans.Add(bank_balans);
         }
         private static void ListOfClients()
         {
             foreach (var item in ClientList)
             {
-                Console.WriteLine($"ID:{item.Key} {item.Value.SurName} {item.Value.Name} Баланс: {ListBalans[item.Key - 1]}");
+                Console.WriteLine($"ID:{item.Key} {item.Value.SurName} {item.Value.Name} \nБаланс: {ListBalans[item.Key - 1]}");
+                Console.WriteLine($"Номер телефона: {item.Value.Phone}");
+                Console.WriteLine($"Дата рождения: {item.Value.day_birthday}.{item.Value.month_birthday}.{item.Value.year_birthday}");
+                Console.WriteLine("---------------------------------------------------------------------------------------------");
             }
         }
         private static void Set_account()
@@ -85,7 +88,7 @@ namespace _215Labs2020.Galyautdinov
         }
         private static void EditName()
         {
-            Console.Write("Введите новую имю: ");
+            Console.Write("Введите новое имя: ");
             foreach (var item in ClientList)
             {
                 if (item.Key==edit_id)
@@ -122,15 +125,14 @@ namespace _215Labs2020.Galyautdinov
             {
                 if (item.Key == edit_id)
                 {
-                    Console.Write("Введите день рождение: ");
+                    Console.Write("Введите день рождения: ");
                     item.Value.day_birthday = int.Parse(Console.ReadLine());
-                    Console.Write("Введите месяц рождение: ");
+                    Console.Write("Введите месяц рождения: ");
                     item.Value.month_birthday = int.Parse(Console.ReadLine());
-                    Console.Write("Введите год рождение: ");
+                    Console.Write("Введите год рождения: ");
                     item.Value.year_birthday = int.Parse(Console.ReadLine());
                 }
             }
-            Console.Write("Скоро будет!");
             Console.WriteLine();
         }
         private static void Refill()
@@ -444,7 +446,7 @@ namespace _215Labs2020.Galyautdinov
                 FullName();
             }
 
-            DateTime dataBorn = new DateTime(person.year_birthday, person.month_birthday, person.day_birthday);
+            DateTime dataBorn = new DateTime(Year_birthday, Month_birthday, Day_birthday);
 
             if (DateTime.Now.Year - dataBorn.Year < 14)
             {
@@ -500,7 +502,7 @@ namespace _215Labs2020.Galyautdinov
                 }
             }
         }
-        public static void A()
+        public static void Run()
         {
             Console.WriteLine("1. Клиент");
             Console.WriteLine("2. Сотрудник");

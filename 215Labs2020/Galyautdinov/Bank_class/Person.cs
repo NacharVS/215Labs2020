@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using _215Labs2020.Galyautdinov;
+﻿using _215Labs2020.Galyautdinov;
 
 namespace _215Labs2020.Galyautdinov.Bank_class
 {
-    class Person
+    abstract class Person
     {
-        private static int _day_birthday, _month_birthday, _year_birthday;
-        private static string _surname;
+        private int _day_birthday, _month_birthday, _year_birthday;
+        private string _surname;
         private string _name;
         private static int _id;
-        private static string _Phone;
+        private string _Phone;
         public string Phone
         {
             get
