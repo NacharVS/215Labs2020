@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Text;
 
 namespace _215Labs2020.Nurtdinova
@@ -9,8 +10,10 @@ namespace _215Labs2020.Nurtdinova
         private int _num1;
         private int _num2;
 
-        public OperatorsOverloads(int num1, int num2)
+        public OperatorsOverloads()
         {
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
             _num1 = num1;
             _num2 = num2;
         }
@@ -52,7 +55,7 @@ namespace _215Labs2020.Nurtdinova
         }
         public static void method()
         {
-            OperatorsOverloads o1 = new OperatorsOverloads(20, 5);
+            OperatorsOverloads o1 = new OperatorsOverloads();
             int sum = o1._num1 + o1._num2;
             Console.WriteLine($"Сложение: {sum}");
             int raznost = o1._num1 - o1._num2;
