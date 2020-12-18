@@ -64,7 +64,7 @@ namespace _215Labs2020.Faizullin
             }
             for (int v = 0; v < sum.Length; v++)
             {
-                Console.WriteLine(sum[v];
+                Console.WriteLine(sum[v]);
             }
         }
     }
