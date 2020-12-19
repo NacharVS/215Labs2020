@@ -56,10 +56,12 @@ namespace _215Labs2020.Sadukov.User
             GetInfo();
             PersonInfo[1111].put(10000);
             GetInfo();
-
-
-
-
+            PersonInfo[1111].SetName("Рузаль");
+            PersonInfo[1111].SetEmail("a@");
+            PersonInfo[1111].SetSurname("Сабиров");
+            GetInfo();
+            PersonInfo[1111].deposit1(10000);
+            GetInfo();
         }
     }
 }
