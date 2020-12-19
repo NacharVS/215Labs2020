@@ -29,7 +29,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
         {
             _name = newName;
         }
-        public static void  izmeninii()
+        public static void izmeninii()
         {
             List<Baza> studentList = new List<Baza>();
             studentList.Add(new Baza("Pavlic", "Morozov", 13, 1));
@@ -46,7 +46,7 @@ namespace _215Labs2020.Ibragimov.BankKlas
                     if (vybor == "имя")
                     {
                         Console.WriteLine("Введите новое имя");
-                        string newName = Console.ReadLine();                    
+                        string newName = Console.ReadLine();
                     }
                     if (vybor == "фамилия")
                     {
@@ -58,15 +58,34 @@ namespace _215Labs2020.Ibragimov.BankKlas
                     {
                         Console.WriteLine("вышла ошибка");
                         System.Environment.Exit(0);
-                       
+
                     }
 
                 }
                 Console.WriteLine(studentList);
             }
 
+            //public void dictionary()
+            //{
+            //    Dictionary<int, Test> baza = new Dictionary<int, Test>();
+            //    baza.Add(1, new Test("Sashka ", "Kokokorin", 159000));
+            //    baza.Add(2, new Test("Bulat", "IBR", 168000));
+            //    baza.Add(3, new Test("Rasif", "Saf", 190000));
 
-        }
+            //    int a = int.Parse(Console.ReadLine());
+
+            //    foreach (KeyValuePair<int, Test> item in baza)
+            //    {
+            //        if (a == item.id)
+            //        {
+
+            //            string s = Console.ReadLine();
+            //            item.name = s;
+            //            Console.WriteLine(item.name);
+            //        }
+
+            //    }
+        } //}
     }
 }
 

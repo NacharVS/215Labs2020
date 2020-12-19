@@ -56,6 +56,7 @@ namespace _215Labs2020.Ibragimov
             {
                 Console.WriteLine(sum[i]);
             }
+
         }
     }
 }
