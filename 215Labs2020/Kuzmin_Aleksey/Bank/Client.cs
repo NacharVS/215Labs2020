@@ -19,37 +19,7 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
                 _age -= 1;
             }
         }
-        private static Dictionary<int, Client> PersonInfo = new Dictionary<int, Client>();        
-        private static void ChangeName(int id, string name)
-        {           
-            foreach (var item in PersonInfo)
-            {
-                if (item.Key == id)
-                {
-                    item.Value.SetName(name);
-                }
-            }
-        }          
-        private static void ChangePhone(int id, string phone)
-        {
-            foreach (var item in PersonInfo)
-            {
-                if (item.Key == id)
-                {
-                    item.Value.SetPhone(phone);
-                }
-            }
-        }        
-        private static void ChangeBirthday(int id, DateTime birthday)
-        {
-            foreach (var item in PersonInfo)
-            {
-                if (item.Key == id)
-                {
-                    item.Value.SetBirthday(birthday);
-                }
-            }
-        }     
+        private static Dictionary<int, Client> PersonInfo = new Dictionary<int, Client>();       
         private static void GetInfo()
         {
             foreach (var item in PersonInfo)
@@ -63,9 +33,8 @@ namespace _215Labs2020.Kuzmin_Aleksey.Bank
             PersonInfo.Add(1111, new Client(100000, "Егор", new DateTime(2000, 2, 21), "8989829198"));            
             GetInfo();
             PersonInfo[1111].Refill(100000);
-            ChangeName(1111, "Иван");
+            PersonInfo[1111].SetName("Иван");
             GetInfo();
-            ChangeBirthday(1111, new DateTime(2000, 12, 21));
             GetInfo();
         }
     }
