@@ -6,93 +6,50 @@ namespace _215Labs2020.Sadukov
     abstract class Bank
     {
 
-        private static string name;
-        private static int day;
-        private static int month;
-        private static int age;
-        private static string email;
-        private static int id;
-        private static string surname;
-        private static double money = 0;
+        public string name;
+        public int day;
+        public int month;
+        public int age;
+        public string email;
+        public int id;
+        public string surname;
+        public double money = 0;
+        public double deposit = 0.061;
+        public string Name => name;
+        public int Day => day;
+        public int Month => month;
+        public int Age => age;
+        public string Email => email;
+        public double Money => money;
+        public string Surname => surname;
 
 
-        public static string Name
+        public void put(double SUM)
         {
-            get
+            if (SUM >= 10000 && SUM <= 200000)
             {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-
-        }
-        public static int Id
-        {
-            get
-            {
-                return id;
-            }
-            set
-            {
-                id = value;
+                money += SUM;
             }
         }
-
-        public static string Email
+        public void withdraw(double SUM)
         {
-            get
+            if (money >= SUM)
             {
-                return email;
-            }
-            set
-            {
-                email = value;
-                
+                money -= SUM;
             }
         }
-        public static int Age
+        public void CashBack(double SUM)
         {
-            get
+            if (money >= SUM)
             {
-                return age;
-            }
-            set
-            {
-                if (DateTime.Now.Year - value < 14)
-                {
-                    Console.WriteLine("You are underage");
-                }
-                else age = value;
-            }
-        }
-        public static int Month
-        {
-            get
-            {
-                return month;
-            }
-            set
-            {
-                month = value;
-            }
-        }
-        public static int Day
-        {
-            get
-            {
-                return day;
-            }
-            set
-            {
-                day = value;
+                money -= SUM;
+                money += SUM * 0.1;
             }
         }
 
-        public static string Surname { get => surname; set => surname = value; }
-        public static double Money { get => Money; set => Money = value; }
-       
+
+
+
     }
 }
 
