@@ -5,51 +5,51 @@ using System.Collections.Specialized;
 
 namespace _215Labs2020.Kirillov
 {
-    class Observ
+    class ObservableCollection
     {
-        private string name;
-        private int age;
-        
-    
-        public string Name => name;
-        public int Age => age;
+        private static string _name;
+        private static int _age;
 
-        
-        public Observ(string _name, int _age)
+        public ObservableCollection(string name, int age)
         {
-            name = _name;
-            age = _age;
-
+            _name = name;
+            _age = age;
         }
-        public static void StudentCollectionChanged(object sender, NotifyCollectionChangedEventArgs a)
+        public static void Start()
+        {
+            ObservableCollection<ObservableCollection> user = new ObservableCollection<ObservableCollection>
+            {
+                new ObservableCollection("Ivan", 17),
+                new ObservableCollection("Oleg", 18)
+            };
+            user.Add(new ObservableCollection("Alexei", 20));
+            user.Add(new ObservableCollection("Misha", 16));
+            user.Add(new ObservableCollection("Vitaly", 21));
+            user.Add(new ObservableCollection("Boris", 19));
+
+            user.CollectionChanged += UserCollectionChanged;
+
+            user.Add(new ObservableCollection("Sergei", 22));
+            user.Add(new ObservableCollection("Dmitry", 21));
+            user.Remove(user[2]);
+        }
+        private static void UserCollectionChanged(object notify, NotifyCollectionChangedEventArgs a)
         {
             if (a.Action == NotifyCollectionChangedAction.Add)
             {
-                Console.WriteLine("Added");
+                Console.WriteLine("Something was added");
             }
-
             if (a.Action == NotifyCollectionChangedAction.Remove)
             {
-                Console.WriteLine("Removed");
+                Console.WriteLine("Something was removed");
             }
-            else
             if (a.Action == NotifyCollectionChangedAction.Replace)
             {
-                Console.WriteLine("Replaxed");
+                Console.WriteLine("Something was replaced");
             }
         }
-        public static void Operation()
-        {
-            ObservableCollection<Observ> students = new ObservableCollection<Observ> { new Observ("Oleg", 17), new Observ("Ivan", 25) };
-            students.Add(new Observ("Maxim", 19));
-            students.Add(new Observ("Petr", 26));
-
-            students.CollectionChanged += StudentCollectionChanged;
-
-            students.Add(new Observ("Maxim", 19));
-            students.Remove(new Observ ("Oleg", 17));
-        }
     }
-}
+}    
+
     
 
