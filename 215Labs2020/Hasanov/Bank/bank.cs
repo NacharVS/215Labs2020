@@ -1,34 +1,32 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Text;
 
-namespace _215Labs2020.Hasanov
-{
-    //public delegate void AccountHandler(string mesegge);
-    public delegate void AccountHandler();
 
+namespace ConsoleApp7
+{
+    public delegate void AccountHandler();
     class Bank
     {
-        private string _name;
-        private string _surname;
-        private int _age;
+        private static string _name;
+        private static string _surname;
+        private static int _age;
         private static int _minideposit = 10000;
         private static int _maxdeposit = 200000;
         private static double _bankaccount = 0;
-        private int _day;
-        private int _year;
-        private int _month;
+        private static int _day;
+        private static int _year;
+        private static int _month;
         private static double _summ;
-        private DateTime _openDate;
+        private static DateTime _openDate;
         private static double _cashbackpersent = 0.03;
         private static double _cashbackpersentreferal = 0.05;
         private static double _depositpersent = 1.025;
-        public event AccountHandler Notify;
+        public static event AccountHandler Notify;
 
 
-        private void Put1(double sum)
+        private static void Put1(double sum)
         {
 
             int r;
@@ -51,7 +49,7 @@ namespace _215Labs2020.Hasanov
 
         }
 
-        private void Take1(double sum)
+        private static void Take1(double sum)
         {
             int r;
             while (true)
@@ -72,7 +70,7 @@ namespace _215Labs2020.Hasanov
                 if (r != 0) break;
             }
         }
-        private void CashBack1(double sum)
+        private static void CashBack1(double sum)
         {
             Console.WriteLine("У вас есть рефиральный код?");
             string referal = Console.ReadLine();
@@ -96,7 +94,7 @@ namespace _215Labs2020.Hasanov
                 //Notify?.Invoke($"Кэшбэк : {sum}");
             }
         }
-        public double Summ
+        public static double Summ
         {
             get
             {
@@ -110,7 +108,7 @@ namespace _215Labs2020.Hasanov
 
         }
 
-        public string Name
+        public static string Name
         {
             get
             {
@@ -119,10 +117,11 @@ namespace _215Labs2020.Hasanov
             set
             {
                 _name = value;
+
             }
 
         }
-        public string Surname
+        public static string Surname
         {
             get
             {
@@ -136,7 +135,7 @@ namespace _215Labs2020.Hasanov
         }
 
 
-        public int Age
+        static public int Age
         {
             get
             {
@@ -148,8 +147,7 @@ namespace _215Labs2020.Hasanov
                 if (Age >= 14 & _month == DateTime.Now.Month & _day == DateTime.Now.Day)
                 {
                     Console.WriteLine("Поздравляем с вашем днем рождением");
-                    Bank bank = new Bank();
-                    bank.OperationInBank();
+                    Bank.OperationInBank();
                 }
                 if (Age <= 14 & _month >= DateTime.Now.Month)
                 {
@@ -158,13 +156,13 @@ namespace _215Labs2020.Hasanov
                 }
                 else
                 {
-                    Bank bank = new Bank();
-                    bank.OperationInBank();
+
+                    Bank.OperationInBank();
                 }
             }
 
         }
-        public double BankAccount
+        public static double BankAccount
         {
             get
             {
@@ -179,10 +177,10 @@ namespace _215Labs2020.Hasanov
         }
         public static void LaunchBank()
         {
-            Bank bank = new Bank();
-            bank.RegistrationBank();
+
+            Bank.RegistrationBank();
         }
-        private void RegistrationBank()
+        static private void RegistrationBank()
         {
             Console.WriteLine("Здравствуйте, пожалуйста зарегистрируйтесь");
             Console.WriteLine("Введите свое имя");
@@ -199,8 +197,10 @@ namespace _215Labs2020.Hasanov
             Age = DateTime.Now.Year - _year;
 
 
+
+
         }
-        private void Depositsonthebalance()
+        private static void Depositsonthebalance()
         {
             int second = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
             int secondOpen = _openDate.Hour * 3600 + _openDate.Minute * 60 + _openDate.Second;
@@ -214,17 +214,17 @@ namespace _215Labs2020.Hasanov
             Console.WriteLine(BankAccount);
 
         }
-        private void CashBack()
+        private static void CashBack()
         {
-            Bank acc = new Bank();
+
             Console.WriteLine("Введите сумму на которую совершали покупку");
             Summ = double.Parse(Console.ReadLine());
             //acc.Notify += DisplayMessage;
-            acc.CashBack1(Summ);
+            Bank.CashBack1(Summ);
 
 
         }
-        private void Deposit()
+        private static void Deposit()
         {
 
             int year;
@@ -260,16 +260,16 @@ namespace _215Labs2020.Hasanov
             Console.WriteLine($"Ваш депозит в {year} году будет составлять {b * _depositpersent} ");
 
         }
-        private void Take()
+        private static void Take()
         {
 
 
 
-            Bank acc = new Bank();
+
             Console.WriteLine("Введите сумму которую хотите снять ");
             Summ = int.Parse(Console.ReadLine());
             //acc.Notify += DisplayMessage;
-            acc.Take1(Summ);
+            Bank.Take1(Summ);
 
 
 
@@ -278,26 +278,69 @@ namespace _215Labs2020.Hasanov
         {
             Console.WriteLine(message);
         }
-        private void Put()
+        private static void Put()
         {
-            Bank acc = new Bank();
+
             Console.WriteLine("Введите сумму которую хотите внести ");
             Summ = int.Parse(Console.ReadLine());
             //acc.Notify += DisplayMessage;
-            acc.Put1(Summ);
+            Bank.Put1(Summ);
         }
-        private void Redactaccounts()
+        public static void SetName(string newName)
         {
-            Dictionary<int, Bank> stodentlist = new Dictionary<int, Bank>();
+            _name = newName;
+        }
+        public static void SetSurName(string newSurName)
+        {
+            _surname = newSurName;
+        }
+        private static void Clients()
+        {
+
+            Dictionary<int, Bank> account = new Dictionary<int, Bank>();
+            account.Add(1, new Bank("Vasuy", "Yan", 22));
+            account.Add(2, new Bank("Masha", "Dobraya", 15));
+            account.Add(3, new Bank("German", "Popov", 28));
+            account.Add(4, new Bank("Igor", "Izerskii", 30));
+            account.Add(5, new Bank("Petr", "Pervii", 38));
+            Console.WriteLine("Для изменения необходим ваш id");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Что вы хотите изменить?");
+            string izmeneniya = Console.ReadLine();
+            switch (izmeneniya)
+            {
+                case "Фамилия":
+                    foreach (var item in account)
+                    {
+                        if (item.Key == id)
+                        {
+
+                            item.Value.SetSurName();
+                        }
+                    }
+                    break;
+                case "Имя":
+                    foreach (var item in account)
+                    {
+                        if (item.Key == id)
+                        {
+
+                            item.Value.SetName(newName);
+                        }
+                    }
+                    break;
+            }
 
         }
-        public Bank(string name, int age)
+        public Bank(string name, string surname, int age)
         {
             _name = name;
             _age = age;
+            _surname = surname;
         }
 
-        public void OperationInBank()
+
+        public static void OperationInBank()
         {
             while (true)
             {
@@ -321,8 +364,8 @@ namespace _215Labs2020.Hasanov
                     case "Накрутить деньги":
                         Depositsonthebalance();
                         break;
-                    case "Изменить даннные":
-                        Redactaccounts();
+                    case "1":
+                        Clients();
                         break;
 
                 }
@@ -332,7 +375,8 @@ namespace _215Labs2020.Hasanov
 
             }
             Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
+
+
         }
     }
 }
-

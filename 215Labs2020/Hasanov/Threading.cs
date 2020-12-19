@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace ConsoleApp26
+namespace _215Labs2020
 {
-    class Program
+    class Threading
     {
-        static void Main(string[] args)
+        public static void Tasks()
         {
             int[] sum = new int[5];
             int[] mass1 = new int[5];
             int[] mass2 = new int[5];
-            Generationmass();
-            summass();
+            Task task1 = new Task(() => Generationmass());
+            Task task2 = new Task(() => summass());
             void Generationmass()
             {
                 Random rnd = new Random();
@@ -27,12 +31,16 @@ namespace ConsoleApp26
 
                 for (int i = 0; i < mass1.Length; i++)
                 {
+                    Thread.Sleep(1);
                     sum[i] = mass1[i] + mass2[i];
 
                 }
 
 
             }
+            task1.Start();
+            task2.Start();
+            task2.Wait();
             int buffer;
             for (int i = 0; i < sum.Length; i++)
             {
@@ -55,10 +63,6 @@ namespace ConsoleApp26
             {
                 Console.WriteLine(sum[i]);
             }
-
         }
-
-
-
     }
 }
