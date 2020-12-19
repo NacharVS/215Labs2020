@@ -11,6 +11,7 @@ namespace _215Labs2020.Ilyasov.Bank
         {
             Name = name;
         }
+
         public static void SnowName()
         {
 
