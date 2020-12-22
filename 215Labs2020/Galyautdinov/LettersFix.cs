@@ -1,30 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _215Labs2020.Galyautdinov
 {
     class LettesFix
     {
+        private static string _name;
         public string name
         {
             get
             {
-                return name;
+                return _name;
             }
             set
             {
-                if (name[0].ToString() != name[0].ToString().ToUpper())
-                {
-                    //name[0] = name[0].ToString().ToUpper();
-                }
+                value = value.Trim();//Для обрезки начальных или концевых символов используется функция Trim
+                _name = value[0].ToString().ToUpper() + value.Substring(1);
             }
         }
         public static void StudentInfo()
         {
             LettesFix lf = new LettesFix();
-            lf.name = "ivan";
-            Console.WriteLine(lf.name[0].ToString().ToUpper());
+            lf.name = Console.ReadLine();
+            Console.WriteLine(lf.name);
         }
     }
 }
