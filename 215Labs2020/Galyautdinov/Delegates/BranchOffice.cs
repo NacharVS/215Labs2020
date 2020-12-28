@@ -21,5 +21,12 @@ namespace _215Labs2020.Galyautdinov.Delegates
             handler1 += GeneralOffice.Com_el_array;
             handler1(mass, mass1);
         }
+        public static void Run()
+        {
+            int[] mass = new int[3] { 1, 2, 3, };
+            int[] mass1 = new int[3] { 1, 2, 5, };
+            BranchOffice.metod1(mass);
+            BranchOffice.metod2(mass, mass1);
+        }
     }
 }
