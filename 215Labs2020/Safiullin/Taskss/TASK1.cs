@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Text;
 
-namespace _215Labs2020.Safiullin.Task
+namespace _215Labs2020.Safiullin.Taskss
 {
     class User
     {

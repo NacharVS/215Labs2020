@@ -75,7 +75,7 @@ namespace _215Labs2020.Safiullin
         }
         private static void Amendment()
         {
-            Person<int, Bank1> bankList = new Person<int, Bank1> 
+            //Person<int, Bank1> bankList = new Person<int, Bank1> 
         }
 
 
@@ -120,14 +120,14 @@ namespace _215Labs2020.Safiullin
 
         private static void Refill()
         {
-            Bank1 bank = new Bank1(_balans);
+            //Bank1 bank = new Bank1(_balans);
             //bank.Notify += DisplayMessage;
             First_deposit();
             //bank.Notify?.Invoke($"Пополнение на сумму: {a} р.");
         }
         private static void Cash_out()
         {
-            Bank1 bank = new Bank1(_balans);
+            //Bank1 bank = new Bank1(_balans);
             //bank.Notify += DisplayMessage;
             Check_Remove();
             //bank.Notify?.Invoke($"Было снято : {a}");
@@ -226,7 +226,7 @@ namespace _215Labs2020.Safiullin
         { 
         
             CreateAccount();
-            Bank1 human = new Bank1(_name, _phone, _birthday);
+            //Bank1 human = new Bank1(_name, _phone, _birthday);
             {
                 while (true)
                 {

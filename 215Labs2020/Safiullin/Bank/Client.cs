@@ -38,7 +38,7 @@ namespace _215Labs2020.Safiullin.Bank
         }
         public void SnowBirthday(string newBirthday)
         {
-            _birthday = newBirthday; 
+            //_birthday = newBirthday; 
         }
 
 
