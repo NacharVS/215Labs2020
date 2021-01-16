@@ -11,6 +11,7 @@ namespace _215Labs2020.Garaev
         static int[] mass1;
         static int[] mass2;
         static int[] mass3;
+        static Task t;
         static void generation_sum()
         {
             Random rnd = new Random();
@@ -29,7 +30,8 @@ namespace _215Labs2020.Garaev
         }
         async static void generation_sumAsync()
         {
-            await Task.Run(()=>generation_sum());
+            t = Task.Run(()=>generation_sum());
+            await t;
         }
         public static void mainMethod()
         {
@@ -38,6 +40,7 @@ namespace _215Labs2020.Garaev
             mass3 = new int[10];
             generation_sumAsync();
             int interval = int.Parse(Console.ReadLine());
+            t.Wait();
             for (int i = 0; i < interval; i++)
             {
                 Console.Write($"{mass3[i]} ");
