@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp29
 {
-    class AsyncSum
+    class AsyncSum1
     {
         public static void Mainmethod()
         {
