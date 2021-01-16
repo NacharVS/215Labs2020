@@ -1,5 +1,4 @@
 ﻿using System;
-using _215Labs2020.Ilyasov.StrategyGames;
 
 namespace _215Labs2020
 {
@@ -7,7 +6,7 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            
+            ;
         }
     }
 }
