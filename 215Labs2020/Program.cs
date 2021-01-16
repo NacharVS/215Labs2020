@@ -52,7 +52,8 @@ namespace _215Labs2020.Faizullin
 
 
 
-            Threading.Azatmethod();
+            //Threading.Azatmethod();
+            AsyncSum.mainmethod();
         }
     }
     
