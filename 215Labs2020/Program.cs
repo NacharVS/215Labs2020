@@ -14,9 +14,10 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            BankPerson.Bank_deysviya();
-            //ObservableCollection.Main1();
-            Tasks.Task();
+            //BankPerson.Bank_deysviya();
+            ////ObservableCollection.Main1();
+            //Tasks.Task();
+            Asyncsum.mainMethod();
             Console.ReadKey();
         }
     }
