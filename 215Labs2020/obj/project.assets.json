@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ооо\\Desktop\\Максимов\\215Labs2020\\215Labs2020.csproj",
+      "projectUniqueName": "C:\\Users\\ооо\\Desktop\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
       "projectName": "215Labs2020",
-      "projectPath": "C:\\Users\\ооо\\Desktop\\Максимов\\215Labs2020\\215Labs2020.csproj",
+      "projectPath": "C:\\Users\\ооо\\Desktop\\215Labs2020\\215Labs2020\\215Labs2020.csproj",
       "packagesPath": "C:\\Users\\ооо\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ооо\\Desktop\\Максимов\\215Labs2020\\obj\\",
+      "outputPath": "C:\\Users\\ооо\\Desktop\\215Labs2020\\215Labs2020\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ооо\\AppData\\Roaming\\NuGet\\NuGet.Config",
