@@ -9,47 +9,54 @@ namespace _215Labs2020.Ibragimov
     class Asuncsum
     {
 
-           int[] mass = new int[5];
-          int[] mass1 = new int[5];
-
-        internal static void Asuncsum1()
+        public static void Mainmethod()
         {
-            throw new NotImplementedException();
-        }
-
-        int[] sum = new int[5];
-
-        public static  void Asuncsum1(int[] sum)
-        {
-            Task task1 = new Task(() =>
+            int[] array1 = new int[10];
+            int[] array2 = new int[10];
+            int[] arraysum = new int[10];
+            AsyncSum(array1, array2, arraysum);
+           
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            for (int i = 0; i < a; i++)
             {
+                Console.WriteLine(arraysum[i]);
+            }
 
-                Random rnd = new Random();
-
-                for (int i = 0; i < 5; i++)
-                {
-
-                    sum[i] = rnd.Next(1, 10);
-                    Thread.Sleep(100);
-                    sum[i] = rnd.Next(1, 10);
-                    Thread.Sleep(100);
-                    sum[i] = sum[i] + sum[i];
-                    Console.WriteLine($"mass 1: {sum[i]} ");
-                    Console.WriteLine($"mass 2: {sum[i]} ");
-                    Console.WriteLine($"Sum: {sum[i]} ");
-                }
-                Console.WriteLine();
+        }
+        public static void SumArray1(int[] array1, int[] array2, int[] arraysum)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < array1.Length; i++)
+            {
+                array1[i] = rnd.Next(1, 10);
 
             }
-            );
+            for (int i = 0; i < array2.Length; i++)
+            {
+                array2[i] = rnd.Next(1, 10);
+
+            }
+
+            for (int i = 0; i < arraysum.Length; i++)
+            {
+                arraysum[i] = array1[i] + array2[i];
+            }
+
 
         }
- 
-      
-
+        public static async void AsyncSum(int[] array1, int[] array2, int[] arraysum)
+        {
+            await Task.Run(() => SumArray1(array1, array2, arraysum));
+        }
 
     }
+
+
+
+
 }
+
 
 
 
