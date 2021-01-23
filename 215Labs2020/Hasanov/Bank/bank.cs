@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using MongoDB.Bson.Serialization.Attributes;
 
 
 namespace ConsoleApp7
@@ -315,7 +318,7 @@ namespace ConsoleApp7
                         if (item.Key == id)
                         {
 
-                            item.Value.SetSurName();
+                            //item.Value.SetSurName();
                         }
                     }
                     break;
@@ -325,7 +328,7 @@ namespace ConsoleApp7
                         if (item.Key == id)
                         {
 
-                            item.Value.SetName(newName);
+                            //item.Value.SetName(newName);
                         }
                     }
                     break;
@@ -337,6 +340,13 @@ namespace ConsoleApp7
             _name = name;
             _age = age;
             _surname = surname;
+        }
+        static async Task MongoInsert()
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("bank");
+            var collection = datebase.GetCollection<Student>()
         }
 
 
@@ -375,6 +385,7 @@ namespace ConsoleApp7
 
             }
             Console.WriteLine("Спасибо за использование ХАСУСГОССТРАХБАНКа! Всего доброго");
+
 
 
         }
