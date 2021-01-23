@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace _215Labs2020.Maksimov_Aleksei
 {
@@ -86,6 +87,8 @@ namespace _215Labs2020.Maksimov_Aleksei
                 yy = value;
             }
         }
+
+
 
     }
 }
