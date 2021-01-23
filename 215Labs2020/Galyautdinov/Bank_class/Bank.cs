@@ -3,9 +3,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
 namespace _215Labs2020.Galyautdinov
 {
+    class Base
+    {
+        [BsonId]
+        public ObjectId _id;
+        [BsonElement("Имя")]
+        public string name;
+        [BsonElement("Фамилия")]
+        public string surname;
+        [BsonIgnoreIfDefault]
+        public double bank_balans;
+    }
     class Bank : Person
     {
         public static int chek_id { get; set; }
@@ -51,6 +65,9 @@ namespace _215Labs2020.Galyautdinov
             id+= 1;
             ClientList.Add(id, new Bank(surname, name, phone, Day_birthday, Month_birthday, Year_birthday));
             ListBalans.Add(bank_balans);
+            MongoConnect().GetAwaiter().GetResult();
+            Base student = new Base { name = name, surname = surname, bank_balans = bank_balans };
+            MongoInsert(student).GetAwaiter().GetResult();
         }
         private static void ListOfClients()
         {
@@ -516,6 +533,24 @@ namespace _215Labs2020.Galyautdinov
             {
                 Employee.employee();
             }
+        }
+        private static async Task MongoConnect()
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Bank_MongoDB");
+            var collection = database.GetCollection<BsonDocument>("Bank");
+            var student = new BsonDocument();
+            var students = await collection.Find(student).ToListAsync();
+        }
+        private static async Task MongoInsert(Base student)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Bank_MongoDB");
+            var collection = database.GetCollection<Base>("Bank");
+            await collection.InsertOneAsync(student);
+
         }
     }
 }
