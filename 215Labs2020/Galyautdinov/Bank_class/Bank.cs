@@ -12,19 +12,24 @@ namespace _215Labs2020.Galyautdinov
     class Base
     {
         [BsonId]
-        public ObjectId _id;
+        public ObjectId b_id;
         [BsonElement("Имя")]
-        public string name;
+        public string b_name;
         [BsonElement("Фамилия")]
-        public string surname;
-        [BsonIgnoreIfDefault]
-        public double bank_balans;
+        public string b_surname;
+        [BsonElement("Дата рождения")]
+        public DateTime b_dataBorn;
+        [BsonElement("Баланс")]
+        public double b_bank_balans;
+        [BsonElement("Номер телефона")]
+        public string b_phone;
     }
     class Bank : Person
     {
         public static int chek_id { get; set; }
         private static double bank_balans = 0, percent = 0.001, cashback_percent = 0.05, cashback_partner_percent = 0.2, cashback = 0;
         private static DateTime _accountOpenDate;
+        private static DateTime dataBorn;
         private static int Day_birthday, Month_birthday, Year_birthday, edit_id, id;
         private static string name, surname, phone;
 
@@ -62,12 +67,13 @@ namespace _215Labs2020.Galyautdinov
             Console.Write("Введите номер телефона: ");
             phone = Console.ReadLine();
 
-            id+= 1;
-            ClientList.Add(id, new Bank(surname, name, phone, Day_birthday, Month_birthday, Year_birthday));
-            ListBalans.Add(bank_balans);
+            dataBorn = new DateTime(Year_birthday, Month_birthday, Day_birthday);
+            id += 1;
+            //ClientList.Add(id, new Bank(surname, name, phone, Day_birthday, Month_birthday, Year_birthday));
+            //ListBalans.Add(bank_balans);
             MongoConnect().GetAwaiter().GetResult();
-            Base student = new Base { name = name, surname = surname, bank_balans = bank_balans };
-            MongoInsert(student).GetAwaiter().GetResult();
+            Base _base = new Base { b_name = name, b_surname = surname, b_bank_balans = bank_balans, b_dataBorn = dataBorn, b_phone = phone };
+            MongoInsert(_base).GetAwaiter().GetResult();
         }
         private static void ListOfClients()
         {
@@ -462,9 +468,6 @@ namespace _215Labs2020.Galyautdinov
             {
                 FullName();
             }
-
-            DateTime dataBorn = new DateTime(Year_birthday, Month_birthday, Day_birthday);
-
             if (DateTime.Now.Year - dataBorn.Year < 14)
             {
                 Console.WriteLine("Люди младше 14 лет не могут открыть счет.");
@@ -551,6 +554,23 @@ namespace _215Labs2020.Galyautdinov
             var collection = database.GetCollection<Base>("Bank");
             await collection.InsertOneAsync(student);
 
+        }
+        private static async Task SearchByName(string serachName, string serachSurname)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Bank_MongoDB");
+            var collection = database.GetCollection<Base>("Bank");
+            var sb_base = await collection.Find(std => std.b_name == serachName || std.b_surname == serachSurname).ToListAsync();
+
+            foreach (var item in sb_base)
+            {
+                Console.WriteLine(item.b_name);
+                Console.WriteLine(item.b_surname);
+                Console.WriteLine(item.b_dataBorn);
+                Console.WriteLine(item.b_phone);
+                Console.WriteLine(item.b_bank_balans);
+            }
         }
     }
 }
