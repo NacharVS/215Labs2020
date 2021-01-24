@@ -5,10 +5,32 @@ using _215Labs2020.Garaev.Bank;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace _Bank
 {
-    class Client: BankPerson
+    class Base
+    {
+        [BsonId]
+        public int _id;
+        [BsonElement("Name")]
+        public string name1;
+        [BsonElement("Surname")]
+        public string surname1;
+        [BsonElement("Otchestvo")]
+        public string otchestvo1;
+        [BsonElement("DayofBirth")]
+        public int day1;
+        [BsonElement("MonthofBirth")]
+        public int month1;
+        [BsonElement("YearofBirth")]
+        public int year1;
+        [BsonElement("Balans")]
+        public double balans1;
+    }
+    class Client : BankPerson
     {
         private static void Show_Messege1()
         {
@@ -61,8 +83,8 @@ namespace _Bank
 
         private static void popolnenie_cashback()
         {
-                balans += cashback;
-                cashback = 0;
+            balans += cashback;
+            cashback = 0;
         }
 
         private static double cashback = 0;
@@ -131,7 +153,7 @@ namespace _Bank
             int new_yearofbirth = int.Parse(Console.ReadLine());
             foreach (var item in Client_list)
             {
-                if(item.Key == select_id)
+                if (item.Key == select_id)
                 {
                     item.Value._name = new_name;
                     item.Value._surname = new_surname;
@@ -141,7 +163,7 @@ namespace _Bank
                     item.Value._year = new_yearofbirth;
                     //item.Value.dataBorn.Year = 2004;
                 }
-            }         
+            }
         }
         private static void dataofbirth()
         {
@@ -165,7 +187,8 @@ namespace _Bank
             int realyear = DateTime.Now.Year;
             int realday = DateTime.Now.Day;
             int realmonth = DateTime.Now.Month;
-            
+
+
             bool l = true;
             while (l == true)
             {
@@ -217,7 +240,10 @@ namespace _Bank
             Client_list.Add(id, new Client(name, surname, otchestvo, dayofbirth, monthofbirth, yearofbirth));
             Console.WriteLine($"Ваш ID: {id}");
             Balans_list.Add(balans);
-            //DateTime dataBorn = new DateTime(yearofbirth, monthofbirth, dayofbirth);
+
+            MongoConnect().GetAwaiter().GetResult();
+            Base bank = new Base { name1 = name, surname1 = surname, otchestvo1 = otchestvo, balans1 = balans, day1 = dayofbirth, month1 = monthofbirth, year1 = yearofbirth, _id = id };
+            MongoInsert(bank).GetAwaiter().GetResult();
         }
         private static void bank_account()
         {
@@ -231,7 +257,7 @@ namespace _Bank
 
             Console.Write("Введите сумму пополнения: ");
             int f = 0;
-            while (f==0)
+            while (f == 0)
             {
                 try
                 {
@@ -245,8 +271,8 @@ namespace _Bank
                     f = 0;
                 }
             }
-            while (summ>200000 || summ < 10000)
-            {  
+            while (summ > 200000 || summ < 10000)
+            {
                 summ = 0;
                 Console.WriteLine("Вы превысили лимит пополнения в 200 000 или сумма пополнения меньше 10 000");
                 Console.Write("Введите сумму пополнения: ");
@@ -257,7 +283,7 @@ namespace _Bank
                     {
                         summ = int.Parse(Console.ReadLine());
                         f1 += 1;
-                   }
+                    }
                     catch
                     {
                         Console.WriteLine("******!!!! ОШИБКА !!!!******");
@@ -357,7 +383,7 @@ namespace _Bank
             while (balans - summ1 < 0 || summ1 > 200000 || (summ1 < 10000 && summ1 != 0))
             {
                 if (balans - summ1 < 0)
-                { 
+                {
                     Console.WriteLine("На вашем счету недостаточно средств");
                 }
                 else if (summ1 > 200000 || summ1 < 10000)
@@ -409,9 +435,9 @@ namespace _Bank
             double balans1 = balans;
             for (int i = 0; i < year; i++)
             {
-                balans1 = Math.Round(balans1 + (balans1 * (procent / 100)),2);
+                balans1 = Math.Round(balans1 + (balans1 * (procent / 100)), 2);
             }
-            double dohod = Math.Round(balans1-balans,2);
+            double dohod = Math.Round(balans1 - balans, 2);
             if (year < 5)
             {
                 Console.WriteLine($"Через {year} года ваш баланс будет {balans1} руб. Чистый доход: {dohod} руб.");
@@ -449,7 +475,7 @@ namespace _Bank
                 balans -= summ_pocupka;
                 Console.WriteLine($"Совершена покупка на {summ_pocupka} рублей");
             }
-            
+
             popolnenie_cashback();
             Balans_list[Balans_list.Count - 1] = balans;
         }
@@ -482,7 +508,7 @@ namespace _Bank
                 {
                     case 1: dataofbirth(); break;
                     case 2: bank_account(); break;
-                    case 3: vivod();  break;
+                    case 3: vivod(); break;
                     case 4: transaction(); break;
                     case 5: _dohod(); break;
                     case 6: tecush_balans(); break;
@@ -519,6 +545,27 @@ namespace _Bank
                 }
             }
             BankPerson.Bank_deysviya();
+        }
+        private static async Task MongoConnect()
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Bank-bank");
+            var collection = database.GetCollection<BsonDocument>("Clients");
+            var user_client = new BsonDocument();
+            var user_clients = await collection.Find(user_client).ToListAsync();
+            foreach (var item in user_clients)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        private static async Task MongoInsert(Base bank)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Bank-bank");
+            var collection = database.GetCollection<Base>("Clients");
+            await collection.InsertOneAsync(bank);
         }
     }
 }
