@@ -10,7 +10,9 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            Bank.Run();
+            Planets.Run();
+            Satellites.Run();
+            Comets.Run();
         }
     }
 }
