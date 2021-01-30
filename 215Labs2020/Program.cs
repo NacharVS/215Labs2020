@@ -53,7 +53,8 @@ namespace _215Labs2020.Faizullin
 
 
             //Threading.Azatmethod();
-            AsyncSum.mainmethod();
+            //AsyncSum.mainmethod();
+            
         }
     }
     
