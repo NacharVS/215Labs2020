@@ -10,6 +10,9 @@ namespace _215Labs2020.Galyautdinov
 {
     class Planets
     {
+        [BsonId]
+        [BsonIgnoreIfDefault]
+        public Object _id;
         [BsonElement("Имя")]
         public string Name;
         [BsonElement("Диаметр [км]")]
@@ -61,10 +64,10 @@ namespace _215Labs2020.Galyautdinov
             Planets uranus = new Planets { Name = "Уран", Diametr = 50720, Age = 4.5, Livable = false, Distance = 2871, Temperature = -220 };
             Planets neptune = new Planets { Name = "Нептун", Diametr = 49500, Age = 4.6, Livable = false, Distance = 4500, Temperature = -201 };
 
-            //MongoReplaceByName("Земля", new Planets() { Name = "" }).GetAwaiter().GetResult();
+            //MongoReplaceByName("Нептун", new Planets() { Name = "Хребтун" }).GetAwaiter().GetResult();
             //MongoInsert(mercury).GetAwaiter().GetResult();
             //MongoInsert(venus).GetAwaiter().GetResult();
-           // MongoInsert(earth).GetAwaiter().GetResult();
+            //MongoInsert(earth).GetAwaiter().GetResult();
             //MongoInsert(mars).GetAwaiter().GetResult();
             //MongoInsert(jupiter).GetAwaiter().GetResult();
             //MongoInsert(saturn).GetAwaiter().GetResult();
@@ -74,6 +77,9 @@ namespace _215Labs2020.Galyautdinov
     }
     class Satellites
     {
+        [BsonId]
+        [BsonIgnoreIfDefault]
+        public Object _id;
         [BsonElement("Имя")]
         public string Name;
         [BsonElement("Искуственный?")]
@@ -99,6 +105,15 @@ namespace _215Labs2020.Galyautdinov
             await collection.InsertOneAsync(st);
 
         }
+        public static async Task MongoReplaceByName(string SerachByName, Satellites new_st)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Universe");
+            var collection = database.GetCollection<Satellites>("Satellites");
+            await collection.ReplaceOneAsync(std => std.Name == SerachByName, new_st);
+
+        }
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
@@ -106,13 +121,16 @@ namespace _215Labs2020.Galyautdinov
             Satellites io = new Satellites() { Name = "Ио", Age = 0.001, Artificial = false };
             Satellites starlink = new Satellites() { Name = "Starlink", Age = 0.000000003, Artificial = true };
 
-            //MongoInsert(moon).GetAwaiter().GetResult();
-            //MongoInsert(io).GetAwaiter().GetResult();
-            //MongoInsert(starlink).GetAwaiter().GetResult();
+            MongoInsert(moon).GetAwaiter().GetResult();
+            MongoInsert(io).GetAwaiter().GetResult();
+            MongoInsert(starlink).GetAwaiter().GetResult();
         }
     }
     class Comets
     {
+        [BsonId]
+        [BsonIgnoreIfDefault]
+        public Object _id;
         [BsonElement("Имя")]
         public string Name;
         [BsonElement("Скорость [км/с]")]
@@ -142,14 +160,23 @@ namespace _215Labs2020.Galyautdinov
             await collection.InsertOneAsync(cm);
 
         }
+        public static async Task MongoReplaceByName(string SerachByName, Comets new_cm)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Universe");
+            var collection = database.GetCollection<Comets>("Comets");
+            await collection.ReplaceOneAsync(std => std.Name == SerachByName, new_cm);
+
+        }
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
             Comets ISON = new Comets() { Name = "ISON", Size =  100, Speed = 380, Tail_length = 16, Temperature = 3000};
             Comets galea = new Comets() { Name = "Galea", Size = 15, Speed = 45, Tail_length = 100, Temperature = 130 };
 
-            //MongoInsert(ISON).GetAwaiter().GetResult();
-            //MongoInsert(galea).GetAwaiter().GetResult();
+            MongoInsert(ISON).GetAwaiter().GetResult();
+            MongoInsert(galea).GetAwaiter().GetResult();
         }
     }
 }
