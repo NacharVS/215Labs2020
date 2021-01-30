@@ -11,8 +11,8 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
             Planets.Run();
-            Satellites.Run();
-            Comets.Run();
+           // Satellites.Run();
+            //Comets.Run();
         }
     }
 }
