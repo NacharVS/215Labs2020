@@ -346,7 +346,7 @@ namespace ConsoleApp7
             string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var datebase = client.GetDatabase("bank");
-            var collection = datebase.GetCollection<Student>()
+            var collection = datebase.GetCollection<Student>();
         }
 
 
