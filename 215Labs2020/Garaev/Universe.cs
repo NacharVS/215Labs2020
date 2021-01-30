@@ -61,6 +61,14 @@ namespace _215Labs2020.Garaev
             var collection = database.GetCollection<Planets>("Planets");
             await collection.InsertOneAsync(planet);
         }
+        public static async Task MongoReplacePlanets(string searchName, Planets newplanets)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Planets>("Planets");
+            await collection.ReplaceOneAsync(x => x.Name == searchName, newplanets);
+        }
     }
     class Satellites
     {
@@ -97,6 +105,14 @@ namespace _215Labs2020.Garaev
             MongoInsert(satellites1).GetAwaiter().GetResult();
             MongoInsert(satellites2).GetAwaiter().GetResult();
             MongoInsert(satellites3).GetAwaiter().GetResult();
+        }
+        public static async Task MongoReplaceSatellites(string searchName, Satellites newsatellites)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Satellites>("Satellites");
+            await collection.ReplaceOneAsync(x => x.Name == searchName, newsatellites);
         }
     }
     class Comets
@@ -137,6 +153,14 @@ namespace _215Labs2020.Garaev
             Comets satellites2 = new Comets { Name = "Лавджоя", Speed = 0.001, Length = 30, Size = 500, Temperature = 500};
             MongoInsert(satellites1).GetAwaiter().GetResult();
             MongoInsert(satellites2).GetAwaiter().GetResult();
+        }
+        public static async Task MongoReplaceKomets(string searchName, Comets newkomets)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Comets>("Planets");
+            await collection.ReplaceOneAsync(x => x.Name == searchName, newkomets);
         }
     }
 }

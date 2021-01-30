@@ -15,10 +15,9 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
             //BankPerson.Bank_deysviya();
-            Planets.Main1();
-            Comets.Main3();
-            Satellites.Main2();
-            ////ObservableCollection.Main1();
+            Satellites.MongoReplaceSatellites("Starlink", new Satellites() { Age = 0.000000003, Name = "Starlink", Artificiality = true}).GetAwaiter().GetResult();
+            Satellites.MongoReplaceSatellites("Луна", new Satellites() { Age = 4.51, Name = "Луна" }).GetAwaiter().GetResult();
+            //ObservableCollection.Main1();
             //Tasks.Task();
             //Asyncsum.mainMethod();
             //Console.ReadKey();
