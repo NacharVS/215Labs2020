@@ -67,7 +67,127 @@ namespace ConsoleApp31
             MongoInsert(planet7).GetAwaiter().GetResult();
             MongoInsert(planet8).GetAwaiter().GetResult();
         }
-
+        private static async Task MongoConnect()
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<BsonDocument>("Planets");
+            var user_client = new BsonDocument();
+            var user_clients = await collection.Find(user_client).ToListAsync();
+        }
+        private static async Task MongoInsert(Planets planet)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Planets>("Planets");
+            await collection.InsertOneAsync(planet);
+        }
+        public static async Task MongoReplacePlanets(string searchName, Planets newplanets)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Planets>("Planets");
+            await collection.ReplaceOneAsync(x => x.Name == searchName, newplanets);
+        }
     }
+    class Satellites
+    {
+        [BsonElement("Имя")]
+        public string Name;
+        [BsonElement("Возраст (млрд лет)")]
+        public double Age;
+        [BsonElement("Искусственный?")]
+        public bool Artificiality;
+        private static async Task MongoConnect()
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<BsonDocument>("Satellites");
+            var user_client = new BsonDocument();
+            var user_clients = await collection.Find(user_client).ToListAsync();
 
+        }
+        private static async Task MongoInsert(Satellites satellit)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Satellites>("Satellites");
+            await collection.InsertOneAsync(satellit);
+        }
+        public static void Main2()
+        {
+            MongoConnect().GetAwaiter().GetResult();
+            Satellites satellites1 = new Satellites { Name = "Луна", Age = 4.51, Artificiality = false };
+            Satellites satellites2 = new Satellites { Name = "Ио", Age = 0.001, Artificiality = false };
+            Satellites satellites3 = new Satellites { Name = "Starlink", Age = 0.000000003, Artificiality = true };
+            MongoInsert(satellites1).GetAwaiter().GetResult();
+            MongoInsert(satellites2).GetAwaiter().GetResult();
+            MongoInsert(satellites3).GetAwaiter().GetResult();
+        }
+        public static async Task MongoReplaceSatellites(string searchName, Satellites newsatellites)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Satellites>("Satellites");
+            await collection.ReplaceOneAsync(x => x.Name == searchName, newsatellites);
+        }
+    }
+    class Comets
+    {
+        [BsonElement("Имя")]
+        public string Name;
+        [BsonElement("Скорость (км/с)")]
+        public double Speed;
+        [BsonElement("Размер (м)")]
+        public double Size;
+        [BsonElement("Длина хвоста")]
+        public double Length;
+        [BsonElement("Температура (°C)")]
+        public double Temperature;
+
+        private static async Task MongoConnect()
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<BsonDocument>("Comets");
+            var user_client = new BsonDocument();
+            var user_clients = await collection.Find(user_client).ToListAsync();
+
+        }
+        private static async Task MongoInsert(Comets comet)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Comets>("Comets");
+            await collection.InsertOneAsync(comet);
+        }
+        public static void Main3()
+        {
+            MongoConnect().GetAwaiter().GetResult();
+            Comets satellites1 = new Comets { Name = "Галлея", Speed = 4.51, Length = 100, Size = 11000, Temperature = 3000 };
+            Comets satellites2 = new Comets { Name = "Лавджоя", Speed = 0.001, Length = 30, Size = 500, Temperature = 500 };
+            MongoInsert(satellites1).GetAwaiter().GetResult();
+            MongoInsert(satellites2).GetAwaiter().GetResult();
+        }
+        public static async Task MongoReplaceKomets(string searchName, Comets newkomets)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Comets>("Planets");
+            await collection.ReplaceOneAsync(x => x.Name == searchName, newkomets);
+        }
+    }
 }
+
+    
+
+
