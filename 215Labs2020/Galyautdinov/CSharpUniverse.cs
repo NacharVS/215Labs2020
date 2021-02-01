@@ -25,6 +25,15 @@ namespace _215Labs2020.Galyautdinov
         public double Distance;
         [BsonElement("Температура [°C]")]
         public double Temperature;
+        public Planets(string name, double diam, double age, bool live, double dis, double temp)
+        {
+            Name = name;
+            Diametr = diam;
+            Age = age;
+            Livable = live;
+            Distance = dis;
+            Temperature = temp;
+        }
         private static async Task MongoConnect()
         {
             string connectionString = "mongodb://localhost";
@@ -55,24 +64,24 @@ namespace _215Labs2020.Galyautdinov
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
-            Planets mercury = new Planets { Name = "Меркурий", Diametr =  4879.4, Age = 4.6, Livable = false,  Distance = 58, Temperature = 427 };
-            Planets venus = new Planets { Name = "Венера", Diametr = 12103.6, Age = 4.6, Livable = false, Distance = 108, Temperature = 470 };
-            Planets earth = new Planets { Name = "Земля", Diametr = 12742, Age = 4.54, Livable = true, Distance = 149.6, Temperature = 56.7 };
-            Planets mars = new Planets { Name = "Марс", Diametr = 6739.8, Age = 4.65, Livable = true, Distance = 228, Temperature = 20 };
-            Planets jupiter = new Planets { Name = "Юпитер", Diametr = 143884, Age = 5, Livable = false, Distance = 778.57, Temperature = 20 };
-            Planets saturn = new Planets { Name = "Сатурн", Diametr = 120860, Age = 4.6, Livable = false, Distance = 1400, Temperature = -130 };
-            Planets uranus = new Planets { Name = "Уран", Diametr = 50720, Age = 4.5, Livable = false, Distance = 2871, Temperature = -220 };
-            Planets neptune = new Planets { Name = "Нептун", Diametr = 49500, Age = 4.6, Livable = false, Distance = 4500, Temperature = -201 };
+            var mercury = new Planets ("Меркурий", 4879.4, 4.6, false, 58, 427);
+            var venus = new Planets ("Венера", 12103.6, 4.6, false, 108, 470 );
+            var earth = new Planets ("Земля", 12742, 4.54, true, 149.6, 56.7 );
+            var mars = new Planets ("Марс", 6739.8, 4.65, true, 228, 20);
+            var jupiter = new Planets ("Юпитер", 143884, 5, false, 778.57, 20);
+            var saturn = new Planets ("Сатурн", 120860, 4.6, false, 1400,-130);
+            var uranus = new Planets ("Уран", 50720, 4.5, false, 2871,-220);
+            var neptune = new Planets ("Нептун", 49500,  4.6, false, 4500,-201 );
 
             //MongoReplaceByName("Нептун", new Planets() { Name = "Хребтун" }).GetAwaiter().GetResult();
-            //MongoInsert(mercury).GetAwaiter().GetResult();
-            //MongoInsert(venus).GetAwaiter().GetResult();
-            //MongoInsert(earth).GetAwaiter().GetResult();
-            //MongoInsert(mars).GetAwaiter().GetResult();
-            //MongoInsert(jupiter).GetAwaiter().GetResult();
-            //MongoInsert(saturn).GetAwaiter().GetResult();
-            //MongoInsert(uranus).GetAwaiter().GetResult();
-            //MongoInsert(neptune).GetAwaiter().GetResult();
+            MongoInsert(mercury).GetAwaiter().GetResult();
+            MongoInsert(venus).GetAwaiter().GetResult();
+            MongoInsert(earth).GetAwaiter().GetResult();
+            MongoInsert(mars).GetAwaiter().GetResult();
+            MongoInsert(jupiter).GetAwaiter().GetResult();
+            MongoInsert(saturn).GetAwaiter().GetResult();
+            MongoInsert(uranus).GetAwaiter().GetResult();
+            MongoInsert(neptune).GetAwaiter().GetResult();
         }
     }
     class Satellites
@@ -87,6 +96,12 @@ namespace _215Labs2020.Galyautdinov
         [BsonElement("Возраст [млрд лет]")]
         public double Age;
 
+        public Satellites(string name, bool art, double age)
+        {
+            Name = name;
+            Artificial = art;
+            Age = age;
+        }
         private static async Task MongoConnect()
         {
             string connectionString = "mongodb://localhost";
@@ -117,9 +132,9 @@ namespace _215Labs2020.Galyautdinov
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
-            Satellites moon = new Satellites() { Name = "Луна", Age = 4.51, Artificial = false };
-            Satellites io = new Satellites() { Name = "Ио", Age = 0.001, Artificial = false };
-            Satellites starlink = new Satellites() { Name = "Starlink", Age = 0.000000003, Artificial = true };
+            var moon = new Satellites("Луна", false, 4.51 );
+            var io = new Satellites("Ио", false, 0.001 );
+            var starlink = new Satellites("Starlink", false,0.000000003);
 
             MongoInsert(moon).GetAwaiter().GetResult();
             MongoInsert(io).GetAwaiter().GetResult();
@@ -142,6 +157,14 @@ namespace _215Labs2020.Galyautdinov
         [BsonElement("Температура [°C]")]
         public double Temperature;
 
+        public Comets(string name, double size, double speed, double t_length, double temp)
+        {
+            Name = name;
+            Size = size;
+            Speed = speed;
+            Tail_length = t_length;
+            Temperature = temp;
+        }
         private static async Task MongoConnect()
         {
             string connectionString = "mongodb://localhost";
@@ -172,8 +195,8 @@ namespace _215Labs2020.Galyautdinov
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
-            Comets ISON = new Comets() { Name = "ISON", Size =  100, Speed = 380, Tail_length = 16, Temperature = 3000};
-            Comets galea = new Comets() { Name = "Galea", Size = 15, Speed = 45, Tail_length = 100, Temperature = 130 };
+            var ISON = new Comets("ISON",100,380,16, 3000);
+            var galea = new Comets("Galea",15, 45, 100, 130 );
 
             MongoInsert(ISON).GetAwaiter().GetResult();
             MongoInsert(galea).GetAwaiter().GetResult();
