@@ -1,4 +1,5 @@
 ﻿using _215Labs2020.Faizullin.Bankssssa;
+using _215Labs2020.galaktica;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +28,9 @@ namespace _215Labs2020.Faizullin
             //Console.WriteLine();
             //BranchOffice.xx(mass1);
 
-
+            Planeta.Run();
+            Satellites.Run();
+            Cometa.Run();
 
             //StrategyGame.Class1.proverka();
             //Dictionary<int, Client> ClientList = new Dictionary<int, Client>();
@@ -54,7 +57,7 @@ namespace _215Labs2020.Faizullin
 
             //Threading.Azatmethod();
             //AsyncSum.mainmethod();
-            
+
         }
     }
     
