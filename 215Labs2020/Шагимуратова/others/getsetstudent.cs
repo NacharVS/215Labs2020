@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _215Labs2020.Шагимуратова
 {
-    class Student
+    class Stud
     {
         public string F;
         private int Math;
@@ -78,12 +78,12 @@ namespace _215Labs2020.Шагимуратова
         {
             Console.WriteLine("Введите количество студентов");
             var i = int.Parse(Console.ReadLine());
-            Student[] stud = new Student[i];
+            Stud[] stud = new Stud[i];
 
 
             for (int k = 0; k < i; k++)
             {
-                stud[k] = new Student();
+                stud[k] = new Stud();
                 Console.WriteLine("Введите Фамилию студента");
                 string fam = Console.ReadLine();
                 stud[k].F = fam;

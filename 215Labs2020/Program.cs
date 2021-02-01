@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using _215Labs2020.Шагимуратова.Bank;
 
 namespace _215Labs2020
@@ -10,32 +11,67 @@ namespace _215Labs2020
         static void Main(string[] args)
         {
 
-            int numer = 0;
-            List<bank> kleints = new List<bank>();
-            kleints.Add(new bank("Masha", "Domova", 23000, "89874568945", 12, 03, 1998, kleints.Count));
-            kleints.Add(new bank("Natalia", "Nikonova", 45000, "89874523945", 22, 12, 2000, kleints.Count));
-            kleints.Add(new bank("Rima", "Shveth", 10000, "79874523445", 07, 11, 2001, kleints.Count));
-            kleints.Add(new bank("Mark", "Drob", 90000, "89634523425", 17, 04, 1950, kleints.Count));
-
- Console.WriteLine(kleints[1]);
-            bank.delete(kleints, "name", "Natalia");
-            Console.WriteLine(kleints[1].Name);
-
-
-            Dictionary<int, bank> directoria = new Dictionary<int, bank>();
-            directoria.Add(0, new bank("Masha", "Domova", 23000, "89874568945", 12, 03, 1998, kleints.Count));
-            directoria.Add(1, new bank("Natalia", "Nikonova", 45000, "89874523945", 22, 12, 2000, kleints.Count));
-            directoria.Add(2, new bank("Rima", "Shveth", 10000, "79874523445", 07, 11, 2001, kleints.Count));
-            directoria.Add(3, new bank("Mark", "Drob", 90000, "89634523425", 17, 04, 1950, kleints.Count));
-            foreach (KeyValuePair<int, bank> item in directoria)
+            Task task = new Task(() =>
             {
-                Console.WriteLine(item.Key);
-                Console.WriteLine(item.Value);
-            }
-        }
-       
+                int[] arrayTwo = new int[10];
+                Random randomTwo = new Random(9);
+                for (int i = 0; i < arrayTwo.Length; i++)
+                {
+                    arrayTwo[i] = randomTwo.Next();
+                    Console.WriteLine(arrayTwo);
+                }
+            });
 
-           
+            Task task1 = new Task(() =>
+            { 
+                int[] arrayOne = new int[10];
+                Random randomOne = new Random(9);
+                for (int i = 0; i < arrayOne.Length; i++)
+                {
+                    arrayOne[i] = randomOne.Next();
+                    Console.WriteLine(arrayOne);
+                }
+            });
+
+            void twoTreed()
+            {
+                int[] arrayTwo = new int[10];
+                Random randomTwo = new Random(9);
+                for (int i = 0; i < arrayTwo.Length; i++)
+                {
+                    arrayOne[i] = random.Next();
+                }
+            }
+
+
+
+
+            //           int numer = 0;
+            //           List<bank> kleints = new List<bank>();
+            //           kleints.Add(new bank("Masha", "Domova", 23000, "89874568945", 12, 03, 1998, kleints.Count));
+            //           kleints.Add(new bank("Natalia", "Nikonova", 45000, "89874523945", 22, 12, 2000, kleints.Count));
+            //           kleints.Add(new bank("Rima", "Shveth", 10000, "79874523445", 07, 11, 2001, kleints.Count));
+            //           kleints.Add(new bank("Mark", "Drob", 90000, "89634523425", 17, 04, 1950, kleints.Count));
+
+            //Console.WriteLine(kleints[1]);
+            //           bank.delete(kleints, "name", "Natalia");
+            //           Console.WriteLine(kleints[1].Name);
+
+
+            //           Dictionary<int, bank> directoria = new Dictionary<int, bank>();
+            //           directoria.Add(0, new bank("Masha", "Domova", 23000, "89874568945", 12, 03, 1998, kleints.Count));
+            //           directoria.Add(1, new bank("Natalia", "Nikonova", 45000, "89874523945", 22, 12, 2000, kleints.Count));
+            //           directoria.Add(2, new bank("Rima", "Shveth", 10000, "79874523445", 07, 11, 2001, kleints.Count));
+            //           directoria.Add(3, new bank("Mark", "Drob", 90000, "89634523425", 17, 04, 1950, kleints.Count));
+            //           foreach (KeyValuePair<int, bank> item in directoria)
+            //           {
+            //               Console.WriteLine(item.Key);
+            //               Console.WriteLine(item.Value);
+            //           }
+        }
+
+
+
 
 
 
@@ -93,6 +129,6 @@ namespace _215Labs2020
 
     }
 
-    }
+    
 
 }
