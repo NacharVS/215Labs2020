@@ -73,7 +73,7 @@ namespace _215Labs2020.Ibragimov
         {
             MongoConnect().GetAwaiter().GetResult();
             Planet mercury = new Planet { name = "Меркурий", age = 4.503, diameter = 4.87, fitLife = false, temperature = 480, speed = 0.24, toSun = 0.387 };
-            Planet venus = new Planet { name = "    Венера", age = 4.503, diameter = 12.1, fitLife = false, temperature = 480, speed = 0.62, toSun = 0.723 };
+            Planet venus = new Planet { name = "       Венера", age = 4.503, diameter = 12.1, fitLife = false, temperature = 480, speed = 0.62, toSun = 0.723 };
             Planet earth = new Planet { name = "Земля", age = 4.503, diameter = 12.756, fitLife = true, temperature = 58, speed = 1, toSun = 1 };
             Planet mars = new Planet { name = "Марс", age = 4.603, diameter = 6.67, fitLife = false, temperature = -70, speed = 1.88, toSun = 1.52 };
             Sattelite moon = new Sattelite { name = "Луна", age = 4.53, art = false, diameter = 3.47, temperature = 127, owner = "Земля" };
