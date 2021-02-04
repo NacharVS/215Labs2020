@@ -8,8 +8,9 @@ namespace _215Labs2020
     {
         static void Main(string[] args)
         {
-            AsyncSum.MainMethod();
-
+            _215Labs2020.Kuzmin_Aleksey.Galaxy.Planet.Program();
+            _215Labs2020.Kuzmin_Aleksey.CSharpGalaxy.Satellite.Program();
+            _215Labs2020.Kuzmin_Aleksey.CSharpGalaxy.Comet.Program();
         }
     }
 }
