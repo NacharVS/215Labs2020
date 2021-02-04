@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Threading.Tasks;
 
 namespace _215Labs2020.Maksimov_Aleksei.Galaxy
 {
@@ -11,15 +15,48 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         public string name;
         [BsonElement("Diametr")]
         public int diametr;
-        [BsonIgnoreIfDefault("Age")]
+        [BsonElement("age")]
+        [BsonIgnoreIfDefault]
         public int age;
-        [BsonIgnoreIfDefault("Life")]
+        [BsonElement("life")]
+        [BsonIgnoreIfDefault]
         public bool life;
-        [BsonIgnoreIfDefault("Distance")]
+        [BsonElement("distance")]
+        [BsonIgnoreIfDefault]
         public int distance;
-        [BsonIgnoreIfDefault("Temperature")]
+        [BsonElement("temperature")]
+        [BsonIgnoreIfDefault]
         public int temp;
 
-        static async Task 
+        static async Task MongoConnect()
+        {
+            string connectionString = "mongodb:\\localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215-Galaxy");
+            var collection = database.GetCollection<BsonDocument>("planets");
+            var planet = new BsonDocument();
+            var planets = await collection.Find(planet).ToListAsync();
+
+            foreach (var item in planets)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        static async Task MongoInsert(planets planet)
+        {
+            string connectionString = "mongodb:\\localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215-Galaxy");
+            var collection = database.GetCollection<planets>("planets");
+            await collection.InsertOneAsync(planet);
+        }
+        static async Task PReplaceByName(string searchbyname, planets newplanet)
+        {
+            string connectionString = "mongodb:\\localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215-Galaxy");
+            var collection = database.GetCollection<planets>("planets");
+            await collection.ReplaceOneAsync(std => std.name == searchbyname, newplanet);
+        }
     }
 }
