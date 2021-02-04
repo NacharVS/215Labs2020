@@ -69,6 +69,15 @@ namespace _215Labs2020.Garaev
             var collection = database.GetCollection<Planets>("Planets");
             await collection.ReplaceOneAsync(x => x.Name == searchName, newplanets);
         }
+        public static async Task MongoUpdatePlanets(string searchName, int newAge)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Planets>("Planets");
+            var update = Builders<Planets>.Update.Set(a=>a.Age, newAge);
+            await collection.UpdateOneAsync(x => x.Name == searchName, update);
+        }
     }
     class Satellites
     {
@@ -113,6 +122,15 @@ namespace _215Labs2020.Garaev
             var database = client.GetDatabase("Gallactic");
             var collection = database.GetCollection<Satellites>("Satellites");
             await collection.ReplaceOneAsync(x => x.Name == searchName, newsatellites);
+        }
+        public static async Task MongoUpdateSatellites(string searchName, int newAge)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Satellites>("Satellites");
+            var update = Builders<Satellites>.Update.Set(a => a.Age, newAge);
+            await collection.UpdateOneAsync(x => x.Name == searchName, update);
         }
     }
     class Comets
@@ -159,8 +177,17 @@ namespace _215Labs2020.Garaev
             string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("Gallactic");
-            var collection = database.GetCollection<Comets>("Planets");
+            var collection = database.GetCollection<Comets>("Comets");
             await collection.ReplaceOneAsync(x => x.Name == searchName, newkomets);
+        }
+        public static async Task MongoUpdateKomets(string searchName, int newSize)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Gallactic");
+            var collection = database.GetCollection<Comets>("Comets");
+            var update = Builders<Comets>.Update.Set(a => a.Size, newSize);
+            await collection.UpdateOneAsync(x => x.Name == searchName, update);
         }
     }
 }
