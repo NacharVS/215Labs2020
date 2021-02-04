@@ -61,6 +61,16 @@ namespace _215Labs2020.Galyautdinov
             await collection.ReplaceOneAsync(std => std.Name == SerachByName, new_pl);
 
         }
+        public static async Task MongoUpdate(string SerachByName, int newAge)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Universe");
+            var collection = database.GetCollection<Planets>("Planets");
+            var update = Builders<Planets>.Update.Set(a => a.Age, newAge);
+            await collection.UpdateOneAsync(std => std.Name == SerachByName, update);
+
+        }
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
@@ -73,15 +83,16 @@ namespace _215Labs2020.Galyautdinov
             var uranus = new Planets ("Уран", 50720, 4.5, false, 2871,-220);
             var neptune = new Planets ("Нептун", 49500,  4.6, false, 4500,-201 );
 
+            MongoUpdate("Земля", 10).GetAwaiter().GetResult();
             //MongoReplaceByName("Нептун", new Planets() { Name = "Хребтун" }).GetAwaiter().GetResult();
-            MongoInsert(mercury).GetAwaiter().GetResult();
-            MongoInsert(venus).GetAwaiter().GetResult();
-            MongoInsert(earth).GetAwaiter().GetResult();
-            MongoInsert(mars).GetAwaiter().GetResult();
-            MongoInsert(jupiter).GetAwaiter().GetResult();
-            MongoInsert(saturn).GetAwaiter().GetResult();
-            MongoInsert(uranus).GetAwaiter().GetResult();
-            MongoInsert(neptune).GetAwaiter().GetResult();
+            //MongoInsert(mercury).GetAwaiter().GetResult();
+            //MongoInsert(venus).GetAwaiter().GetResult();
+            //MongoInsert(earth).GetAwaiter().GetResult();
+            //MongoInsert(mars).GetAwaiter().GetResult();
+            //MongoInsert(jupiter).GetAwaiter().GetResult();
+            //MongoInsert(saturn).GetAwaiter().GetResult();
+            //MongoInsert(uranus).GetAwaiter().GetResult();
+            //MongoInsert(neptune).GetAwaiter().GetResult();
         }
     }
     class Satellites
@@ -136,9 +147,9 @@ namespace _215Labs2020.Galyautdinov
             var io = new Satellites("Ио", false, 0.001 );
             var starlink = new Satellites("Starlink", false,0.000000003);
 
-            MongoInsert(moon).GetAwaiter().GetResult();
-            MongoInsert(io).GetAwaiter().GetResult();
-            MongoInsert(starlink).GetAwaiter().GetResult();
+            //MongoInsert(moon).GetAwaiter().GetResult();
+            //MongoInsert(io).GetAwaiter().GetResult();
+            //MongoInsert(starlink).GetAwaiter().GetResult();
         }
     }
     class Comets
@@ -198,8 +209,8 @@ namespace _215Labs2020.Galyautdinov
             var ISON = new Comets("ISON",100,380,16, 3000);
             var galea = new Comets("Galea",15, 45, 100, 130 );
 
-            MongoInsert(ISON).GetAwaiter().GetResult();
-            MongoInsert(galea).GetAwaiter().GetResult();
+            //MongoInsert(ISON).GetAwaiter().GetResult();
+            //MongoInsert(galea).GetAwaiter().GetResult();
         }
     }
 }
