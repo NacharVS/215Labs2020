@@ -24,11 +24,11 @@ namespace _215Labs2020.Kuzmin_Aleksey.CSharpGalaxy
         public double _distance;
         [BsonIgnoreIfDefault] //Является спутниеом планеты
         public string _belong;
-        [BsonIgnoreIfDefault] //Искусственный 
+        [BsonIgnoreIfDefault] //Искусственный или Естественный спутник
         public bool _artificial;
-        [BsonIgnoreIfDefault] //Скорость
+        [BsonIgnoreIfDefault] //Скорость кометы
         public double _speed; 
-        [BsonIgnoreIfDefault] //Длина хвоста
+        [BsonIgnoreIfDefault] //Длина хвоста кометы
         public double _length;
         public static async Task MongoConnect(string _collection)
         {
