@@ -61,7 +61,7 @@ namespace _215Labs2020.Ibragimov
         static async Task MongoInsert(Sattelite sat)
         {
             string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
+            var client = new MongoClient(connectionString);            
             var database = client.GetDatabase("215");
             var collection = database.GetCollection<Sattelite>("название");
             await collection.InsertOneAsync(sat);
