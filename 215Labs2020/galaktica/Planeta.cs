@@ -48,6 +48,15 @@ namespace _215Labs2020.galaktica
             var collection = datebase.GetCollection<Planeta>("Planeta");
             await collection.InsertOneAsync(planetaa);
         }
+        private static async Task MongoUpdate(string SerachByName, int newage)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("galactica");
+            var collection = datebase.GetCollection<Planeta>("Planeta");
+            var update = Builders<Planeta>.Update.Set(a => a.age, newage);
+            await collection.UpdateOneAsync(std => std.name == SerachByName, update);
+        }
         public static async Task MongoReplaceByName(string SerachByName, Planeta new_planeta)
         {
             string connectionString = "mongodb://localhost";
@@ -75,7 +84,8 @@ namespace _215Labs2020.galaktica
             MongoInsert(saturn).GetAwaiter().GetResult();
             MongoInsert(neptune).GetAwaiter().GetResult();
             MongoInsert(uranus).GetAwaiter().GetResult();
-            //MongoReplaceByName("Земля", new Planeta() { Name = "Грязь" }).GetAwaiter().GetResult();
+            //MongoReplaceByName("Земля", new Planeta() { name = "Грязь" }).GetAwaiter().GetResult();
+            //MongoUpdate("Марс", 24).GetAwaiter().GetResult();
         }
     }
    
