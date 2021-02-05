@@ -58,5 +58,10 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
             var collection = database.GetCollection<planets>("planets");
             await collection.ReplaceOneAsync(std => std.name == searchbyname, newplanet);
         }
+        public static void StartGalaxy()
+        {
+            MongoConnect().GetAwaiter().GetResult();
+            planets aue = new planets { name = "aue", diametr = 300, distance= 25, temp = 400, life = true, age = 1256 };
+        }
     }
 }

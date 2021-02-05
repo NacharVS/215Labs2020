@@ -54,5 +54,10 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
             var collection = database.GetCollection<Comets>("comets");
             await collection.ReplaceOneAsync(std => std.name == searchbyname, newcomet);
         }
+        public static void StartGalaxy()
+        {
+            MongoConnect().GetAwaiter().GetResult();
+            Comets aue = new Comets { name = "aue", speed = 300, tail = 25, temp = 400 };
+        }
     }
 }

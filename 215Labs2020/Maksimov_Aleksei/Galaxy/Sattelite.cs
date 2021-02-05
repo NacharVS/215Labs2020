@@ -54,5 +54,10 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
             var collection = database.GetCollection<Sattelite>("Sattelites");
             await collection.ReplaceOneAsync(std => std.name == searchbyname, newSat);
         }
+        public static void StartGalaxy()
+        {
+            MongoConnect().GetAwaiter().GetResult();
+            Sattelite aue = new Sattelite { name = "aue", diametr = 300, age = 25, temp = 400, artif = true };
+        }
     }
 }
