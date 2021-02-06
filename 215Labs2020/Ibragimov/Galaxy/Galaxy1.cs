@@ -65,8 +65,6 @@ namespace _215Labs2020.Ibragimov
             var database = client.GetDatabase("215");
             var collection = database.GetCollection<Sattelite>("название");
             await collection.InsertOneAsync(sat);
-
-
         }
 
         public static void start()
@@ -83,7 +81,20 @@ namespace _215Labs2020.Ibragimov
             MongoInsert(earth).GetAwaiter().GetResult();
             MongoInsert(moon).GetAwaiter().GetResult();
 
-
+            
+        }
+        private static async Task MongoDeleteByname(string searchname)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215");
+            var collection = database.GetCollection<Planet>("название");
+            await collection.DeleteOneAsync(sat => sat.name == searchname);
+        }
+        public static void deleted()
+        {
+            MongoDeleteByname("Земля").GetAwaiter().GetResult();
+            //MongoInsert(Planet).GetAwaiter().GetResult();
         }
     }
 
