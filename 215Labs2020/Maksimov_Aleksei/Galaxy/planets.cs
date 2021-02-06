@@ -10,7 +10,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
 {
     class planets
     {
-        
+
         [BsonElement("Name")]
         public string name;
         [BsonElement("Diametr")]
@@ -30,7 +30,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
 
         static async Task MongoConnect()
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<BsonDocument>("planets");
@@ -44,7 +44,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         }
         static async Task MongoInsert(planets planet)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<planets>("planets");
@@ -52,16 +52,26 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         }
         static async Task PReplaceByName(string searchbyname, planets newplanet)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<planets>("planets");
             await collection.ReplaceOneAsync(std => std.name == searchbyname, newplanet);
         }
+        static async Task MongoDeliteByName(string searchname)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215-Galaxy");
+            var collection = database.GetCollection<planets>("planets");
+            await collection.DeleteOneAsync(std => std.name == searchname);
+        }
         public static void StartGalaxy()
         {
-            MongoConnect().GetAwaiter().GetResult();
+            //MongoConnect().GetAwaiter().GetResult();
             planets aue = new planets { name = "aue", diametr = 300, distance= 25, temp = 400, life = true, age = 1256 };
+            //MongoInsert(aue).GetAwaiter().GetResult();
+            MongoDeliteByName("aue").GetAwaiter().GetResult();
         }
     }
 }

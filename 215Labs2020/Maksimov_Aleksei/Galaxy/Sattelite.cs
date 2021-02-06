@@ -54,6 +54,14 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
             var collection = database.GetCollection<Sattelite>("Sattelites");
             await collection.ReplaceOneAsync(std => std.name == searchbyname, newSat);
         }
+        static async Task MongoDeliteByName(string searchname)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215-Galaxy");
+            var collection = database.GetCollection<planets>("Sattelites");
+            await collection.DeleteOneAsync(std => std.name == searchname);
+        }
         public static void StartGalaxy()
         {
             MongoConnect().GetAwaiter().GetResult();
