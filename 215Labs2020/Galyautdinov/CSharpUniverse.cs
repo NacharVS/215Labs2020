@@ -71,6 +71,14 @@ namespace _215Labs2020.Galyautdinov
             await collection.UpdateOneAsync(std => std.Name == SerachByName, update);
 
         }
+        public static async Task MongoDelete(string SerachByName)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Universe");
+            var collection = database.GetCollection<Satellites>("Planets");
+            await collection.DeleteOneAsync(std => std.Name == SerachByName);
+        }
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
@@ -148,6 +156,14 @@ namespace _215Labs2020.Galyautdinov
             var update = Builders<Satellites>.Update.Set(a => a.Age, newAge);
             await collection.UpdateOneAsync(std => std.Name == SerachByName, update);
         }
+        public static async Task MongoDelete(string SerachByName)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Universe");
+            var collection = database.GetCollection<Satellites>("Satellites");
+            await collection.DeleteOneAsync(std => std.Name == SerachByName);
+        }
         public static void Run()
         {
             MongoConnect().GetAwaiter().GetResult();
@@ -155,7 +171,8 @@ namespace _215Labs2020.Galyautdinov
             var io = new Satellites("Ио", false, 0.001 );
             var starlink = new Satellites("Starlink", false,0.000000003);
 
-            //MongoInsert(moon).GetAwaiter().GetResult();
+            //MongoDelete("Луна").GetAwaiter().GetResult();
+           // MongoInsert(moon).GetAwaiter().GetResult();
             //MongoInsert(io).GetAwaiter().GetResult();
             //MongoInsert(starlink).GetAwaiter().GetResult();
         }
@@ -218,6 +235,14 @@ namespace _215Labs2020.Galyautdinov
             var collection = database.GetCollection<Comets>("Comets");
             var update = Builders<Comets>.Update.Set(a => a.Size, newSize);
             await collection.UpdateOneAsync(std => std.Name == SerachByName, update);
+        }
+        public static async Task MongoDelete(string SerachByName)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("Universe");
+            var collection = database.GetCollection<Satellites>("Comets");
+            await collection.DeleteOneAsync(std => std.Name == SerachByName);
         }
         public static void Run()
         {
