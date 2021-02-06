@@ -51,6 +51,15 @@ namespace _215Labs2020.galaktica
             var update = Builders<Cometa>.Update.Set(a => a.Tail_length, newTail_length);
             await collection.UpdateOneAsync(std => std.Name == SerachByName, update);
         }
+        private static async Task MongoDeleteByName(string SerachByName, double Speed)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("galactica");
+            var collection = datebase.GetCollection<Cometa>("Cometa");
+            await collection.DeleteOneAsync(std => std.Name == SerachByName || std.Speed == Speed);
+            //await collection.DeleteManyAsync(std => std.name == SerachByName || std.diameter == diameter);
+        }
         public static async Task MongoReplaceByName(string SerachByName, Cometa new_comt)
         {
             string connectionString = "mongodb://localhost";
@@ -63,11 +72,13 @@ namespace _215Labs2020.galaktica
         {
             MongoConnect().GetAwaiter().GetResult();
             Cometa mrkos = new Cometa() { Name = "Мркос", Size = 100, Speed = 3, Tail_length = 187, Temperature = 30 };
+            Cometa tach = new Cometa() { Name = "Ташь", Size = 1657, Speed = 3, Tail_length = 1878, Temperature = 3768 };
             MongoInsert(mrkos).GetAwaiter().GetResult();
+            MongoInsert(tach).GetAwaiter().GetResult();
             //MongoReplaceByName("Мркос", new  Cometa() { Name = " Меллиш" }).GetAwaiter().GetResult();
             //MongoUpdate("Мркос", 246).GetAwaiter().GetResult();
+           // MongoDeleteByName("бук", 3).GetAwaiter().GetResult();
         }
     }
-   
 }
 

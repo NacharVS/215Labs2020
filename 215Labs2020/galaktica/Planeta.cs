@@ -57,6 +57,15 @@ namespace _215Labs2020.galaktica
             var update = Builders<Planeta>.Update.Set(a => a.age, newage);
             await collection.UpdateOneAsync(std => std.name == SerachByName, update);
         }
+        private static async Task MongoDeleteByName(string SerachByName, int diameter)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("galactica");
+            var collection = datebase.GetCollection<Planeta>("Planeta");
+            await collection.DeleteOneAsync(std => std.name == SerachByName || std.diameter == diameter);
+            //await collection.DeleteManyAsync(std => std.name == SerachByName || std.diameter == diameter);
+        }
         public static async Task MongoReplaceByName(string SerachByName, Planeta new_planeta)
         {
             string connectionString = "mongodb://localhost";
@@ -86,6 +95,14 @@ namespace _215Labs2020.galaktica
             MongoInsert(uranus).GetAwaiter().GetResult();
             //MongoReplaceByName("Земля", new Planeta() { name = "Грязь" }).GetAwaiter().GetResult();
             //MongoUpdate("Марс", 24).GetAwaiter().GetResult();
+            //MongoDeleteByName("Земля", 36352).GetAwaiter().GetResult();
+            //MongoDeleteByName("Меркурий", 36332).GetAwaiter().GetResult();
+            //MongoDeleteByName("Марс", 3635632).GetAwaiter().GetResult();
+            //MongoDeleteByName("Венера", 3635).GetAwaiter().GetResult();
+            //MongoDeleteByName("Юпитер", 3635).GetAwaiter().GetResult();
+            //MongoDeleteByName("Сатурн", 36356).GetAwaiter().GetResult();
+            //MongoDeleteByName("Нептун", 3635).GetAwaiter().GetResult();
+            //MongoDeleteByName("Уран", 363).GetAwaiter().GetResult();
         }
     }
    

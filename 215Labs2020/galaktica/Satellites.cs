@@ -45,9 +45,18 @@ namespace _215Labs2020.galaktica
             string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var datebase = client.GetDatabase("galactica");
-            var collection = datebase.GetCollection<Satellites>("Planeta");
+            var collection = datebase.GetCollection<Satellites>("Satellites");
             var update = Builders<Satellites>.Update.Set(a => a.Age, newAge);
             await collection.UpdateOneAsync(std => std.Name == SerachByName, update);
+        }
+        private static async Task MongoDeleteByName(string SerachByName, int Age)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("galactica");
+            var collection = datebase.GetCollection<Satellites>("Satellites");
+            await collection.DeleteOneAsync(std => std.Name == SerachByName || std.Age == Age);
+            //await collection.DeleteManyAsync(std => std.name == SerachByName || std.diameter == diameter);
         }
         public static async Task MongoReplaceByName(string SerachByName, Satellites new_satel)
         {
@@ -61,9 +70,10 @@ namespace _215Labs2020.galaktica
         {
             MongoConnect().GetAwaiter().GetResult();
             Satellites moon = new Satellites() { Name = "Луна", Artificial = false, Age = 4700, Temperature = 20425 };
-            MongoInsert(moon).GetAwaiter().GetResult();
+            //MongoInsert(moon).GetAwaiter().GetResult();
             //MongoReplaceByName("Луна", new  Satellites() { Name = "Фобос" }).GetAwaiter().GetResult();
             //MongoUpdate("Луна", 5633).GetAwaiter().GetResult();
+            MongoDeleteByName("Вода", 4700).GetAwaiter().GetResult();
         }
     }
    
