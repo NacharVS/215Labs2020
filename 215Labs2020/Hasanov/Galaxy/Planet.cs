@@ -30,7 +30,7 @@ namespace _215Labs2020.Hasanov.Galaxy
 
         static async Task MongoConnect()
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215GalaxyDB");
             var collection = database.GetCollection<BsonDocument>("Планеты");
@@ -44,7 +44,7 @@ namespace _215Labs2020.Hasanov.Galaxy
         }
         static async Task MongoInsert(planets planet)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215GalaxyDB");
             var collection = database.GetCollection<planets>("Планеты");
@@ -52,7 +52,7 @@ namespace _215Labs2020.Hasanov.Galaxy
         }
         public static async Task Update(sring searchbyname, int newage)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215GalaxyDB");
             var collection = database.GetCollection<Comets>("Планеты");
@@ -61,7 +61,7 @@ namespace _215Labs2020.Hasanov.Galaxy
         }
         static async Task PReplaceByName(string searchbyname, planets newplanet)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215GalaxyDB");
             var collection = database.GetCollection<planets>("Планеты");
