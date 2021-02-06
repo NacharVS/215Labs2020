@@ -26,7 +26,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
 
         static async Task MongoInsert(Comets comet)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<Comets>("planets");
@@ -34,7 +34,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         }
         static async Task MongoConnect()
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<BsonDocument>("comets");
@@ -48,7 +48,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         }
         static async Task PReplaceByName(string searchbyname, Comets newcomet)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<Comets>("comets");

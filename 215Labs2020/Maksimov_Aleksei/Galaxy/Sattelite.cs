@@ -26,7 +26,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
 
         static async Task MongoConnect()
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<BsonDocument>("Sattelites");
@@ -40,7 +40,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         }
         static async Task MongoInsert(Sattelite sattelite)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<Sattelite>("Sattelites");
@@ -48,7 +48,7 @@ namespace _215Labs2020.Maksimov_Aleksei.Galaxy
         }
         static async Task PReplaceByName(string searchbyname, Sattelite newSat)
         {
-            string connectionString = "mongodb:\\localhost";
+            string connectionString = "mongodb://localhost";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase("215-Galaxy");
             var collection = database.GetCollection<Sattelite>("Sattelites");

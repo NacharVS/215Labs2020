@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _215Labs2020.Maksimov_Aleksei
+namespace _215Labs2020.Maksimov_Aleksei.Galaxy
 {
     class Program
     {
         static void Main(string[] args)
         {
-            AsyncSum.Mainmethod();
+            planets.StartGalaxy();
         }
     }
 }
