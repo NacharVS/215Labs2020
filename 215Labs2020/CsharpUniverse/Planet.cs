@@ -57,6 +57,7 @@ namespace _215Labs2020.CsharpUniverse
             
 
         }
+
         static async Task MongoInsert(Comet comet)
         {
             string connectionString = "mongodb://localhost";
@@ -104,6 +105,24 @@ namespace _215Labs2020.CsharpUniverse
             await collection.ReplaceOneAsync(std => std.name == SerachByName, newsat);
 
         }
+        public static async Task UpdateAge(string name, double newAge)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase("215TeamDB");
+            var collection = database.GetCollection<Sattelite>("CSharpUniverse");
+            var update = Builders<Sattelite>.Update.Set(a => a.age, newAge);
+            await collection.ReplaceOneAsync(std => std.name == name, update = age);
+        }
+
+        public static async Task MongoDeleteByName()
+        { 
+        
+        
+        
+        
+        }
+
         static async Task MongoInsertByUser()
         {
             //string names, double diametr, int temp, double tosun, double ages, bool fit, double speeds
@@ -123,6 +142,8 @@ namespace _215Labs2020.CsharpUniverse
 
 
         }
+
+
         public static void begin()
         {
             MongoConnect().GetAwaiter().GetResult();
